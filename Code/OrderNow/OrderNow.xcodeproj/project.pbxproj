@@ -13,12 +13,12 @@
 		2A52D3B0231028C9005DA184 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A52D3AE231028C9005DA184 /* LaunchScreen.storyboard */; };
 		2A52D3BB231028C9005DA184 /* OrderNowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A52D3BA231028C9005DA184 /* OrderNowTests.swift */; };
 		2A52D3C6231028C9005DA184 /* OrderNowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A52D3C5231028C9005DA184 /* OrderNowUITests.swift */; };
+		2F0636A923112CF300B27FCC /* TabBarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0636A723112CF300B27FCC /* TabBarViewCell.swift */; };
+		2F0636AA23112CF300B27FCC /* TabBarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0636A823112CF300B27FCC /* TabBarViewCell.xib */; };
+		2F0636AD2311838400B27FCC /* ListFoodViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0636AB2311838400B27FCC /* ListFoodViewCell.swift */; };
+		2F0636AE2311838400B27FCC /* ListFoodViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0636AC2311838400B27FCC /* ListFoodViewCell.xib */; };
 		2F17D1DD2310E21E007FDB77 /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F17D1DB2310E21E007FDB77 /* HomePageController.swift */; };
 		2F17D1DE2310E21E007FDB77 /* HomePageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F17D1DC2310E21E007FDB77 /* HomePageController.xib */; };
-		2F17D1E6231121C2007FDB77 /* TopTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F17D1E4231121C2007FDB77 /* TopTabBarController.swift */; };
-		2F17D1E7231121C2007FDB77 /* TopTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F17D1E5231121C2007FDB77 /* TopTabBarController.xib */; };
-		2F17D1EA231121DD007FDB77 /* ListFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F17D1E8231121DD007FDB77 /* ListFoodController.swift */; };
-		2F17D1EB231121DD007FDB77 /* ListFoodController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F17D1E9231121DD007FDB77 /* ListFoodController.xib */; };
 		EABABB5F29F64E3441480B52 /* Pods_OrderNowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294945774EB08632776936ED /* Pods_OrderNowTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,12 +53,12 @@
 		2A52D3C1231028C9005DA184 /* OrderNowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrderNowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A52D3C5231028C9005DA184 /* OrderNowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNowUITests.swift; sourceTree = "<group>"; };
 		2A52D3C7231028C9005DA184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F0636A723112CF300B27FCC /* TabBarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarViewCell.swift; path = HomePageController/TopTabBar/TabBarViewCell.swift; sourceTree = SOURCE_ROOT; };
+		2F0636A823112CF300B27FCC /* TabBarViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TabBarViewCell.xib; path = HomePageController/TopTabBar/TabBarViewCell.xib; sourceTree = SOURCE_ROOT; };
+		2F0636AB2311838400B27FCC /* ListFoodViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListFoodViewCell.swift; path = HomePageController/ListFood/ListFoodViewCell.swift; sourceTree = SOURCE_ROOT; };
+		2F0636AC2311838400B27FCC /* ListFoodViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ListFoodViewCell.xib; path = HomePageController/ListFood/ListFoodViewCell.xib; sourceTree = SOURCE_ROOT; };
 		2F17D1DB2310E21E007FDB77 /* HomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageController.swift; path = OrderNow/HomePageController.swift; sourceTree = SOURCE_ROOT; };
 		2F17D1DC2310E21E007FDB77 /* HomePageController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomePageController.xib; path = OrderNow/HomePageController.xib; sourceTree = SOURCE_ROOT; };
-		2F17D1E4231121C2007FDB77 /* TopTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopTabBarController.swift; path = HomePageController/TopTabBarHomeVC/TopTabBarController.swift; sourceTree = SOURCE_ROOT; };
-		2F17D1E5231121C2007FDB77 /* TopTabBarController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TopTabBarController.xib; path = HomePageController/TopTabBarHomeVC/TopTabBarController.xib; sourceTree = SOURCE_ROOT; };
-		2F17D1E8231121DD007FDB77 /* ListFoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListFoodController.swift; path = HomePageController/ListFoodHomeVC/ListFoodController.swift; sourceTree = SOURCE_ROOT; };
-		2F17D1E9231121DD007FDB77 /* ListFoodController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ListFoodController.xib; path = HomePageController/ListFoodHomeVC/ListFoodController.xib; sourceTree = SOURCE_ROOT; };
 		7ADC323E27C2E3D9FA577B37 /* Pods-OrderNowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNowTests.debug.xcconfig"; path = "Target Support Files/Pods-OrderNowTests/Pods-OrderNowTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D74B7D70E9F4E1A132B091DD /* Pods-OrderNowTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNowTests.release.xcconfig"; path = "Target Support Files/Pods-OrderNowTests/Pods-OrderNowTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,22 +142,22 @@
 			path = OrderNowUITests;
 			sourceTree = "<group>";
 		};
-		2F17D1E323112162007FDB77 /* TopTabBarHomeVC */ = {
+		2F17D1E323112162007FDB77 /* TopTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				2F17D1E4231121C2007FDB77 /* TopTabBarController.swift */,
-				2F17D1E5231121C2007FDB77 /* TopTabBarController.xib */,
+				2F0636A723112CF300B27FCC /* TabBarViewCell.swift */,
+				2F0636A823112CF300B27FCC /* TabBarViewCell.xib */,
 			);
-			path = TopTabBarHomeVC;
+			path = TopTabBar;
 			sourceTree = "<group>";
 		};
-		2F17D1EC231121E4007FDB77 /* ListFoodHomeVC */ = {
+		2F17D1EC231121E4007FDB77 /* ListFood */ = {
 			isa = PBXGroup;
 			children = (
-				2F17D1E8231121DD007FDB77 /* ListFoodController.swift */,
-				2F17D1E9231121DD007FDB77 /* ListFoodController.xib */,
+				2F0636AB2311838400B27FCC /* ListFoodViewCell.swift */,
+				2F0636AC2311838400B27FCC /* ListFoodViewCell.xib */,
 			);
-			path = ListFoodHomeVC;
+			path = ListFood;
 			sourceTree = "<group>";
 		};
 		2F17F4022310292600127C69 /* Controller */ = {
@@ -213,8 +213,8 @@
 		2F17F408231029CD00127C69 /* HomePageController */ = {
 			isa = PBXGroup;
 			children = (
-				2F17D1EC231121E4007FDB77 /* ListFoodHomeVC */,
-				2F17D1E323112162007FDB77 /* TopTabBarHomeVC */,
+				2F17D1EC231121E4007FDB77 /* ListFood */,
+				2F17D1E323112162007FDB77 /* TopTabBar */,
 				2F17D1DB2310E21E007FDB77 /* HomePageController.swift */,
 				2F17D1DC2310E21E007FDB77 /* HomePageController.xib */,
 			);
@@ -358,11 +358,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F0636AE2311838400B27FCC /* ListFoodViewCell.xib in Resources */,
 				2A52D3B0231028C9005DA184 /* LaunchScreen.storyboard in Resources */,
-				2F17D1E7231121C2007FDB77 /* TopTabBarController.xib in Resources */,
 				2F17D1DE2310E21E007FDB77 /* HomePageController.xib in Resources */,
-				2F17D1EB231121DD007FDB77 /* ListFoodController.xib in Resources */,
 				2A52D3AD231028C9005DA184 /* Assets.xcassets in Resources */,
+				2F0636AA23112CF300B27FCC /* TabBarViewCell.xib in Resources */,
 				2A52D3AB231028C8005DA184 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,10 +430,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F0636AD2311838400B27FCC /* ListFoodViewCell.swift in Sources */,
+				2F0636A923112CF300B27FCC /* TabBarViewCell.swift in Sources */,
 				2A52D3A6231028C8005DA184 /* AppDelegate.swift in Sources */,
 				2F17D1DD2310E21E007FDB77 /* HomePageController.swift in Sources */,
-				2F17D1E6231121C2007FDB77 /* TopTabBarController.swift in Sources */,
-				2F17D1EA231121DD007FDB77 /* ListFoodController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
