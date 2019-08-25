@@ -25,13 +25,24 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         
         setUpSomethingElse()
         setUpContraint()
+        conectCollectionView()
+    }
+    
+    func conectCollectionView(){
+        listFoodCollectionView.delegate = self
+        listFoodCollectionView.dataSource = self
+        tabBarCollectionView.delegate = self
+        tabBarCollectionView.dataSource = self
+        tabBarCollectionView.register(UINib(nibName: "TabBarViewCell", bundle: nil), forCellWithReuseIdentifier: "tabbartop")
+        listFoodCollectionView.register(UINib(nibName: "ListFoodViewCell", bundle: nil), forCellWithReuseIdentifier: "listfood")
+        let indexPath = NSIndexPath(item: 0, section: 0)
+        tabBarCollectionView.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: .init())
     }
     
     func setUpSomethingElse(){
         
         searchBar.barStyle = .blackOpaque
-        listFoodCollectionView.delegate = self
-        listFoodCollectionView.dataSource = self
+        
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         cancelBt.translatesAutoresizingMaskIntoConstraints = false
         navigationBar.addSubview(searchBar)
@@ -41,12 +52,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         cancelBt.isHidden = true
         cancelBt.addTarget(self, action: #selector(handleCancel)
             , for: .touchUpInside)
-        tabBarCollectionView.delegate = self
-        tabBarCollectionView.dataSource = self
-        tabBarCollectionView.register(UINib(nibName: "TabBarViewCell", bundle: nil), forCellWithReuseIdentifier: "tabbartop")
-        listFoodCollectionView.register(UINib(nibName: "ListFoodViewCell", bundle: nil), forCellWithReuseIdentifier: "listfood")
-        let indexPath = NSIndexPath(item: 0, section: 0)
-        tabBarCollectionView.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: .init())
+        
     }
     
     func setUpContraint(){
@@ -63,9 +69,11 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     @IBAction func searchAct(_ sender: Any) {
-        UIView.animate(withDuration: 1.0) {
-            self.setUpTF(Bool: false)
-        }
+        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(handleSelector), userInfo: nil, repeats: false)
+    }
+    
+    @objc func handleSelector(){
+        setUpTF(Bool: false)
     }
     
     func setUpTF(Bool: Bool){
@@ -76,10 +84,12 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
             self.stackViewUser.isHidden = !Bool
     }
     
+    @objc func handleSelectorCancel(){
+        setUpTF(Bool: true)
+    }
+    
     @objc func handleCancel(){
-        DispatchQueue.main.async {
-            self.setUpTF(Bool: true)
-        }
+        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(handleSelectorCancel), userInfo: nil, repeats: false)
     }
     @IBAction func nameUserAct(_ sender: Any) {
     }
