@@ -10,6 +10,7 @@ import UIKit
 import FacebookCore
 import FacebookLogin
 import FBSDKCoreKit
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     
@@ -22,6 +23,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        // Automatically sign in the user.
+        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
     }
     
     @IBAction func evPhoneChange(_ sender: UITextField) {
@@ -41,6 +46,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func actResendOTP(_ sender: Any) {
+    }
+    
+    @IBAction func actLoginGG(_ sender: Any) {
+        GIDSignIn.sharedInstance()?.signIn()
     }
     
     @IBAction func actLofinFB(_ sender: Any) {

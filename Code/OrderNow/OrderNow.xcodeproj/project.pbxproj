@@ -241,6 +241,7 @@
 				2A52D39F231028C8005DA184 /* Frameworks */,
 				2A52D3A0231028C8005DA184 /* Resources */,
 				ABF5D901C5E2BD921494F451 /* [CP] Embed Pods Frameworks */,
+				B56F9BD1D74D4DC077C22609 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -396,6 +397,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OrderNow/Pods-OrderNow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B56F9BD1D74D4DC077C22609 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OrderNow/Pods-OrderNow-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OrderNow/Pods-OrderNow-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OrderNow/Pods-OrderNow-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
