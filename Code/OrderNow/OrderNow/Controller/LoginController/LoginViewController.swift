@@ -12,7 +12,31 @@ import FacebookLogin
 import FBSDKCoreKit
 import GoogleSignIn
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, GIDSignInDelegate {
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+                print("The user has not signed in before or they have since signed out.")
+            } else {
+                print("\(error.localizedDescription)")
+            }
+            return
+        }
+        var alert = UIAlertController();
+        alert.title = "test"
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
+//        // Perform any operations on signed in user here.
+//        let userId = user.userID                  // For client-side use only!
+//        let idToken = user.authentication.idToken // Safe to send to the server
+//        let fullName = user.profile.name
+//        let givenName = user.profile.givenName
+//        let familyName = user.profile.familyName
+//        let email = user.profile.email
+    }
+    
     
     @IBOutlet weak var phoneView: UITextField!
     @IBOutlet weak var otpView: UITextField!
@@ -27,6 +51,8 @@ class LoginViewController: UIViewController {
         GIDSignIn.sharedInstance()?.presentingViewController = self
         // Automatically sign in the user.
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+        
+        GIDSignIn.sharedInstance()?.delegate = self
     }
     
     @IBAction func evPhoneChange(_ sender: UITextField) {
