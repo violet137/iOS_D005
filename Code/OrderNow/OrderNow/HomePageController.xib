@@ -15,6 +15,7 @@
                 <outlet property="UserImg" destination="YCm-bl-rMp" id="X9j-Ju-RiM"/>
                 <outlet property="backBt" destination="wHf-71-MyS" id="gjt-x3-Zl0"/>
                 <outlet property="listFoodCollectionView" destination="0PT-9G-H3g" id="kDJ-V3-dzx"/>
+                <outlet property="nameUser" destination="JW7-WK-KRI" id="3iD-gw-CeM"/>
                 <outlet property="navigationBar" destination="Mti-Us-Kpp" id="kqd-YW-HE8"/>
                 <outlet property="searchBt" destination="cd1-D6-WNb" id="NfD-Mo-gXw"/>
                 <outlet property="searchDisplayController" destination="Ovu-ZZ-mxI" id="aOv-nP-18e"/>
@@ -100,7 +101,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="0PT-9G-H3g">
-                    <rect key="frame" x="15" y="140" width="384" height="596"/>
+                    <rect key="frame" x="15" y="140" width="384" height="591"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hpd-VI-smq">
                         <size key="itemSize" width="50" height="50"/>
@@ -120,12 +121,12 @@
                 <constraint firstItem="0PT-9G-H3g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="CcK-VB-OdT"/>
                 <constraint firstItem="w5s-Qe-zP2" firstAttribute="centerX" secondItem="Mti-Us-Kpp" secondAttribute="centerX" id="FEL-Fj-5qW"/>
                 <constraint firstItem="cd1-D6-WNb" firstAttribute="centerY" secondItem="Mti-Us-Kpp" secondAttribute="centerY" id="TeZ-cK-85f"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0PT-9G-H3g" secondAttribute="bottom" id="XWf-S9-BAH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0PT-9G-H3g" secondAttribute="trailing" constant="15" id="dTG-5o-252"/>
                 <constraint firstItem="wHf-71-MyS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="f4N-M3-gSy"/>
                 <constraint firstItem="w5s-Qe-zP2" firstAttribute="centerY" secondItem="Mti-Us-Kpp" secondAttribute="centerY" id="hwS-Lx-5Ed"/>
                 <constraint firstItem="q1P-Ng-4Ue" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="i6O-nd-O4o"/>
                 <constraint firstItem="Mti-Us-Kpp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="mT9-DM-zwd"/>
+                <constraint firstAttribute="bottom" secondItem="0PT-9G-H3g" secondAttribute="bottom" constant="5" id="qRw-UL-hGk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cd1-D6-WNb" secondAttribute="trailing" constant="10" id="ujk-aD-43d"/>
                 <constraint firstAttribute="trailing" secondItem="Mti-Us-Kpp" secondAttribute="trailing" id="ym4-iV-Pdi"/>
             </constraints>
