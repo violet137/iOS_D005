@@ -18,7 +18,7 @@ class ListFoodViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    func setUpcell(){
+    func setUpcell(data: Any){
         self.giaTienLb.layer.cornerRadius = 10.0
         self.imageImg.image = UIImage(named: "tomhum")
         self.giaTienLb.text = "85000"
