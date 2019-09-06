@@ -15,6 +15,15 @@
 		2A52D3B0231028C9005DA184 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A52D3AE231028C9005DA184 /* LaunchScreen.storyboard */; };
 		2A52D3BB231028C9005DA184 /* OrderNowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A52D3BA231028C9005DA184 /* OrderNowTests.swift */; };
 		2A52D3C6231028C9005DA184 /* OrderNowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A52D3C5231028C9005DA184 /* OrderNowUITests.swift */; };
+		2F00A9B82317FCE100C39609 /* TabBarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F00A9B62317FCE100C39609 /* TabBarViewCell.xib */; };
+		2F00A9B92317FCE100C39609 /* TabBarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F00A9B72317FCE100C39609 /* TabBarViewCell.swift */; };
+		2F0636AD2311838400B27FCC /* ListFoodViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0636AB2311838400B27FCC /* ListFoodViewCell.swift */; };
+		2F0636AE2311838400B27FCC /* ListFoodViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0636AC2311838400B27FCC /* ListFoodViewCell.xib */; };
+		2F17D1DD2310E21E007FDB77 /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F17D1DB2310E21E007FDB77 /* HomePageController.swift */; };
+		2F17D1DE2310E21E007FDB77 /* HomePageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F17D1DC2310E21E007FDB77 /* HomePageController.xib */; };
+		2F8E0E722316E18600C44057 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E0E702316E18600C44057 /* LoginController.swift */; };
+		2F8E0E732316E18600C44057 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F8E0E712316E18600C44057 /* LoginController.xib */; };
+		37965D90BE49295683EAA9AE /* libPods-OrderNow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7203DFD30D0878052C95BBE5 /* libPods-OrderNow.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		0E46AFBEECE73E95AB859FB3 /* Pods_OrderNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrderNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2242D0A1FB602DC0D6C6169B /* Pods-OrderNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.debug.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.debug.xcconfig"; sourceTree = "<group>"; };
 		2A18CD4C231412270052E9A4 /* FacebookCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A18CD4E231412270052E9A4 /* FacebookLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A18CD50231412270052E9A4 /* FacebookShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +78,16 @@
 		2A52D3C7231028C9005DA184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		837D63E4CC43AB44DD62E3C2 /* Pods-OrderNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.release.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.release.xcconfig"; sourceTree = "<group>"; };
 		F3A791A5FDA82BC5E18F2D1E /* Pods-OrderNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.debug.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.debug.xcconfig"; sourceTree = "<group>"; };
+		2F00A9B62317FCE100C39609 /* TabBarViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBarViewCell.xib; sourceTree = "<group>"; };
+		2F00A9B72317FCE100C39609 /* TabBarViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewCell.swift; sourceTree = "<group>"; };
+		2F0636AB2311838400B27FCC /* ListFoodViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListFoodViewCell.swift; path = HomePageController/ListFood/ListFoodViewCell.swift; sourceTree = SOURCE_ROOT; };
+		2F0636AC2311838400B27FCC /* ListFoodViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ListFoodViewCell.xib; path = HomePageController/ListFood/ListFoodViewCell.xib; sourceTree = SOURCE_ROOT; };
+		2F17D1DB2310E21E007FDB77 /* HomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageController.swift; path = OrderNow/HomePageController.swift; sourceTree = SOURCE_ROOT; };
+		2F17D1DC2310E21E007FDB77 /* HomePageController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomePageController.xib; path = OrderNow/HomePageController.xib; sourceTree = SOURCE_ROOT; };
+		2F8E0E702316E18600C44057 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = SOURCE_ROOT; };
+		2F8E0E712316E18600C44057 /* LoginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginController.xib; sourceTree = SOURCE_ROOT; };
+		7203DFD30D0878052C95BBE5 /* libPods-OrderNow.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OrderNow.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		90AB9C44B2DC689A8C16B655 /* Pods-OrderNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.release.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A18CD53231412540052E9A4 /* Pods_OrderNow.framework in Frameworks */,
+				37965D90BE49295683EAA9AE /* libPods-OrderNow.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +155,7 @@
 				2F17F4042310292D00127C69 /* View */,
 				2F17F4032310292A00127C69 /* Modal */,
 				2F17F4022310292600127C69 /* Controller */,
+				2A52D3B1231028C9005DA184 /* Info.plist */,
 				2A52D3AC231028C9005DA184 /* Assets.xcassets */,
 			);
 			path = OrderNow;
@@ -155,6 +177,24 @@
 				2A52D3C7231028C9005DA184 /* Info.plist */,
 			);
 			path = OrderNowUITests;
+			sourceTree = "<group>";
+		};
+		2F17D1E323112162007FDB77 /* TopTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				2F00A9B72317FCE100C39609 /* TabBarViewCell.swift */,
+				2F00A9B62317FCE100C39609 /* TabBarViewCell.xib */,
+			);
+			path = TopTabBar;
+			sourceTree = "<group>";
+		};
+		2F17D1EC231121E4007FDB77 /* ListFood */ = {
+			isa = PBXGroup;
+			children = (
+				2F0636AB2311838400B27FCC /* ListFoodViewCell.swift */,
+				2F0636AC2311838400B27FCC /* ListFoodViewCell.xib */,
+			);
+			path = ListFood;
 			sourceTree = "<group>";
 		};
 		2F17F4022310292600127C69 /* Controller */ = {
@@ -188,7 +228,6 @@
 		2F17F4052310299E00127C69 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				2A52D3B1231028C9005DA184 /* Info.plist */,
 				2A52D3A5231028C8005DA184 /* AppDelegate.swift */,
 			);
 			path = Other;
@@ -211,6 +250,10 @@
 		2F17F408231029CD00127C69 /* HomePageController */ = {
 			isa = PBXGroup;
 			children = (
+				2F17D1DB2310E21E007FDB77 /* HomePageController.swift */,
+				2F17D1DC2310E21E007FDB77 /* HomePageController.xib */,
+				2F17D1E323112162007FDB77 /* TopTabBar */,
+				2F17D1EC231121E4007FDB77 /* ListFood */,
 			);
 			path = HomePageController;
 			sourceTree = "<group>";
@@ -218,6 +261,8 @@
 		2F17F409231029D100127C69 /* LoginController */ = {
 			isa = PBXGroup;
 			children = (
+				2F8E0E702316E18600C44057 /* LoginController.swift */,
+				2F8E0E712316E18600C44057 /* LoginController.xib */,
 			);
 			path = LoginController;
 			sourceTree = "<group>";
@@ -234,6 +279,8 @@
 			children = (
 				F3A791A5FDA82BC5E18F2D1E /* Pods-OrderNow.debug.xcconfig */,
 				837D63E4CC43AB44DD62E3C2 /* Pods-OrderNow.release.xcconfig */,
+				2242D0A1FB602DC0D6C6169B /* Pods-OrderNow.debug.xcconfig */,
+				90AB9C44B2DC689A8C16B655 /* Pods-OrderNow.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -242,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				2A18CD52231412540052E9A4 /* Pods_OrderNow.framework */,
+				7203DFD30D0878052C95BBE5 /* libPods-OrderNow.a */,
 				2A18CD4C231412270052E9A4 /* FacebookCore.framework */,
 				2A18CD4E231412270052E9A4 /* FacebookLogin.framework */,
 				2A18CD50231412270052E9A4 /* FacebookShare.framework */,
@@ -258,10 +306,12 @@
 			buildConfigurationList = 2A52D3CA231028C9005DA184 /* Build configuration list for PBXNativeTarget "OrderNow" */;
 			buildPhases = (
 				1ED44787CFDA57D726A4CF2C /* [CP] Check Pods Manifest.lock */,
+				4F1B705A71F031F191D31D91 /* [CP] Check Pods Manifest.lock */,
 				2A52D39E231028C8005DA184 /* Sources */,
 				2A52D39F231028C8005DA184 /* Frameworks */,
 				2A52D3A0231028C8005DA184 /* Resources */,
 				4F5188D61045CA4D69C63030 /* [CP] Embed Pods Frameworks */,
+				4B3F55E8586E2FA2D2EE9A87 /* [CP] Copy Pods Resources */,
 				2A18CD572314125F0052E9A4 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -357,7 +407,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F0636AE2311838400B27FCC /* ListFoodViewCell.xib in Resources */,
 				2A52D3B0231028C9005DA184 /* LaunchScreen.storyboard in Resources */,
+				2F00A9B82317FCE100C39609 /* TabBarViewCell.xib in Resources */,
+				2F17D1DE2310E21E007FDB77 /* HomePageController.xib in Resources */,
+				2F8E0E732316E18600C44057 /* LoginController.xib in Resources */,
 				2A52D3AD231028C9005DA184 /* Assets.xcassets in Resources */,
 				2A52D3AB231028C8005DA184 /* Main.storyboard in Resources */,
 			);
@@ -381,28 +435,26 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		1ED44787CFDA57D726A4CF2C /* [CP] Check Pods Manifest.lock */ = {
+		4B3F55E8586E2FA2D2EE9A87 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OrderNow/Pods-OrderNow-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OrderNow/Pods-OrderNow-resources-${CONFIGURATION}-output-files.xcfilelist",
 				"$(DERIVED_FILE_DIR)/Pods-OrderNow-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OrderNow/Pods-OrderNow-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4F5188D61045CA4D69C63030 /* [CP] Embed Pods Frameworks */ = {
+		4F1B705A71F031F191D31D91 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -410,13 +462,21 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OrderNow/Pods-OrderNow-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OrderNow/Pods-OrderNow-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OrderNow-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OrderNow/Pods-OrderNow-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -427,7 +487,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A18CD5C23141A5B0052E9A4 /* LoginViewController.swift in Sources */,
+				2F00A9B92317FCE100C39609 /* TabBarViewCell.swift in Sources */,
+				2F0636AD2311838400B27FCC /* ListFoodViewCell.swift in Sources */,
 				2A52D3A6231028C8005DA184 /* AppDelegate.swift in Sources */,
+				2F17D1DD2310E21E007FDB77 /* HomePageController.swift in Sources */,
+				2F8E0E722316E18600C44057 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,10 +667,11 @@
 		2A52D3CB231028C9005DA184 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F3A791A5FDA82BC5E18F2D1E /* Pods-OrderNow.debug.xcconfig */;
+			baseConfigurationReference = 2242D0A1FB602DC0D6C6169B /* Pods-OrderNow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3HFR4G54DV;
+				DEVELOPMENT_TEAM = 73YYV5Y2WD;
 				INFOPLIST_FILE = "$(SRCROOT)/OrderNow/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -623,10 +688,11 @@
 		2A52D3CC231028C9005DA184 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 837D63E4CC43AB44DD62E3C2 /* Pods-OrderNow.release.xcconfig */;
+			baseConfigurationReference = 90AB9C44B2DC689A8C16B655 /* Pods-OrderNow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3HFR4G54DV;
+				DEVELOPMENT_TEAM = 73YYV5Y2WD;
 				INFOPLIST_FILE = "$(SRCROOT)/OrderNow/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
