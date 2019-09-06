@@ -425,10 +425,9 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
                 listFoodCollectionView.reloadData()
         }else{
             popUpIsClose(status: false)
-            amount = 1
             amountLb.text = String(amount)
             popupFoodNameLb.text = "Tôm hùm nướng, rưới sốt bơ chanh tỏi"
-            costLb.text = "\(amount*85000)"
+            costLb.text = "85000 đ"
         }
     }
 }
