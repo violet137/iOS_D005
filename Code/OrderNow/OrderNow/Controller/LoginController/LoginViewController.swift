@@ -14,26 +14,6 @@ import GoogleSignIn
 
 class LoginViewController: UIViewController, GIDSignInDelegate {
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error {
-            if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
-                print("The user has not signed in before or they have since signed out.")
-            } else {
-                print("\(error.localizedDescription)")
-            }
-            return
-        }
-        self.Login(user.authentication.idToken)
-        
-//        // Perform any operations on signed in user here.
-//        let userId = user.userID                  // For client-side use only!
-//        let idToken = user.authentication.idToken // Safe to send to the server
-//        let fullName = user.profile.name
-//        let givenName = user.profile.givenName
-//        let familyName = user.profile.familyName
-//        let email = user.profile.email
-    }
-    
     
     @IBOutlet weak var phoneView: UITextField!
     @IBOutlet weak var otpView: UITextField!
@@ -54,7 +34,6 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
         self.hideKeyboardWhenTappedAround()
     }
     
-    
     @IBAction func evPhoneChange(_ sender: UITextField) {
         if isResendOTP
         {
@@ -65,32 +44,25 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     }
     
     @IBAction func actContinue(_ sender: Any) {
-        
         if(phoneView.text == "" || phoneView.text == nil){
+            
+            let alertController = UIAlertController(title: "Title", message:
+                "What is the Sub-Total!", preferredStyle: UIAlertController.Style.alert)
+            alertController.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+
+            
             return
         }
         let phone = phoneView.text!
-        
-        if !isResendOTP
-        {
-            let r = API_SendOTP(phone)
-            if r.status {
-                isResendOTP = true
-                otpView.isHidden = false
-                btnResendOTPView.isHidden = false
-                btnContinueView.setTitle("Đăng nhập", for: .init())
-                otpView.becomeFirstResponder()
-            }else{
-                ShowError(r.error)
-            }
+        if !isResendOTP {
+            SendOTP(phone)
         }else{
-            
             if(otpView.text == "" || otpView.text == nil){
                 return
             }
-            
             let otp = otpView.text!
-            
             Login(phone,otp)
         }
     }
@@ -98,10 +70,74 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     @IBAction func actResendOTP(_ sender: Any) {
     }
     
-    @IBAction func actLoginGG(_ sender: Any) {
-        GIDSignIn.sharedInstance()?.signIn()
+    func SendOTP(_ phone:String) -> Void {
+        AuthorizationService.Register(phoneNumber: phone) { (status, error) in
+//            if status {
+                DispatchQueue.main.async {
+                    self.isResendOTP = true
+                    self.otpView.isHidden = false
+                    self.btnResendOTPView.isHidden = false
+                    self.btnContinueView.setTitle("Đăng nhập", for: .init())
+                    self.otpView.becomeFirstResponder()
+                }
+//            }else{
+//                if(error != nil){
+//                    self.ShowError(String(describing: error!.localizedDescription))
+//                }
+//            }
+        }
     }
     
+    func Login(_ phone:String, _ otp:String) -> Void {
+        AuthorizationService.Login(phoneNumber: phone, otp: otp) { (status, error) in
+            if status {
+                self.ShowAlertMessage("""
+                    Login Thành Công
+                    Xin Chào \(phone)
+                    """)
+            }else{
+                if(error != nil){
+                    self.ShowError(error)
+                }
+            }
+        }
+    }
+    
+    func ShowError(_ error:Error?) -> Void {
+        guard let er = error else {
+            return
+        }
+        ShowAlertMessage(er.localizedDescription)
+    }
+    
+    func ShowAlertMessage(_ text:String) -> Void {
+        let alert = UIAlertController(title: text, message: nil, preferredStyle: .alert);
+        
+        let btnClose = UIAlertAction(title: "Đóng", style: .cancel, handler: nil)
+        alert.addAction(btnClose)
+        
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    //Login Extension
+    func Login(_ token:String) -> Void {
+        let r = API_Login(token)
+        if r.status {
+            ShowAlertMessage("""
+                Login Thành Công
+                Xin Chào \(token)
+                """)
+        }else{
+//            ShowError(r.error)
+        }
+    }
+    
+    func API_Login(_ token:String) -> (status: Bool, error: String?) {
+        return (true,nil)
+    }
+    //Facebook
     @IBAction func actLofinFB(_ sender: Any) {
         let loginManager = LoginManager()
         loginManager.logIn(permissions: [.email,], viewController: self) { (LoginResult) in
@@ -118,58 +154,24 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
             }
         }
     }
-    
-    func Login(_ token:String) -> Void {
-        let r = API_Login(token)
-        if r.status {
-            ShowAlertMessage("""
-            Login Thành Công
-            Xin Chào \(token)
-            """)
-        }else{
-            ShowError(r.error)
-        }
+    //Google
+    @IBAction func actLoginGG(_ sender: Any) {
+        GIDSignIn.sharedInstance()?.signIn()
     }
     
-    func Login(_ phone:String, _ otp:String) -> Void {
-        AuthorizationService.Login(phoneNumber: phone, otp: otp) { (status, error) in
-            if status {
-                self.ShowAlertMessage("""
-                    Login Thành Công
-                    Xin Chào \(phone)
-                    """)
-            }else{
-//                self.ShowError(String(describing: error))
-                self.ShowError("Login Thất bại")
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+                print("The user has not signed in before or they have since signed out.")
+            } else {
+                print("\(error.localizedDescription)")
             }
-        }
-    }
-    
-    func API_Login(_ token:String) -> (status: Bool, error: String?) {
-        return (true,nil)
-    }
-    
-    func API_SendOTP(_ phone:String) -> (status: Bool, error: String?) {
-        return (true,nil)
-    }
-    
-    func ShowError(_ error:String?) -> Void {
-        guard let er = error else {
             return
         }
-        ShowAlertMessage(er)
+        self.Login(user.authentication.idToken)
     }
     
-    func ShowAlertMessage(_ text:String) -> Void {
-        let alert = UIAlertController(title: text, message: nil, preferredStyle: .alert);
-        
-        let btnClose = UIAlertAction(title: "Đóng", style: .cancel, handler: nil)
-        alert.addAction(btnClose)
-        
-        DispatchQueue.main.async {
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
+    
     
 }
 

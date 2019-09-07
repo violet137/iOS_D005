@@ -44,10 +44,61 @@ class AuthorizationService {
                 if(loginJson != nil){
                     let status = loginJson!["Status"] as? Int
                     if(status != nil && status == 1) {
-                        // login thanh cong
+                        // Login thanh cong
                         completion(true,nil)
                     } else{
-                        completion(false,nil)
+                        completion(false,NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Login Thất bại"]))
+                    }
+                }
+                
+            }
+            task.resume()
+        }
+    }
+    
+    static func Register(phoneNumber:String, completion:  @escaping (_ status: Bool, _ error: Error?) -> Void ) -> Void {
+        let url = "\(host)Register"
+        if let urlLogin = URL(string: url){
+            var urlRequest = URLRequest(url: urlLogin)
+            urlRequest.httpMethod = "POST"
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+            let jsonDangNhap : [String: Any] = [
+                "Address": "string",
+                "Gender": true,
+                "Email": "\(phoneNumber)",
+                "FirstName": "string",
+                "LastName": "string",
+                "BirthDay": "2019-09-07T16:25:50.959Z",
+                "Career": "string",
+                "Username": "\(phoneNumber)",
+                "Pwd": "\(123456)",
+                "Token": "string",
+                "AccountType": "Thuong"
+            ]
+            
+            let jsonData = try? JSONSerialization.data(withJSONObject: jsonDangNhap, options: [])
+            urlRequest.httpBody = jsonData
+            let session = URLSession.shared
+            let task = session.dataTask(with: urlRequest){data,response,error in
+                guard error == nil else {
+                    completion(false,error)
+                    return
+                }
+                guard let dataResponce = data else {
+                    completion(false,error)
+                    return
+                }
+                
+                let loginJson = try? JSONSerialization.jsonObject(with: dataResponce, options: []) as? [String:Any]
+                if(loginJson != nil){
+                    let status = loginJson!["Status"] as? Int
+                    if(status != nil && status == 1) {
+                        // Register thanh cong
+                        completion(true,nil)
+                    } else{
+                        completion(false,NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Register Thất bại"]))
                     }
                 }
                 
