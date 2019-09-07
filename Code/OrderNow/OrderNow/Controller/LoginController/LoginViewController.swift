@@ -23,11 +23,8 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
             }
             return
         }
-        var alert = UIAlertController();
-        alert.title = "test"
-        DispatchQueue.main.async {
-            self.present(alert, animated: true, completion: nil)
-        }
+        self.Login(user.authentication.idToken)
+        
 //        // Perform any operations on signed in user here.
 //        let userId = user.userID                  // For client-side use only!
 //        let idToken = user.authentication.idToken // Safe to send to the server
@@ -53,21 +50,48 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()
         
         GIDSignIn.sharedInstance()?.delegate = self
+        
+        self.hideKeyboardWhenTappedAround()
     }
+    
     
     @IBAction func evPhoneChange(_ sender: UITextField) {
         if isResendOTP
         {
             isResendOTP = false
+            otpView.text = nil
             btnContinueView.setTitle("Gửi OTP", for: .init())
         }
     }
     
     @IBAction func actContinue(_ sender: Any) {
+        
+        if(phoneView.text == "" || phoneView.text == nil){
+            return
+        }
+        let phone = phoneView.text!
+        
         if !isResendOTP
         {
-            isResendOTP = true
-            btnContinueView.setTitle("Đăng nhập", for: .init())
+            let r = API_SendOTP(phone)
+            if r.status {
+                isResendOTP = true
+                otpView.isHidden = false
+                btnResendOTPView.isHidden = false
+                btnContinueView.setTitle("Đăng nhập", for: .init())
+                otpView.becomeFirstResponder()
+            }else{
+                ShowError(r.error)
+            }
+        }else{
+            
+            if(otpView.text == "" || otpView.text == nil){
+                return
+            }
+            
+            let otp = otpView.text!
+            
+            Login(phone,otp)
         }
     }
     
@@ -80,7 +104,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     
     @IBAction func actLofinFB(_ sender: Any) {
         let loginManager = LoginManager()
-        loginManager.logIn(permissions: [.adsRead,], viewController: self) { (LoginResult) in
+        loginManager.logIn(permissions: [.email,], viewController: self) { (LoginResult) in
             switch(LoginResult){
             case .cancelled:
                 
@@ -89,11 +113,64 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
                 
                 break;
             case .success(_,_,let token):
-                
+                self.Login(token.tokenString)
                 break;
-                
             }
         }
     }
     
+    func Login(_ token:String) -> Void {
+        let r = API_Login(token)
+        if r.status {
+            ShowAlertMessage("""
+            Login Thành Công
+            Xin Chào \(token)
+            """)
+        }else{
+            ShowError(r.error)
+        }
+    }
+    
+    func Login(_ phone:String, _ otp:String) -> Void {
+        AuthorizationService.Login(phoneNumber: phone, otp: otp) { (status, error) in
+            if status {
+                self.ShowAlertMessage("""
+                    Login Thành Công
+                    Xin Chào \(phone)
+                    """)
+            }else{
+//                self.ShowError(String(describing: error))
+                self.ShowError("Login Thất bại")
+            }
+        }
+    }
+    
+    func API_Login(_ token:String) -> (status: Bool, error: String?) {
+        return (true,nil)
+    }
+    
+    func API_SendOTP(_ phone:String) -> (status: Bool, error: String?) {
+        return (true,nil)
+    }
+    
+    func ShowError(_ error:String?) -> Void {
+        guard let er = error else {
+            return
+        }
+        ShowAlertMessage(er)
+    }
+    
+    func ShowAlertMessage(_ text:String) -> Void {
+        let alert = UIAlertController(title: text, message: nil, preferredStyle: .alert);
+        
+        let btnClose = UIAlertAction(title: "Đóng", style: .cancel, handler: nil)
+        alert.addAction(btnClose)
+        
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
 }
+
+
