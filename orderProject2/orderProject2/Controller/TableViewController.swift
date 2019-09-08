@@ -60,6 +60,14 @@ class TableViewController: UIViewController {
     var floorCodeInput: Int = 0
     var myTable = [TableItem]()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableItemUtils.dumpData()
+        
+        setupFloorCollectionView()
+        setupTableCollectionView()
+    }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -128,17 +136,34 @@ class TableViewController: UIViewController {
             tableCollectionView.setCollectionViewLayout(tableCollectionViewFlowLayout, animated: true)
         }
     }
+
 }
 
 extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = tableItems[indexPath.row]
+        if collectionView == self.floorCollectionView {
+            floorCodeInput = indexPath.row
+            myTable = tableItemUtils.searchFloor(floorCodeInput: indexPath.row)
+            print("\nfloorCodeInput: \(floorCodeInput)")
+            print("Ban vua chon tang \(indexPath.row) voi so luong ban \(myTable.count)")
+            
+        } else {
+            performSegue(withIdentifier: viewImageSegueIdentifier, sender: item)
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.floorCollectionView {
+            print("So luong tang \(floorItems.count)")
             return floorItems.count
         } else {
-            return tableItems.count
+            print("observe: \(floorCodeInput)")
+            myTable = tableItemUtils.searchFloor(floorCodeInput: floorCodeInput)
+            print("So luong table \(myTable.count)")
+            return myTable.count
         }
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -148,35 +173,13 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             return floorCell
         } else {
             let tableCell = collectionView.dequeueReusableCell(withReuseIdentifier: tableCellIdentifier, for: indexPath) as! tableCollectionViewCell
-            tableCell.tableImageView.image = UIImage(named: tableItems[indexPath.item].tableImageName)
-            tableCell.tableLabel.text = tableItems[indexPath.item].tableLabelName
+            tableCell.tableImageView.image = UIImage(named: myTable[indexPath.item].tableImage)
+            tableCell.tableLabel.text = myTable[indexPath.item].tableName
             return tableCell
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = tableItems[indexPath.row]
-        if collectionView == self.floorCollectionView {
-            print("select floor: \(indexPath.row)")
-            floorCodeInput = indexPath.row
-            print(tableItemUtils.searchFloor(floorCodeInput: indexPath.row).count)
-            myTable = tableItemUtils.searchFloor(floorCodeInput: indexPath.row)
-            print(myTable.count)
-            
-        } else {
-//            print("select table: \(indexPath)")
-            performSegue(withIdentifier: viewImageSegueIdentifier, sender: item)
-        }
-    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tableItemUtils.dumpData()
-
-        setupFloorCollectionView()
-        setupTableCollectionView()
-    }
     
 }
 

@@ -34,8 +34,8 @@ class TableUtils {
         tableItemList.append(floor2Table3)
         
         let floor3Table1 = TableItem(floorCode: 3, tableName: "A3-001", tableImage: "FourSeatsTable")
-        let floor3Table2 = TableItem(floorCode: 3, tableName: "A2-002", tableImage: "FourSeatsTable")
-        let floor3Table3 = TableItem(floorCode: 3, tableName: "A2-003", tableImage: "FourSeatsTable")
+        let floor3Table2 = TableItem(floorCode: 3, tableName: "A3-002", tableImage: "FourSeatsTable")
+        let floor3Table3 = TableItem(floorCode: 3, tableName: "A3-003", tableImage: "FourSeatsTable")
         tableItemList.append(floor3Table1)
         tableItemList.append(floor3Table2)
         tableItemList.append(floor3Table3)
