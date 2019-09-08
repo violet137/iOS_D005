@@ -81,6 +81,7 @@ class TableViewController: UIViewController {
         if segue.identifier == viewImageSegueIdentifier {
             if let vc = segue.destination as? popUpViewController {
                 vc.imageName = item.tableImageName
+                print(item.tableImageName)
             }
             
         }

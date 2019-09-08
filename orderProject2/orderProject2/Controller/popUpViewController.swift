@@ -16,7 +16,7 @@ class popUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupImageView()
         // Do any additional setup after loading the view.
     }
     
