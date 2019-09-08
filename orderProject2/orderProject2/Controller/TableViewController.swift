@@ -21,6 +21,8 @@ class TableViewController: UIViewController {
     @IBOutlet weak var floorCollectionView: UICollectionView!
     @IBOutlet weak var tableCollectionView: UICollectionView!
     
+    var tableItemUtils = TableUtils()
+    
     var floorItems: [floorItem] = [
         floorItem(floorLabelName: "Tang tret"),
         floorItem(floorLabelName: "Tang 1"),
@@ -53,16 +55,27 @@ class TableViewController: UIViewController {
     var tableCollectionViewFlowLayout: UICollectionViewFlowLayout!
     let tableCellIdentifier = "tableCollectionViewCell"
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupFloorCollectionView()
-        setupTableCollectionView()
-    }
+    let viewImageSegueIdentifier = "viewImageSegueIdentifier"
+    
+    var floorCodeInput: Int = 0
+    var myTable = [TableItem]()
+    
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         setupFloorViewItemSize()
         setupTableViewItemSize()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let item = sender as! tableItem
+        
+        if segue.identifier == viewImageSegueIdentifier {
+            if let vc = segue.destination as? popUpViewController {
+                vc.imageName = item.tableImageName
+            }
+            
+        }
     }
     
     private func setupFloorCollectionView() {
@@ -140,19 +153,30 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             return tableCell
         }
     }
-        
-//        let floorCell = floorCollectionView.dequeueReusableCell(withReuseIdentifier: floorCellIdentifier, for: indexPath) as! floorCollectionViewCell
-//        floorCell.floorLabel.text = floorItems[indexPath.item].floorLabelName
-//        return floorCell
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = tableItems[indexPath.row]
         if collectionView == self.floorCollectionView {
-            print("select floor: \(indexPath)")
+            print("select floor: \(indexPath.row)")
+            floorCodeInput = indexPath.row
+            print(tableItemUtils.searchFloor(floorCodeInput: indexPath.row).count)
+            myTable = tableItemUtils.searchFloor(floorCodeInput: indexPath.row)
+            print(myTable.count)
+            
         } else {
-            print("select table: \(indexPath)")
+//            print("select table: \(indexPath)")
+            performSegue(withIdentifier: viewImageSegueIdentifier, sender: item)
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableItemUtils.dumpData()
+
+        setupFloorCollectionView()
+        setupTableCollectionView()
+    }
     
 }
 

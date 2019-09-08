@@ -10,13 +10,22 @@ import UIKit
 
 class popUpViewController: UIViewController {
 
-    @IBAction func closePopUp(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
+    @IBOutlet weak var imageView: UIImageView!
+    
+    var imageName: String!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    private func setupImageView() {
+        guard let name = imageName else {return}
+        if let image = UIImage(named: name) {
+            imageView.image = image
+        }
+        
     }
     
 

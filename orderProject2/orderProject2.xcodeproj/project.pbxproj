@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D61957BF23228C3A0055559F /* popUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61957BE23228C3A0055559F /* popUpViewController.swift */; };
+		D61957C123229A030055559F /* TableItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61957C023229A030055559F /* TableItemModel.swift */; };
+		D61957C323229C290055559F /* TableUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61957C223229C290055559F /* TableUtils.swift */; };
 		D61A44D82321CC1C00F8C86F /* floorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61A44D62321CC1C00F8C86F /* floorCollectionViewCell.swift */; };
 		D61A44D92321CC1C00F8C86F /* floorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61A44D72321CC1C00F8C86F /* floorCollectionViewCell.xib */; };
 		D69C96B2232148970054CB6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69C96B1232148970054CB6B /* AppDelegate.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		D61957BE23228C3A0055559F /* popUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpViewController.swift; sourceTree = "<group>"; };
+		D61957C023229A030055559F /* TableItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableItemModel.swift; sourceTree = "<group>"; };
+		D61957C223229C290055559F /* TableUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableUtils.swift; sourceTree = "<group>"; };
 		D61A44D62321CC1C00F8C86F /* floorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = floorCollectionViewCell.swift; sourceTree = "<group>"; };
 		D61A44D72321CC1C00F8C86F /* floorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = floorCollectionViewCell.xib; sourceTree = "<group>"; };
 		D69C96AE232148970054CB6B /* orderProject2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = orderProject2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +49,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D696FE2023253E3B008BBB23 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D69C96B3232148970054CB6B /* TableViewController.swift */,
+				D61957BE23228C3A0055559F /* popUpViewController.swift */,
+				D69C96C323214B0F0054CB6B /* tableCollectionViewCell.swift */,
+				D69C96C423214B0F0054CB6B /* tableCollectionViewCell.xib */,
+				D61A44D62321CC1C00F8C86F /* floorCollectionViewCell.swift */,
+				D61A44D72321CC1C00F8C86F /* floorCollectionViewCell.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D696FE2123253E64008BBB23 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D61957C023229A030055559F /* TableItemModel.swift */,
+				D61957C223229C290055559F /* TableUtils.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D696FE2223253E7B008BBB23 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D69C96B5232148970054CB6B /* Main.storyboard */,
+				D69C96BA232148990054CB6B /* LaunchScreen.storyboard */,
+				D69C96B8232148990054CB6B /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D696FE2323253E88008BBB23 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D69C96BD232148990054CB6B /* Info.plist */,
+				D69C96B1232148970054CB6B /* AppDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D69C96A5232148970054CB6B = {
 			isa = PBXGroup;
 			children = (
@@ -64,17 +109,10 @@
 		D69C96B0232148970054CB6B /* orderProject2 */ = {
 			isa = PBXGroup;
 			children = (
-				D69C96B1232148970054CB6B /* AppDelegate.swift */,
-				D69C96B3232148970054CB6B /* TableViewController.swift */,
-				D69C96B5232148970054CB6B /* Main.storyboard */,
-				D69C96B8232148990054CB6B /* Assets.xcassets */,
-				D69C96BA232148990054CB6B /* LaunchScreen.storyboard */,
-				D69C96BD232148990054CB6B /* Info.plist */,
-				D69C96C323214B0F0054CB6B /* tableCollectionViewCell.swift */,
-				D69C96C423214B0F0054CB6B /* tableCollectionViewCell.xib */,
-				D61A44D62321CC1C00F8C86F /* floorCollectionViewCell.swift */,
-				D61A44D72321CC1C00F8C86F /* floorCollectionViewCell.xib */,
-				D61957BE23228C3A0055559F /* popUpViewController.swift */,
+				D696FE2323253E88008BBB23 /* Supporting Files */,
+				D696FE2223253E7B008BBB23 /* View */,
+				D696FE2123253E64008BBB23 /* Model */,
+				D696FE2023253E3B008BBB23 /* Controller */,
 			);
 			path = orderProject2;
 			sourceTree = "<group>";
@@ -155,8 +193,10 @@
 				D69C96B4232148970054CB6B /* TableViewController.swift in Sources */,
 				D61957BF23228C3A0055559F /* popUpViewController.swift in Sources */,
 				D61A44D82321CC1C00F8C86F /* floorCollectionViewCell.swift in Sources */,
+				D61957C123229A030055559F /* TableItemModel.swift in Sources */,
 				D69C96B2232148970054CB6B /* AppDelegate.swift in Sources */,
 				D69C96C523214B0F0054CB6B /* tableCollectionViewCell.swift in Sources */,
+				D61957C323229C290055559F /* TableUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +343,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = orderProject2/Info.plist;
+				DEVELOPMENT_TEAM = 34G7L6PXU6;
+				INFOPLIST_FILE = "$(SRCROOT)/orderProject2/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,7 +361,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = orderProject2/Info.plist;
+				DEVELOPMENT_TEAM = 34G7L6PXU6;
+				INFOPLIST_FILE = "$(SRCROOT)/orderProject2/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
