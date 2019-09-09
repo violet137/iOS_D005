@@ -27,14 +27,19 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
         // Automatically sign in the user.
-        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+//        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
         
         GIDSignIn.sharedInstance()?.delegate = self
         
         self.hideKeyboardWhenTappedAround()
     }
     
+    @IBAction func evOTPChange(_ sender: Any) {
+        otpView.backgroundColor = UIColor.white
+    }
+    
     @IBAction func evPhoneChange(_ sender: UITextField) {
+        phoneView.backgroundColor = UIColor.white
         if isResendOTP
         {
             isResendOTP = false
@@ -44,22 +49,16 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     }
     
     @IBAction func actContinue(_ sender: Any) {
-        if(phoneView.text == "" || phoneView.text == nil){
-            
-            let alertController = UIAlertController(title: "Title", message:
-                "What is the Sub-Total!", preferredStyle: UIAlertController.Style.alert)
-            alertController.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default,handler: nil))
-            
-            self.present(alertController, animated: true, completion: nil)
-
-            
+        if(phoneView.text == "" || phoneView.text == nil || !ValidationPhoneNumber(phoneView.text)){
+            phoneView.backgroundColor = UIColor.red
             return
         }
         let phone = phoneView.text!
         if !isResendOTP {
             SendOTP(phone)
         }else{
-            if(otpView.text == "" || otpView.text == nil){
+            if(otpView.text == "" || otpView.text == nil || !ValidationOTP(otpView.text)){
+                otpView.backgroundColor = UIColor.red
                 return
             }
             let otp = otpView.text!
@@ -120,6 +119,28 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    //Validation
+    func ValidationPhoneNumber(_ phone:String?) -> Bool {
+        var result = false
+        if phone != nil{
+            let PHONE_REGEX = "^(0)+(3|5|7|8|9)+([0-9]{8})$"
+            let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+            result =  phoneTest.evaluate(with: phone)
+        }
+        return result
+    }
+    
+    func ValidationOTP(_ otp:String?) -> Bool {
+        var result = false
+        if otp != nil{
+            let PHONE_REGEX = "^([0-9]{6})$"
+            let otpTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+            result =  otpTest.evaluate(with: otp)
+        }
+        return result
+    }
+    
     
     //Login Extension
     func Login(_ token:String) -> Void {

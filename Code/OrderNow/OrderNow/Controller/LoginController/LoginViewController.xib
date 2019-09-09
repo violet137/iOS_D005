@@ -79,6 +79,9 @@
                                             <integer key="value" value="6"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="evOTPChange:" destination="-1" eventType="editingChanged" id="Krm-eJ-oqs"/>
+                                    </connections>
                                 </textField>
                                 <view alpha="0.0" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rN1-IF-9dL">
                                     <rect key="frame" x="0.0" y="60" width="150" height="18"/>
