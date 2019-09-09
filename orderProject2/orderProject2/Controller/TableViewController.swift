@@ -59,6 +59,7 @@ class TableViewController: UIViewController {
     
     var floorCodeInput: Int = 0
     var myTable = [TableItem]()
+    var soBan: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,15 +144,18 @@ class TableViewController: UIViewController {
 extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = tableItems[indexPath.row]
+        //let item = tableItems[indexPath.row]
         if collectionView == self.floorCollectionView {
             floorCodeInput = indexPath.row
             myTable = tableItemUtils.searchFloor(floorCodeInput: indexPath.row)
-            print("\nfloorCodeInput: \(floorCodeInput)")
+            soBan = myTable.count
+            tableCollectionView.reloadData()
+            print("\nsoBan: \(soBan)")
             print("Ban vua chon tang \(indexPath.row) voi so luong ban \(myTable.count)")
+            collectionView.reloadData()
             
         } else {
-            performSegue(withIdentifier: viewImageSegueIdentifier, sender: item)
+            //performSegue(withIdentifier: viewImageSegueIdentifier, sender: item)
         }
     }
     
@@ -160,10 +164,8 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             print("So luong tang \(floorItems.count)")
             return floorItems.count
         } else {
-            print("observe: \(floorCodeInput)")
-            myTable = tableItemUtils.searchFloor(floorCodeInput: floorCodeInput)
-            print("So luong table \(myTable.count)")
-            return myTable.count
+            print("So luong table \(soBan)")
+            return soBan
         }
     }
     
@@ -174,8 +176,8 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             return floorCell
         } else {
             let tableCell = collectionView.dequeueReusableCell(withReuseIdentifier: tableCellIdentifier, for: indexPath) as! tableCollectionViewCell
-            tableCell.tableImageView.image = UIImage(named: myTable[indexPath.item].tableImage)
             tableCell.tableLabel.text = myTable[indexPath.item].tableName
+            tableCell.tableImageView.image = UIImage(named: myTable[indexPath.item].tableImage)
             return tableCell
         }
     }
