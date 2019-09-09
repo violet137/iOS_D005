@@ -9,4 +9,6 @@ use_frameworks!
 	pod 'FacebookLogin'
 	pod 'FacebookShare'
 	pod 'GoogleSignIn'
+	pod 'Firebase/Analytics'
+	pod 'Firebase/Database'
 end

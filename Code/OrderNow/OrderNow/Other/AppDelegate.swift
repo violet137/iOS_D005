@@ -10,6 +10,7 @@ import UIKit
 import FacebookCore
 import FBSDKCoreKit
 import GoogleSignIn
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -24,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         
         // Initialize Google
         GIDSignIn.sharedInstance().clientID = "948304192679-bdl94g5lpmpbm4q589rmk148mot92vo7.apps.googleusercontent.com"
+        
+        // Use Firebase library to configure APIs
+        FirebaseApp.configure()
         
         return true
     }
