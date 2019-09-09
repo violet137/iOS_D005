@@ -1,0 +1,8 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.0'
+use_frameworks!
+
+target 'orderProject2' do
+    pod 'Firebase/Analytics'
+    pod 'Firebase/Database'
+end
