@@ -11,6 +11,7 @@ import FacebookCore
 import FacebookLogin
 import FBSDKCoreKit
 import GoogleSignIn
+import Firebase
 
 class LoginViewController: UIViewController, GIDSignInDelegate {
     
@@ -21,9 +22,15 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     @IBOutlet weak var btnResendOTPView: UIButton!
     
     var isResendOTP = false
+    var refDataFirebase : DatabaseReference!
+    var _authorizationService = AuthorizationService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        phoneView.text = "0902002455"
+        
+        refDataFirebase = Database.database().reference()
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
         // Automatically sign in the user.
@@ -67,32 +74,31 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     }
     
     @IBAction func actResendOTP(_ sender: Any) {
+        if(phoneView.text == "" || phoneView.text == nil || !ValidationPhoneNumber(phoneView.text)){
+            phoneView.backgroundColor = UIColor.red
+            return
+        }
+        let phone = phoneView.text!
+        SendOTP(phone)
     }
     
     func SendOTP(_ phone:String) -> Void {
-        AuthorizationService.Register(phoneNumber: phone) { (status, error) in
-//            if status {
-                DispatchQueue.main.async {
-                    self.isResendOTP = true
-                    self.otpView.isHidden = false
-                    self.btnResendOTPView.isHidden = false
-                    self.btnContinueView.setTitle("Đăng nhập", for: .init())
-                    self.otpView.becomeFirstResponder()
-                }
-//            }else{
-//                if(error != nil){
-//                    self.ShowError(String(describing: error!.localizedDescription))
-//                }
-//            }
-        }
+        // SendOTP
+        _authorizationService.Register(phoneNumber: phone)
+        
+        // Update Layout
+        self.isResendOTP = true
+        self.otpView.isHidden = false
+        self.btnResendOTPView.isHidden = false
+        self.btnContinueView.setTitle("Đăng nhập", for: .init())
+        self.otpView.becomeFirstResponder()
     }
     
     func Login(_ phone:String, _ otp:String) -> Void {
-        AuthorizationService.Login(phoneNumber: phone, otp: otp) { (status, error) in
+        _authorizationService.Login(phoneNumber: phone, otp: otp) { (status, data, error) in
             if status {
                 self.ShowAlertMessage("""
-                    Login Thành Công
-                    Xin Chào \(phone)
+                    Xin Chào \(data?.UserName ?? "")
                     """)
             }else{
                 if(error != nil){

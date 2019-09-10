@@ -19,6 +19,7 @@
 		843B2C5A231402D800D5377F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B2C58231402D800D5377F /* LoginViewController.swift */; };
 		843B2C5B231402D800D5377F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843B2C59231402D800D5377F /* LoginViewController.xib */; };
 		8495E7732326811F0082ED10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8495E7722326811F0082ED10 /* GoogleService-Info.plist */; };
+		8495E77823273B180082ED10 /* LoginOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495E77723273B180082ED10 /* LoginOutput.swift */; };
 		84AC1CC8231414A0007AA443 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC1CC7231414A0007AA443 /* ViewController.swift */; };
 		84AC1CCA23141CF9007AA443 /* Pods_OrderNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AC1CC923141CF9007AA443 /* Pods_OrderNow.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		843B2C58231402D800D5377F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		843B2C59231402D800D5377F /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		8495E7722326811F0082ED10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8495E77723273B180082ED10 /* LoginOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOutput.swift; sourceTree = "<group>"; };
 		84AC1CC7231414A0007AA443 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		84AC1CC923141CF9007AA443 /* Pods_OrderNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_OrderNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC60A2CAB7DFAC6682AFBCDB /* Pods-OrderNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.release.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.release.xcconfig"; sourceTree = "<group>"; };
@@ -243,9 +245,18 @@
 		840235542323399900DAE7E4 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				8495E77623273B000082ED10 /* Model */,
 				8402355523233A5200DAE7E4 /* AuthorizationService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		8495E77623273B000082ED10 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8495E77723273B180082ED10 /* LoginOutput.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C5E2858DF6B230351410953D /* Frameworks */ = {
@@ -454,6 +465,7 @@
 			files = (
 				840235532323396100DAE7E4 /* UITextFieldExtension.swift in Sources */,
 				84AC1CC8231414A0007AA443 /* ViewController.swift in Sources */,
+				8495E77823273B180082ED10 /* LoginOutput.swift in Sources */,
 				843B2C5A231402D800D5377F /* LoginViewController.swift in Sources */,
 				8402355623233A5200DAE7E4 /* AuthorizationService.swift in Sources */,
 				840235512323392000DAE7E4 /* UIViewControllerExtension .swift in Sources */,
