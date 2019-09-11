@@ -9,14 +9,20 @@
 import Foundation
 
 class TableItem{
-    var floorCode: Int = 0
-    var tableName: String = ""
-    var tableImage: String = ""
+    var floorCode: Int?
+    var tableCode: Int?
+    var tableName: String?
+    var tableImage: String?
+    var statusOfTable: Bool?
+    var numberOfChair: Int?
     
-    init(floorCode: Int, tableName: String, tableImage: String) {
+    init(floorCode: Int, tableCode: Int, tableName: String, tableImage: String, statusOfTable: Bool, numberOfChair: Int) {
         self.floorCode = floorCode
-        self.tableImage = tableName
+        self.tableCode = tableCode
+        self.tableName = tableName
         self.tableImage = tableImage
+        self.statusOfTable = statusOfTable
+        self.numberOfChair = numberOfChair
     }
     
 }

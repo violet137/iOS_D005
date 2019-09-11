@@ -8,16 +8,21 @@
 
 import UIKit
 
-struct tableItem{
-    var tableImageName: String
-    var tableLabelName: String
-}
-
 struct floorItem {
     var floorLabelName: String
 }
 
-class TableViewController: UIViewController {
+class TableViewController: UIViewController, TruyenVeManHinhTable {
+    
+    
+    func Truyen(statusOfTable: Bool, ID: Int) {
+       let ban = tableItemUtils.getSelectedTable(selectedTable: ID)
+        if ban != nil {
+            ban?.statusOfTable = statusOfTable
+            tableCollectionView.reloadData()
+        }
+    }
+    
     @IBOutlet weak var floorCollectionView: UICollectionView!
     @IBOutlet weak var tableCollectionView: UICollectionView!
     
@@ -31,24 +36,10 @@ class TableViewController: UIViewController {
         floorItem(floorLabelName: "Tang 4")
     ]
     
-    var tableItems: [tableItem] = [
-        tableItem(tableImageName: "TwoSeatsTable", tableLabelName: "A001-1"),
-        tableItem(tableImageName: "TwoSeatsTable", tableLabelName: "A001-2"),
-        tableItem(tableImageName: "TwoSeatsTable", tableLabelName: "A001-3"),
+    var tableItems = [TableItem]()
+    //var tableItems = [tableItem(tableImageName: "TwoSeatsTable", tableLabelName: "A1")
+    //]
 
-        tableItem(tableImageName: "FourSeatsTable", tableLabelName: "A001-4"),
-        tableItem(tableImageName: "FourSeatsTable", tableLabelName: "A001-5"),
-        tableItem(tableImageName: "FourSeatsTable", tableLabelName: "A001-6"),
-
-        tableItem(tableImageName: "SixSeatsTable", tableLabelName: "A001-7"),
-        tableItem(tableImageName: "SixSeatsTable", tableLabelName: "A001-8"),
-        tableItem(tableImageName: "SixSeatsTable", tableLabelName: "A001-9"),
-
-        tableItem(tableImageName: "TwoSeatsTable", tableLabelName: "A001-10"),
-        tableItem(tableImageName: "TwoSeatsTable", tableLabelName: "A001-11"),
-        tableItem(tableImageName: "TwoSeatsTable", tableLabelName: "A001-12"),
-    ]
-    
     var floorCollectionViewFlowLayout: UICollectionViewFlowLayout!
     let floorCellIdentifier = "floorCollectionViewCell"
     
@@ -59,12 +50,21 @@ class TableViewController: UIViewController {
     
     var floorCodeInput: Int = 0
     var myTable = [TableItem]()
+    var myTable2 = [TableItem]()
     var soBan: Int = 0
+    var floorCode: Int = 0
+    
+    var selectedIndexPath: IndexPath? {
+        didSet {
+            tableCollectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableItemUtils.dumpData()
+        //tableItems = tableItemUtils.getArrayOfData()
         
         setupFloorCollectionView()
         setupTableCollectionView()
@@ -77,14 +77,18 @@ class TableViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let item = sender as! tableItem
-        
+        let item = sender as! TableItem
         if segue.identifier == viewImageSegueIdentifier {
             if let vc = segue.destination as? popUpViewController {
-                vc.imageName = item.tableImageName
-                print(item.tableImageName)
+                vc.imageName = item.tableImage
+                vc.tableName = item.tableName
+                vc.message = item.tableName
+                vc.tableCode = item.tableCode
             }
-            
+        }
+        
+        if let popUpViewController = segue.destination as? popUpViewController {
+            popUpViewController.truyenVeManHinhTable = self
         }
     }
     
@@ -143,21 +147,7 @@ class TableViewController: UIViewController {
 
 extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //let item = tableItems[indexPath.row]
-        if collectionView == self.floorCollectionView {
-            floorCodeInput = indexPath.row
-            myTable = tableItemUtils.searchFloor(floorCodeInput: indexPath.row)
-            soBan = myTable.count
-            tableCollectionView.reloadData()
-            print("\nsoBan: \(soBan)")
-            print("Ban vua chon tang \(indexPath.row) voi so luong ban \(myTable.count)")
-            collectionView.reloadData()
-            
-        } else {
-            //performSegue(withIdentifier: viewImageSegueIdentifier, sender: item)
-        }
-    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.floorCollectionView {
@@ -177,8 +167,39 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
         } else {
             let tableCell = collectionView.dequeueReusableCell(withReuseIdentifier: tableCellIdentifier, for: indexPath) as! tableCollectionViewCell
             tableCell.tableLabel.text = myTable[indexPath.item].tableName
-            tableCell.tableImageView.image = UIImage(named: myTable[indexPath.item].tableImage)
+            tableCell.tableImageView.image = UIImage(named: myTable[indexPath.item].tableImage!)
+            
+            var borderColor: CGColor! = UIColor.clear.cgColor
+            var borderWidth: CGFloat = 0
+            
+            if myTable[indexPath.item].statusOfTable == true {
+                borderColor = UIColor.blue.cgColor
+                borderWidth = 1
+            } else {
+                borderColor = UIColor.clear.cgColor
+                borderWidth = 0
+            }
+            
+            tableCell.layer.borderWidth = borderWidth
+            tableCell.layer.borderColor = borderColor
+            
             return tableCell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == self.floorCollectionView {
+            floorCode = indexPath.row
+            myTable = tableItemUtils.searchFloor(floorCodeInput: floorCode)
+            soBan = myTable.count
+            tableCollectionView.reloadData()
+        } else {
+            let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
+            let item = tableArray[indexPath.row]
+            selectedIndexPath = indexPath
+            print("Ban vua chon ban: \(indexPath.row)")
+            performSegue(withIdentifier: viewImageSegueIdentifier, sender: item)
+            tableCollectionView.reloadData()
         }
     }
     
