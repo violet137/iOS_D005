@@ -50,7 +50,6 @@ class TableViewController: UIViewController, TruyenVeManHinhTable {
     
     var floorCodeInput: Int = 0
     var myTable = [TableItem]()
-    var myTable2 = [TableItem]()
     var soBan: Int = 0
     var floorCode: Int = 0
     
@@ -60,6 +59,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable {
         }
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,6 +68,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable {
         
         setupFloorCollectionView()
         setupTableCollectionView()
+
     }
     
     override func viewWillLayoutSubviews() {
@@ -80,10 +81,12 @@ class TableViewController: UIViewController, TruyenVeManHinhTable {
         let item = sender as! TableItem
         if segue.identifier == viewImageSegueIdentifier {
             if let vc = segue.destination as? popUpViewController {
+                vc.floorCode = item.floorCode
                 vc.imageName = item.tableImage
                 vc.tableName = item.tableName
                 vc.message = item.tableName
                 vc.tableCode = item.tableCode
+                vc.numberOfChair = item.numberOfChair
             }
         }
         
@@ -197,7 +200,6 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
             let item = tableArray[indexPath.row]
             selectedIndexPath = indexPath
-            print("Ban vua chon ban: \(indexPath.row)")
             performSegue(withIdentifier: viewImageSegueIdentifier, sender: item)
             tableCollectionView.reloadData()
         }

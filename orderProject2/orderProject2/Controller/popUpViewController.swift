@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 protocol TruyenVeManHinhTable {
     func Truyen(statusOfTable: Bool, ID: Int)
@@ -20,14 +21,17 @@ class popUpViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var bookButton: UIButton!
     @IBOutlet weak var cancelBookButton: UIButton!
-    
-    var imageName: String!
-    var tableName: String!
-    var tableCode: Int!
-    var message: String!
-    
     var truyenVeManHinhTable: TruyenVeManHinhTable?
+    
+    var floorCode: Int!
+    var tableCode: Int!
+    var tableName: String!
+    var imageName: String!
+    var message: String!
     var statusOfTable: Bool = true
+    var numberOfChair: Int!
+    var ref: DatabaseReference!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +42,7 @@ class popUpViewController: UIViewController {
         setupMessageLabel()
         setupBookButton()
         setupCancelBook()
+        ref = Database.database().reference(withPath: "table-items")
         // Do any additional setup after loading the view.
     }
     
@@ -66,6 +71,7 @@ class popUpViewController: UIViewController {
     private func setupBookButton() {
         bookButton.layer.cornerRadius = 20
         bookButton.layer.masksToBounds = true
+        
     }
     
     private func setupCancelBook() {
@@ -75,14 +81,21 @@ class popUpViewController: UIViewController {
     
     @IBAction func bookAction(_ sender: Any) {
         statusOfTable = true
-        
         truyenVeManHinhTable?.Truyen(statusOfTable: statusOfTable, ID: tableCode)
+        let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfChair: numberOfChair)
+        let tableItemRef = self.ref.child("Table: \(tableCode!)")
+        tableItemRef.setValue(["name" : tableItem.tableCode, "image" :  tableItem.tableImage, "status of table" : tableItem.statusOfTable, "number of chairs" : tableItem.numberOfChair])
+        
+        
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancelAction(_ sender: Any) {
         statusOfTable = false
         truyenVeManHinhTable?.Truyen(statusOfTable: statusOfTable, ID: tableCode)
+        let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfChair: numberOfChair)
+        let tableItemRef = self.ref.child("Table: \(tableCode!)")
+        tableItemRef.setValue(["name" : tableItem.tableCode, "image" :  tableItem.tableImage, "status of table" : tableItem.statusOfTable, "number of chairs" : tableItem.numberOfChair])
         dismiss(animated: true, completion: nil)
     }
     
