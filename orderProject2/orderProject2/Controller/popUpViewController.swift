@@ -83,8 +83,8 @@ class popUpViewController: UIViewController {
         statusOfTable = true
         truyenVeManHinhTable?.Truyen(statusOfTable: statusOfTable, ID: tableCode)
         let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfChair: numberOfChair)
-        let tableItemRef = self.ref.child("Table: \(tableCode!)")
-        tableItemRef.setValue(["name" : tableItem.tableCode, "image" :  tableItem.tableImage, "status of table" : tableItem.statusOfTable, "number of chairs" : tableItem.numberOfChair])
+        let tableItemRef = self.ref.child("\(tableCode!)")
+        tableItemRef.setValue([ "floor" : tableItem.floorCode,"name" : tableItem.tableName, "image" :  tableItem.tableImage, "status" : tableItem.statusOfTable, "chairs" : tableItem.numberOfChair])
         
         
         dismiss(animated: true, completion: nil)
@@ -94,8 +94,9 @@ class popUpViewController: UIViewController {
         statusOfTable = false
         truyenVeManHinhTable?.Truyen(statusOfTable: statusOfTable, ID: tableCode)
         let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfChair: numberOfChair)
-        let tableItemRef = self.ref.child("Table: \(tableCode!)")
-        tableItemRef.setValue(["name" : tableItem.tableCode, "image" :  tableItem.tableImage, "status of table" : tableItem.statusOfTable, "number of chairs" : tableItem.numberOfChair])
+        let tableItemRef = self.ref.child("\(tableCode!)")
+        tableItemRef.setValue([ "floor" : tableItem.floorCode,"name" : tableItem.tableName, "image" :  tableItem.tableImage, "status" : tableItem.statusOfTable, "chairs" : tableItem.numberOfChair])
+        
         dismiss(animated: true, completion: nil)
     }
     

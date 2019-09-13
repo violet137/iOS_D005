@@ -13,6 +13,7 @@ class tableCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var tableImageView: UIImageView!
     @IBOutlet weak var tableLabel: UILabel!
+    @IBOutlet weak var chairLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

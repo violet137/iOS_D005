@@ -12,7 +12,14 @@ struct floorItem {
     var floorLabelName: String
 }
 
-class TableViewController: UIViewController, TruyenVeManHinhTable {
+class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback {
+   
+    func onDataUpdate() {
+        myTable = tableItemUtils.searchFloor(floorCodeInput: floorCode)
+        soBan = myTable.count
+        tableCollectionView.reloadData()
+    }
+    
     
     
     func Truyen(statusOfTable: Bool, ID: Int) {
@@ -64,6 +71,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable {
         super.viewDidLoad()
         
         tableItemUtils.dumpData()
+        tableItemUtils.tableListening(callback: self)
         //tableItems = tableItemUtils.getArrayOfData()
         
         setupFloorCollectionView()
@@ -149,15 +157,13 @@ class TableViewController: UIViewController, TruyenVeManHinhTable {
 }
 
 extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.floorCollectionView {
-            print("So luong tang \(floorItems.count)")
+            //print("So luong tang \(floorItems.count)")
             return floorItems.count
         } else {
-            print("So luong table \(soBan)")
+            //print("So luong table \(soBan)")
             return soBan
         }
     }
