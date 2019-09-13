@@ -97,9 +97,10 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     func Login(_ phone:String, _ otp:String) -> Void {
         _authorizationService.Login(phoneNumber: phone, otp: otp) { (status, data, error) in
             if status {
-                self.ShowAlertMessage("""
-                    Xin Chào \(data?.UserName ?? "")
-                    """)
+                let homeUser = HomeUserViewController()
+                DispatchQueue.main.async {
+                    self.present(homeUser, animated: true, completion: nil)
+                }
             }else{
                 if(error != nil){
                     self.ShowError(error)

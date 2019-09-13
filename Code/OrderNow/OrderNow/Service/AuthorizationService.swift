@@ -21,7 +21,8 @@ class AuthorizationService {
     func Register(phoneNumber:String) -> Void {
         let otp = randomString(6)
         refDataFirebase.child("userList").child(phoneNumber).setValue(["userName": "Dev","code": "\(otp)"])
-        print("OTP: \(otp)")
+        print("OTP: \(otp) <---------------------------")
+        //https://console.firebase.google.com/project/ordernow-10471/database/ordernow-10471/data
     }
     
     func randomString(_ length: Int) -> String {
