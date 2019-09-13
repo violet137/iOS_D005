@@ -53,7 +53,9 @@ class QRScannerViewController: UIViewController,QRScannerViewDelegate {
     }
 
     @IBAction func actSupport(_ sender: UITapGestureRecognizer) {
-        print("actSupport")
+        DispatchQueue.main.async {
+            self.present(LocationSupportViewController(), animated: true, completion: nil)
+        }
     }
     
     @IBAction func actHome(_ sender: UITapGestureRecognizer) {

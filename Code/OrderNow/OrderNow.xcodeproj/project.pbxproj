@@ -18,6 +18,9 @@
 		8402355623233A5200DAE7E4 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402355523233A5200DAE7E4 /* AuthorizationService.swift */; };
 		843B2C5A231402D800D5377F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B2C58231402D800D5377F /* LoginViewController.swift */; };
 		843B2C5B231402D800D5377F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843B2C59231402D800D5377F /* LoginViewController.xib */; };
+		8478222B232B989C009D7D58 /* LocationSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84782229232B989C009D7D58 /* LocationSupportViewController.swift */; };
+		8478222C232B989C009D7D58 /* LocationSupportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8478222A232B989C009D7D58 /* LocationSupportViewController.xib */; };
+		8478222E232B9F8F009D7D58 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8478222D232B9F8F009D7D58 /* MapView.swift */; };
 		8495E7732326811F0082ED10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8495E7722326811F0082ED10 /* GoogleService-Info.plist */; };
 		8495E77823273B180082ED10 /* LoginOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495E77723273B180082ED10 /* LoginOutput.swift */; };
 		84AC1CC8231414A0007AA443 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC1CC7231414A0007AA443 /* ViewController.swift */; };
@@ -67,6 +70,9 @@
 		8402355523233A5200DAE7E4 /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		843B2C58231402D800D5377F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		843B2C59231402D800D5377F /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		84782229232B989C009D7D58 /* LocationSupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSupportViewController.swift; sourceTree = "<group>"; };
+		8478222A232B989C009D7D58 /* LocationSupportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationSupportViewController.xib; sourceTree = "<group>"; };
+		8478222D232B9F8F009D7D58 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		8495E7722326811F0082ED10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8495E77723273B180082ED10 /* LoginOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOutput.swift; sourceTree = "<group>"; };
 		84AC1CC7231414A0007AA443 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +172,7 @@
 		2F17F4022310292600127C69 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84782228232B9867009D7D58 /* LocationSupport */,
 				84BC0BCA2329289E0095BEB7 /* QRScannerPageController */,
 				84BC0BC52329262F0095BEB7 /* HomePageController */,
 				2F17F409231029D100127C69 /* LoginPageController */,
@@ -234,6 +241,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		84782228232B9867009D7D58 /* LocationSupport */ = {
+			isa = PBXGroup;
+			children = (
+				84782229232B989C009D7D58 /* LocationSupportViewController.swift */,
+				8478222A232B989C009D7D58 /* LocationSupportViewController.xib */,
+			);
+			path = LocationSupport;
+			sourceTree = "<group>";
+		};
 		8495E77623273B000082ED10 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +263,7 @@
 			children = (
 				84BC0BBF232925630095BEB7 /* QRScannerView.swift */,
 				84DF56FA232B43D300C6FD4E /* GradientView.swift */,
+				8478222D232B9F8F009D7D58 /* MapView.swift */,
 			);
 			path = ViewCustom;
 			sourceTree = "<group>";
@@ -390,6 +407,7 @@
 				843B2C5B231402D800D5377F /* LoginViewController.xib in Resources */,
 				2A52D3B0231028C9005DA184 /* LaunchScreen.storyboard in Resources */,
 				8495E7732326811F0082ED10 /* GoogleService-Info.plist in Resources */,
+				8478222C232B989C009D7D58 /* LocationSupportViewController.xib in Resources */,
 				2A52D3AD231028C9005DA184 /* Assets.xcassets in Resources */,
 				2A52D3AB231028C8005DA184 /* Main.storyboard in Resources */,
 			);
@@ -479,6 +497,7 @@
 				840235532323396100DAE7E4 /* UITextFieldExtension.swift in Sources */,
 				84DF56FB232B43D300C6FD4E /* GradientView.swift in Sources */,
 				84AC1CC8231414A0007AA443 /* ViewController.swift in Sources */,
+				8478222E232B9F8F009D7D58 /* MapView.swift in Sources */,
 				84BC0BC8232927CF0095BEB7 /* HomeUserViewController.swift in Sources */,
 				8495E77823273B180082ED10 /* LoginOutput.swift in Sources */,
 				843B2C5A231402D800D5377F /* LoginViewController.swift in Sources */,
@@ -486,6 +505,7 @@
 				840235512323392000DAE7E4 /* UIViewControllerExtension .swift in Sources */,
 				84BC0BC0232925630095BEB7 /* QRScannerView.swift in Sources */,
 				2A52D3A6231028C8005DA184 /* AppDelegate.swift in Sources */,
+				8478222B232B989C009D7D58 /* LocationSupportViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

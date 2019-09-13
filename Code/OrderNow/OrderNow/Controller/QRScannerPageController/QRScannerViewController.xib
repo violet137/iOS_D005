@@ -24,7 +24,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDS-en-eXO" customClass="QRScannerView" customModule="OrderNow" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYy-PR-MCd" customClass="GradientView" customModule="OrderNow" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="673" width="375" height="139"/>
@@ -131,19 +131,37 @@
                         <constraint firstItem="N8P-2P-dcc" firstAttribute="centerY" secondItem="HCj-tE-7cW" secondAttribute="centerY" id="rQP-Iy-yyz"/>
                     </constraints>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhp-yj-iS6">
+                    <rect key="frame" x="0.0" y="256" width="375" height="300"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quét mã QR tại bàn để gọi món" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMy-Zb-NFE">
+                            <rect key="frame" x="68.333333333333371" y="0.0" width="238.66666666666663" height="20.333333333333332"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="dhp-yj-iS6" secondAttribute="height" multiplier="1.25" id="EVD-FJ-6Gu"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="NDS-en-eXO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2fF-ld-bs5"/>
                 <constraint firstAttribute="bottom" secondItem="tYy-PR-MCd" secondAttribute="bottom" id="CJA-fX-Zmk"/>
                 <constraint firstAttribute="bottom" secondItem="NDS-en-eXO" secondAttribute="bottom" id="DSK-PX-2Q8"/>
+                <constraint firstItem="dhp-yj-iS6" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="MCn-WC-KMY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Cwy-94-nHR" secondAttribute="bottom" id="PxW-QT-p12"/>
                 <constraint firstItem="Cwy-94-nHR" firstAttribute="leading" secondItem="tYy-PR-MCd" secondAttribute="leading" id="Rbl-Ux-YUs"/>
                 <constraint firstItem="NDS-en-eXO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ws4-wZ-Itz"/>
                 <constraint firstItem="tYy-PR-MCd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZlN-60-wj7"/>
                 <constraint firstItem="Cwy-94-nHR" firstAttribute="trailing" secondItem="tYy-PR-MCd" secondAttribute="trailing" id="a3a-UA-sTy"/>
                 <constraint firstItem="Cwy-94-nHR" firstAttribute="top" secondItem="tYy-PR-MCd" secondAttribute="top" id="g6J-JN-hrv"/>
+                <constraint firstItem="dhp-yj-iS6" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="pyL-4t-KM0"/>
                 <constraint firstAttribute="trailing" secondItem="NDS-en-eXO" secondAttribute="trailing" id="w1w-UY-yvN"/>
+                <constraint firstItem="dhp-yj-iS6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xRJ-Vt-JVQ"/>
                 <constraint firstAttribute="trailing" secondItem="tYy-PR-MCd" secondAttribute="trailing" id="xSV-2c-r6O"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

@@ -39,19 +39,6 @@ class QRScannerView: UIView {
     func drawBorderView() -> Void {
         
         let boxViewFrame = UIView()
-        
-        var gl:CAGradientLayer!
-        
-        let colorTop = UIColor.red.cgColor
-        let colorBottom = UIColor.green.cgColor
-        
-        gl = CAGradientLayer()
-        gl.colors = [colorTop, colorBottom]
-        gl.locations = [0.0, 1.0]
-        
-//        boxViewFrame.layer.insertSublayer(gl, at: 0)
-        boxViewFrame.layer.addSublayer(gl)
-        
         self.addSubview(boxViewFrame)
         boxViewFrame.snp.makeConstraints { (make) -> Void in
             make.centerY.equalTo(self)
