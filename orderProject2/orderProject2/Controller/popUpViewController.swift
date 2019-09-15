@@ -88,6 +88,7 @@ class popUpViewController: UIViewController {
         
         
         dismiss(animated: true, completion: nil)
+        ProgressHUD.showSuccess("Book Successful")
     }
     
     @IBAction func cancelAction(_ sender: Any) {
@@ -98,6 +99,7 @@ class popUpViewController: UIViewController {
         tableItemRef.setValue([ "floor" : tableItem.floorCode,"name" : tableItem.tableName, "image" :  tableItem.tableImage, "status" : tableItem.statusOfTable, "chairs" : tableItem.numberOfChair])
         
         dismiss(animated: true, completion: nil)
+        ProgressHUD.showError("Book Cancel")
     }
     
     /*
