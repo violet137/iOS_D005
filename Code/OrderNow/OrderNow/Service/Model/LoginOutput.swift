@@ -9,8 +9,10 @@
 import UIKit
 
 class LoginOutput {
-    init(userName:String) {
+    init(userName:String, typeAcc : String) {
         UserName = userName
+        TypeAcc = typeAcc
     }
     var UserName : String!
+    var TypeAcc : String!
 }

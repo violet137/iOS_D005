@@ -204,6 +204,7 @@
 				2A38CFC8232FB9DC0023152B /* Controller */,
 				2A38CFC3232FB9B90023152B /* Model */,
 				2A38CFB5232FB8930023152B /* Supporting Files */,
+				2F17F409231029D100127C69 /* LoginPageController */,
 				84CEEE82232FB5C20081870B /* Customer */,
 				84BC0BBE232925480095BEB7 /* ViewCustom */,
 				840235542323399900DAE7E4 /* Service */,
@@ -239,7 +240,6 @@
 				84782228232B9867009D7D58 /* LocationSupport */,
 				84BC0BCA2329289E0095BEB7 /* QRScannerPageController */,
 				84BC0BC52329262F0095BEB7 /* HomePageController */,
-				2F17F409231029D100127C69 /* LoginPageController */,
 				84AC1CC7231414A0007AA443 /* ViewController.swift */,
 			);
 			path = ViewController;
