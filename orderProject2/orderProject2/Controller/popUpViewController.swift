@@ -84,13 +84,13 @@ class popUpViewController: UIViewController {
     }
     
     private func plusButtonLayer() {
-        plusButton.layer.cornerRadius = 60
+        plusButton.layer.cornerRadius = 10
         plusButton.layer.borderWidth = 1
         plusButton.layer.borderColor = UIColor.blue.cgColor
     }
     
     private func minusButtonLayer() {
-        minusButton.layer.cornerRadius = 60
+        minusButton.layer.cornerRadius = 10
         minusButton.layer.borderWidth = 1
         minusButton.layer.borderColor = UIColor.blue.cgColor
     }

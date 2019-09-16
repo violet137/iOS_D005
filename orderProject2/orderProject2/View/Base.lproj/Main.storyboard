@@ -166,20 +166,20 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="OQl-tD-MEK">
-                                                <rect key="frame" x="150" y="0.0" width="150" height="50"/>
+                                                <rect key="frame" x="160" y="10" width="130" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXF-KZ-QPs">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="30"/>
                                                         <state key="normal" title="+"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKQ-L9-hQz">
-                                                        <rect key="frame" x="50" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="43.5" y="0.0" width="43" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cS7-7e-WRh">
-                                                        <rect key="frame" x="100" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="86.5" y="0.0" width="43.5" height="30"/>
                                                         <state key="normal" title="-"/>
                                                     </button>
                                                 </subviews>
@@ -188,13 +188,13 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="pNd-DW-Xih" firstAttribute="leading" secondItem="m6E-Zv-CHy" secondAttribute="leading" id="35s-Ne-nho"/>
+                                            <constraint firstAttribute="bottom" secondItem="OQl-tD-MEK" secondAttribute="bottom" constant="10" id="9xl-ZL-l4h"/>
                                             <constraint firstAttribute="height" constant="50" id="Clh-lB-SWf"/>
-                                            <constraint firstAttribute="trailing" secondItem="OQl-tD-MEK" secondAttribute="trailing" id="LYV-S7-k5g"/>
+                                            <constraint firstAttribute="trailing" secondItem="OQl-tD-MEK" secondAttribute="trailing" constant="10" id="LYV-S7-k5g"/>
                                             <constraint firstItem="pNd-DW-Xih" firstAttribute="top" secondItem="m6E-Zv-CHy" secondAttribute="top" id="UEd-h4-YWg"/>
-                                            <constraint firstItem="OQl-tD-MEK" firstAttribute="top" secondItem="m6E-Zv-CHy" secondAttribute="top" id="XLa-1w-fnS"/>
                                             <constraint firstItem="pNd-DW-Xih" firstAttribute="width" secondItem="m6E-Zv-CHy" secondAttribute="width" multiplier="1/2" id="Zv1-Lw-e9v"/>
-                                            <constraint firstAttribute="bottom" secondItem="OQl-tD-MEK" secondAttribute="bottom" id="ddK-vh-jWt"/>
-                                            <constraint firstItem="OQl-tD-MEK" firstAttribute="leading" secondItem="pNd-DW-Xih" secondAttribute="trailing" id="lVx-6N-RuS"/>
+                                            <constraint firstItem="OQl-tD-MEK" firstAttribute="top" secondItem="m6E-Zv-CHy" secondAttribute="top" constant="10" id="bka-wR-u0B"/>
+                                            <constraint firstItem="OQl-tD-MEK" firstAttribute="leading" secondItem="pNd-DW-Xih" secondAttribute="trailing" constant="10" id="lVx-6N-RuS"/>
                                             <constraint firstAttribute="bottom" secondItem="pNd-DW-Xih" secondAttribute="bottom" id="yKs-n8-Plo"/>
                                         </constraints>
                                     </view>
