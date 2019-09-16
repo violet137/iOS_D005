@@ -14,14 +14,14 @@ struct floorItem {
 
 class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback {
    
+    //TableCallBack
     func onDataUpdate() {
         myTable = tableItemUtils.searchFloor(floorCodeInput: floorCode)
         soBan = myTable.count
         tableCollectionView.reloadData()
     }
     
-    
-    
+    //TruyenVeManHinhTable
     func Truyen(statusOfTable: Bool, ID: Int) {
        let ban = tableItemUtils.getSelectedTable(selectedTable: ID)
         if ban != nil {
@@ -177,6 +177,7 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             let tableCell = collectionView.dequeueReusableCell(withReuseIdentifier: tableCellIdentifier, for: indexPath) as! tableCollectionViewCell
             tableCell.tableLabel.text = myTable[indexPath.item].tableName
             tableCell.tableImageView.image = UIImage(named: myTable[indexPath.item].tableImage!)
+            tableCell.chairLabel.text = "0/\(myTable[indexPath.item].numberOfChair!)"
             
             var borderColor: CGColor! = UIColor.clear.cgColor
             var borderWidth: CGFloat = 0

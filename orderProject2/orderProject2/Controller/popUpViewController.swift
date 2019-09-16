@@ -21,6 +21,8 @@ class popUpViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var bookButton: UIButton!
     @IBOutlet weak var cancelBookButton: UIButton!
+    @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var minusButton: UIButton!
     var truyenVeManHinhTable: TruyenVeManHinhTable?
     
     var floorCode: Int!
@@ -42,6 +44,8 @@ class popUpViewController: UIViewController {
         setupMessageLabel()
         setupBookButton()
         setupCancelBook()
+        plusButtonLayer()
+        minusButtonLayer()
         ref = Database.database().reference(withPath: "table-items")
         // Do any additional setup after loading the view.
     }
@@ -77,6 +81,18 @@ class popUpViewController: UIViewController {
     private func setupCancelBook() {
         cancelBookButton.layer.cornerRadius = 20
         cancelBookButton.layer.masksToBounds = true
+    }
+    
+    private func plusButtonLayer() {
+        plusButton.layer.cornerRadius = 60
+        plusButton.layer.borderWidth = 1
+        plusButton.layer.borderColor = UIColor.blue.cgColor
+    }
+    
+    private func minusButtonLayer() {
+        minusButton.layer.cornerRadius = 60
+        minusButton.layer.borderWidth = 1
+        minusButton.layer.borderColor = UIColor.blue.cgColor
     }
     
     @IBAction func bookAction(_ sender: Any) {
