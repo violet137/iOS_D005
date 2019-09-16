@@ -7,7 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A52D3A6231028C8005DA184 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A52D3A5231028C8005DA184 /* AppDelegate.swift */; };
+		2A38CFBE232FB8BE0023152B /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A38CFB7232FB8BD0023152B /* ProgressHUD.m */; };
+		2A38CFBF232FB8BE0023152B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A38CFB8232FB8BD0023152B /* GoogleService-Info.plist */; };
+		2A38CFC0232FB8BE0023152B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A38CFBB232FB8BD0023152B /* AppDelegate.swift */; };
+		2A38CFC2232FB8BE0023152B /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A38CFBD232FB8BE0023152B /* ProgressHUD.bundle */; };
+		2A38CFC6232FB9C90023152B /* TableUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A38CFC4232FB9C90023152B /* TableUtils.swift */; };
+		2A38CFC7232FB9C90023152B /* TableItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A38CFC5232FB9C90023152B /* TableItemModel.swift */; };
+		2A38CFCF232FB9E70023152B /* tableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A38CFC9232FB9E70023152B /* tableCollectionViewCell.swift */; };
+		2A38CFD0232FB9E70023152B /* tableCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A38CFCA232FB9E70023152B /* tableCollectionViewCell.xib */; };
+		2A38CFD1232FB9E70023152B /* floorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A38CFCB232FB9E70023152B /* floorCollectionViewCell.swift */; };
+		2A38CFD2232FB9E70023152B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A38CFCC232FB9E70023152B /* TableViewController.swift */; };
+		2A38CFD3232FB9E70023152B /* popUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A38CFCD232FB9E70023152B /* popUpViewController.swift */; };
+		2A38CFD4232FB9E70023152B /* floorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A38CFCE232FB9E70023152B /* floorCollectionViewCell.xib */; };
 		2A52D3AB231028C8005DA184 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A52D3A9231028C8005DA184 /* Main.storyboard */; };
 		2A52D3AD231028C9005DA184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A52D3AC231028C9005DA184 /* Assets.xcassets */; };
 		2A52D3B0231028C9005DA184 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A52D3AE231028C9005DA184 /* LaunchScreen.storyboard */; };
@@ -22,7 +33,6 @@
 		8478222C232B989C009D7D58 /* LocationSupportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8478222A232B989C009D7D58 /* LocationSupportViewController.xib */; };
 		84782230232BCB6F009D7D58 /* StackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8478222F232BCB6F009D7D58 /* StackViewExtension.swift */; };
 		84782232232BDA7D009D7D58 /* PagingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84782231232BDA7D009D7D58 /* PagingCollectionView.swift */; };
-		8495E7732326811F0082ED10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8495E7722326811F0082ED10 /* GoogleService-Info.plist */; };
 		8495E77823273B180082ED10 /* LoginOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495E77723273B180082ED10 /* LoginOutput.swift */; };
 		84AC1CC8231414A0007AA443 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC1CC7231414A0007AA443 /* ViewController.swift */; };
 		84AC1CCA23141CF9007AA443 /* Pods_OrderNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AC1CC923141CF9007AA443 /* Pods_OrderNow.framework */; };
@@ -55,12 +65,25 @@
 
 /* Begin PBXFileReference section */
 		174F9252E2F997B3A5BE891E /* Pods_OrderNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrderNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A38CFB6232FB8BD0023152B /* OrderNow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OrderNow-Bridging-Header.h"; sourceTree = "<group>"; };
+		2A38CFB7232FB8BD0023152B /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		2A38CFB8232FB8BD0023152B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2A38CFBA232FB8BD0023152B /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		2A38CFBB232FB8BD0023152B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2A38CFBC232FB8BE0023152B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A38CFBD232FB8BE0023152B /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		2A38CFC4232FB9C90023152B /* TableUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableUtils.swift; sourceTree = "<group>"; };
+		2A38CFC5232FB9C90023152B /* TableItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableItemModel.swift; sourceTree = "<group>"; };
+		2A38CFC9232FB9E70023152B /* tableCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableCollectionViewCell.swift; sourceTree = "<group>"; };
+		2A38CFCA232FB9E70023152B /* tableCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tableCollectionViewCell.xib; sourceTree = "<group>"; };
+		2A38CFCB232FB9E70023152B /* floorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = floorCollectionViewCell.swift; sourceTree = "<group>"; };
+		2A38CFCC232FB9E70023152B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		2A38CFCD232FB9E70023152B /* popUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popUpViewController.swift; sourceTree = "<group>"; };
+		2A38CFCE232FB9E70023152B /* floorCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = floorCollectionViewCell.xib; sourceTree = "<group>"; };
 		2A52D3A2231028C8005DA184 /* OrderNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrderNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A52D3A5231028C8005DA184 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A52D3AA231028C8005DA184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2A52D3AC231028C9005DA184 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A52D3AF231028C9005DA184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2A52D3B1231028C9005DA184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A52D3B6231028C9005DA184 /* OrderNowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrderNowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A52D3BA231028C9005DA184 /* OrderNowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNowTests.swift; sourceTree = "<group>"; };
 		2A52D3BC231028C9005DA184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,7 +100,6 @@
 		8478222A232B989C009D7D58 /* LocationSupportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationSupportViewController.xib; sourceTree = "<group>"; };
 		8478222F232BCB6F009D7D58 /* StackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtension.swift; sourceTree = "<group>"; };
 		84782231232BDA7D009D7D58 /* PagingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionView.swift; sourceTree = "<group>"; };
-		8495E7722326811F0082ED10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8495E77723273B180082ED10 /* LoginOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOutput.swift; sourceTree = "<group>"; };
 		84AC1CC7231414A0007AA443 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		84AC1CC923141CF9007AA443 /* Pods_OrderNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_OrderNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +140,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A38CFB5232FB8930023152B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A38CFBC232FB8BE0023152B /* Info.plist */,
+				2A38CFBB232FB8BD0023152B /* AppDelegate.swift */,
+				2A38CFB8232FB8BD0023152B /* GoogleService-Info.plist */,
+				2A38CFBD232FB8BE0023152B /* ProgressHUD.bundle */,
+				2A38CFBA232FB8BD0023152B /* ProgressHUD.h */,
+				2A38CFB7232FB8BD0023152B /* ProgressHUD.m */,
+				2A38CFB6232FB8BD0023152B /* OrderNow-Bridging-Header.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A38CFC3232FB9B90023152B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2A38CFC5232FB9C90023152B /* TableItemModel.swift */,
+				2A38CFC4232FB9C90023152B /* TableUtils.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2A38CFC8232FB9DC0023152B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A38CFCB232FB9E70023152B /* floorCollectionViewCell.swift */,
+				2A38CFCE232FB9E70023152B /* floorCollectionViewCell.xib */,
+				2A38CFCD232FB9E70023152B /* popUpViewController.swift */,
+				2A38CFC9232FB9E70023152B /* tableCollectionViewCell.swift */,
+				2A38CFCA232FB9E70023152B /* tableCollectionViewCell.xib */,
+				2A38CFCC232FB9E70023152B /* TableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		2A52D399231028C8005DA184 = {
 			isa = PBXGroup;
 			children = (
@@ -143,13 +201,13 @@
 		2A52D3A4231028C8005DA184 /* OrderNow */ = {
 			isa = PBXGroup;
 			children = (
+				2A38CFC8232FB9DC0023152B /* Controller */,
+				2A38CFC3232FB9B90023152B /* Model */,
+				2A38CFB5232FB8930023152B /* Supporting Files */,
 				84CEEE82232FB5C20081870B /* Customer */,
 				84BC0BBE232925480095BEB7 /* ViewCustom */,
-				8495E7722326811F0082ED10 /* GoogleService-Info.plist */,
 				840235542323399900DAE7E4 /* Service */,
 				8402354F232338A200DAE7E4 /* Extension */,
-				2A52D3B1231028C9005DA184 /* Info.plist */,
-				2A52D3A5231028C8005DA184 /* AppDelegate.swift */,
 				2F17F4052310299E00127C69 /* Other */,
 				2F17F4042310292D00127C69 /* View */,
 				2A52D3AC231028C9005DA184 /* Assets.xcassets */,
@@ -391,6 +449,7 @@
 				TargetAttributes = {
 					2A52D3A1231028C8005DA184 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 					2A52D3B5231028C9005DA184 = {
 						CreatedOnToolsVersion = 10.3;
@@ -431,9 +490,12 @@
 				84BC0BCE232928CC0095BEB7 /* QRScannerViewController.xib in Resources */,
 				843B2C5B231402D800D5377F /* LoginViewController.xib in Resources */,
 				2A52D3B0231028C9005DA184 /* LaunchScreen.storyboard in Resources */,
-				8495E7732326811F0082ED10 /* GoogleService-Info.plist in Resources */,
 				84BA8314232CB8CB00F87DDE /* BannerHomeCollectionViewCell.xib in Resources */,
 				8478222C232B989C009D7D58 /* LocationSupportViewController.xib in Resources */,
+				2A38CFBF232FB8BE0023152B /* GoogleService-Info.plist in Resources */,
+				2A38CFD0232FB9E70023152B /* tableCollectionViewCell.xib in Resources */,
+				2A38CFC2232FB8BE0023152B /* ProgressHUD.bundle in Resources */,
+				2A38CFD4232FB9E70023152B /* floorCollectionViewCell.xib in Resources */,
 				2A52D3AD231028C9005DA184 /* Assets.xcassets in Resources */,
 				2A52D3AB231028C8005DA184 /* Main.storyboard in Resources */,
 			);
@@ -520,9 +582,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				84782232232BDA7D009D7D58 /* PagingCollectionView.swift in Sources */,
+				2A38CFD2232FB9E70023152B /* TableViewController.swift in Sources */,
+				2A38CFD1232FB9E70023152B /* floorCollectionViewCell.swift in Sources */,
+				2A38CFC7232FB9C90023152B /* TableItemModel.swift in Sources */,
 				84BA8313232CB8CB00F87DDE /* BannerHomeCollectionViewCell.swift in Sources */,
+				2A38CFD3232FB9E70023152B /* popUpViewController.swift in Sources */,
 				84BC0BCD232928CC0095BEB7 /* QRScannerViewController.swift in Sources */,
+				2A38CFC6232FB9C90023152B /* TableUtils.swift in Sources */,
 				840235532323396100DAE7E4 /* UITextFieldExtension.swift in Sources */,
+				2A38CFCF232FB9E70023152B /* tableCollectionViewCell.swift in Sources */,
 				84DF56FB232B43D300C6FD4E /* GradientView.swift in Sources */,
 				84AC1CC8231414A0007AA443 /* ViewController.swift in Sources */,
 				84BC0BC8232927CF0095BEB7 /* HomeUserViewController.swift in Sources */,
@@ -532,7 +600,8 @@
 				840235512323392000DAE7E4 /* UIViewControllerExtension .swift in Sources */,
 				84782230232BCB6F009D7D58 /* StackViewExtension.swift in Sources */,
 				84BC0BC0232925630095BEB7 /* QRScannerView.swift in Sources */,
-				2A52D3A6231028C8005DA184 /* AppDelegate.swift in Sources */,
+				2A38CFBE232FB8BE0023152B /* ProgressHUD.m in Sources */,
+				2A38CFC0232FB8BE0023152B /* AppDelegate.swift in Sources */,
 				8478222B232B989C009D7D58 /* LocationSupportViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -709,9 +778,10 @@
 			baseConfigurationReference = 3F9347A14CB02147C66B9CEC /* Pods-OrderNow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JL68B4CJPV;
-				INFOPLIST_FILE = OrderNow/Info.plist;
+				DEVELOPMENT_TEAM = 3HFR4G54DV;
+				INFOPLIST_FILE = "$(SRCROOT)/OrderNow/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -752,8 +822,10 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.greenacademy.ordernow;
+				PRODUCT_BUNDLE_IDENTIFIER = com.greenacademy.ordernow1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OrderNow/Supporting Files/OrderNow-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -764,9 +836,10 @@
 			baseConfigurationReference = BC60A2CAB7DFAC6682AFBCDB /* Pods-OrderNow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JL68B4CJPV;
-				INFOPLIST_FILE = OrderNow/Info.plist;
+				DEVELOPMENT_TEAM = 3HFR4G54DV;
+				INFOPLIST_FILE = "$(SRCROOT)/OrderNow/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -807,8 +880,9 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.greenacademy.ordernow;
+				PRODUCT_BUNDLE_IDENTIFIER = com.greenacademy.ordernow1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OrderNow/Supporting Files/OrderNow-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
