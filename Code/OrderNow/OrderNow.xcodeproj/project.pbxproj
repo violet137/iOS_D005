@@ -175,7 +175,7 @@
 			path = OrderNowUITests;
 			sourceTree = "<group>";
 		};
-		2F17F4022310292600127C69 /* Controller */ = {
+		2F17F4022310292600127C69 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				84782228232B9867009D7D58 /* LocationSupport */,
@@ -184,7 +184,7 @@
 				2F17F409231029D100127C69 /* LoginPageController */,
 				84AC1CC7231414A0007AA443 /* ViewController.swift */,
 			);
-			path = Controller;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		2F17F4042310292D00127C69 /* View */ = {
@@ -257,12 +257,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		84BA830F232CB88F00F87DDE /* Cell */ = {
+		84BA830F232CB88F00F87DDE /* ViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				84BA8310232CB89900F87DDE /* HomePage */,
 			);
-			path = Cell;
+			path = ViewCell;
 			sourceTree = "<group>";
 		};
 		84BA8310232CB89900F87DDE /* HomePage */ = {
@@ -305,8 +305,8 @@
 		84CEEE82232FB5C20081870B /* Customer */ = {
 			isa = PBXGroup;
 			children = (
-				2F17F4022310292600127C69 /* Controller */,
-				84BA830F232CB88F00F87DDE /* Cell */,
+				2F17F4022310292600127C69 /* ViewController */,
+				84BA830F232CB88F00F87DDE /* ViewCell */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
