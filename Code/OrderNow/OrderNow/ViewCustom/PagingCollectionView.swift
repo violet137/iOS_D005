@@ -30,9 +30,7 @@ class PagingCollectionView: UICollectionView, UICollectionViewDataSource, UIColl
         
         self.dataSource = self
         self.delegate = self
-//        self.hori
-//        self.showsHorizontalScrollIndicator = true
-//        self.
+        collectionViewFlowLayout.scrollDirection = .horizontal
     }
 
     override func layoutSubviews() {
@@ -75,9 +73,7 @@ class PagingCollectionView: UICollectionView, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = delegateView.pagingCollectionView(self, cellForItemAt: indexPath ,dataCell: source[indexPath.count])
-        
-        return cell
+        return delegateView.pagingCollectionView(self, cellForItemAt: indexPath ,dataCell: source[indexPath.count])
     }
     
     // =================================

@@ -143,16 +143,15 @@
 		2A52D3A4231028C8005DA184 /* OrderNow */ = {
 			isa = PBXGroup;
 			children = (
-				84BA830F232CB88F00F87DDE /* Cell */,
+				84CEEE82232FB5C20081870B /* Customer */,
 				84BC0BBE232925480095BEB7 /* ViewCustom */,
 				8495E7722326811F0082ED10 /* GoogleService-Info.plist */,
 				840235542323399900DAE7E4 /* Service */,
 				8402354F232338A200DAE7E4 /* Extension */,
 				2A52D3B1231028C9005DA184 /* Info.plist */,
+				2A52D3A5231028C8005DA184 /* AppDelegate.swift */,
 				2F17F4052310299E00127C69 /* Other */,
 				2F17F4042310292D00127C69 /* View */,
-				2F17F4032310292A00127C69 /* Modal */,
-				2F17F4022310292600127C69 /* Controller */,
 				2A52D3AC231028C9005DA184 /* Assets.xcassets */,
 			);
 			path = OrderNow;
@@ -188,13 +187,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		2F17F4032310292A00127C69 /* Modal */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Modal;
-			sourceTree = "<group>";
-		};
 		2F17F4042310292D00127C69 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,7 +199,6 @@
 		2F17F4052310299E00127C69 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				2A52D3A5231028C8005DA184 /* AppDelegate.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -309,6 +300,15 @@
 				84BC0BCC232928CC0095BEB7 /* QRScannerViewController.xib */,
 			);
 			path = QRScannerPageController;
+			sourceTree = "<group>";
+		};
+		84CEEE82232FB5C20081870B /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				2F17F4022310292600127C69 /* Controller */,
+				84BA830F232CB88F00F87DDE /* Cell */,
+			);
+			path = Customer;
 			sourceTree = "<group>";
 		};
 		C5E2858DF6B230351410953D /* Frameworks */ = {
