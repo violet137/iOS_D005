@@ -28,7 +28,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        phoneView.text = "0902002455"
+        phoneView.text = "0000000001"
         
         refDataFirebase = Database.database().reference()
         
@@ -97,9 +97,21 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     func Login(_ phone:String, _ otp:String) -> Void {
         _authorizationService.Login(phoneNumber: phone, otp: otp) { (status, data, error) in
             if status {
-                let homeUser = HomeUserViewController()
-                DispatchQueue.main.async {
-                    self.present(homeUser, animated: true, completion: nil)
+                
+                guard let d = data else {
+                    return
+                }
+                
+                if d.TypeAcc == "1" {
+                    DispatchQueue.main.async {
+                        self.present(HomeUserViewController(), animated: true, completion: nil)
+                    }
+                } else if d.TypeAcc == "2" {
+                    let storeyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let view = storeyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
+                    DispatchQueue.main.async {
+                        self.present(view, animated: true, completion: nil)
+                    }
                 }
             }else{
                 if(error != nil){
@@ -131,7 +143,8 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     func ValidationPhoneNumber(_ phone:String?) -> Bool {
         var result = false
         if phone != nil{
-            let PHONE_REGEX = "^(0)+(3|5|7|8|9)+([0-9]{8})$"
+            // chú ý --> (0)+(0|3|5|7|8|9)+([0-9]{8}) khác AuthorizationService
+            let PHONE_REGEX = "^(0)+(0|3|5|7|8|9)+([0-9]{8})$"
             let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
             result =  phoneTest.evaluate(with: phone)
         }
