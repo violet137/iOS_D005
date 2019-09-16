@@ -10,12 +10,23 @@ import UIKit
 import AVFoundation
 
 
-class HomeUserViewController: UIViewController {
-
+class HomeUserViewController: UIViewController, PagingCollectionViewDelegate{
+    
+    func pagingCollectionView(_ pagingCollectionView: PagingCollectionView, cellForItemAt indexPath: IndexPath, dataCell data: AnyObject) -> UICollectionViewCell {
+        let cell = bannerView.dequeueReusableCell(withReuseIdentifier: "collectionViewID", for: indexPath as IndexPath) as! BannerHomeCollectionViewCell
+        
+        return cell
+    }
+    
+    @IBOutlet weak var bannerView: PagingCollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        bannerView.delegateView = self
+        
+        bannerView.source = [1,2,3,4,5,6] as [AnyObject]
+        bannerView.register(UINib.init(nibName: "BannerHomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "collectionViewID")
     }
 
     @IBAction func actOrder(_ sender: Any) {

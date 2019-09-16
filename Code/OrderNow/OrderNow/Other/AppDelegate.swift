@@ -11,6 +11,8 @@ import FacebookCore
 import FBSDKCoreKit
 import GoogleSignIn
 import Firebase
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -25,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         
         // Initialize Google
         GIDSignIn.sharedInstance().clientID = "948304192679-bdl94g5lpmpbm4q589rmk148mot92vo7.apps.googleusercontent.com"
+        
+        // Google map
+        GMSServices.provideAPIKey("AIzaSyBhcNno9nYL3KmR5h3BYyOd2K4j8LPEKQ8")
+        GMSPlacesClient.provideAPIKey("AIzaSyBhcNno9nYL3KmR5h3BYyOd2K4j8LPEKQ8")
         
         // Use Firebase library to configure APIs
         FirebaseApp.configure()

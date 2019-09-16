@@ -13,11 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let view = LoginViewController()
-//        let view = QRScannerViewController()
-        let view = HomeUserViewController()
         DispatchQueue.main.async {
-            self.present(view, animated: true, completion: nil)
+            self.present(HomeUserViewController(), animated: true, completion: nil)
         }
         // Do any additional setup after loading the view.
     }

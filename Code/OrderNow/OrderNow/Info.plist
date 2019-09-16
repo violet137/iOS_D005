@@ -79,5 +79,11 @@
 	</array>
     <key>NSCameraUsageDescription</key>
     <string>To scan QR code</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To show map</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>To show map</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>To show map</string>
 </dict>
 </plist>

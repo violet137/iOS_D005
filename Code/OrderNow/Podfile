@@ -11,4 +11,6 @@ use_frameworks!
 	pod 'GoogleSignIn'
 	pod 'Firebase/Analytics'
 	pod 'Firebase/Database'
+	pod 'GoogleMaps'
+	pod 'GooglePlaces'
 end

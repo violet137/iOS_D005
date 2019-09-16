@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeUserViewController" customModule="OrderNow" customModuleProvider="target">
             <connections>
+                <outlet property="bannerView" destination="S4i-wi-d9P" id="1DN-1s-OD3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,24 +21,76 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDq-cB-oRL">
-                    <rect key="frame" x="157" y="398" width="100" height="100"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5fG-kJ-LZS">
+                    <rect key="frame" x="10" y="832" width="394" height="30"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScY-6d-DRa">
+                            <rect key="frame" x="0.0" y="0.0" width="192" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Đặt bàn"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iW-HV-cY1">
+                            <rect key="frame" x="202" y="0.0" width="192" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Gọi món"/>
+                        </button>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="11H-w3-a83">
+                    <rect key="frame" x="10" y="44" width="394" height="40"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="j9D-oT-gRn">
+                            <rect key="frame" x="10" y="10" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="7rW-Bi-DHa"/>
+                                <constraint firstAttribute="width" constant="20" id="WUy-ht-Pg2"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bạn muốn ăn gì nào?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayy-q4-Anh">
+                            <rect key="frame" x="40" y="10" width="344" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                    <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="BackgroundView">
+                            <color key="value" red="0.84123501710000004" green="0.0078754365840000007" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </stackView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="S4i-wi-d9P" customClass="PagingCollectionView" customModule="OrderNow" customModuleProvider="target">
+                    <rect key="frame" x="10" y="94" width="394" height="150"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="100" id="6hE-Hq-mDw"/>
-                        <constraint firstAttribute="width" constant="100" id="H5B-IZ-OgS"/>
+                        <constraint firstAttribute="height" constant="150" id="Nts-gx-b54"/>
                     </constraints>
-                    <state key="normal" title="Gọi món ngay"/>
-                    <connections>
-                        <action selector="actOrder:" destination="-1" eventType="touchUpInside" id="5KY-iK-S5g"/>
-                    </connections>
-                </button>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nlX-t1-pMW">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="UDq-cB-oRL" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="XlJ-Jb-V1i"/>
-                <constraint firstItem="UDq-cB-oRL" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qpQ-ly-vrS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="11H-w3-a83" secondAttribute="trailing" constant="10" id="Jlj-gd-aFP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5fG-kJ-LZS" secondAttribute="bottom" id="NpI-ZL-nAU"/>
+                <constraint firstItem="S4i-wi-d9P" firstAttribute="top" secondItem="11H-w3-a83" secondAttribute="bottom" constant="10" id="O1D-5c-eS5"/>
+                <constraint firstItem="11H-w3-a83" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="RIF-7l-1K4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5fG-kJ-LZS" secondAttribute="trailing" constant="10" id="XUg-Z2-SM2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="S4i-wi-d9P" secondAttribute="trailing" constant="10" id="nhB-Hj-XW8"/>
+                <constraint firstItem="S4i-wi-d9P" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="sRC-y9-L0N"/>
+                <constraint firstItem="5fG-kJ-LZS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="yut-jM-wlH"/>
+                <constraint firstItem="11H-w3-a83" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="zxQ-T1-WVo"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_search" width="512" height="512"/>
+    </resources>
 </document>
