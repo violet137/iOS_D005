@@ -13,7 +13,7 @@ struct floorItem {
 }
 
 class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback {
-   
+    
     //TableCallBack
     func onDataUpdate() {
         myTable = tableItemUtils.searchFloor(floorCodeInput: floorCode)
@@ -22,8 +22,8 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
     }
     
     //TruyenVeManHinhTable
-    func Truyen(statusOfTable: Bool, ID: Int) {
-       let ban = tableItemUtils.getSelectedTable(selectedTable: ID)
+    func Truyen(statusOfTable: Int, ID: Int) {
+        let ban = tableItemUtils.getSelectedTable(selectedTable: ID)
         if ban != nil {
             ban?.statusOfTable = statusOfTable
             tableCollectionView.reloadData()
@@ -46,7 +46,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
     var tableItems = [TableItem]()
     //var tableItems = [tableItem(tableImageName: "TwoSeatsTable", tableLabelName: "A1")
     //]
-
+    
     var floorCollectionViewFlowLayout: UICollectionViewFlowLayout!
     let floorCellIdentifier = "floorCollectionViewCell"
     
@@ -76,7 +76,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         
         setupFloorCollectionView()
         setupTableCollectionView()
-
+        
     }
     
     override func viewWillLayoutSubviews() {
@@ -94,6 +94,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
                 vc.tableName = item.tableName
                 vc.message = item.tableName
                 vc.tableCode = item.tableCode
+                vc.statusOfTable = item.statusOfTable
                 vc.numberOfChair = item.numberOfChair
             }
         }
@@ -139,21 +140,21 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
             let numberOfItemPerRow: CGFloat = 3
             let lineSpacing: CGFloat = 20
             let interItemSpacing: CGFloat = 10
-
+            
             let width = (tableCollectionView.frame.width - (numberOfItemPerRow - 1) * interItemSpacing) / numberOfItemPerRow
             let height = width
-
+            
             tableCollectionViewFlowLayout = UICollectionViewFlowLayout()
             tableCollectionViewFlowLayout.itemSize = CGSize(width: width, height: height)
             tableCollectionViewFlowLayout.sectionInset = UIEdgeInsets.zero
             tableCollectionViewFlowLayout.scrollDirection = .vertical
             tableCollectionViewFlowLayout.minimumLineSpacing = lineSpacing
             tableCollectionViewFlowLayout.minimumInteritemSpacing = interItemSpacing
-
+            
             tableCollectionView.setCollectionViewLayout(tableCollectionViewFlowLayout, animated: true)
         }
     }
-
+    
 }
 
 extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -182,12 +183,18 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             var borderColor: CGColor! = UIColor.clear.cgColor
             var borderWidth: CGFloat = 0
             
-            if myTable[indexPath.item].statusOfTable == true {
-                borderColor = UIColor.blue.cgColor
-                borderWidth = 1
-            } else {
+            if myTable[indexPath.item].statusOfTable == 0 {
                 borderColor = UIColor.clear.cgColor
                 borderWidth = 0
+            } else if myTable[indexPath.item].statusOfTable == 1 {
+                borderColor = UIColor.red.cgColor
+                borderWidth = 3
+            } else if myTable[indexPath.item].statusOfTable == 2 {
+                borderColor = UIColor.green.cgColor
+                borderWidth = 3
+            } else if myTable[indexPath.item].statusOfTable == 3 {
+                borderColor = UIColor.blue.cgColor
+                borderWidth = 3
             }
             
             tableCell.layer.borderWidth = borderWidth

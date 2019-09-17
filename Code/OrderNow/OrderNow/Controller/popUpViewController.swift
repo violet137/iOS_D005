@@ -10,11 +10,11 @@ import UIKit
 import FirebaseDatabase
 
 protocol TruyenVeManHinhTable {
-    func Truyen(statusOfTable: Bool, ID: Int)
+    func Truyen(statusOfTable: Int, ID: Int)
 }
 
 class popUpViewController: UIViewController {
-
+    
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableText: UILabel!
@@ -30,15 +30,14 @@ class popUpViewController: UIViewController {
     var tableName: String!
     var imageName: String!
     var message: String!
-    var statusOfTable: Bool = true
+    var statusOfTable: Int!
     var numberOfChair: Int!
     var ref: DatabaseReference!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupTopView() 
+        setupTopView()
         setupImageView()
         setupTableText()
         setupMessageLabel()
@@ -96,9 +95,14 @@ class popUpViewController: UIViewController {
     }
     
     @IBAction func bookAction(_ sender: Any) {
-        statusOfTable = true
+        if statusOfTable == 1 {
+            statusOfTable = 2
+        } else {
+            statusOfTable = 3
+        }
         truyenVeManHinhTable?.Truyen(statusOfTable: statusOfTable, ID: tableCode)
         let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfChair: numberOfChair)
+        
         let tableItemRef = self.ref.child("\(tableCode!)")
         tableItemRef.setValue([ "floor" : tableItem.floorCode,"name" : tableItem.tableName, "image" :  tableItem.tableImage, "status" : tableItem.statusOfTable, "chairs" : tableItem.numberOfChair])
         
@@ -108,7 +112,7 @@ class popUpViewController: UIViewController {
     }
     
     @IBAction func cancelAction(_ sender: Any) {
-        statusOfTable = false
+        statusOfTable = 0
         truyenVeManHinhTable?.Truyen(statusOfTable: statusOfTable, ID: tableCode)
         let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfChair: numberOfChair)
         let tableItemRef = self.ref.child("\(tableCode!)")
@@ -119,13 +123,13 @@ class popUpViewController: UIViewController {
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
