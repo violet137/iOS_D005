@@ -172,9 +172,9 @@
 			children = (
 				2A38CFCB232FB9E70023152B /* floorCollectionViewCell.swift */,
 				2A38CFCE232FB9E70023152B /* floorCollectionViewCell.xib */,
-				2A38CFCD232FB9E70023152B /* popUpViewController.swift */,
 				2A38CFC9232FB9E70023152B /* tableCollectionViewCell.swift */,
 				2A38CFCA232FB9E70023152B /* tableCollectionViewCell.xib */,
+				2A38CFCD232FB9E70023152B /* popUpViewController.swift */,
 				2A38CFCC232FB9E70023152B /* TableViewController.swift */,
 			);
 			path = Controller;

@@ -13,7 +13,7 @@ struct floorItem {
 }
 
 class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback {
-   
+    
     //TableCallBack
     func onDataUpdate() {
         myTable = tableItemUtils.searchFloor(floorCodeInput: floorCode)
@@ -22,9 +22,10 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
     }
     
     //TruyenVeManHinhTable
-    func Truyen(statusOfTable: Bool, ID: Int) {
-       let ban = tableItemUtils.getSelectedTable(selectedTable: ID)
+    func Truyen(statusOfTable: Int, ID: Int, people: Int) {
+        let ban = tableItemUtils.getSelectedTable(selectedTable: ID)
         if ban != nil {
+            ban?.numberOfPeople = people
             ban?.statusOfTable = statusOfTable
             tableCollectionView.reloadData()
         }
@@ -36,17 +37,17 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
     var tableItemUtils = TableUtils()
     
     var floorItems: [floorItem] = [
-        floorItem(floorLabelName: "Tang tret"),
-        floorItem(floorLabelName: "Tang 1"),
-        floorItem(floorLabelName: "Tang 2"),
-        floorItem(floorLabelName: "Tang 3"),
-        floorItem(floorLabelName: "Tang 4")
+        floorItem(floorLabelName: "Đại sảnh"),
+        floorItem(floorLabelName: "Tầng 1"),
+        floorItem(floorLabelName: "Tầng 2"),
+        floorItem(floorLabelName: "Tầng 3"),
+        floorItem(floorLabelName: "Tầng 4")
     ]
     
     var tableItems = [TableItem]()
     //var tableItems = [tableItem(tableImageName: "TwoSeatsTable", tableLabelName: "A1")
     //]
-
+    
     var floorCollectionViewFlowLayout: UICollectionViewFlowLayout!
     let floorCellIdentifier = "floorCollectionViewCell"
     
@@ -76,7 +77,8 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         
         setupFloorCollectionView()
         setupTableCollectionView()
-
+        
+        self.view.backgroundColor = .orange
     }
     
     override func viewWillLayoutSubviews() {
@@ -94,7 +96,9 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
                 vc.tableName = item.tableName
                 vc.message = item.tableName
                 vc.tableCode = item.tableCode
+                vc.statusOfTable = item.statusOfTable
                 vc.numberOfChair = item.numberOfChair
+                vc.numberOfPeople = item.numberOfPeople
             }
         }
         
@@ -109,6 +113,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         let floorNib = UINib(nibName: "floorCollectionViewCell", bundle: nil)
         floorCollectionView.register(floorNib, forCellWithReuseIdentifier: floorCellIdentifier)
         floorCollectionView.showsHorizontalScrollIndicator = false
+        floorCollectionView.backgroundColor = .orange
     }
     
     private func setupTableCollectionView() {
@@ -116,6 +121,8 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         tableCollectionView.dataSource = self
         let tableNib = UINib(nibName: "tableCollectionViewCell", bundle: nil)
         tableCollectionView.register(tableNib, forCellWithReuseIdentifier: tableCellIdentifier)
+        tableCollectionView.backgroundColor = .orange
+        
     }
     
     private func setupFloorViewItemSize() {
@@ -139,21 +146,21 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
             let numberOfItemPerRow: CGFloat = 3
             let lineSpacing: CGFloat = 20
             let interItemSpacing: CGFloat = 10
-
+            
             let width = (tableCollectionView.frame.width - (numberOfItemPerRow - 1) * interItemSpacing) / numberOfItemPerRow
             let height = width
-
+            
             tableCollectionViewFlowLayout = UICollectionViewFlowLayout()
             tableCollectionViewFlowLayout.itemSize = CGSize(width: width, height: height)
             tableCollectionViewFlowLayout.sectionInset = UIEdgeInsets.zero
             tableCollectionViewFlowLayout.scrollDirection = .vertical
             tableCollectionViewFlowLayout.minimumLineSpacing = lineSpacing
             tableCollectionViewFlowLayout.minimumInteritemSpacing = interItemSpacing
-
+            
             tableCollectionView.setCollectionViewLayout(tableCollectionViewFlowLayout, animated: true)
         }
     }
-
+    
 }
 
 extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -177,17 +184,23 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             let tableCell = collectionView.dequeueReusableCell(withReuseIdentifier: tableCellIdentifier, for: indexPath) as! tableCollectionViewCell
             tableCell.tableLabel.text = myTable[indexPath.item].tableName
             tableCell.tableImageView.image = UIImage(named: myTable[indexPath.item].tableImage!)
-            tableCell.chairLabel.text = "0/\(myTable[indexPath.item].numberOfChair!)"
+            tableCell.chairLabel.text = "\(myTable[indexPath.item].numberOfPeople!)/\(myTable[indexPath.item].numberOfChair!)"
             
             var borderColor: CGColor! = UIColor.clear.cgColor
             var borderWidth: CGFloat = 0
             
-            if myTable[indexPath.item].statusOfTable == true {
-                borderColor = UIColor.blue.cgColor
-                borderWidth = 1
-            } else {
+            if myTable[indexPath.item].statusOfTable == 0 {
                 borderColor = UIColor.clear.cgColor
                 borderWidth = 0
+            } else if myTable[indexPath.item].statusOfTable == 1 {
+                borderColor = UIColor.red.cgColor
+                borderWidth = 3
+            } else if myTable[indexPath.item].statusOfTable == 2 {
+                borderColor = UIColor.green.cgColor
+                borderWidth = 3
+            } else if myTable[indexPath.item].statusOfTable == 3 {
+                borderColor = UIColor.blue.cgColor
+                borderWidth = 3
             }
             
             tableCell.layer.borderWidth = borderWidth

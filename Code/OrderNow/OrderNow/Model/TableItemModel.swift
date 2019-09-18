@@ -13,15 +13,17 @@ class TableItem{
     var tableCode: Int?
     var tableName: String?
     var tableImage: String?
-    var statusOfTable: Bool?
+    var statusOfTable: Int?
+    var numberOfPeople: Int?
     var numberOfChair: Int?
     
-    init(floorCode: Int, tableCode: Int, tableName: String, tableImage: String, statusOfTable: Bool, numberOfChair: Int) {
+    init(floorCode: Int, tableCode: Int, tableName: String, tableImage: String, statusOfTable: Int, numberOfPeople: Int,  numberOfChair: Int) {
         self.floorCode = floorCode
         self.tableCode = tableCode
         self.tableName = tableName
         self.tableImage = tableImage
         self.statusOfTable = statusOfTable
+        self.numberOfPeople = numberOfPeople
         self.numberOfChair = numberOfChair
     }
     
