@@ -9,27 +9,15 @@
 import UIKit
 import AVFoundation
 
-class QRScannerViewController: UIViewController,QRScannerViewDelegate {
+class QRScannerViewController: UIViewController{
     
+    let _bookingService = BookingService()
+    @IBOutlet weak var icFlash: UIImageView!
     @IBOutlet weak var scannerView: QRScannerView!{
         didSet {
             scannerView.delegate = self
         }
     }
-    
-    func qrScanningDidFail() {
-        
-    }
-    
-    func qrScanningSucceededWithCode(_ str: String?) {
-        print(str)
-    }
-    
-    func qrScanningDidStop() {
-        
-    }
-    
-    @IBOutlet weak var icFlash: UIImageView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -70,6 +58,39 @@ class QRScannerViewController: UIViewController,QRScannerViewDelegate {
         }
     }
     
+}
+
+extension QRScannerViewController : QRScannerViewDelegate  {
+    
+    func qrScanningDidFail() {
+        
+    }
+    
+    func qrScanningSucceededWithCode(_ str: String?) {
+        
+        if str?.contains("OrderNow:") ?? false {
+            let dataArray = str?.split(separator: ":")
+            
+            guard let data = dataArray else {
+                scannerView.startScanning()
+                return
+            }
+            
+            if data.count > 1 {
+                BookTable(id: String(data[1]))
+            }
+        }
+        scannerView.startScanning()
+    }
+    
+    func qrScanningDidStop() {
+        
+    }
+    
+}
+
+extension QRScannerViewController {
+    
     func toggleFlash() -> Bool {
         guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return false}
         guard device.hasTorch else { return false }
@@ -93,5 +114,60 @@ class QRScannerViewController: UIViewController,QRScannerViewDelegate {
         }
         
         return device.torchMode == AVCaptureDevice.TorchMode.on
+    }
+    
+    func BookTable(id:String) {
+        
+        _bookingService.GetDetailTable(id: id ){ (status, data, error) in
+            if status && data != nil{
+                guard let data = data else {
+                    return
+                }
+                
+                switch data.Status {
+                case 0 : // bàn trống
+                    self._bookingService.SetStatusTable(id: id)
+                    self.ShowAlertMessage("chờ xác nhận")
+                    break
+                case 1 : // chờ xác nhận
+                    self.ShowAlertMessage("bàn đã có người đặt")
+                    break
+                case 2 : // khách hàng đang order
+                    self.ShowAlertMessage("bàn đã có người đặt")
+                    break
+                case 3 : // nhân viên đang order
+                    self.ShowAlertMessage("bàn đã có người đặt")
+                    break
+                default : // lỗi
+                    self.ShowAlertMessage("lỗi: Vui lòng chọn lại")
+                    break
+                }
+            }else{
+                if(error != nil){
+                    self.ShowError(error)
+                }
+            }
+        }
+    }
+    
+}
+
+extension QRScannerViewController {
+    func ShowError(_ error:Error?) -> Void {
+        guard let er = error else {
+            return
+        }
+        ShowAlertMessage(er.localizedDescription)
+    }
+    
+    func ShowAlertMessage(_ text:String) -> Void {
+        let alert = UIAlertController(title: text, message: nil, preferredStyle: .alert);
+        
+        let btnClose = UIAlertAction(title: "Đóng", style: .cancel, handler: nil)
+        alert.addAction(btnClose)
+        
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }

@@ -22,15 +22,12 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     @IBOutlet weak var btnResendOTPView: UIButton!
     
     var isResendOTP = false
-    var refDataFirebase : DatabaseReference!
     var _authorizationService = AuthorizationService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        phoneView.text = "0000000001"
-        
-        refDataFirebase = Database.database().reference()
+        phoneView.text = "0902002455"
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
         // Automatically sign in the user.
@@ -104,7 +101,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
                 
                 if d.TypeAcc == "1" {
                     DispatchQueue.main.async {
-                        self.present(HomeUserViewController(), animated: true, completion: nil)
+                        self.present(QRScannerViewController(), animated: true, completion: nil)
                     }
                 } else if d.TypeAcc == "2" {
                     let storeyboard = UIStoryboard(name: "Main", bundle: nil)

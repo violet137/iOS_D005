@@ -10,8 +10,6 @@ import UIKit
 import Firebase
 
 class AuthorizationService {
-    static let host = "http://13.229.117.90:8012/Auth/"
-    
     var refDataFirebase : DatabaseReference!
     
     init() {
