@@ -78,6 +78,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         setupFloorCollectionView()
         setupTableCollectionView()
         
+        self.view.backgroundColor = .orange
     }
     
     override func viewWillLayoutSubviews() {
@@ -112,6 +113,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         let floorNib = UINib(nibName: "floorCollectionViewCell", bundle: nil)
         floorCollectionView.register(floorNib, forCellWithReuseIdentifier: floorCellIdentifier)
         floorCollectionView.showsHorizontalScrollIndicator = false
+        floorCollectionView.backgroundColor = .orange
     }
     
     private func setupTableCollectionView() {
@@ -119,6 +121,8 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         tableCollectionView.dataSource = self
         let tableNib = UINib(nibName: "tableCollectionViewCell", bundle: nil)
         tableCollectionView.register(tableNib, forCellWithReuseIdentifier: tableCellIdentifier)
+        tableCollectionView.backgroundColor = .orange
+        
     }
     
     private func setupFloorViewItemSize() {
