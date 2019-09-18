@@ -58,7 +58,7 @@ class AuthorizationService {
                 let domain = ""
                 let code = -1
                 let info = [NSLocalizedDescriptionKey: """
-                    Mã OTP không chính xác.
+                    Mã OTP không chính xác
                     Vui lòng kiểm tra lại.
                     """]
                 let error = NSError(domain: domain, code: code, userInfo: info)

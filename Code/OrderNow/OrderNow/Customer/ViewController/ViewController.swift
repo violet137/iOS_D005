@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         DispatchQueue.main.async {
-            self.present(LoginViewController(), animated: true, completion: nil)
+            self.present(QRScannerViewController(), animated: true, completion: nil)
         }
         // Do any additional setup after loading the view.
     }

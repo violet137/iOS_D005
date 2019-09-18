@@ -38,6 +38,7 @@
 		84AC1CCA23141CF9007AA443 /* Pods_OrderNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AC1CC923141CF9007AA443 /* Pods_OrderNow.framework */; };
 		84AC24D223325477000F0C14 /* BookingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC24D123325477000F0C14 /* BookingService.swift */; };
 		84AC24D523325508000F0C14 /* DetailTableOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC24D423325508000F0C14 /* DetailTableOutput.swift */; };
+		84AC24D723325FD3000F0C14 /* BookingTableOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC24D623325FD3000F0C14 /* BookingTableOutput.swift */; };
 		84BA8313232CB8CB00F87DDE /* BannerHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA8311232CB8CB00F87DDE /* BannerHomeCollectionViewCell.swift */; };
 		84BA8314232CB8CB00F87DDE /* BannerHomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BA8312232CB8CB00F87DDE /* BannerHomeCollectionViewCell.xib */; };
 		84BC0BC0232925630095BEB7 /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC0BBF232925630095BEB7 /* QRScannerView.swift */; };
@@ -107,6 +108,7 @@
 		84AC1CC923141CF9007AA443 /* Pods_OrderNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_OrderNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84AC24D123325477000F0C14 /* BookingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingService.swift; sourceTree = "<group>"; };
 		84AC24D423325508000F0C14 /* DetailTableOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableOutput.swift; sourceTree = "<group>"; };
+		84AC24D623325FD3000F0C14 /* BookingTableOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTableOutput.swift; sourceTree = "<group>"; };
 		84BA8311232CB8CB00F87DDE /* BannerHomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerHomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		84BA8312232CB8CB00F87DDE /* BannerHomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerHomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		84BC0BBF232925630095BEB7 /* QRScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				84AC24D423325508000F0C14 /* DetailTableOutput.swift */,
+				84AC24D623325FD3000F0C14 /* BookingTableOutput.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 			files = (
 				84782232232BDA7D009D7D58 /* PagingCollectionView.swift in Sources */,
 				2A38CFD2232FB9E70023152B /* TableViewController.swift in Sources */,
+				84AC24D723325FD3000F0C14 /* BookingTableOutput.swift in Sources */,
 				2A38CFD1232FB9E70023152B /* floorCollectionViewCell.swift in Sources */,
 				2A38CFC7232FB9C90023152B /* TableItemModel.swift in Sources */,
 				84BA8313232CB8CB00F87DDE /* BannerHomeCollectionViewCell.swift in Sources */,

@@ -79,6 +79,7 @@ extension QRScannerViewController : QRScannerViewDelegate  {
             if data.count > 1 {
                 BookTable(id: String(data[1]))
             }
+            return
         }
         scannerView.startScanning()
     }
@@ -117,35 +118,26 @@ extension QRScannerViewController {
     }
     
     func BookTable(id:String) {
-        
-        _bookingService.GetDetailTable(id: id ){ (status, data, error) in
+        _bookingService.BookingTable(id: id ){ (status, data, error) in
             if status && data != nil{
                 guard let data = data else {
                     return
                 }
                 
-                switch data.Status {
-                case 0 : // bàn trống
-                    self._bookingService.SetStatusTable(id: id)
-                    self.ShowAlertMessage("chờ xác nhận")
-                    break
-                case 1 : // chờ xác nhận
-                    self.ShowAlertMessage("bàn đã có người đặt")
-                    break
-                case 2 : // khách hàng đang order
-                    self.ShowAlertMessage("bàn đã có người đặt")
-                    break
-                case 3 : // nhân viên đang order
-                    self.ShowAlertMessage("bàn đã có người đặt")
-                    break
-                default : // lỗi
-                    self.ShowAlertMessage("lỗi: Vui lòng chọn lại")
-                    break
+                if data.Status == 1 {
+                    // đặt bàn thành công
                 }
+                
+                if data.Status != 1 && data.Status != 0 {
+                    self.scannerView.startScanning()
+                }
+                
+                self.ShowAlertMessage(data.Message)
             }else{
                 if(error != nil){
                     self.ShowError(error)
                 }
+                self.scannerView.startScanning()
             }
         }
     }

@@ -16,6 +16,66 @@ class BookingService {
         refDataFirebase = Database.database().reference()
     }
     
+    func BookingTable(id:String, completion:  @escaping (_ status: Bool,_ data: BookingTableOutput?,  _ error: Error?) -> Void ) -> Void {
+    
+        GetDetailTable(id: id ){ (status, data, error) in
+            if status && data != nil{
+                guard let data = data else {
+                    return
+                }
+                
+                switch data.Status {
+                case 0 : // bàn trống
+                    self.SetStatusTable(id: id)
+                    completion(true,BookingTableOutput(message: "Chờ xác nhận",status: 0),nil)
+                    self.ListenerBookingStatus(id: id){ (status, error) in
+                        if status {
+                            completion(true,BookingTableOutput(message: "Đặt bàn thành công",status: 1),nil)
+                        }else{
+                            var mes = "Đặt bàn không thành công"
+                            if error != nil {
+                                mes = error!.localizedDescription
+                            }
+                            
+                            completion(true,BookingTableOutput(message: mes,status: -1), nil)
+                        }
+                    }
+                    break
+                case 1,2,3 : // chờ xác nhận, khách hàng đang order, nhân viên đang order
+                    completion(true,BookingTableOutput(message: "Bàn đã có người đặt",status: -1),error)
+                    break
+                default : // lỗi
+                    completion(true,BookingTableOutput(message: "lỗi: Vui lòng chọn lại",status: -1),error)
+                    break
+                }
+            }else{
+                completion(false,nil,error)
+            }
+        }
+    }
+    
+    func ListenerBookingStatus(id:String, completion:  @escaping (_ status: Bool, _ error: Error?) -> Void) -> Void {
+        refDataFirebase.child("table-items").child(id).observeSingleEvent(of: .childChanged, with: { (snapshot) in
+            self.GetDetailTable(id: id ){ (status, data, error) in
+                // Get value
+                if data!.Status == 2 {
+                    completion(true,nil)
+                }else{
+                    let domain = ""
+                    let code = -1
+                    let info = [NSLocalizedDescriptionKey: """
+                        Yêu cầu không thành công
+                        Vui lòng chọn lại.
+                        """]
+                    let error = NSError(domain: domain, code: code, userInfo: info)
+                    completion(false,error)
+                }
+            }
+        }) { (error) in
+            completion(false,error)
+        }
+    }
+    
     func SetStatusTable(id:String) -> Void {
         refDataFirebase.child("table-items").child(id).updateChildValues(["status" : 1])
     }
