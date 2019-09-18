@@ -37,11 +37,11 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
     var tableItemUtils = TableUtils()
     
     var floorItems: [floorItem] = [
-        floorItem(floorLabelName: "Tang tret"),
-        floorItem(floorLabelName: "Tang 1"),
-        floorItem(floorLabelName: "Tang 2"),
-        floorItem(floorLabelName: "Tang 3"),
-        floorItem(floorLabelName: "Tang 4")
+        floorItem(floorLabelName: "Đại sảnh"),
+        floorItem(floorLabelName: "Tầng 1"),
+        floorItem(floorLabelName: "Tầng 2"),
+        floorItem(floorLabelName: "Tầng 3"),
+        floorItem(floorLabelName: "Tầng 4")
     ]
     
     var tableItems = [TableItem]()

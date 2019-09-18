@@ -51,15 +51,30 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHk-12-8Ly">
+                                                <rect key="frame" x="250" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="VKx-nU-Jja"/>
+                                                    <constraint firstAttribute="width" constant="50" id="phB-T9-tQC"/>
+                                                </constraints>
+                                                <state key="normal" title="X">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="shutdownPopup:" destination="xC0-kL-rbd" eventType="touchUpInside" id="7Hj-UU-cLp"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="8yX-Su-TJH"/>
                                             <constraint firstItem="KPQ-6X-Rdr" firstAttribute="top" secondItem="khc-CQ-lCO" secondAttribute="top" id="FHV-s1-EnS"/>
                                             <constraint firstAttribute="trailing" secondItem="KPQ-6X-Rdr" secondAttribute="trailing" id="KiJ-ZM-qx6"/>
+                                            <constraint firstAttribute="trailing" secondItem="vHk-12-8Ly" secondAttribute="trailing" id="RJf-Ad-oRv"/>
                                             <constraint firstItem="JIa-lr-zRg" firstAttribute="centerX" secondItem="khc-CQ-lCO" secondAttribute="centerX" id="VaC-Kc-q5Y"/>
                                             <constraint firstItem="KPQ-6X-Rdr" firstAttribute="leading" secondItem="khc-CQ-lCO" secondAttribute="leading" id="gWb-fc-rFw"/>
                                             <constraint firstItem="JIa-lr-zRg" firstAttribute="centerY" secondItem="khc-CQ-lCO" secondAttribute="centerY" id="ux9-l9-Y7y"/>
+                                            <constraint firstItem="vHk-12-8Ly" firstAttribute="top" secondItem="khc-CQ-lCO" secondAttribute="top" id="v13-bi-ChQ"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="prN-53-NZW">
@@ -68,7 +83,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfi-iv-vBJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="135" height="50"/>
                                                 <color key="backgroundColor" red="0.035294117649999998" green="0.73333333329999995" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Book">
+                                                <state key="normal" title="Đăt bàn">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -78,11 +93,11 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uai-1r-Ky3">
                                                 <rect key="frame" x="145" y="0.0" width="135" height="50"/>
                                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Cancel Book">
+                                                <state key="normal" title="Huỷ dặt">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="cancelAction:" destination="xC0-kL-rbd" eventType="touchUpInside" id="Cnp-pb-VbS"/>
+                                                    <action selector="cancelAction:" destination="xC0-kL-rbd" eventType="touchUpInside" id="ijg-De-wpz"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -99,7 +114,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtN-lg-5OX">
                                         <rect key="frame" x="0.0" y="190" width="300" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of People:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8WD-SF-c0g">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Số người:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8WD-SF-c0g">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -175,6 +190,7 @@
                     <connections>
                         <outlet property="bookButton" destination="hfi-iv-vBJ" id="YDc-lO-Fff"/>
                         <outlet property="cancelBookButton" destination="Uai-1r-Ky3" id="Uvz-1K-tR4"/>
+                        <outlet property="cancelButton" destination="vHk-12-8Ly" id="Ui8-0O-66l"/>
                         <outlet property="imageView" destination="KPQ-6X-Rdr" id="CFZ-Fq-46f"/>
                         <outlet property="messageLabel" destination="Oaf-fg-xpe" id="Bcp-OE-ZZz"/>
                         <outlet property="minusButton" destination="KSJ-Ta-Fe4" id="89J-B6-KRo"/>

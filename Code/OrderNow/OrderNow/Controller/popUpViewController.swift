@@ -24,6 +24,7 @@ class popUpViewController: UIViewController {
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var peopleLabel: UILabel!
+    @IBOutlet weak var cancelButton: UIButton!
     var truyenVeManHinhTable: TruyenVeManHinhTable?
     
     var floorCode: Int!
@@ -49,6 +50,7 @@ class popUpViewController: UIViewController {
         minusButtonLayer()
         ref = Database.database().reference(withPath: "table-items")
         // Do any additional setup after loading the view.
+        
     }
     
     private func setupTopView() {
@@ -70,7 +72,7 @@ class popUpViewController: UIViewController {
     
     private func setupMessageLabel() {
         guard let text = message else {return}
-        messageLabel.text = "Please confirm for table \(text)"
+        messageLabel.text = "Xin vui lòng xác nhận bàn: \(text)"
     }
     
     private func setupBookButton() {
@@ -100,18 +102,18 @@ class popUpViewController: UIViewController {
         print(numberOfPeople)
         if statusOfTable == 1 {
             if (numberOfPeople > 0) {
-                ProgressHUD.showSuccess("Book Successful")
+                ProgressHUD.showSuccess("Đặt bàn thành công")
                 statusOfTable = 2
             } else {
-                ProgressHUD.showError("Please check again!")
+                ProgressHUD.showError("Kiểm tra lại!")
                 statusOfTable = 0
             }
         } else {
             if (numberOfPeople > 0) {
-                ProgressHUD.showSuccess("Book Successful")
+                ProgressHUD.showSuccess("Đặt bàn thành công")
                 statusOfTable = 3
             } else {
-                ProgressHUD.showError("Please check again!")
+                ProgressHUD.showError("Kiểm tra lại!")
                 statusOfTable = 0
             }
         }
@@ -135,7 +137,7 @@ class popUpViewController: UIViewController {
         tableItemRef.setValue([ "floor" : tableItem.floorCode,"name" : tableItem.tableName, "image" :  tableItem.tableImage, "status" : tableItem.statusOfTable, "people": tableItem.numberOfPeople, "chairs" : tableItem.numberOfChair])
         
         dismiss(animated: true, completion: nil)
-        ProgressHUD.showError("Book Cancel")
+        ProgressHUD.showError("Huỷ đặt")
     }
     
     @IBAction func actionIncrease(_ sender: Any) {
@@ -144,9 +146,7 @@ class popUpViewController: UIViewController {
             print(numberOfPeople!)
         }
         peopleLabel.text = "\(numberOfPeople!)"
-        let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfPeople: numberOfPeople, numberOfChair: numberOfChair)
-        let tableItemRef = self.ref.child("\(tableCode!)")
-        tableItemRef.setValue([ "floor" : tableItem.floorCode,"name" : tableItem.tableName, "image" :  tableItem.tableImage, "status" : tableItem.statusOfTable, "people": tableItem.numberOfPeople, "chairs" : tableItem.numberOfChair])
+
     }
     
     @IBAction func actionDecrease(_ sender: Any) {
@@ -155,9 +155,12 @@ class popUpViewController: UIViewController {
             print(numberOfPeople!)
         }
         peopleLabel.text = "\(numberOfPeople!)"
-        let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfPeople: numberOfPeople, numberOfChair: numberOfChair)
-        let tableItemRef = self.ref.child("\(tableCode!)")
-        tableItemRef.setValue([ "floor" : tableItem.floorCode,"name" : tableItem.tableName, "image" :  tableItem.tableImage, "status" : tableItem.statusOfTable, "people": tableItem.numberOfPeople, "chairs" : tableItem.numberOfChair])
+
+    }
+    
+    
+    @IBAction func shutdownPopup(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     /*
      // MARK: - Navigation
