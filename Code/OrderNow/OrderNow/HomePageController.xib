@@ -12,14 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomePageController" customModule="OrderNow" customModuleProvider="target">
             <connections>
-                <outlet property="UserImg" destination="YCm-bl-rMp" id="X9j-Ju-RiM"/>
                 <outlet property="backBt" destination="wHf-71-MyS" id="gjt-x3-Zl0"/>
                 <outlet property="listFoodCollectionView" destination="0PT-9G-H3g" id="kDJ-V3-dzx"/>
-                <outlet property="nameUser" destination="JW7-WK-KRI" id="3iD-gw-CeM"/>
                 <outlet property="navigationBar" destination="Mti-Us-Kpp" id="kqd-YW-HE8"/>
                 <outlet property="searchBt" destination="cd1-D6-WNb" id="NfD-Mo-gXw"/>
                 <outlet property="searchDisplayController" destination="Ovu-ZZ-mxI" id="aOv-nP-18e"/>
-                <outlet property="stackViewUser" destination="w5s-Qe-zP2" id="uog-7R-xy2"/>
                 <outlet property="tabBarCollectionView" destination="q1P-Ng-4Ue" id="c6O-de-LxK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -62,31 +59,6 @@
                         <action selector="searchAct:" destination="-1" eventType="touchUpInside" id="IPd-pJ-QAi"/>
                     </connections>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="w5s-Qe-zP2">
-                    <rect key="frame" x="148" y="25" width="118" height="40"/>
-                    <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="YCm-bl-rMp">
-                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                            <gestureRecognizers/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="5PD-LP-Mqj"/>
-                                <constraint firstAttribute="height" constant="40" id="5fv-Le-5An"/>
-                            </constraints>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="xV6-FR-a64" appends="YES" id="Gyw-i0-vw9"/>
-                            </connections>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JW7-WK-KRI">
-                            <rect key="frame" x="50" y="5" width="68" height="30"/>
-                            <state key="normal" title="Tài Khoản">
-                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                            </state>
-                            <connections>
-                                <action selector="nameUserAct:" destination="-1" eventType="touchUpInside" id="oIY-A4-mnq"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                </stackView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="q1P-Ng-4Ue">
                     <rect key="frame" x="0.0" y="75" width="414" height="50"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,7 +73,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="0PT-9G-H3g">
-                    <rect key="frame" x="15" y="140" width="384" height="591"/>
+                    <rect key="frame" x="15" y="140" width="384" height="556"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hpd-VI-smq">
                         <size key="itemSize" width="50" height="50"/>
@@ -110,6 +82,16 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fv6-mY-M6K">
+                    <rect key="frame" x="0.0" y="696" width="414" height="40"/>
+                    <color key="backgroundColor" red="0.41104972403394674" green="0.89813512563705444" blue="0.25234144261721148" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
+                    <state key="normal" title="Xác Nhận Oder">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="xacNhanOderAct:" destination="-1" eventType="touchUpInside" id="lyR-dO-Lru"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -119,15 +101,18 @@
                 <constraint firstItem="q1P-Ng-4Ue" firstAttribute="top" secondItem="Mti-Us-Kpp" secondAttribute="bottom" constant="5" id="AKA-Ha-AKU"/>
                 <constraint firstItem="wHf-71-MyS" firstAttribute="centerY" secondItem="Mti-Us-Kpp" secondAttribute="centerY" id="Ai5-aV-cNE"/>
                 <constraint firstItem="0PT-9G-H3g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="CcK-VB-OdT"/>
-                <constraint firstItem="w5s-Qe-zP2" firstAttribute="centerX" secondItem="Mti-Us-Kpp" secondAttribute="centerX" id="FEL-Fj-5qW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fv6-mY-M6K" secondAttribute="trailing" id="HR8-24-8Hw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fv6-mY-M6K" secondAttribute="bottom" id="I9m-EH-FRj"/>
+                <constraint firstItem="fv6-mY-M6K" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TVi-II-buc"/>
                 <constraint firstItem="cd1-D6-WNb" firstAttribute="centerY" secondItem="Mti-Us-Kpp" secondAttribute="centerY" id="TeZ-cK-85f"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0PT-9G-H3g" secondAttribute="trailing" constant="15" id="dTG-5o-252"/>
                 <constraint firstItem="wHf-71-MyS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="f4N-M3-gSy"/>
-                <constraint firstItem="w5s-Qe-zP2" firstAttribute="centerY" secondItem="Mti-Us-Kpp" secondAttribute="centerY" id="hwS-Lx-5Ed"/>
                 <constraint firstItem="q1P-Ng-4Ue" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="i6O-nd-O4o"/>
                 <constraint firstItem="Mti-Us-Kpp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="mT9-DM-zwd"/>
-                <constraint firstAttribute="bottom" secondItem="0PT-9G-H3g" secondAttribute="bottom" constant="5" id="qRw-UL-hGk"/>
+                <constraint firstItem="fv6-mY-M6K" firstAttribute="top" secondItem="0PT-9G-H3g" secondAttribute="bottom" id="mmG-87-0he"/>
+                <constraint firstAttribute="bottom" secondItem="0PT-9G-H3g" secondAttribute="bottom" constant="40" id="qRw-UL-hGk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cd1-D6-WNb" secondAttribute="trailing" constant="10" id="ujk-aD-43d"/>
+                <constraint firstItem="fv6-mY-M6K" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="y5Q-y2-dyF"/>
                 <constraint firstAttribute="trailing" secondItem="Mti-Us-Kpp" secondAttribute="trailing" id="ym4-iV-Pdi"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -145,6 +130,5 @@
     <resources>
         <image name="back" width="50" height="50"/>
         <image name="search" width="50" height="50"/>
-        <image name="user" width="50" height="50"/>
     </resources>
 </document>

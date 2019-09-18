@@ -28,19 +28,20 @@
 				<string>com.googleusercontent.apps.756787175665-50daunkg97ud0b2k6cm43c9ip3hr5c7s</string>
 			</array>
 		</dict>
+		<dict/>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>CLIENT_ID</key>
 	<string>756787175665-50daunkg97ud0b2k6cm43c9ip3hr5c7s.apps.googleusercontent.com</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>REVERSED_CLIENT_ID</key>
 	<string>com.googleusercontent.apps.756787175665-50daunkg97ud0b2k6cm43c9ip3hr5c7s</string>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

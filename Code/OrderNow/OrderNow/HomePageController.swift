@@ -10,10 +10,27 @@ import UIKit
 import GoogleSignIn
 import SnapKit
 
-class HomePageController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, sentUserInfo {
+class HomePageController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, sentUserInfo, sentDataToList {
+    func onDataUpdate() {
+        listMonAn = monAnUtils.listMon
+        listMonReturnNumberOfItem = listMonAn
+        listMon1 = monAnUtils.FilterListMonAn(loai: 1)
+        listMon2 = monAnUtils.FilterListMonAn(loai: 2)
+        listMon3 = monAnUtils.FilterListMonAn(loai: 3)
+        listMon4 = monAnUtils.FilterListMonAn(loai: 4)
+        listMon5 = monAnUtils.FilterListMonAn(loai: 5)
+        listTong.append(listMon1)
+        listTong.append(listMon2)
+        listTong.append(listMon3)
+        listTong.append(listMon4)
+        listTong.append(listMon5)
+        
+        listFoodCollectionView.reloadData()
+    }
+    
     // protocol func
     func sentData(user: GIDGoogleUser) {
-        self.user = user
+        
     }
 
     // outlet
@@ -27,39 +44,140 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var stackViewUser: UIStackView!
     
     //variable blabla....
-    var number = 15
-    var user: GIDGoogleUser?
-    var numberOfItem = [15,3,5,6,7,4]
+    
+    var monAnUtils = MonAnUtils()
+    var listMonAn = [MonAn]()
+    var OderList = [OrderModal]()
+    var listMonReturnNumberOfItem = [MonAn]()
+    
+    var listMon1 = [MonAn]()
+    var listMon2 = [MonAn]()
+    var listMon3 = [MonAn]()
+    var listMon4 = [MonAn]()
+    var listMon5 = [MonAn]()
+    var listTong = [[MonAn]]()
+    
+    
     let loginController = LoginController()
     let popUpView = UIView()
     let blurBlackView = UIView()
     var searchBar = UISearchBar()
     var cancelBt = UIButton()
     let coverVw = UIView()
-        // các thành phần trong Popup
+    let popupOrder = UIView()
+        // các thành phần trong Popup chọn món
         let popupImg = UIImageView()
         let popupFoodNameLb = UILabel()
         let costLb = UILabel()
         let moreBt = UIButton()
         let lessBt = UIButton()
         let amountLb = UILabel()
-        let addToBillBt = UIButton()
+        let addToOrderListBt = UIButton()
         let cancelPopupBt = UIButton()
+        var popupImgName: String?
+        //các thành phần trong popup oderlist
+        let infoTableLb = UILabel()
+        var listOderTBV: ListOderTableView = {
+            let tbv = ListOderTableView()
+            
+            return tbv
+        }()
+        let dismissOderPopup = UIButton()
+        let acceptOder = UIButton()
     
     //Viewdidload func
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        monAnUtils.getDataFromFireBase()
+        monAnUtils.delegate = self
         loginController.delegate = self
         setUpSomethingElse()
         setUpContraintNavigationBar()
         conectCollectionView()
         setUpPopUp()
         makeContraintInPopupView()
+        makeContraintPopupOrder()
+        setUpContraintOfContentInPopupOder()
     }
     
     //contraint các thứ
     
+    @IBAction func xacNhanOderAct(_ sender: Any) {
+        popUpIsClose(status: false, location: false)
+    }
+    
+    func makeContraintPopupOrder(){
+        self.view.addSubview(popupOrder)
+        popupOrder.backgroundColor = .white
+        popupOrder.isHidden = true
+        popupOrder.snp.makeConstraints { (make) in
+            make.height.equalTo(self.view.snp.height).dividedBy(1.2)
+            make.width.equalTo(self.view.snp.width).dividedBy(1.1)
+            make.center.equalTo(self.view.snp.center)
+        }
+    }
+    
+    func setUpContraintOfContentInPopupOder(){
+        popupOrder.addSubview(infoTableLb)
+        popupOrder.addSubview(listOderTBV)
+        popupOrder.addSubview(dismissOderPopup)
+        popupOrder.addSubview(acceptOder)
+        
+        infoTableLb.text = "Bàn Số: ?"
+        infoTableLb.snp.makeConstraints { (make) in
+            make.top.equalTo(popupOrder.snp.top).offset(10)
+            make.centerX.equalTo(popupOrder.snp.centerX)
+            make.height.equalTo(40)
+        }
+        
+        listOderTBV.snp.makeConstraints { (make) in
+            make.top.equalTo(infoTableLb.snp.bottom).offset(20)
+            make.width.equalTo(popupOrder.snp.width)
+            make.bottom.equalTo(popupOrder.snp.bottom).inset(60)
+        }
+        
+        dismissOderPopup.setTitle("Dismiss", for: .normal)
+        dismissOderPopup.setTitleColor(.black, for: .normal)
+        dismissOderPopup.backgroundColor = .red
+        dismissOderPopup.layer.cornerRadius = 5.0
+        dismissOderPopup.addTarget(self, action: #selector(handleDismissOrderPopupBt), for: .touchUpInside)
+        dismissOderPopup.snp.makeConstraints { (make) in
+            make.top.equalTo(listOderTBV.snp.bottom).offset(10)
+            make.leading.equalTo(popupOrder.snp.leading).inset(5)
+            make.trailing.equalTo(acceptOder.snp.leading).offset(-5)
+            make.bottom.equalTo(popupOrder.snp.bottom).inset(7)
+            make.width.equalTo(acceptOder.snp.width)
+        }
+        
+        acceptOder.setTitle("OderNow", for: .normal)
+        acceptOder.backgroundColor = .green
+        acceptOder.setTitleColor(.black, for: .normal)
+        acceptOder.layer.cornerRadius = 5.0
+        acceptOder.snp.makeConstraints { (make) in
+            make.trailing.equalTo(popupOrder.snp.trailing).inset(5)
+            make.top.equalTo(dismissOderPopup.snp.top)
+            make.height.equalTo(dismissOderPopup.snp.height)
+            make.width.equalTo(dismissOderPopup.snp.width)
+//            make.leading.equalTo(dismissOderPopup.snp.trailing)
+        }
+    }
+    
+    
+    @objc func handleDismissOrderPopupBt(){
+        UIView.animate(withDuration: 0.25, delay: 0.05, options: .curveEaseOut, animations: {
+            self.popupOrder.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        }) { (finished: Bool) in
+            self.popUpIsClose(status: true, location: false)
+        }
+        UIButton.animate(withDuration: 0.25, animations: {
+            self.dismissOderPopup.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        }) { (finished: Bool) in
+            if finished{
+                self.dismissOderPopup.transform = CGAffineTransform.identity
+            }
+        }
+    }
         //Và đây là contraint PopupView
     
         func setUpContraintPopUp(){
@@ -87,7 +205,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
             popUpView.addSubview(moreBt)
             popUpView.addSubview(lessBt)
             popUpView.addSubview(amountLb)
-            popUpView.addSubview(addToBillBt)
+            popUpView.addSubview(addToOrderListBt)
             popUpView.addSubview(cancelPopupBt)
             
             popupImg.image = UIImage(named: "tomhum")
@@ -172,11 +290,11 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
                 make.width.equalTo(costLb).dividedBy(1.05)
             }
             
-            coverVw2.addSubview(addToBillBt)
-            addToBillBt.setTitle("Add to Bill", for: .normal)
-            addToBillBt.layer.cornerRadius = 5.0
-            addToBillBt.backgroundColor = UIColor.rgb(r: 50, g: 205, b: 50, a: 1)
-            addToBillBt.snp.makeConstraints { (make) in
+            coverVw2.addSubview(addToOrderListBt)
+            addToOrderListBt.setTitle("Add to Oder", for: .normal)
+            addToOrderListBt.layer.cornerRadius = 5.0
+            addToOrderListBt.backgroundColor = UIColor.rgb(r: 50, g: 205, b: 50, a: 1)
+            addToOrderListBt.snp.makeConstraints { (make) in
                 make.centerY.equalTo(cancelPopupBt)
                 make.centerX.equalTo(coverVw)
                 make.width.equalTo(cancelPopupBt)
@@ -185,7 +303,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
             // các tính năng của các nút
             
             cancelPopupBt.addTarget(self, action: #selector(handleCancelPopupBt), for: .touchUpInside)
-            addToBillBt.addTarget(self, action: #selector(handleAddToBillBt), for: .touchUpInside)
+            addToOrderListBt.addTarget(self, action: #selector(handleAddToOrderListBt), for: .touchUpInside)
             moreBt.addTarget(self, action: #selector(handleMoreBt), for: .touchUpInside)
             lessBt.addTarget(self, action: #selector(handleLessBt), for: .touchUpInside)
         }
@@ -196,7 +314,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         UIView.animate(withDuration: 0.25, delay: 0.05, options: .curveEaseOut, animations: {
             self.popUpView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
         }) { (finished: Bool) in
-            self.popUpIsClose(status: true)
+            self.popUpIsClose(status: true, location: true)
         }
         UIButton.animate(withDuration: 0.25, animations: {
             self.cancelPopupBt.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
@@ -207,20 +325,24 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-    @objc func handleAddToBillBt(){
+    @objc func handleAddToOrderListBt(){
         UIView.animate(withDuration: 0.25, delay: 0.05, options: .curveEaseOut, animations: {
             self.popUpView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
         }) { (finished: Bool) in
-            self.popUpIsClose(status: true)
+            self.popUpIsClose(status: true, location: true)
         }
         UIButton.animate(withDuration: 0.25, animations: {
-            self.addToBillBt.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            self.addToOrderListBt.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
         }) { (finished: Bool) in
             if finished{
-                self.addToBillBt.transform = CGAffineTransform.identity
+                self.addToOrderListBt.transform = CGAffineTransform.identity
             }
         }
         // do something else
+        
+        let dump = OrderModal(ten: popupFoodNameLb.text!, soluong: Int(amountLb.text!)!, hinh: popupImgName!, gia1Mon: Double(costLb.text!)!)
+        OderList.append(dump)
+        print(OderList.count)
     }
     
     @objc func handleMoreBt(){
@@ -247,7 +369,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         self.view.addSubview(blurBlackView)
         self.view.addSubview(popUpView)
         setUpContraintPopUp()
-        popUpIsClose(status: true)
+        popUpIsClose(status: true, location: true)
         blurBlackView.backgroundColor = UIColor.rgb(r: 0, g: 0, b: 0, a: 0.5)
         popUpView.backgroundColor = .white
         blurBlackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleCancelPopup)))
@@ -257,19 +379,27 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
     @objc func handleCancelPopup(){
         UIView.animate(withDuration: 0.25, delay: 0.05, options: .curveEaseOut, animations: {
             self.popUpView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            self.popupOrder.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
         }) { (finished: Bool) in
-            self.popUpIsClose(status: true)
+            self.popUpIsClose(status: true, location: true)
+            self.popUpIsClose(status: true, location: false)
         }
     }
     
     //Hàm kiểm tra trạng thái xuất hiện của popupView
-    fileprivate func popUpIsClose(status: Bool) {
-        popUpView.isHidden = status
+    fileprivate func popUpIsClose(status: Bool, location: Bool) {
+        if location == true{
+            popUpView.isHidden = status
+        }else{
+            popupOrder.isHidden = status
+        }
         blurBlackView.isHidden = status
         UIView.animate(withDuration: 0.3, delay: 0.005, options: .curveEaseOut, animations: {
             self.popUpView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            self.popupOrder.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
         }) { (finished: Bool) in
             self.popUpView.transform = CGAffineTransform.identity
+            self.popupOrder.transform = CGAffineTransform.identity
         }
     }
     
@@ -307,8 +437,6 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
             , for: .touchUpInside)
         searchBar.isHidden = true
         cancelBt.isHidden = true
-        // login user trên navigation bar
-        nameUser.setTitle(user?.profile.name ?? "Tài Khoản", for: .normal)
     }
     
         // Và đây là setup tính năng các nút trong navigationbar
@@ -332,7 +460,6 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
             self.searchBt.isHidden = !Bool
             self.searchBar.isHidden = Bool
             self.cancelBt.isHidden = Bool
-            self.stackViewUser.isHidden = !Bool
         }
     
         @objc func handleSelectorCancel(){
@@ -394,7 +521,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         if collectionView == tabBarCollectionView{
             return 6
         }else{
-            return number
+            return listMonReturnNumberOfItem.count
         }
         
     }
@@ -412,22 +539,33 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "listfood", for: indexPath) as? ListFoodViewCell else{
                 return UICollectionViewCell()
             }
-            DispatchQueue.main.async {
-                cell.setUpcell(data: (Any).self)
-            }
+            
+            let data = listMonReturnNumberOfItem[indexPath.item]
+            cell.tenLb.text = data.tenMonAn
+            cell.giaTienLb.text = String(data.giaTien!)
+            cell.imageImg.image = UIImage(named: data.hinh!)
+            cell.setUpcell()
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == tabBarCollectionView{
-                number = numberOfItem[indexPath.item]
-                listFoodCollectionView.reloadData()
+            
+            if indexPath.item == 0{
+                listMonReturnNumberOfItem = listMonAn
+            }else{
+                listMonReturnNumberOfItem = listTong[indexPath.item - 1]
+            }
+            
+            listFoodCollectionView.reloadData()
         }else{
-            popUpIsClose(status: false)
+            popUpIsClose(status: false, location: true)
             amountLb.text = String(amount)
-            popupFoodNameLb.text = "Tôm hùm nướng, rưới sốt bơ chanh tỏi"
-            costLb.text = "85000 đ"
+            popupFoodNameLb.text = listMonReturnNumberOfItem[indexPath.item].tenMonAn
+            costLb.text = String(listMonReturnNumberOfItem[indexPath.item].giaTien!)
+            popupImg.image = UIImage(named: listMonReturnNumberOfItem[indexPath.item].hinh!)
+            popupImgName = listMonReturnNumberOfItem[indexPath.item].hinh!
         }
     }
 }

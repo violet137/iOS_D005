@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleSignIn
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -35,6 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        FirebaseApp.configure()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let rootView = HomePageController()
@@ -43,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             window.rootViewController = rootView
             window.makeKeyAndVisible()
         }
+        
         //intial Signin
         GIDSignIn.sharedInstance()?.clientID = "756787175665-50daunkg97ud0b2k6cm43c9ip3hr5c7s.apps.googleusercontent.com"
         GIDSignIn.sharedInstance()?.delegate = self
