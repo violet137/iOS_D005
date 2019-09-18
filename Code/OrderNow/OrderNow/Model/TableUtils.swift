@@ -40,9 +40,10 @@ class TableUtils {
                 let floor = dict["floor"] as? Int
                 let image =  dict["image"] as? String
                 let name =  dict["name"] as? String
-                let chairs =  dict["chairs"] as? Int
                 let status =  dict["status"] as? Int
-                let table = TableItem(floorCode: floor!, tableCode: Int(snap.key)!, tableName:name!, tableImage: image!, statusOfTable: status!, numberOfChair: chairs!)
+                let people = dict["people"] as? Int
+                let chairs =  dict["chairs"] as? Int
+                let table = TableItem(floorCode: floor!, tableCode: Int(snap.key)!, tableName:name!, tableImage: image!, statusOfTable: status!, numberOfPeople: people!, numberOfChair: chairs!)
                 self.tableItemList.append(table)
                 //print("ban: \(item)")
             }

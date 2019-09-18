@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oFD-9D-loP">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,6 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="871" y="138"/>
         </scene>
         <!--Pop Up View Controller-->
         <scene sceneID="0Jd-bI-o9d">
@@ -110,6 +111,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N06-XG-vWI">
                                                         <rect key="frame" x="0.0" y="0.0" width="43.5" height="30"/>
                                                         <state key="normal" title="+"/>
+                                                        <connections>
+                                                            <action selector="actionIncrease:" destination="xC0-kL-rbd" eventType="touchUpInside" id="fKb-4H-Yqh"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftm-JA-9eP">
                                                         <rect key="frame" x="43.5" y="0.0" width="43" height="30"/>
@@ -120,6 +124,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSJ-Ta-Fe4">
                                                         <rect key="frame" x="86.5" y="0.0" width="43.5" height="30"/>
                                                         <state key="normal" title="-"/>
+                                                        <connections>
+                                                            <action selector="actionDecrease:" destination="xC0-kL-rbd" eventType="touchUpInside" id="8C6-Yg-3Og"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -171,6 +178,7 @@
                         <outlet property="imageView" destination="KPQ-6X-Rdr" id="CFZ-Fq-46f"/>
                         <outlet property="messageLabel" destination="Oaf-fg-xpe" id="Bcp-OE-ZZz"/>
                         <outlet property="minusButton" destination="KSJ-Ta-Fe4" id="89J-B6-KRo"/>
+                        <outlet property="peopleLabel" destination="Ftm-JA-9eP" id="E8Q-bY-aZX"/>
                         <outlet property="plusButton" destination="N06-XG-vWI" id="xA8-gl-Xh4"/>
                         <outlet property="tableText" destination="JIa-lr-zRg" id="NtY-Gj-2U7"/>
                         <outlet property="topView" destination="Psc-wi-zHn" id="kJH-2H-ZnJ"/>

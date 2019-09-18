@@ -22,9 +22,10 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
     }
     
     //TruyenVeManHinhTable
-    func Truyen(statusOfTable: Int, ID: Int) {
+    func Truyen(statusOfTable: Int, ID: Int, people: Int) {
         let ban = tableItemUtils.getSelectedTable(selectedTable: ID)
         if ban != nil {
+            ban?.numberOfPeople = people
             ban?.statusOfTable = statusOfTable
             tableCollectionView.reloadData()
         }
@@ -96,6 +97,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
                 vc.tableCode = item.tableCode
                 vc.statusOfTable = item.statusOfTable
                 vc.numberOfChair = item.numberOfChair
+                vc.numberOfPeople = item.numberOfPeople
             }
         }
         
@@ -178,7 +180,7 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             let tableCell = collectionView.dequeueReusableCell(withReuseIdentifier: tableCellIdentifier, for: indexPath) as! tableCollectionViewCell
             tableCell.tableLabel.text = myTable[indexPath.item].tableName
             tableCell.tableImageView.image = UIImage(named: myTable[indexPath.item].tableImage!)
-            tableCell.chairLabel.text = "0/\(myTable[indexPath.item].numberOfChair!)"
+            tableCell.chairLabel.text = "\(myTable[indexPath.item].numberOfPeople!)/\(myTable[indexPath.item].numberOfChair!)"
             
             var borderColor: CGColor! = UIColor.clear.cgColor
             var borderWidth: CGFloat = 0

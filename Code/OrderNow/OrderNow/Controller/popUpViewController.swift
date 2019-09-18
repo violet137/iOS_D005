@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 
 protocol TruyenVeManHinhTable {
-    func Truyen(statusOfTable: Int, ID: Int)
+    func Truyen(statusOfTable: Int, ID: Int, people: Int)
 }
 
 class popUpViewController: UIViewController {
@@ -23,6 +23,7 @@ class popUpViewController: UIViewController {
     @IBOutlet weak var cancelBookButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
+    @IBOutlet weak var peopleLabel: UILabel!
     var truyenVeManHinhTable: TruyenVeManHinhTable?
     
     var floorCode: Int!
@@ -32,6 +33,7 @@ class popUpViewController: UIViewController {
     var message: String!
     var statusOfTable: Int!
     var numberOfChair: Int!
+    var numberOfPeople: Int! = 0
     var ref: DatabaseReference!
     
     
@@ -95,33 +97,68 @@ class popUpViewController: UIViewController {
     }
     
     @IBAction func bookAction(_ sender: Any) {
+        print(numberOfPeople)
         if statusOfTable == 1 {
-            statusOfTable = 2
+            if (numberOfPeople > 0) {
+                ProgressHUD.showSuccess("Book Successful")
+                statusOfTable = 2
+            } else {
+                ProgressHUD.showError("Please check again!")
+                statusOfTable = 0
+            }
         } else {
-            statusOfTable = 3
+            if (numberOfPeople > 0) {
+                ProgressHUD.showSuccess("Book Successful")
+                statusOfTable = 3
+            } else {
+                ProgressHUD.showError("Please check again!")
+                statusOfTable = 0
+            }
         }
-        truyenVeManHinhTable?.Truyen(statusOfTable: statusOfTable, ID: tableCode)
-        let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfChair: numberOfChair)
+        truyenVeManHinhTable?.Truyen(statusOfTable: statusOfTable, ID: tableCode, people: numberOfPeople)
+        let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfPeople: numberOfPeople, numberOfChair: numberOfChair)
         
         let tableItemRef = self.ref.child("\(tableCode!)")
-        tableItemRef.setValue([ "floor" : tableItem.floorCode,"name" : tableItem.tableName, "image" :  tableItem.tableImage, "status" : tableItem.statusOfTable, "chairs" : tableItem.numberOfChair])
+        tableItemRef.setValue([ "floor" : tableItem.floorCode,"name" : tableItem.tableName, "image" :  tableItem.tableImage, "status" : tableItem.statusOfTable, "people": tableItem.numberOfPeople, "chairs" : tableItem.numberOfChair])
         
         
         dismiss(animated: true, completion: nil)
-        ProgressHUD.showSuccess("Book Successful")
+        
     }
     
     @IBAction func cancelAction(_ sender: Any) {
         statusOfTable = 0
-        truyenVeManHinhTable?.Truyen(statusOfTable: statusOfTable, ID: tableCode)
-        let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfChair: numberOfChair)
+        numberOfPeople = 0
+        truyenVeManHinhTable?.Truyen(statusOfTable: statusOfTable, ID: tableCode, people: numberOfPeople)
+        let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfPeople: numberOfPeople, numberOfChair: numberOfChair)
         let tableItemRef = self.ref.child("\(tableCode!)")
-        tableItemRef.setValue([ "floor" : tableItem.floorCode,"name" : tableItem.tableName, "image" :  tableItem.tableImage, "status" : tableItem.statusOfTable, "chairs" : tableItem.numberOfChair])
+        tableItemRef.setValue([ "floor" : tableItem.floorCode,"name" : tableItem.tableName, "image" :  tableItem.tableImage, "status" : tableItem.statusOfTable, "people": tableItem.numberOfPeople, "chairs" : tableItem.numberOfChair])
         
         dismiss(animated: true, completion: nil)
         ProgressHUD.showError("Book Cancel")
     }
     
+    @IBAction func actionIncrease(_ sender: Any) {
+        if numberOfPeople < numberOfChair  {
+            numberOfPeople = numberOfPeople + 1
+            print(numberOfPeople!)
+        }
+        peopleLabel.text = "\(numberOfPeople!)"
+        let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfPeople: numberOfPeople, numberOfChair: numberOfChair)
+        let tableItemRef = self.ref.child("\(tableCode!)")
+        tableItemRef.setValue([ "floor" : tableItem.floorCode,"name" : tableItem.tableName, "image" :  tableItem.tableImage, "status" : tableItem.statusOfTable, "people": tableItem.numberOfPeople, "chairs" : tableItem.numberOfChair])
+    }
+    
+    @IBAction func actionDecrease(_ sender: Any) {
+        if numberOfPeople > 0 {
+            numberOfPeople = numberOfPeople - 1
+            print(numberOfPeople!)
+        }
+        peopleLabel.text = "\(numberOfPeople!)"
+        let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfPeople: numberOfPeople, numberOfChair: numberOfChair)
+        let tableItemRef = self.ref.child("\(tableCode!)")
+        tableItemRef.setValue([ "floor" : tableItem.floorCode,"name" : tableItem.tableName, "image" :  tableItem.tableImage, "status" : tableItem.statusOfTable, "people": tableItem.numberOfPeople, "chairs" : tableItem.numberOfChair])
+    }
     /*
      // MARK: - Navigation
      
