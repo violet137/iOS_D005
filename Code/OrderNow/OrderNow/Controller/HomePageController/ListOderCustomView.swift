@@ -9,15 +9,21 @@
 import UIKit
 
 class ListOderTableView: UIView, UITableViewDelegate, UITableViewDataSource{
+    
+    var ListOrder = [OrderModal]()
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return ListOrder.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let data = ListOrder[indexPath.item]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellid") as? ListOrderTableViewCell else {
             return UITableViewCell()
         }
         cell.setupContent()
+        cell.tenMon.text = data.tenMon
+        cell.soluong.text = String(data.soLuongDat!)
         return cell
     }
     

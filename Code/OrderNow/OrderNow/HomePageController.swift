@@ -19,6 +19,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         listMon3 = monAnUtils.FilterListMonAn(loai: 3)
         listMon4 = monAnUtils.FilterListMonAn(loai: 4)
         listMon5 = monAnUtils.FilterListMonAn(loai: 5)
+        listTong.append(listMonAn)
         listTong.append(listMon1)
         listTong.append(listMon2)
         listTong.append(listMon3)
@@ -47,7 +48,6 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
     
     var monAnUtils = MonAnUtils()
     var listMonAn = [MonAn]()
-    var OderList = [OrderModal]()
     var listMonReturnNumberOfItem = [MonAn]()
     
     var listMon1 = [MonAn]()
@@ -84,7 +84,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         }()
         let dismissOderPopup = UIButton()
         let acceptOder = UIButton()
-    
+        let tongGiaLb = UILabel()
     //Viewdidload func
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,7 +134,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         listOderTBV.snp.makeConstraints { (make) in
             make.top.equalTo(infoTableLb.snp.bottom).offset(20)
             make.width.equalTo(popupOrder.snp.width)
-            make.bottom.equalTo(popupOrder.snp.bottom).inset(60)
+            make.bottom.equalTo(popupOrder.snp.bottom).inset(90)
         }
         
         dismissOderPopup.setTitle("Dismiss", for: .normal)
@@ -143,7 +143,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         dismissOderPopup.layer.cornerRadius = 5.0
         dismissOderPopup.addTarget(self, action: #selector(handleDismissOrderPopupBt), for: .touchUpInside)
         dismissOderPopup.snp.makeConstraints { (make) in
-            make.top.equalTo(listOderTBV.snp.bottom).offset(10)
+            make.height.equalTo(35)
             make.leading.equalTo(popupOrder.snp.leading).inset(5)
             make.trailing.equalTo(acceptOder.snp.leading).offset(-5)
             make.bottom.equalTo(popupOrder.snp.bottom).inset(7)
@@ -160,6 +160,16 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
             make.height.equalTo(dismissOderPopup.snp.height)
             make.width.equalTo(dismissOderPopup.snp.width)
 //            make.leading.equalTo(dismissOderPopup.snp.trailing)
+        }
+        
+        popupOrder.addSubview(tongGiaLb)
+        tongGiaLb.numberOfLines = 1
+        tongGiaLb.textAlignment = .center
+        tongGiaLb.text = "Tổng Giá: 0 đ"
+        tongGiaLb.snp.makeConstraints { (make) in
+            make.top.equalTo(listOderTBV.snp.bottom).offset(5)
+            make.leading.trailing.equalTo(popupOrder)
+            make.bottom.equalTo(dismissOderPopup.snp.top).offset(5)
         }
     }
     
@@ -323,6 +333,9 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
                 self.cancelPopupBt.transform = CGAffineTransform.identity
             }
         }
+        
+        amount = 1
+        
     }
     
     @objc func handleAddToOrderListBt(){
@@ -340,26 +353,27 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         }
         // do something else
         
-        let dump = OrderModal(ten: popupFoodNameLb.text!, soluong: Int(amountLb.text!)!, hinh: popupImgName!, gia1Mon: Double(costLb.text!)!)
-        OderList.append(dump)
-        print(OderList.count)
+        let dump = OrderModal(ten: popupFoodNameLb.text!, soluong: amount, hinh: popupImgName!, gia1Mon: Double(gia1Mon))
+        listOderTBV.ListOrder.append(dump)
+        listOderTBV.tableView.reloadData()
     }
     
     @objc func handleMoreBt(){
         if amount >= 0 && amount < 10{
             amount += 1
             self.amountLb.text = "\(self.amount)"
-            costLb.text = "\(amount*85000) đ"
+            costLb.text = "\(amount * gia1Mon) đ"
         }
     }
     
+    var gia1Mon = 0
     var amount = 1
     
     @objc func handleLessBt(){
         if amount > 0 && amount <= 10{
             amount -= 1
             amountLb.text = "\(amount)"
-            costLb.text = "\(amount*85000) đ"
+            costLb.text = "\(amount * gia1Mon) đ"
         }
     }
     
@@ -552,16 +566,12 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == tabBarCollectionView{
             
-            if indexPath.item == 0{
-                listMonReturnNumberOfItem = listMonAn
-            }else{
-                listMonReturnNumberOfItem = listTong[indexPath.item - 1]
-            }
-            
+            listMonReturnNumberOfItem = listTong[indexPath.item]
             listFoodCollectionView.reloadData()
         }else{
             popUpIsClose(status: false, location: true)
             amountLb.text = String(amount)
+            gia1Mon = Int(listMonReturnNumberOfItem[indexPath.item].giaTien!)
             popupFoodNameLb.text = listMonReturnNumberOfItem[indexPath.item].tenMonAn
             costLb.text = String(listMonReturnNumberOfItem[indexPath.item].giaTien!)
             popupImg.image = UIImage(named: listMonReturnNumberOfItem[indexPath.item].hinh!)
