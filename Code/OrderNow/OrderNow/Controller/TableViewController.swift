@@ -192,15 +192,19 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             if myTable[indexPath.item].statusOfTable == 0 {
                 borderColor = UIColor.clear.cgColor
                 borderWidth = 0
+                tableCell.confirmAction.isHidden = true
             } else if myTable[indexPath.item].statusOfTable == 1 {
                 borderColor = UIColor.red.cgColor
                 borderWidth = 3
+                tableCell.confirmAction.isHidden = true
             } else if myTable[indexPath.item].statusOfTable == 2 {
                 borderColor = UIColor.green.cgColor
                 borderWidth = 3
+                tableCell.confirmAction.isHidden = false
             } else if myTable[indexPath.item].statusOfTable == 3 {
                 borderColor = UIColor.blue.cgColor
                 borderWidth = 3
+                tableCell.confirmAction.isHidden = false
             }
             
             tableCell.layer.borderWidth = borderWidth
@@ -217,11 +221,25 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             soBan = myTable.count
             tableCollectionView.reloadData()
         } else {
+           
+            
             let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
             let item = tableArray[indexPath.row]
             selectedIndexPath = indexPath
+            
+            if (item.statusOfTable! == 0 || item.statusOfTable! == 1) {
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let manHinhPopUp = sb.instantiateViewController(withIdentifier: "popUp") as! popUpViewController
+                self.navigationController?.pushViewController(manHinhPopUp, animated: true)
+            } else if (item.statusOfTable! == 2 || item.statusOfTable! == 3) {
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let manHinhThucAn = sb.instantiateViewController(withIdentifier: "thucAn") as! thucAnViewController
+                self.present(manHinhThucAn, animated: true, completion: nil)
+            }
+            
             performSegue(withIdentifier: viewImageSegueIdentifier, sender: item)
             tableCollectionView.reloadData()
+            
         }
     }
     

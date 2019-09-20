@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tableCollectionViewCell" id="gTV-IL-0wX" customClass="tableCollectionViewCell" customModule="orderProject2" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tableCollectionViewCell" id="gTV-IL-0wX" customClass="tableCollectionViewCell" customModule="OrderNow" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="345" height="267"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -39,24 +39,41 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVh-Xc-QSJ">
+                        <rect key="frame" x="295" y="0.0" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="2CG-Z5-ngr"/>
+                            <constraint firstAttribute="width" constant="50" id="Dl7-IZ-QPg"/>
+                        </constraints>
+                        <state key="normal" image="ic_selected_purple"/>
+                        <connections>
+                            <action selector="confirmDeleteTableAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Fku-Yr-GBD"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="jNp-FZ-cQb" secondAttribute="trailing" id="4nn-MB-SKI"/>
                 <constraint firstItem="5sW-fj-RHD" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="74w-rp-WDy"/>
+                <constraint firstAttribute="trailing" secondItem="GVh-Xc-QSJ" secondAttribute="trailing" id="8Hf-iI-hN9"/>
                 <constraint firstAttribute="bottom" secondItem="jNp-FZ-cQb" secondAttribute="bottom" id="EmZ-JU-dzc"/>
                 <constraint firstItem="jNp-FZ-cQb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LSz-6a-53k"/>
                 <constraint firstItem="5sW-fj-RHD" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="QEt-py-aaP"/>
                 <constraint firstItem="jNp-FZ-cQb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Uu5-qu-PaX"/>
+                <constraint firstItem="GVh-Xc-QSJ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="olw-xb-5pN"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="345" height="267"/>
             <connections>
                 <outlet property="chairLabel" destination="LyA-Ns-oAu" id="qUi-MM-Mpb"/>
+                <outlet property="confirmAction" destination="GVh-Xc-QSJ" id="Ckc-PY-ToM"/>
                 <outlet property="tableImageView" destination="jNp-FZ-cQb" id="YzG-Lq-lqh"/>
                 <outlet property="tableLabel" destination="uAt-Ch-VoW" id="Ek8-Go-a7I"/>
             </connections>
             <point key="canvasLocation" x="47.10144927536232" y="200.55803571428569"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="ic_selected_purple" width="32" height="32"/>
+    </resources>
 </document>
