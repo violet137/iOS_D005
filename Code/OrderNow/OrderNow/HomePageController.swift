@@ -12,21 +12,31 @@ import SnapKit
 
 class HomePageController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, sentUserInfo, sentDataToList {
     func onDataUpdate() {
-        listMonAn = monAnUtils.listMon
-        listMonReturnNumberOfItem = listMonAn
-        listMon1 = monAnUtils.FilterListMonAn(loai: 1)
-        listMon2 = monAnUtils.FilterListMonAn(loai: 2)
-        listMon3 = monAnUtils.FilterListMonAn(loai: 3)
-        listMon4 = monAnUtils.FilterListMonAn(loai: 4)
-        listMon5 = monAnUtils.FilterListMonAn(loai: 5)
-        listTong.append(listMonAn)
-        listTong.append(listMon1)
-        listTong.append(listMon2)
-        listTong.append(listMon3)
-        listTong.append(listMon4)
-        listTong.append(listMon5)
-        
-        listFoodCollectionView.reloadData()
+        DispatchQueue.global().async {
+            self.listMonAn = self.monAnUtils.listMon
+            self.listMonReturnNumberOfItem = self.listMonAn
+            self.listMon1 = self.monAnUtils.FilterListMonAn(loai: 1)
+            self.listMon2 = self.monAnUtils.FilterListMonAn(loai: 2)
+            self.listMon3 = self.monAnUtils.FilterListMonAn(loai: 3)
+            self.listMon4 = self.monAnUtils.FilterListMonAn(loai: 4)
+            self.listMon5 = self.monAnUtils.FilterListMonAn(loai: 5)
+            self.listTong.append(self.listMonAn)
+            self.listTong.append(self.listMon1)
+            self.listTong.append(self.listMon2)
+            self.listTong.append(self.listMon3)
+            self.listTong.append(self.listMon4)
+            self.listTong.append(self.listMon5)
+            
+        }
+        DispatchQueue.main.async {
+            
+            self.listFoodCollectionView.reloadData()
+            self.tabBarCollectionView.reloadData()
+
+            let indexPath = NSIndexPath(item: 0, section: 0)
+            self.tabBarCollectionView.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: .init())
+            
+        }
     }
     
     // protocol func
@@ -77,14 +87,12 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         var popupImgName: String?
         //các thành phần trong popup oderlist
         let infoTableLb = UILabel()
-        var listOderTBV: ListOderTableView = {
+        lazy var listOderTBV: ListOderTableView = {
             let tbv = ListOderTableView()
-            
             return tbv
         }()
         let dismissOderPopup = UIButton()
         let acceptOder = UIButton()
-        let tongGiaLb = UILabel()
     //Viewdidload func
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,7 +142,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         listOderTBV.snp.makeConstraints { (make) in
             make.top.equalTo(infoTableLb.snp.bottom).offset(20)
             make.width.equalTo(popupOrder.snp.width)
-            make.bottom.equalTo(popupOrder.snp.bottom).inset(90)
+            make.bottom.equalTo(popupOrder.snp.bottom).inset(60)
         }
         
         dismissOderPopup.setTitle("Dismiss", for: .normal)
@@ -161,18 +169,26 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
             make.width.equalTo(dismissOderPopup.snp.width)
 //            make.leading.equalTo(dismissOderPopup.snp.trailing)
         }
+        acceptOder.addTarget(self, action: #selector(handleAcceptOrder), for: .touchUpInside)
         
-        popupOrder.addSubview(tongGiaLb)
-        tongGiaLb.numberOfLines = 1
-        tongGiaLb.textAlignment = .center
-        tongGiaLb.text = "Tổng Giá: 0 đ"
-        tongGiaLb.snp.makeConstraints { (make) in
-            make.top.equalTo(listOderTBV.snp.bottom).offset(5)
-            make.leading.trailing.equalTo(popupOrder)
-            make.bottom.equalTo(dismissOderPopup.snp.top).offset(5)
-        }
     }
     
+    @objc func handleAcceptOrder(){
+        UIView.animate(withDuration: 0.25, delay: 0.05, options: .curveEaseOut, animations: {
+            self.popupOrder.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        }) { (finished: Bool) in
+            self.popUpIsClose(status: true, location: false)
+        }
+        UIButton.animate(withDuration: 0.25, animations: {
+            self.dismissOderPopup.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        }) { (finished: Bool) in
+            if finished{
+                self.dismissOderPopup.transform = CGAffineTransform.identity
+            }
+        }
+        
+        print(listOderTBV.ListOrder)
+    }
     
     @objc func handleDismissOrderPopupBt(){
         UIView.animate(withDuration: 0.25, delay: 0.05, options: .curveEaseOut, animations: {
@@ -356,6 +372,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         let dump = OrderModal(ten: popupFoodNameLb.text!, soluong: amount, hinh: popupImgName!, gia1Mon: Double(gia1Mon))
         listOderTBV.ListOrder.append(dump)
         listOderTBV.tableView.reloadData()
+        amount = 1
     }
     
     @objc func handleMoreBt(){
@@ -510,8 +527,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         tabBarCollectionView.dataSource = self
         tabBarCollectionView.register(UINib(nibName: "TabBarViewCell", bundle: nil), forCellWithReuseIdentifier: "tabbartop")
         listFoodCollectionView.register(UINib(nibName: "ListFoodViewCell", bundle: nil), forCellWithReuseIdentifier: "listfood")
-        let indexPath = NSIndexPath(item: 0, section: 0)
-        tabBarCollectionView.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: .init())
+        
         
     }
     // tất cả mọi thứ về collectionview collection view
@@ -533,7 +549,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == tabBarCollectionView{
-            return 6
+            return listTong.count
         }else{
             return listMonReturnNumberOfItem.count
         }
@@ -565,7 +581,6 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == tabBarCollectionView{
-            
             listMonReturnNumberOfItem = listTong[indexPath.item]
             listFoodCollectionView.reloadData()
         }else{

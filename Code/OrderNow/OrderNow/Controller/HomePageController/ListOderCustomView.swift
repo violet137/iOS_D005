@@ -11,6 +11,7 @@ import UIKit
 class ListOderTableView: UIView, UITableViewDelegate, UITableViewDataSource{
     
     var ListOrder = [OrderModal]()
+    var homePage = HomePageController()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ListOrder.count
@@ -22,6 +23,7 @@ class ListOderTableView: UIView, UITableViewDelegate, UITableViewDataSource{
             return UITableViewCell()
         }
         cell.setupContent()
+        cell.amount = Int(data.soLuongDat!)
         cell.tenMon.text = data.tenMon
         cell.soluong.text = String(data.soLuongDat!)
         return cell

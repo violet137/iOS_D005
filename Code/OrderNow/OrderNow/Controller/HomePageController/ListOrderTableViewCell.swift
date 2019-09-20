@@ -15,25 +15,20 @@ class ListOrderTableViewCell: UITableViewCell {
     var bot = UIButton()
     var soluong = UILabel()
     var stackVw = UIStackView()
-    var tongGiaMonAn = 0.0
-    var giaMonAn = 0.0
     
     @objc func handleMoreBt(){
         if amount >= 0 && amount < 10{
             amount += 1
             soluong.text = "\(self.amount)"
-            giaMonAn = Double(amount * gia1Mon)
         }
     }
     
-    var gia1Mon = 0
     var amount = 1
     
     @objc func handleLessBt(){
         if amount > 0 && amount <= 10{
             amount -= 1
             soluong.text = "\(amount)"
-            giaMonAn = Double(amount * gia1Mon)
         }
     }
     
