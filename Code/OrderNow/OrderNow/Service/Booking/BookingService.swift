@@ -58,7 +58,7 @@ class BookingService {
         refDataFirebase.child("table-items").child(id).observeSingleEvent(of: .childChanged, with: { (snapshot) in
             self.GetDetailTable(id: id ){ (status, data, error) in
                 // Get value
-                if data!.Status == 2 {
+                if data != nil &&  data!.Status == 2 {
                     completion(true,nil)
                 }else{
                     let domain = ""
