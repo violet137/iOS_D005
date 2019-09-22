@@ -1,64 +1,95 @@
 //
-//  TableViewViewController.swift
+//  CollectionViewCell.swift
 //  OrderNow
 //
-//  Created by admin on 9/5/19.
+//  Created by admin on 9/17/19.
 //  Copyright © 2019 ForLearn. All rights reserved.
 //
 
 import UIKit
 import WWLayout
-import Firebase
-
-protocol _NumberDelegate {
-    func increassNumber(View: TableView, number: Int)
-    func decreassNumber(View: TableView, number: Int)
+protocol NumberDelegate {
+    func increassNumber(View: CollectionViewCell, number: Int)
+    func decreassNumber(View: CollectionViewCell, number: Int)
 }
 
-class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var numberDelegate: _NumberDelegate?
+class CollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource {
+    var numberDelegate: NumberDelegate?
     var minValue = 0
     var bill: [Bill] = [Bill]()
-    var ref: DatabaseReference!
-    //*****headerview
+    
+    //******DataSource****
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return bill.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell
+        let data = bill[indexPath.row]
+        cell?.bill = data
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 110
+    }
+    
+    func createBillArray() {
+        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
+        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
+        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
+        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
+        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
+        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
+        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
+        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
+        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
+    }
+    
+//    @objc func increaseFunc() {
+//        changeQuantity(by: 1)
+//    }
+    
+    static var identifier: String {
+        return NSStringFromClass(self)
+    }
+    
+    var tableView = UITableView()
     var headerView = UIView()
     var leftHeaderStackView = UIStackView()
     var leftHeaderImage = UIImageView()
     var btnHeaderMinus = UIButton()
-    var leftHeaderPeople = UILabel()
+    let leftHeaderPeople = UILabel()
     var btnHeaderAdd = UIButton()
     var rightHeaderStackView = UIStackView()
     var rightHeaderLabel = UILabel()
     var rightHeaderImage = UIImageView()
-
+    
     //******bodyView
     var bodyView = UIView()
-
+    
     //******footerView
     var footerView = UIView()
     var lineFooterView = UIView()
     var labelFooterTotal = UILabel()
     var labelFooterTotalPrice = UILabel()
     var btnFooterPay = UIButton()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        ref = Database.database().reference()
-        ref.child("users").childByAutoId().setValue("hello")
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        //*****headerview
         createBillArray()
-
-        view.backgroundColor = .white
-        view.addSubview(headerView)
-        view.addSubview(bodyView)
-        view.addSubview(footerView)
-
+        contentView.backgroundColor = .white
+        contentView.addSubview(headerView)
+        contentView.addSubview(bodyView)
+        contentView.addSubview(footerView)
+        
         //*******headerView autolayout
-        //headerView.backgroundColor = .blue
         headerView.layout
-            .leading(to: view)
-            .top(to: view.safeAreaLayoutGuide)
-            .trailing(to: view)
-            .height(to: 0.1 * view.frame.height)
+            .leading(to: contentView)
+            .top(to: contentView.safeAreaLayoutGuide)
+            .trailing(to: contentView)
+            .height(to: 0.1 * contentView.frame.height)
         headerView.addSubview(leftHeaderImage)
         leftHeaderImage.image = UIImage(named: "iconNoOfPeple")
         leftHeaderImage.layout
@@ -112,13 +143,13 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         rightHeaderImage.image = UIImage(named: "iconTable")
         rightHeaderImage.layout.width(30).height(30)
         rightHeaderStackView.addArrangedSubview(rightHeaderImage)
-
+        
         //******footerView autoLayout
         footerView.layout
-            .leading(to: view)
-            .trailing(to: view)
-            .bottom(to: view.safeAreaLayoutGuide)
-            .height(to: 0.1 * view.frame.height)
+            .leading(to: contentView)
+            .trailing(to: contentView)
+            .bottom(to: contentView.safeAreaLayoutGuide)
+            .height(to: 0.1 * contentView.frame.height)
         footerView.addSubview(lineFooterView)
         lineFooterView.backgroundColor = .orange
         lineFooterView.layout
@@ -151,15 +182,13 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         labelFooterTotalPrice.layout
             .centerY(to: footerView)
             .trailing(to: btnFooterPay, edge: .leading, offset: -20)
-
-
-
+        
         //******bodyView
-        view.addSubview(bodyView)
+        contentView.addSubview(bodyView)
         bodyView.backgroundColor = .yellow
         bodyView.layout
             .top(to: headerView, edge: .bottom)
-            .leading(to: view).trailing(to: view)
+            .leading(to: contentView).trailing(to: contentView)
             .bottom(to: footerView, edge: .top)
         let tableView = UITableView(frame: bodyView.bounds, style: UITableView.Style.grouped)
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
@@ -169,36 +198,24 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.rowHeight = 150
         tableView.estimatedRowHeight = UITableView.automaticDimension
         bodyView.addSubview(tableView)
-            tableView.layout.fill(bodyView)
+        tableView.layout.fill(bodyView)
     }
     
-    //******DataSource****
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bill.count
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell
-        let data = bill[indexPath.row]
-        cell?.bill = data
-        return cell!
-    }
+        
+//        contentView.addSubview(tableView)
+//        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
+//        tableView.delegate = self
+//        tableView.dataSource = self
+//        createBillArray()
+//        tableView.layout.fill(contentView)
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
-    }
-    
-    func createBillArray() {
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-         bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-         bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-         bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-         bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-         bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-    }
+}
+
+extension CollectionViewCell{
     
     @objc func increaseFunc() {
         changeQuantity(by: 1)
@@ -209,16 +226,14 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func changeQuantity(by amount: Int) {
-        var noPeople = Int(leftHeaderPeople.text!)!
-        noPeople += amount
-        if noPeople < minValue {
+        var noPeople = Int(leftHeaderPeople.text!)
+        noPeople = noPeople! + amount
+        if noPeople! < minValue {
             noPeople = 0
             leftHeaderPeople.text = "0"
         } else {
-            leftHeaderPeople.text = "\(noPeople)"
+            leftHeaderPeople.text = "\(noPeople!)"
         }
-        numberDelegate?.decreassNumber(View: self, number: noPeople)
+        numberDelegate?.decreassNumber(View: self, number: noPeople!)
     }
-    
 }
-
