@@ -24,6 +24,13 @@
 		2A52D3B0231028C9005DA184 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A52D3AE231028C9005DA184 /* LaunchScreen.storyboard */; };
 		2A52D3BB231028C9005DA184 /* OrderNowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A52D3BA231028C9005DA184 /* OrderNowTests.swift */; };
 		2A52D3C6231028C9005DA184 /* OrderNowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A52D3C5231028C9005DA184 /* OrderNowUITests.swift */; };
+		2A9B437C2338EEFD006A2E19 /* MonAnModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B43792338EEFD006A2E19 /* MonAnModal.swift */; };
+		2A9B437D2338EEFD006A2E19 /* MonAnUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B437A2338EEFD006A2E19 /* MonAnUtils.swift */; };
+		2A9B437E2338EEFD006A2E19 /* OderModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B437B2338EEFD006A2E19 /* OderModal.swift */; };
+		2A9B438D2338EF5F006A2E19 /* TabBarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B43852338EF5F006A2E19 /* TabBarViewCell.swift */; };
+		2A9B438E2338EF5F006A2E19 /* TabBarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B43862338EF5F006A2E19 /* TabBarViewCell.xib */; };
+		2A9B438F2338EF5F006A2E19 /* ListOderCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B43872338EF5F006A2E19 /* ListOderCustomView.swift */; };
+		2A9B43902338EF5F006A2E19 /* ListOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B43882338EF5F006A2E19 /* ListOrderTableViewCell.swift */; };
 		840235512323392000DAE7E4 /* UIViewControllerExtension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 840235502323392000DAE7E4 /* UIViewControllerExtension .swift */; };
 		840235532323396100DAE7E4 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840235522323396100DAE7E4 /* UITextFieldExtension.swift */; };
 		8402355623233A5200DAE7E4 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402355523233A5200DAE7E4 /* AuthorizationService.swift */; };
@@ -93,6 +100,13 @@
 		2A52D3C1231028C9005DA184 /* OrderNowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrderNowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A52D3C5231028C9005DA184 /* OrderNowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNowUITests.swift; sourceTree = "<group>"; };
 		2A52D3C7231028C9005DA184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A9B43792338EEFD006A2E19 /* MonAnModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonAnModal.swift; sourceTree = "<group>"; };
+		2A9B437A2338EEFD006A2E19 /* MonAnUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonAnUtils.swift; sourceTree = "<group>"; };
+		2A9B437B2338EEFD006A2E19 /* OderModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OderModal.swift; sourceTree = "<group>"; };
+		2A9B43852338EF5F006A2E19 /* TabBarViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewCell.swift; sourceTree = "<group>"; };
+		2A9B43862338EF5F006A2E19 /* TabBarViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBarViewCell.xib; sourceTree = "<group>"; };
+		2A9B43872338EF5F006A2E19 /* ListOderCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOderCustomView.swift; sourceTree = "<group>"; };
+		2A9B43882338EF5F006A2E19 /* ListOrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOrderTableViewCell.swift; sourceTree = "<group>"; };
 		3F9347A14CB02147C66B9CEC /* Pods-OrderNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.debug.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.debug.xcconfig"; sourceTree = "<group>"; };
 		840235502323392000DAE7E4 /* UIViewControllerExtension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControllerExtension .swift"; sourceTree = "<group>"; };
 		840235522323396100DAE7E4 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
@@ -172,6 +186,7 @@
 		2A38CFC8232FB9DC0023152B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2A9B43832338EF5F006A2E19 /* HomePageController */,
 				2A38CFCB232FB9E70023152B /* floorCollectionViewCell.swift */,
 				2A38CFCE232FB9E70023152B /* floorCollectionViewCell.xib */,
 				2A38CFC9232FB9E70023152B /* tableCollectionViewCell.swift */,
@@ -208,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				2A38CFC8232FB9DC0023152B /* Controller */,
+				2A9B43782338EEFD006A2E19 /* Modal */,
 				2A38CFC3232FB9B90023152B /* Model */,
 				2A38CFB5232FB8930023152B /* Supporting Files */,
 				2F17F409231029D100127C69 /* LoginPageController */,
@@ -238,6 +254,35 @@
 				2A52D3C7231028C9005DA184 /* Info.plist */,
 			);
 			path = OrderNowUITests;
+			sourceTree = "<group>";
+		};
+		2A9B43782338EEFD006A2E19 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				2A9B43792338EEFD006A2E19 /* MonAnModal.swift */,
+				2A9B437A2338EEFD006A2E19 /* MonAnUtils.swift */,
+				2A9B437B2338EEFD006A2E19 /* OderModal.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		2A9B43832338EF5F006A2E19 /* HomePageController */ = {
+			isa = PBXGroup;
+			children = (
+				2A9B43872338EF5F006A2E19 /* ListOderCustomView.swift */,
+				2A9B43882338EF5F006A2E19 /* ListOrderTableViewCell.swift */,
+				2A9B43842338EF5F006A2E19 /* TopTabBar */,
+			);
+			path = HomePageController;
+			sourceTree = "<group>";
+		};
+		2A9B43842338EF5F006A2E19 /* TopTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				2A9B43852338EF5F006A2E19 /* TabBarViewCell.swift */,
+				2A9B43862338EF5F006A2E19 /* TabBarViewCell.xib */,
+			);
+			path = TopTabBar;
 			sourceTree = "<group>";
 		};
 		2F17F4022310292600127C69 /* ViewController */ = {
@@ -522,6 +567,7 @@
 				84BC0BC9232927CF0095BEB7 /* HomeUserViewController.xib in Resources */,
 				84BC0BCE232928CC0095BEB7 /* QRScannerViewController.xib in Resources */,
 				843B2C5B231402D800D5377F /* LoginViewController.xib in Resources */,
+				2A9B438E2338EF5F006A2E19 /* TabBarViewCell.xib in Resources */,
 				2A52D3B0231028C9005DA184 /* LaunchScreen.storyboard in Resources */,
 				84BA8314232CB8CB00F87DDE /* BannerHomeCollectionViewCell.xib in Resources */,
 				8478222C232B989C009D7D58 /* LocationSupportViewController.xib in Resources */,
@@ -617,22 +663,28 @@
 				84782232232BDA7D009D7D58 /* PagingCollectionView.swift in Sources */,
 				2A38CFD2232FB9E70023152B /* TableViewController.swift in Sources */,
 				84AC24D723325FD3000F0C14 /* BookingTableOutput.swift in Sources */,
+				2A9B43902338EF5F006A2E19 /* ListOrderTableViewCell.swift in Sources */,
 				2A38CFD1232FB9E70023152B /* floorCollectionViewCell.swift in Sources */,
 				2A38CFC7232FB9C90023152B /* TableItemModel.swift in Sources */,
 				84BA8313232CB8CB00F87DDE /* BannerHomeCollectionViewCell.swift in Sources */,
 				2A38CFD3232FB9E70023152B /* popUpViewController.swift in Sources */,
 				84AC24D523325508000F0C14 /* DetailTableOutput.swift in Sources */,
 				84BC0BCD232928CC0095BEB7 /* QRScannerViewController.swift in Sources */,
+				2A9B437C2338EEFD006A2E19 /* MonAnModal.swift in Sources */,
 				2A38CFC6232FB9C90023152B /* TableUtils.swift in Sources */,
 				840235532323396100DAE7E4 /* UITextFieldExtension.swift in Sources */,
 				2A38CFCF232FB9E70023152B /* tableCollectionViewCell.swift in Sources */,
+				2A9B437E2338EEFD006A2E19 /* OderModal.swift in Sources */,
 				84DF56FB232B43D300C6FD4E /* GradientView.swift in Sources */,
 				84AC1CC8231414A0007AA443 /* ViewController.swift in Sources */,
+				2A9B438D2338EF5F006A2E19 /* TabBarViewCell.swift in Sources */,
 				84BC0BC8232927CF0095BEB7 /* HomeUserViewController.swift in Sources */,
+				2A9B437D2338EEFD006A2E19 /* MonAnUtils.swift in Sources */,
 				8495E77823273B180082ED10 /* LoginOutput.swift in Sources */,
 				843B2C5A231402D800D5377F /* LoginViewController.swift in Sources */,
 				8402355623233A5200DAE7E4 /* AuthorizationService.swift in Sources */,
 				84AC24D223325477000F0C14 /* BookingService.swift in Sources */,
+				2A9B438F2338EF5F006A2E19 /* ListOderCustomView.swift in Sources */,
 				840235512323392000DAE7E4 /* UIViewControllerExtension .swift in Sources */,
 				84782230232BCB6F009D7D58 /* StackViewExtension.swift in Sources */,
 				84BC0BC0232925630095BEB7 /* QRScannerView.swift in Sources */,
