@@ -3,7 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>BUNDLE_ID</key>
-	<string>com.dx137.OrderNow</string>
+	<string>com.dx137.OrderNow
+com.dx137.OrderNow
+com.dx137.OrderNow
+com.dx137.OrderNow</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

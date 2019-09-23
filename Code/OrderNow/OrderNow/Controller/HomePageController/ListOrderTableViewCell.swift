@@ -9,7 +9,7 @@
 import UIKit
 
 class ListOrderTableViewCell: UITableViewCell {
-
+    
     var tenMon = UILabel()
     var them = UIButton()
     var bot = UIButton()
@@ -21,6 +21,7 @@ class ListOrderTableViewCell: UITableViewCell {
             amount += 1
             soluong.text = "\(self.amount)"
         }
+        
     }
     
     var amount = 1

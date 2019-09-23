@@ -14,6 +14,7 @@ class OrderModal{
     var soLuongDat: Int?
     var hinh: String?
     var gia1Mon: Double?
+    var maBan: String?
     
     init(ten: String, soluong: Int, hinh: String, gia1Mon: Double) {
         self.tenMon = ten

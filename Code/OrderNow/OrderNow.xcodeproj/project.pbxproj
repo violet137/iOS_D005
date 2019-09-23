@@ -17,6 +17,7 @@
 		2F00A9B92317FCE100C39609 /* TabBarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F00A9B72317FCE100C39609 /* TabBarViewCell.swift */; };
 		2F0636AD2311838400B27FCC /* ListFoodViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0636AB2311838400B27FCC /* ListFoodViewCell.swift */; };
 		2F0636AE2311838400B27FCC /* ListFoodViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0636AC2311838400B27FCC /* ListFoodViewCell.xib */; };
+		2F1587F523350E2100227769 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F1587F423350E2100227769 /* GoogleService-Info.plist */; };
 		2F17D1DD2310E21E007FDB77 /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F17D1DB2310E21E007FDB77 /* HomePageController.swift */; };
 		2F17D1DE2310E21E007FDB77 /* HomePageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F17D1DC2310E21E007FDB77 /* HomePageController.xib */; };
 		2F186FE42330AE750077B301 /* MonAnModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F186FE32330AE750077B301 /* MonAnModal.swift */; };
@@ -24,7 +25,6 @@
 		2F186FE8233112310077B301 /* ListOderCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F186FE7233112310077B301 /* ListOderCustomView.swift */; };
 		2F186FEA23312BBA0077B301 /* OderModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F186FE923312BBA0077B301 /* OderModal.swift */; };
 		2F186FEC23312F6E0077B301 /* ListOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F186FEB23312F6E0077B301 /* ListOrderTableViewCell.swift */; };
-		2F1D1BF823292D8000677C61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F1D1BF723292D7F00677C61 /* GoogleService-Info.plist */; };
 		2F8E0E722316E18600C44057 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E0E702316E18600C44057 /* LoginController.swift */; };
 		2F8E0E732316E18600C44057 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F8E0E712316E18600C44057 /* LoginController.xib */; };
 		37965D90BE49295683EAA9AE /* libPods-OrderNow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7203DFD30D0878052C95BBE5 /* libPods-OrderNow.a */; };
@@ -65,6 +65,7 @@
 		2F00A9B72317FCE100C39609 /* TabBarViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewCell.swift; sourceTree = "<group>"; };
 		2F0636AB2311838400B27FCC /* ListFoodViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListFoodViewCell.swift; path = HomePageController/ListFood/ListFoodViewCell.swift; sourceTree = SOURCE_ROOT; };
 		2F0636AC2311838400B27FCC /* ListFoodViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ListFoodViewCell.xib; path = HomePageController/ListFood/ListFoodViewCell.xib; sourceTree = SOURCE_ROOT; };
+		2F1587F423350E2100227769 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F17D1DB2310E21E007FDB77 /* HomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageController.swift; path = OrderNow/HomePageController.swift; sourceTree = SOURCE_ROOT; };
 		2F17D1DC2310E21E007FDB77 /* HomePageController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomePageController.xib; path = OrderNow/HomePageController.xib; sourceTree = SOURCE_ROOT; };
 		2F186FE32330AE750077B301 /* MonAnModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonAnModal.swift; sourceTree = "<group>"; };
@@ -72,7 +73,6 @@
 		2F186FE7233112310077B301 /* ListOderCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOderCustomView.swift; sourceTree = "<group>"; };
 		2F186FE923312BBA0077B301 /* OderModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OderModal.swift; sourceTree = "<group>"; };
 		2F186FEB23312F6E0077B301 /* ListOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrderTableViewCell.swift; sourceTree = "<group>"; };
-		2F1D1BF723292D7F00677C61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F8E0E702316E18600C44057 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = SOURCE_ROOT; };
 		2F8E0E712316E18600C44057 /* LoginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginController.xib; sourceTree = SOURCE_ROOT; };
 		7203DFD30D0878052C95BBE5 /* libPods-OrderNow.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OrderNow.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +108,7 @@
 		2A52D399231028C8005DA184 = {
 			isa = PBXGroup;
 			children = (
+				2F1587F423350E2100227769 /* GoogleService-Info.plist */,
 				2A52D3A4231028C8005DA184 /* OrderNow */,
 				2A52D3B9231028C9005DA184 /* OrderNowTests */,
 				2A52D3C4231028C9005DA184 /* OrderNowUITests */,
@@ -130,7 +131,6 @@
 		2A52D3A4231028C8005DA184 /* OrderNow */ = {
 			isa = PBXGroup;
 			children = (
-				2F1D1BF723292D7F00677C61 /* GoogleService-Info.plist */,
 				2F17F4052310299E00127C69 /* Other */,
 				2F17F4042310292D00127C69 /* View */,
 				2F17F4032310292A00127C69 /* Modal */,
@@ -383,7 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F0636AE2311838400B27FCC /* ListFoodViewCell.xib in Resources */,
-				2F1D1BF823292D8000677C61 /* GoogleService-Info.plist in Resources */,
+				2F1587F523350E2100227769 /* GoogleService-Info.plist in Resources */,
 				2A52D3B0231028C9005DA184 /* LaunchScreen.storyboard in Resources */,
 				2F00A9B82317FCE100C39609 /* TabBarViewCell.xib in Resources */,
 				2F17D1DE2310E21E007FDB77 /* HomePageController.xib in Resources */,

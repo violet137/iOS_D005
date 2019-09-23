@@ -9,8 +9,10 @@
 import UIKit
 import GoogleSignIn
 import SnapKit
+import Firebase
 
 class HomePageController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, sentUserInfo, sentDataToList {
+    
     func onDataUpdate() {
         DispatchQueue.global().async {
             self.listMonAn = self.monAnUtils.listMon
@@ -56,6 +58,8 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
     
     //variable blabla....
     
+    
+    var ref: DatabaseReference!
     var monAnUtils = MonAnUtils()
     var listMonAn = [MonAn]()
     var listMonReturnNumberOfItem = [MonAn]()
@@ -188,6 +192,11 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         }
         
         print(listOderTBV.ListOrder)
+        ref = Database.database().reference()
+        for item in listOderTBV.ListOrder{
+            ref.child("ListOrder").child("2").childByAutoId().setValue(["name": item.tenMon, "hinh": item.hinh, "gia1Mon": item.gia1Mon, "soLuong": item.soLuongDat])
+        }
+        
     }
     
     @objc func handleDismissOrderPopupBt(){
