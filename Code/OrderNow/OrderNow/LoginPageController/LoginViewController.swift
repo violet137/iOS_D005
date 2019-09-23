@@ -111,7 +111,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
 //                    }
                     
                     var home = HomePageController()
-                    self.present(home, animated: true, completion: nil)
+                    self.present(home, animated: false, completion: nil)
                 }
             }else{
                 if(error != nil){

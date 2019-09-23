@@ -33,6 +33,8 @@
 		2A9B43902338EF5F006A2E19 /* ListOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B43882338EF5F006A2E19 /* ListOrderTableViewCell.swift */; };
 		2A9B43992338F2E1006A2E19 /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B43972338F2E1006A2E19 /* HomePageController.swift */; };
 		2A9B439A2338F2E1006A2E19 /* HomePageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B43982338F2E1006A2E19 /* HomePageController.xib */; };
+		2A9B439E2338F42D006A2E19 /* ListFoodViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B439C2338F42D006A2E19 /* ListFoodViewCell.swift */; };
+		2A9B439F2338F42D006A2E19 /* ListFoodViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B439D2338F42D006A2E19 /* ListFoodViewCell.xib */; };
 		840235512323392000DAE7E4 /* UIViewControllerExtension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 840235502323392000DAE7E4 /* UIViewControllerExtension .swift */; };
 		840235532323396100DAE7E4 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840235522323396100DAE7E4 /* UITextFieldExtension.swift */; };
 		8402355623233A5200DAE7E4 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402355523233A5200DAE7E4 /* AuthorizationService.swift */; };
@@ -111,6 +113,8 @@
 		2A9B43882338EF5F006A2E19 /* ListOrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOrderTableViewCell.swift; sourceTree = "<group>"; };
 		2A9B43972338F2E1006A2E19 /* HomePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
 		2A9B43982338F2E1006A2E19 /* HomePageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageController.xib; sourceTree = "<group>"; };
+		2A9B439C2338F42D006A2E19 /* ListFoodViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFoodViewCell.swift; sourceTree = "<group>"; };
+		2A9B439D2338F42D006A2E19 /* ListFoodViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListFoodViewCell.xib; sourceTree = "<group>"; };
 		3F9347A14CB02147C66B9CEC /* Pods-OrderNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.debug.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.debug.xcconfig"; sourceTree = "<group>"; };
 		840235502323392000DAE7E4 /* UIViewControllerExtension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControllerExtension .swift"; sourceTree = "<group>"; };
 		840235522323396100DAE7E4 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 		2A9B43832338EF5F006A2E19 /* HomePageController */ = {
 			isa = PBXGroup;
 			children = (
+				2A9B439B2338F42D006A2E19 /* ListFood */,
 				2A9B43972338F2E1006A2E19 /* HomePageController.swift */,
 				2A9B43982338F2E1006A2E19 /* HomePageController.xib */,
 				2A9B43872338EF5F006A2E19 /* ListOderCustomView.swift */,
@@ -289,6 +294,15 @@
 				2A9B43862338EF5F006A2E19 /* TabBarViewCell.xib */,
 			);
 			path = TopTabBar;
+			sourceTree = "<group>";
+		};
+		2A9B439B2338F42D006A2E19 /* ListFood */ = {
+			isa = PBXGroup;
+			children = (
+				2A9B439C2338F42D006A2E19 /* ListFoodViewCell.swift */,
+				2A9B439D2338F42D006A2E19 /* ListFoodViewCell.xib */,
+			);
+			path = ListFood;
 			sourceTree = "<group>";
 		};
 		2F17F4022310292600127C69 /* ViewController */ = {
@@ -570,6 +584,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A9B439F2338F42D006A2E19 /* ListFoodViewCell.xib in Resources */,
 				84BC0BC9232927CF0095BEB7 /* HomeUserViewController.xib in Resources */,
 				84BC0BCE232928CC0095BEB7 /* QRScannerViewController.xib in Resources */,
 				843B2C5B231402D800D5377F /* LoginViewController.xib in Resources */,
@@ -694,6 +709,7 @@
 				2A9B438F2338EF5F006A2E19 /* ListOderCustomView.swift in Sources */,
 				840235512323392000DAE7E4 /* UIViewControllerExtension .swift in Sources */,
 				84782230232BCB6F009D7D58 /* StackViewExtension.swift in Sources */,
+				2A9B439E2338F42D006A2E19 /* ListFoodViewCell.swift in Sources */,
 				84BC0BC0232925630095BEB7 /* QRScannerView.swift in Sources */,
 				2A38CFBE232FB8BE0023152B /* ProgressHUD.m in Sources */,
 				2A9B43992338F2E1006A2E19 /* HomePageController.swift in Sources */,

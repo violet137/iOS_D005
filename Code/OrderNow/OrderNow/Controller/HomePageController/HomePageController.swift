@@ -11,7 +11,7 @@ import GoogleSignIn
 import SnapKit
 import Firebase
 
-class HomePageController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, sentUserInfo, sentDataToList {
+class HomePageController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, sentDataToList {
     
     func onDataUpdate() {
         DispatchQueue.global().async {
