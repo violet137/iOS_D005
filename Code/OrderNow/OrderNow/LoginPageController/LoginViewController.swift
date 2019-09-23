@@ -104,11 +104,14 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
                         self.present(QRScannerViewController(), animated: true, completion: nil)
                     }
                 } else if d.TypeAcc == "2" {
-                    let storeyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let view = storeyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
-                    DispatchQueue.main.async {
-                        self.present(view, animated: true, completion: nil)
-                    }
+//                    let storeyboard = UIStoryboard(name: "Main", bundle: nil)
+//                    let view = storeyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
+//                    DispatchQueue.main.async {
+//                        self.present(view, animated: true, completion: nil)
+//                    }
+                    
+                    var home = HomePageController()
+                    self.present(home, animated: true, completion: nil)
                 }
             }else{
                 if(error != nil){

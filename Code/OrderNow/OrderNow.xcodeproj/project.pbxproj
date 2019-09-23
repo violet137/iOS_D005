@@ -31,6 +31,8 @@
 		2A9B438E2338EF5F006A2E19 /* TabBarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B43862338EF5F006A2E19 /* TabBarViewCell.xib */; };
 		2A9B438F2338EF5F006A2E19 /* ListOderCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B43872338EF5F006A2E19 /* ListOderCustomView.swift */; };
 		2A9B43902338EF5F006A2E19 /* ListOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B43882338EF5F006A2E19 /* ListOrderTableViewCell.swift */; };
+		2A9B43992338F2E1006A2E19 /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B43972338F2E1006A2E19 /* HomePageController.swift */; };
+		2A9B439A2338F2E1006A2E19 /* HomePageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B43982338F2E1006A2E19 /* HomePageController.xib */; };
 		840235512323392000DAE7E4 /* UIViewControllerExtension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 840235502323392000DAE7E4 /* UIViewControllerExtension .swift */; };
 		840235532323396100DAE7E4 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840235522323396100DAE7E4 /* UITextFieldExtension.swift */; };
 		8402355623233A5200DAE7E4 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402355523233A5200DAE7E4 /* AuthorizationService.swift */; };
@@ -107,6 +109,8 @@
 		2A9B43862338EF5F006A2E19 /* TabBarViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBarViewCell.xib; sourceTree = "<group>"; };
 		2A9B43872338EF5F006A2E19 /* ListOderCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOderCustomView.swift; sourceTree = "<group>"; };
 		2A9B43882338EF5F006A2E19 /* ListOrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOrderTableViewCell.swift; sourceTree = "<group>"; };
+		2A9B43972338F2E1006A2E19 /* HomePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
+		2A9B43982338F2E1006A2E19 /* HomePageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageController.xib; sourceTree = "<group>"; };
 		3F9347A14CB02147C66B9CEC /* Pods-OrderNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.debug.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.debug.xcconfig"; sourceTree = "<group>"; };
 		840235502323392000DAE7E4 /* UIViewControllerExtension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControllerExtension .swift"; sourceTree = "<group>"; };
 		840235522323396100DAE7E4 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
@@ -269,6 +273,8 @@
 		2A9B43832338EF5F006A2E19 /* HomePageController */ = {
 			isa = PBXGroup;
 			children = (
+				2A9B43972338F2E1006A2E19 /* HomePageController.swift */,
+				2A9B43982338F2E1006A2E19 /* HomePageController.xib */,
 				2A9B43872338EF5F006A2E19 /* ListOderCustomView.swift */,
 				2A9B43882338EF5F006A2E19 /* ListOrderTableViewCell.swift */,
 				2A9B43842338EF5F006A2E19 /* TopTabBar */,
@@ -569,6 +575,7 @@
 				843B2C5B231402D800D5377F /* LoginViewController.xib in Resources */,
 				2A9B438E2338EF5F006A2E19 /* TabBarViewCell.xib in Resources */,
 				2A52D3B0231028C9005DA184 /* LaunchScreen.storyboard in Resources */,
+				2A9B439A2338F2E1006A2E19 /* HomePageController.xib in Resources */,
 				84BA8314232CB8CB00F87DDE /* BannerHomeCollectionViewCell.xib in Resources */,
 				8478222C232B989C009D7D58 /* LocationSupportViewController.xib in Resources */,
 				2A38CFBF232FB8BE0023152B /* GoogleService-Info.plist in Resources */,
@@ -689,6 +696,7 @@
 				84782230232BCB6F009D7D58 /* StackViewExtension.swift in Sources */,
 				84BC0BC0232925630095BEB7 /* QRScannerView.swift in Sources */,
 				2A38CFBE232FB8BE0023152B /* ProgressHUD.m in Sources */,
+				2A9B43992338F2E1006A2E19 /* HomePageController.swift in Sources */,
 				2A38CFC0232FB8BE0023152B /* AppDelegate.swift in Sources */,
 				8478222B232B989C009D7D58 /* LocationSupportViewController.swift in Sources */,
 			);
