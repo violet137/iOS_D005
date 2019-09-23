@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TruyenVeManHinhTableTuCollectionViewCell {
-    // func confirmDelete
+    func showAlert(cell: tableCollectionViewCell)
 }
 
 class tableCollectionViewCell: UICollectionViewCell {
@@ -19,17 +19,16 @@ class tableCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var chairLabel: UILabel!
     @IBOutlet weak var confirmAction: UIButton!
     
+   var delegate: TruyenVeManHinhTableTuCollectionViewCell?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
     @IBAction func confirmDeleteTableAction(_ sender: Any) {
-        let alert = UIAlertController(title: "Did you bring your towel?", message: "It's recommended you bring your towel before continuing.", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-        
-        //self.present(alert, animated: true)
+        delegate?.showAlert(cell: self)
     }
+    
 }

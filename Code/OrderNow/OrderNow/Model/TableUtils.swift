@@ -11,11 +11,13 @@ import FirebaseDatabase
 
 protocol TableCallback {
     func onDataUpdate()
+    func choXacNhan(ban:TableItem)
 }
 
 
 class TableUtils {
     var tableItemList = [TableItem]()
+    
     
     var ref: DatabaseReference!
     
@@ -25,6 +27,19 @@ class TableUtils {
         self.callback = callback
         ref.child("table-items").observe(.childChanged) { (snapshot) in
             self.dumpData()
+            
+            let dict = snapshot.value as! NSDictionary
+            let status =  dict["status"] as? Int
+            if(status == 1){
+                let floor = dict["floor"] as? Int
+                let image =  dict["image"] as? String
+                let name =  dict["name"] as? String
+                let status =  dict["status"] as? Int
+                let people = dict["people"] as? Int
+                let chairs =  dict["chairs"] as? Int
+                let table = TableItem(floorCode: floor!, tableCode: Int(snapshot.key)!, tableName:name!, tableImage: image!, statusOfTable: status!, numberOfPeople: people!, numberOfChair: chairs!)
+                self.callback?.choXacNhan(ban: table)
+            }
         }
     }
     
