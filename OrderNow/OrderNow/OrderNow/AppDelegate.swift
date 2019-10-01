@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         window?.frame = UIScreen.main.bounds
         window?.makeKeyAndVisible()
-        window?.rootViewController = CollectionView()
+        window?.rootViewController = TableView()
     return true
     }
 

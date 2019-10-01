@@ -8,6 +8,7 @@
 
 import UIKit
 import WWLayout
+import Firebase
 
 protocol BillDelegate {
     func increassNumber(cell: TableViewCell, number: Int)
@@ -17,28 +18,40 @@ protocol BillDelegate {
 class TableViewCell: UITableViewCell {
     var delegate: BillDelegate?
     let minValue = 0
+//    var billUtil = BillUtil()
     
     static var identifier: String {
         return NSStringFromClass(self)
     }
-    var bill : Bill? {
-        didSet {
-            foodImage.image = bill?.foodImage
-            foodPrice.text = bill?.foodPrice
-            foodNote.text = bill?.foodNote
-            foodName.text = bill?.foodName
-        }
-
-    }
+//    var bill : Bill? {
+//        didSet {
+//            foodImage.image = bill?.foodImage
+//            foodPrice.text = bill?.foodPrice
+//            foodNote.text = bill?.foodNote
+//            foodName.text = bill?.foodName
+//        }
+//    }
+//
+//    var billUtil = BillUtil() {
+//        didSet {
+////            billUtil?.dumpData()
+//            for monan in billUtil.list {
+//                foodName.text = monan.ten
+//                foodImage.image = UIImage(named: monan.hinh ?? "")
+//                foodPrice.text = "\(String(monan.gia!))"
+//                foodNote.text = "Test thu chuong trinh"
+//            }
+//        }
+//    }
     
-    private let foodImage: UIImageView = {
-        let img = UIImageView(image: UIImage(named: "bittetbo"))
+    var foodImage: UIImageView = {
+        let img = UIImageView()
         img.contentMode = .scaleAspectFit
         img.clipsToBounds = true
         return img
     }()
     
-    private let foodName: UILabel = {
+    var foodName: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont.boldSystemFont(ofSize: 15)
         lbl.textColor = .black
@@ -46,7 +59,7 @@ class TableViewCell: UITableViewCell {
         return lbl
     }()
     
-    private let foodNote: UILabel = {
+    var foodNote: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont.boldSystemFont(ofSize: 15)
         lbl.textColor = .black
@@ -54,7 +67,7 @@ class TableViewCell: UITableViewCell {
         return lbl
     }()
     
-    private let foodPrice: UILabel = {
+    var foodPrice: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont.boldSystemFont(ofSize: 18)
         lbl.textColor = .orange
@@ -62,7 +75,7 @@ class TableViewCell: UITableViewCell {
         return lbl
     }()
     
-    private let quantity: UILabel = {
+    var quantity: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont.boldSystemFont(ofSize: 16)
         lbl.textColor = .orange
@@ -71,7 +84,7 @@ class TableViewCell: UITableViewCell {
         return lbl
     }()
     
-    private let minusButton: UIButton = {
+    private var minusButton: UIButton = {
         let btn = UIButton(type: .custom)
         btn.setTitle("-", for: .normal)
         btn.setFont(size: 20, weight: .semibold)
@@ -83,7 +96,7 @@ class TableViewCell: UITableViewCell {
         return btn
     }()
     
-    private let addButton: UIButton = {
+    private var addButton: UIButton = {
         let btn = UIButton(type: .custom)
         btn.setTitle("+", for: .normal)
         btn.setFont(size: 20, weight: .semibold)
@@ -95,7 +108,7 @@ class TableViewCell: UITableViewCell {
         return btn
     }()
     
-    private let stackViewQuantity: UIStackView = {
+    private var stackViewQuantity: UIStackView = {
         let stackView = UIStackView()
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
@@ -104,9 +117,9 @@ class TableViewCell: UITableViewCell {
         return stackView
     }()
     
-    private let stackViewFood: UIStackView = {
+    private var stackViewFood: UIStackView = {
         let stackView = UIStackView()
-        stackView.alignment = .center
+        stackView.alignment = .leading
         stackView.distribution = .equalSpacing
         stackView.axis = .vertical
         stackView.spacing = 5
@@ -128,7 +141,7 @@ class TableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(foodImage)
-        foodImage.layout.width(100).height(100)
+        foodImage.layout.width(110).height(110)
             .leading(to: contentView, edge: .leading, offset: 10)
             .top(to: contentView, edge: .top, offset: 5)
         
@@ -143,9 +156,9 @@ class TableViewCell: UITableViewCell {
         stackViewQuantity.addArrangedSubview(addButton)
         stackViewQuantity.addArrangedSubview(quantity)
         stackViewQuantity.addArrangedSubview(minusButton)
-        stackViewQuantity.translatesAutoresizingMaskIntoConstraints = false
+//        stackViewQuantity.translatesAutoresizingMaskIntoConstraints = false
         stackViewQuantity.layout
-            .top(to: contentView, edge: .top, offset: 5)
+            .top(to: contentView, edge: .top, offset: 10)
             .leading(to: contentView, edge: .leading, offset: contentView.frame.width * 1.05)
         
         

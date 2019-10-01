@@ -16,6 +16,8 @@
 		84359F462321483B00515A8F /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84359F452321483B00515A8F /* TableView.swift */; };
 		84359F48232148DA00515A8F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84359F47232148DA00515A8F /* TableViewCell.swift */; };
 		84359F4B2321509600515A8F /* DesignExtent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84359F4A2321509600515A8F /* DesignExtent.swift */; };
+		8440AED923366101006B75A6 /* BillModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440AED823366101006B75A6 /* BillModal.swift */; };
+		8440AEDB2336611F006B75A6 /* BillUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440AEDA2336611F006B75A6 /* BillUtil.swift */; };
 		84DF8ED0232403DB001071A4 /* BillToPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF8ECF232403DB001071A4 /* BillToPay.swift */; };
 		B0D701E281E0238FB5C48038 /* Pods_OrderNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C36E55D271182EA035BA88 /* Pods_OrderNow.framework */; };
 /* End PBXBuildFile section */
@@ -34,6 +36,8 @@
 		84359F452321483B00515A8F /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		84359F47232148DA00515A8F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		84359F4A2321509600515A8F /* DesignExtent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignExtent.swift; sourceTree = "<group>"; };
+		8440AED823366101006B75A6 /* BillModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillModal.swift; sourceTree = "<group>"; };
+		8440AEDA2336611F006B75A6 /* BillUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BillUtil.swift; path = /Users/admin/Desktop/OrderNow/OrderNow/OrderNow/Modal/BillUtil.swift; sourceTree = "<absolute>"; };
 		84DF8ECF232403DB001071A4 /* BillToPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillToPay.swift; sourceTree = "<group>"; };
 		A5F4F925D83586CF224B18B7 /* Pods-OrderNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.release.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +87,7 @@
 		58603A5D5EA13DD610E6BB40 /* OrderNow */ = {
 			isa = PBXGroup;
 			children = (
+				8440AED7233660DD006B75A6 /* Modal */,
 				84359F492321506A00515A8F /* Extension */,
 				586032874705BCB2C5A12B50 /* Info.plist */,
 				840CE6CD2333D352009103FC /* GoogleService-Info.plist */,
@@ -100,6 +105,15 @@
 				84359F4A2321509600515A8F /* DesignExtent.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		8440AED7233660DD006B75A6 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				8440AEDA2336611F006B75A6 /* BillUtil.swift */,
+				8440AED823366101006B75A6 /* BillModal.swift */,
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 		B741971AF5EC3C580A3ADF6D /* Frameworks */ = {
@@ -237,11 +251,13 @@
 			files = (
 				841A3825233124F800553713 /* CollectionView.swift in Sources */,
 				84359F48232148DA00515A8F /* TableViewCell.swift in Sources */,
+				8440AED923366101006B75A6 /* BillModal.swift in Sources */,
 				84359F462321483B00515A8F /* TableView.swift in Sources */,
 				841A38272331250A00553713 /* CollectionViewCell.swift in Sources */,
 				586035A43C2A81093AE79F9B /* AppDelegate.swift in Sources */,
 				84DF8ED0232403DB001071A4 /* BillToPay.swift in Sources */,
 				84359F4B2321509600515A8F /* DesignExtent.swift in Sources */,
+				8440AEDB2336611F006B75A6 /* BillUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

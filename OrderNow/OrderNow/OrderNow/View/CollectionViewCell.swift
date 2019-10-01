@@ -8,25 +8,38 @@
 
 import UIKit
 import WWLayout
+import Firebase
+
 protocol NumberDelegate {
     func increassNumber(View: CollectionViewCell, number: Int)
     func decreassNumber(View: CollectionViewCell, number: Int)
 }
 
-class CollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource {
+class CollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource, sentData {
+    func updataData() {
+        DispatchQueue.global().async {
+            self.monanList = self.billUtil.list
+        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     var numberDelegate: NumberDelegate?
     var minValue = 0
-    var bill: [Bill] = [Bill]()
-    
+    var billUtil = BillUtil()
+    var monanList = [MonAn]()
+    var bill = [Bill]()
     //******DataSource****
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bill.count
+        return monanList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell
-        let data = bill[indexPath.row]
-        cell?.bill = data
+        let data = self.monanList[indexPath.row]
+//        cell?.billUtil?.list = [data]
+//        cell?.billUtil.list = [data]
         return cell!
     }
     
@@ -79,6 +92,8 @@ class CollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableView
         super.init(frame: frame)
         //*****headerview
         createBillArray()
+        billUtil.dumpData()
+        billUtil.delegate = self
         contentView.backgroundColor = .white
         contentView.addSubview(headerView)
         contentView.addSubview(bodyView)
@@ -199,6 +214,7 @@ class CollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableView
         tableView.estimatedRowHeight = UITableView.automaticDimension
         bodyView.addSubview(tableView)
         tableView.layout.fill(bodyView)
+        print("form CollectionViewCell: \(self.monanList.count)")
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -15,11 +15,20 @@ protocol _NumberDelegate {
     func decreassNumber(View: TableView, number: Int)
 }
 
-class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource,sentData {
+    func updataData() {
+        DispatchQueue.global().async {
+            self.listMon = self.billUtil.list
+        }
+        DispatchQueue.main.async {
+            self.tableView?.reloadData()
+        }
+    }
+    
     var numberDelegate: _NumberDelegate?
     var minValue = 0
-    var bill: [Bill] = [Bill]()
-    var ref: DatabaseReference!
+    var billUtil = BillUtil()
+    var listMon = [MonAn]()
     //*****headerview
     var headerView = UIView()
     var leftHeaderStackView = UIStackView()
@@ -40,12 +49,14 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var labelFooterTotal = UILabel()
     var labelFooterTotalPrice = UILabel()
     var btnFooterPay = UIButton()
+    var tableView: UITableView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ref = Database.database().reference()
-        ref.child("users").childByAutoId().setValue("hello")
-        createBillArray()
+//        createBillArray()
+        billUtil.dumpData()
+        billUtil.delegate = self
+        print(listMon.count)
 
         view.backgroundColor = .white
         view.addSubview(headerView)
@@ -152,8 +163,6 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             .centerY(to: footerView)
             .trailing(to: btnFooterPay, edge: .leading, offset: -20)
 
-
-
         //******bodyView
         view.addSubview(bodyView)
         bodyView.backgroundColor = .yellow
@@ -161,43 +170,36 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             .top(to: headerView, edge: .bottom)
             .leading(to: view).trailing(to: view)
             .bottom(to: footerView, edge: .top)
-        let tableView = UITableView(frame: bodyView.bounds, style: UITableView.Style.grouped)
-        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.rowHeight = 150
-        tableView.estimatedRowHeight = UITableView.automaticDimension
-        bodyView.addSubview(tableView)
-            tableView.layout.fill(bodyView)
+        tableView = UITableView(frame: bodyView.bounds, style: UITableView.Style.grouped)
+        tableView!.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
+        tableView!.translatesAutoresizingMaskIntoConstraints = false
+        tableView!.delegate = self
+        tableView!.dataSource = self
+        tableView!.rowHeight = 150
+        tableView!.estimatedRowHeight = UITableView.automaticDimension
+        bodyView.addSubview(tableView!)
+            tableView!.layout.fill(bodyView)
+        print(billUtil.list.count)
     }
     
     //******DataSource****
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bill.count
+        return listMon.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell
-        let data = bill[indexPath.row]
-        cell?.bill = data
+        let data = listMon[indexPath.row]
+//        cell?.billUtil = data
+        cell?.foodImage.image = UIImage(named: data.hinh!)
+        cell?.foodName.text = data.ten
+        cell?.foodNote.text = "Test choi thoi"
+        cell?.foodPrice.text = "\(data.gia!)"
         return cell!
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 110
-    }
-    
-    func createBillArray() {
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-         bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-         bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-         bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-         bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-         bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
     }
     
     @objc func increaseFunc() {
