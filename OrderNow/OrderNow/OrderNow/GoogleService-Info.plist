@@ -3,34 +3,34 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>756787175665-50daunkg97ud0b2k6cm43c9ip3hr5c7s.apps.googleusercontent.com</string>
+	<string>600617452249-g0a65n55nqnf9cg7r9gq0mibm43r1lt5.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.756787175665-50daunkg97ud0b2k6cm43c9ip3hr5c7s</string>
+	<string>com.googleusercontent.apps.600617452249-g0a65n55nqnf9cg7r9gq0mibm43r1lt5</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA5UqjlqbTzNbip7tw-22rGbUH9JXYjrfo</string>
+	<string>AIzaSyAxk0QhIjlnOxHLvCuhxrsMF3QcuXI-mFs</string>
 	<key>GCM_SENDER_ID</key>
-	<string>756787175665</string>
+	<string>600617452249</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.dx137.OrderNow</string>
+	<string>com.SantisCompany.orderProject2</string>
 	<key>PROJECT_ID</key>
-	<string>iosd005</string>
+	<string>iosd005-1562330996502</string>
 	<key>STORAGE_BUCKET</key>
-	<string>iosd005.appspot.com</string>
+	<string>iosd005-1562330996502.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:756787175665:ios:ae6d0ceecbb2bf38d14950</string>
+	<string>1:600617452249:ios:b9703f2aa47974bee834c8</string>
 	<key>DATABASE_URL</key>
-	<string>https://iosd005.firebaseio.com</string>
+	<string>https://iosd005-1562330996502.firebaseio.com</string>
 </dict>
 </plist>

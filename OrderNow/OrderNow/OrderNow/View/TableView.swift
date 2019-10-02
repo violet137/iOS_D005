@@ -56,6 +56,7 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource,se
 //        createBillArray()
         billUtil.dumpData()
         billUtil.delegate = self
+        billUtil.getOrderList()
         print(listMon.count)
 
         view.backgroundColor = .white

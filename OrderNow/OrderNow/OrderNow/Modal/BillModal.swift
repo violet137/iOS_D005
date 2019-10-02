@@ -12,14 +12,23 @@ class MonAn {
     var monID: String?
     var gia: Int?
     var hinh: String?
-    var loai: Int?
+    var soLuong: Int?
     var ten: String?
     
-    init(monID: String, gia: Int, hinh: String, loai: Int, ten: String) {
+    init(monID: String, gia: Int, hinh: String, soLuong: Int, ten: String) {
         self.monID = monID
         self.gia = gia
         self.hinh = hinh
-        self.loai = loai
+        self.soLuong = soLuong
         self.ten = ten
+    }
+}
+
+class BillPay {
+    var banName: String?
+    var banID: [MonAn]?
+    init(banID: [MonAn], banName: String) {
+        self.banID = banID
+        self.banName = banName
     }
 }
