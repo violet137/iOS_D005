@@ -89,6 +89,9 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
         self.btnResendOTPView.isHidden = false
         self.btnContinueView.setTitle("Đăng nhập", for: .init())
         self.otpView.becomeFirstResponder()
+        
+        var gy = BillpayController()
+        present(gy, animated: true, completion: nil)
     }
     
     func Login(_ phone:String, _ otp:String) -> Void {
