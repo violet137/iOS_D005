@@ -62,11 +62,11 @@ class BillUtil {
                         self.list.append(mon)
                         print("\(mon.gia)")
                     }//end for inerItem
+                let billPay = BillPay.init(banID: self.list, banName: banName!)
+                self.billList.append(billPay)
+                print("\(self.billList.count) | \(banName!)")
                 })
-
-                print("\(banName!)")
-            }
-            
+            }//end for item
         }
     }
 }
