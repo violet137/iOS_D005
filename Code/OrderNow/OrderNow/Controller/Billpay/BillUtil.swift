@@ -60,13 +60,12 @@ class BillUtil {
                         let ten = inerDict["name"] as? String
                         let mon = MonAnBill(monID: snapdata.key, gia: gia!, hinh: hinh!, soLuong: soLuong!, ten: ten!)
                         self.list.append(mon)
-                        print("\(mon.gia)")
                     }//end for inerItem
+                    let billPay = BillPay.init(banID: self.list, banName: banName!)
+                    self.billList.append(billPay)
+                    print(billPay)
                 })
-
-                print("\(banName!)")
-            }
-            
+            }//end for item
         }
     }
 }
