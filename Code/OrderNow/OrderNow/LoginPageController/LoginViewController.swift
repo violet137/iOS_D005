@@ -89,6 +89,9 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
         self.btnResendOTPView.isHidden = false
         self.btnContinueView.setTitle("Đăng nhập", for: .init())
         self.otpView.becomeFirstResponder()
+        
+        var gy = BillpayController()
+        present(gy, animated: true, completion: nil)
     }
     
     func Login(_ phone:String, _ otp:String) -> Void {
@@ -102,7 +105,6 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
                 if d.TypeAcc == "1" {
                     DispatchQueue.main.async {
                         self.present(QRScannerViewController(), animated: true, completion: nil)
-                       
                     }
                 } else if d.TypeAcc == "2" {
 //                    let storeyboard = UIStoryboard(name: "Main", bundle: nil)

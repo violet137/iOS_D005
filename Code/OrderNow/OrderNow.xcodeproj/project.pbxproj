@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A242BFD234623F2008747FE /* DesignExtent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A242BFC234623F2008747FE /* DesignExtent.swift */; };
+		2A242C042346242D008747FE /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A242BFF2346242D008747FE /* TableViewCell.swift */; };
+		2A242C052346242D008747FE /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A242C002346242D008747FE /* CollectionViewCell.swift */; };
+		2A242C062346242D008747FE /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A242C012346242D008747FE /* CollectionView.swift */; };
+		2A242C072346242D008747FE /* BillToPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A242C022346242D008747FE /* BillToPay.swift */; };
+		2A242C082346242D008747FE /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A242C032346242D008747FE /* TableView.swift */; };
+		2A242C0B23463313008747FE /* BillUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A242C0923463313008747FE /* BillUtil.swift */; };
+		2A242C0C23463313008747FE /* BillModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A242C0A23463313008747FE /* BillModal.swift */; };
 		2A38CFBE232FB8BE0023152B /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A38CFB7232FB8BD0023152B /* ProgressHUD.m */; };
 		2A38CFBF232FB8BE0023152B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A38CFB8232FB8BD0023152B /* GoogleService-Info.plist */; };
 		2A38CFC0232FB8BE0023152B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A38CFBB232FB8BD0023152B /* AppDelegate.swift */; };
@@ -79,6 +87,14 @@
 
 /* Begin PBXFileReference section */
 		174F9252E2F997B3A5BE891E /* Pods_OrderNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrderNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A242BFC234623F2008747FE /* DesignExtent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignExtent.swift; sourceTree = "<group>"; };
+		2A242BFF2346242D008747FE /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		2A242C002346242D008747FE /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		2A242C012346242D008747FE /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		2A242C022346242D008747FE /* BillToPay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillToPay.swift; sourceTree = "<group>"; };
+		2A242C032346242D008747FE /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		2A242C0923463313008747FE /* BillUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillUtil.swift; sourceTree = "<group>"; };
+		2A242C0A23463313008747FE /* BillModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillModal.swift; sourceTree = "<group>"; };
 		2A38CFB6232FB8BD0023152B /* OrderNow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OrderNow-Bridging-Header.h"; sourceTree = "<group>"; };
 		2A38CFB7232FB8BD0023152B /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		2A38CFB8232FB8BD0023152B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -168,6 +184,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A242BFE23462406008747FE /* Billpay */ = {
+			isa = PBXGroup;
+			children = (
+				2A242C0A23463313008747FE /* BillModal.swift */,
+				2A242C0923463313008747FE /* BillUtil.swift */,
+				2A242C022346242D008747FE /* BillToPay.swift */,
+				2A242C012346242D008747FE /* CollectionView.swift */,
+				2A242C002346242D008747FE /* CollectionViewCell.swift */,
+				2A242C032346242D008747FE /* TableView.swift */,
+				2A242BFF2346242D008747FE /* TableViewCell.swift */,
+			);
+			path = Billpay;
+			sourceTree = "<group>";
+		};
 		2A38CFB5232FB8930023152B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +224,8 @@
 		2A38CFC8232FB9DC0023152B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2A242BFE23462406008747FE /* Billpay */,
+				2A9B43832338EF5F006A2E19 /* HomePageController */,
 				2A38CFCB232FB9E70023152B /* floorCollectionViewCell.swift */,
 				2A38CFCE232FB9E70023152B /* floorCollectionViewCell.xib */,
 				2A38CFC9232FB9E70023152B /* tableCollectionViewCell.swift */,
@@ -230,8 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				2A38CFC8232FB9DC0023152B /* Controller */,
-				2A9B43832338EF5F006A2E19 /* HomePageController */,
 				2A9B43782338EEFD006A2E19 /* Modal */,
+				2A38CFC3232FB9B90023152B /* Model */,
 				2A38CFB5232FB8930023152B /* Supporting Files */,
 				2F17F409231029D100127C69 /* LoginPageController */,
 				84CEEE82232FB5C20081870B /* Customer */,
@@ -266,7 +298,6 @@
 		2A9B43782338EEFD006A2E19 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				2A38CFC3232FB9B90023152B /* Model */,
 				2A9B43792338EEFD006A2E19 /* MonAnModal.swift */,
 				2A9B437A2338EEFD006A2E19 /* MonAnUtils.swift */,
 				2A9B437B2338EEFD006A2E19 /* OderModal.swift */,
@@ -277,9 +308,11 @@
 		2A9B43832338EF5F006A2E19 /* HomePageController */ = {
 			isa = PBXGroup;
 			children = (
-				2FE321BC2338F9AC00419FE5 /* HomePage */,
-				2FE321BB2338F99000419FE5 /* ListOder */,
 				2A9B439B2338F42D006A2E19 /* ListFood */,
+				2A9B43972338F2E1006A2E19 /* HomePageController.swift */,
+				2A9B43982338F2E1006A2E19 /* HomePageController.xib */,
+				2A9B43872338EF5F006A2E19 /* ListOderCustomView.swift */,
+				2A9B43882338EF5F006A2E19 /* ListOrderTableViewCell.swift */,
 				2A9B43842338EF5F006A2E19 /* TopTabBar */,
 			);
 			path = HomePageController;
@@ -339,24 +372,6 @@
 			path = LoginPageController;
 			sourceTree = "<group>";
 		};
-		2FE321BB2338F99000419FE5 /* ListOder */ = {
-			isa = PBXGroup;
-			children = (
-				2A9B43872338EF5F006A2E19 /* ListOderCustomView.swift */,
-				2A9B43882338EF5F006A2E19 /* ListOrderTableViewCell.swift */,
-			);
-			path = ListOder;
-			sourceTree = "<group>";
-		};
-		2FE321BC2338F9AC00419FE5 /* HomePage */ = {
-			isa = PBXGroup;
-			children = (
-				2A9B43972338F2E1006A2E19 /* HomePageController.swift */,
-				2A9B43982338F2E1006A2E19 /* HomePageController.xib */,
-			);
-			path = HomePage;
-			sourceTree = "<group>";
-		};
 		6F1B5522013E9F09F5F6902B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +384,7 @@
 		8402354F232338A200DAE7E4 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				2A242BFC234623F2008747FE /* DesignExtent.swift */,
 				840235502323392000DAE7E4 /* UIViewControllerExtension .swift */,
 				840235522323396100DAE7E4 /* UITextFieldExtension.swift */,
 				8478222F232BCB6F009D7D58 /* StackViewExtension.swift */,
@@ -700,11 +716,14 @@
 			files = (
 				84782232232BDA7D009D7D58 /* PagingCollectionView.swift in Sources */,
 				2A38CFD2232FB9E70023152B /* TableViewController.swift in Sources */,
+				2A242C052346242D008747FE /* CollectionViewCell.swift in Sources */,
 				84AC24D723325FD3000F0C14 /* BookingTableOutput.swift in Sources */,
 				2A9B43902338EF5F006A2E19 /* ListOrderTableViewCell.swift in Sources */,
 				2A38CFD1232FB9E70023152B /* floorCollectionViewCell.swift in Sources */,
+				2A242C042346242D008747FE /* TableViewCell.swift in Sources */,
 				2A38CFC7232FB9C90023152B /* TableItemModel.swift in Sources */,
 				84BA8313232CB8CB00F87DDE /* BannerHomeCollectionViewCell.swift in Sources */,
+				2A242BFD234623F2008747FE /* DesignExtent.swift in Sources */,
 				2A38CFD3232FB9E70023152B /* popUpViewController.swift in Sources */,
 				84AC24D523325508000F0C14 /* DetailTableOutput.swift in Sources */,
 				84BC0BCD232928CC0095BEB7 /* QRScannerViewController.swift in Sources */,
@@ -712,14 +731,17 @@
 				2A38CFC6232FB9C90023152B /* TableUtils.swift in Sources */,
 				840235532323396100DAE7E4 /* UITextFieldExtension.swift in Sources */,
 				2A38CFCF232FB9E70023152B /* tableCollectionViewCell.swift in Sources */,
+				2A242C062346242D008747FE /* CollectionView.swift in Sources */,
 				2A9B437E2338EEFD006A2E19 /* OderModal.swift in Sources */,
 				84DF56FB232B43D300C6FD4E /* GradientView.swift in Sources */,
 				84AC1CC8231414A0007AA443 /* ViewController.swift in Sources */,
+				2A242C0C23463313008747FE /* BillModal.swift in Sources */,
 				2A9B438D2338EF5F006A2E19 /* TabBarViewCell.swift in Sources */,
 				84BC0BC8232927CF0095BEB7 /* HomeUserViewController.swift in Sources */,
 				2A9B437D2338EEFD006A2E19 /* MonAnUtils.swift in Sources */,
 				8495E77823273B180082ED10 /* LoginOutput.swift in Sources */,
 				843B2C5A231402D800D5377F /* LoginViewController.swift in Sources */,
+				2A242C0B23463313008747FE /* BillUtil.swift in Sources */,
 				8402355623233A5200DAE7E4 /* AuthorizationService.swift in Sources */,
 				84AC24D223325477000F0C14 /* BookingService.swift in Sources */,
 				2A9B438F2338EF5F006A2E19 /* ListOderCustomView.swift in Sources */,
@@ -728,6 +750,8 @@
 				2A9B439E2338F42D006A2E19 /* ListFoodViewCell.swift in Sources */,
 				84BC0BC0232925630095BEB7 /* QRScannerView.swift in Sources */,
 				2A38CFBE232FB8BE0023152B /* ProgressHUD.m in Sources */,
+				2A242C082346242D008747FE /* TableView.swift in Sources */,
+				2A242C072346242D008747FE /* BillToPay.swift in Sources */,
 				2A9B43992338F2E1006A2E19 /* HomePageController.swift in Sources */,
 				2A38CFC0232FB8BE0023152B /* AppDelegate.swift in Sources */,
 				8478222B232B989C009D7D58 /* LocationSupportViewController.swift in Sources */,
@@ -836,7 +860,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -891,7 +915,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -907,9 +931,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JL68B4CJPV;
 				INFOPLIST_FILE = "$(SRCROOT)/OrderNow/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -953,7 +976,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.greenacademy.ordernow2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OrderNow/Supporting Files/OrderNow-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -967,9 +989,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JL68B4CJPV;
 				INFOPLIST_FILE = "$(SRCROOT)/OrderNow/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1013,7 +1034,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.greenacademy.ordernow2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OrderNow/Supporting Files/OrderNow-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
