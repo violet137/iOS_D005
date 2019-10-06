@@ -19,6 +19,7 @@ class BillpayController: UIViewController, UITableViewDelegate, UITableViewDataS
     func updataData() {
         DispatchQueue.global().async {
             self.listMon = self.billUtil.list
+            self.billList = self.billUtil.billList
         }
         DispatchQueue.main.async {
             self.tableView?.reloadData()
@@ -29,6 +30,7 @@ class BillpayController: UIViewController, UITableViewDelegate, UITableViewDataS
     var minValue = 0
     var billUtil = BillUtil()
     var listMon = [MonAnBill]()
+    var billList = [BillPay]()
     //*****headerview
     var headerView = UIView()
     var leftHeaderStackView = UIStackView()
@@ -183,12 +185,14 @@ class BillpayController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     //******DataSource****
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listMon.count
+        var count: Int?
+        count = self.billList[section].banID!.count
+        return count!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell
-        let data = listMon[indexPath.row]
+        let data = self.billList[indexPath.section].banID![indexPath.row]
 //        cell?.billUtil = data
         cell?.foodImage.image = UIImage(named: data.hinh!)
         cell?.foodName.text = data.ten

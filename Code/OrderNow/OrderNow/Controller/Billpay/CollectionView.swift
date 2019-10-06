@@ -53,28 +53,10 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
         collectionView!.isPagingEnabled = true
         billUtil.getOrderList()
         billUtil.delegate = self
-        collectionView?.register(BillViewCell.self, forCellWithReuseIdentifier: BillViewCell.identifier)
-        collectionView?.delegate = self
-        collectionView?.dataSource = self
+        collectionView!.register(BillViewCell.self, forCellWithReuseIdentifier: BillViewCell.identifier)
+        collectionView!.delegate = self
+        collectionView!.dataSource = self
         print("form CollectionView: \(billListCV.count)")
-//        ref = Database.database().reference()
-//        ref.child("MonAn").observeSingleEvent(of: .value) { (snapshot) in
-//            self.monAnList.removeAll()
-//            for item in snapshot.children {
-//                let snap = item as! DataSnapshot
-//                let dict = snap.value as! NSDictionary
-//                let gia = dict["gia"] as? Int
-//                let hinh = dict["hinh"] as? String
-//                let loai = dict["loai"] as? Int
-//                let ten = dict["ten"] as? String
-//                let billitem = MonAn.init(monID: String(snap.key), gia: gia!, hinh: hinh!, loai: loai!, ten: ten!)
-//                self.monAnList.append(billitem)
-//                self.collectionView!.reloadData()
-//            }
-//            print("trong ref: \(self.monAnList)")
-//        }
-//        print("ngoai ref: \(self.monAnList)")
-        
         view.addSubview(collectionView!)
         view.backgroundColor = .white
         collectionView!.layout.fill(view)
