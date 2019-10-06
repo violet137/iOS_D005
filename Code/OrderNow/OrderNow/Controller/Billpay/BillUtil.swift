@@ -63,9 +63,9 @@ class BillUtil {
                     }//end for inerItem
                     let billPay = BillPay.init(banID: self.list, banName: banName!)
                     self.billList.append(billPay)
-                    print(billPay)
                 })
             }//end for item
+            self.delegate?.updataData()
         }
     }
 }

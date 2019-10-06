@@ -11,14 +11,15 @@ import WWLayout
 import Firebase
 
 protocol NumberDelegate {
-    func increassNumber(View: CollectionViewCell, number: Int)
-    func decreassNumber(View: CollectionViewCell, number: Int)
+    func increassNumber(View: BillViewCell, number: Int)
+    func decreassNumber(View: BillViewCell, number: Int)
 }
 
-class CollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource, sentData {
+class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource, sentData {
     func updataData() {
         DispatchQueue.global().async {
             self.monanList = self.billUtil.list
+            self.billListOrder = self.billUtil.billList
         }
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -28,18 +29,16 @@ class CollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableView
     var numberDelegate: NumberDelegate?
     var minValue = 0
     var billUtil = BillUtil()
+    var billListOrder = [BillPay]()
     var monanList = [MonAnBill]()
-    var bill = [Bill]()
     //******DataSource****
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return monanList.count
+        return billListOrder[section].banID!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell
-        let data = self.monanList[indexPath.row]
-//        cell?.billUtil?.list = [data]
-//        cell?.billUtil.list = [data]
+        let data = billListOrder[indexPath.section].banID![indexPath.row]
         return cell!
     }
     
@@ -47,17 +46,6 @@ class CollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableView
         return 110
     }
     
-    func createBillArray() {
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-        bill.append(Bill(foodImage: UIImage(imageLiteralResourceName: "bittetbo"), foodName: "Bo bit tet Hoa Diem Son", foodNote: "Phan khong cay", foodPrice: "85,000"))
-    }
     
 //    @objc func increaseFunc() {
 //        changeQuantity(by: 1)
@@ -67,32 +55,31 @@ class CollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableView
         return NSStringFromClass(self)
     }
     
-    var tableView = UITableView()
-    var headerView = UIView()
-    var leftHeaderStackView = UIStackView()
-    var leftHeaderImage = UIImageView()
+    private var tableView = UITableView()
+    private var headerView = UIView()
+    private var leftHeaderStackView = UIStackView()
+    private var leftHeaderImage = UIImageView()
     var btnHeaderMinus = UIButton()
     let leftHeaderPeople = UILabel()
     var btnHeaderAdd = UIButton()
-    var rightHeaderStackView = UIStackView()
+    private var rightHeaderStackView = UIStackView()
     var rightHeaderLabel = UILabel()
-    var rightHeaderImage = UIImageView()
+    private var rightHeaderImage = UIImageView()
     
     //******bodyView
     var bodyView = UIView()
     
     //******footerView
-    var footerView = UIView()
-    var lineFooterView = UIView()
-    var labelFooterTotal = UILabel()
+    private var footerView = UIView()
+    private var lineFooterView = UIView()
+    private var labelFooterTotal = UILabel()
     var labelFooterTotalPrice = UILabel()
     var btnFooterPay = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         //*****headerview
-        createBillArray()
-        billUtil.dumpData()
+        billUtil.getOrderList()
         billUtil.delegate = self
         contentView.backgroundColor = .white
         contentView.addSubview(headerView)
@@ -122,7 +109,7 @@ class CollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableView
         leftHeaderStackView.alignment = .center
         leftHeaderStackView.spacing = 20
         btnHeaderMinus.setTitle("-", for: .normal)
-        btnHeaderMinus.addTarget(self, action: #selector(decreaseFunc), for: .touchUpInside)
+        btnHeaderMinus.addTarget(self, action: #selector(decreaseSize), for: .touchUpInside)
         btnHeaderMinus.setBorder(width: 1.0, color: .lightGray)
         btnHeaderMinus.layout.width(20).height(20)
         btnHeaderMinus.setRadius(radius: 10)
@@ -231,7 +218,7 @@ class CollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableView
     
 }
 
-extension CollectionViewCell{
+extension BillViewCell{
     
     @objc func increaseFunc() {
         changeQuantity(by: 1)

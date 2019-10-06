@@ -10,27 +10,32 @@ import UIKit
 import WWLayout
 import Firebase
 
-class CollectionView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData {
+class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData {
     func updataData() {
         DispatchQueue.global().async {
             self.monAnList = self.billUtil.list
+            self.billListCV = self.billUtil.billList
         }
         DispatchQueue.main.async {
             self.collectionView!.reloadData()
         }
     }
     
-    var ref: DatabaseReference!
+//    var ref: DatabaseReference!
     var billUtil = BillUtil()
     var monAnList = [MonAnBill]()
+    var billListCV = [BillPay]()
     var collectionView: UICollectionView?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return billListCV.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BillViewCell.identifier, for: indexPath) as! BillViewCell
+        let data = billListCV[indexPath.row]
+        cell.leftHeaderPeople.text = "2"
+        cell.rightHeaderLabel.text = "Bàn \(data.banName)"
         return cell
     }
 
@@ -39,20 +44,19 @@ class CollectionView: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let layoutcv = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layoutcv)
-        collectionView!.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
-        collectionView!.delegate = self
-        collectionView!.dataSource = self
-        DispatchQueue.main.async {
-            self.collectionView?.reloadData()
-        }
+        
+       
         layoutcv.itemSize = CGSize(width: view.frame.width, height: view.frame.height)
         layoutcv.minimumInteritemSpacing = 0
         layoutcv.minimumLineSpacing = 0
         layoutcv.scrollDirection = .horizontal
         collectionView!.isPagingEnabled = true
-        billUtil.dumpData()
+        billUtil.getOrderList()
         billUtil.delegate = self
-        print("form CollectionView: \(monAnList.count)")
+        collectionView?.register(BillViewCell.self, forCellWithReuseIdentifier: BillViewCell.identifier)
+        collectionView?.delegate = self
+        collectionView?.dataSource = self
+        print("form CollectionView: \(billListCV.count)")
 //        ref = Database.database().reference()
 //        ref.child("MonAn").observeSingleEvent(of: .value) { (snapshot) in
 //            self.monAnList.removeAll()

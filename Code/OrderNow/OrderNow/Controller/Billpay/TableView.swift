@@ -53,8 +53,6 @@ class BillpayController: UIViewController, UITableViewDelegate, UITableViewDataS
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        createBillArray()
-        billUtil.dumpData()
         billUtil.delegate = self
         billUtil.getOrderList()
         print(listMon.count)
