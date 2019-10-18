@@ -15,30 +15,27 @@ protocol NumberDelegate {
     func decreassNumber(View: BillViewCell, number: Int)
 }
 
-class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource, sentData {
-    func updataData() {
-        DispatchQueue.global().async {
-            self.monanList = self.billUtil.list
-            self.billListOrder = self.billUtil.billList
-        }
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource, dataBackDelegate  {
+    func sentDataBack(with data: [MonAnBill]) {
+        self.dataList = data
     }
     
+    var billDelegate = BillPayViewController()
     var numberDelegate: NumberDelegate?
+    var dataList = [MonAnBill]()
     var minValue = 0
-    var billUtil = BillUtil()
-    var billListOrder = [BillPay]()
-    var monanList = [MonAnBill]()
     //******DataSource****
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return billListOrder[section].banID!.count
+        return dataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell
-        let data = billListOrder[indexPath.section].banID![indexPath.row]
+        let data = dataList[indexPath.row]
+        cell?.foodName.text = data.ten!
+        cell?.foodImage.image = UIImage(named: data.hinh!)
+        cell?.foodPrice.text = "\(data.gia!)"
+        cell?.quantity.text = "\(data.soLuong!)"
         return cell!
     }
     
@@ -78,9 +75,10 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        // ***** get data back from
+        self.billDelegate.dataDelegate = self
+        
         //*****headerview
-        billUtil.getOrderList()
-        billUtil.delegate = self
         contentView.backgroundColor = .white
         contentView.addSubview(headerView)
         contentView.addSubview(bodyView)
@@ -201,7 +199,6 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
         tableView.estimatedRowHeight = UITableView.automaticDimension
         bodyView.addSubview(tableView)
         tableView.layout.fill(bodyView)
-        print("form CollectionViewCell: \(self.monanList.count)")
     }
     
     required init?(coder aDecoder: NSCoder) {

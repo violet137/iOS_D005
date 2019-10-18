@@ -10,10 +10,13 @@ import UIKit
 import WWLayout
 import Firebase
 
+protocol dataBackDelegate {
+    func sentDataBack(with data: [MonAnBill])
+}
+
 class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData {
     func updataData() {
         DispatchQueue.global().async {
-            self.monAnList = self.billUtil.list
             self.billListCV = self.billUtil.billList
         }
         DispatchQueue.main.async {
@@ -21,26 +24,34 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
     }
     
-//    var ref: DatabaseReference!
+    var dataDelegate: dataBackDelegate?
     var billUtil = BillUtil()
-    var monAnList = [MonAnBill]()
     var billListCV = [BillPay]()
     var collectionView: UICollectionView?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return billListCV.count
+        return self.billListCV.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BillViewCell.identifier, for: indexPath) as! BillViewCell
-        let data = billListCV[indexPath.row]
+        let data = self.billListCV[indexPath.row]
         cell.leftHeaderPeople.text = "2"
-        cell.rightHeaderLabel.text = "Bàn \(data.banName)"
+        cell.rightHeaderLabel.text = "Bàn \(data.banName!)"
+        var totalPrice = 0
+        for item in data.banID! {
+            totalPrice = totalPrice + (item.gia! * item.soLuong!)
+        }
+        cell.labelFooterTotalPrice.text = "\(totalPrice)"
+        cell.billDelegate.dataDelegate?.sentDataBack(with: data.banID!)
         return cell
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Get data from firebase
+        billUtil.getOrderList()
+        billUtil.delegate = self
         
         let layoutcv = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layoutcv)
@@ -51,8 +62,6 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
         layoutcv.minimumLineSpacing = 0
         layoutcv.scrollDirection = .horizontal
         collectionView!.isPagingEnabled = true
-        billUtil.getOrderList()
-        billUtil.delegate = self
         collectionView!.register(BillViewCell.self, forCellWithReuseIdentifier: BillViewCell.identifier)
         collectionView!.delegate = self
         collectionView!.dataSource = self

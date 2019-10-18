@@ -90,7 +90,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
         self.btnContinueView.setTitle("Đăng nhập", for: .init())
         self.otpView.becomeFirstResponder()
         
-        var gy = BillpayController()
+        var gy = BillPayViewController()
         present(gy, animated: true, completion: nil)
     }
     
