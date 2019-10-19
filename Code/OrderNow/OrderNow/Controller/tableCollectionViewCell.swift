@@ -18,6 +18,7 @@ class tableCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tableLabel: UILabel!
     @IBOutlet weak var chairLabel: UILabel!
     @IBOutlet weak var confirmAction: UIButton!
+    @IBOutlet weak var billAction: UIButton!
     
    var delegate: TruyenVeManHinhTableTuCollectionViewCell?
     
@@ -31,4 +32,8 @@ class tableCollectionViewCell: UICollectionViewCell {
         delegate?.showAlert(cell: self)
     }
     
+    @IBAction func billAction(_ sender: Any) {
+        
+        
+    }
 }
