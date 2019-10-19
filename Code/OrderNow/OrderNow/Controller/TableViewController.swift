@@ -196,6 +196,8 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             tableItemRef.setValue([ "floor" : item.floorCode!,"name" : item.tableName!, "image" :  item.tableImage!, "status" : statusOfTable, "people": item.numberOfPeople!, "chairs" : item.numberOfChair!])
 
         }))
+        
+        
 
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
         }))
@@ -236,18 +238,22 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 borderColor = UIColor.clear.cgColor
                 borderWidth = 0
                 tableCell.confirmAction.isHidden = true
+                tableCell.billAction.isHidden = true
             } else if myTable[indexPath.item].statusOfTable == 1 {
                 borderColor = UIColor.red.cgColor
                 borderWidth = 3
                 tableCell.confirmAction.isHidden = true
+                tableCell.billAction.isHidden = true
             } else if myTable[indexPath.item].statusOfTable == 2 {
                 borderColor = UIColor.green.cgColor
                 borderWidth = 3
                 tableCell.confirmAction.isHidden = false
+                tableCell.billAction.isHidden = false
             } else if myTable[indexPath.item].statusOfTable == 3 {
                 borderColor = UIColor.blue.cgColor
                 borderWidth = 3
                 tableCell.confirmAction.isHidden = false
+                tableCell.billAction.isHidden = false
             }
             
             tableCell.layer.borderWidth = borderWidth

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,6 +48,14 @@
                             <action selector="confirmDeleteTableAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Fku-Yr-GBD"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LY6-jj-KFp">
+                        <rect key="frame" x="0.0" y="0.0" width="41" height="41"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" image="MoneySymbol"/>
+                        <connections>
+                            <action selector="billAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="3ci-fk-mmS"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <constraints>
@@ -65,6 +71,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="345" height="267"/>
             <connections>
+                <outlet property="billAction" destination="LY6-jj-KFp" id="ahq-uS-FeM"/>
                 <outlet property="chairLabel" destination="LyA-Ns-oAu" id="qUi-MM-Mpb"/>
                 <outlet property="confirmAction" destination="GVh-Xc-QSJ" id="Ckc-PY-ToM"/>
                 <outlet property="tableImageView" destination="jNp-FZ-cQb" id="YzG-Lq-lqh"/>
@@ -74,6 +81,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="MoneySymbol" width="612" height="509"/>
         <image name="ic_selected_purple" width="32" height="32"/>
     </resources>
 </document>
