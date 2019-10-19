@@ -28,7 +28,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
             self.listTong.append(self.listMon3)
             self.listTong.append(self.listMon4)
             self.listTong.append(self.listMon5)
-            
+            self.makeContraintPopupOrder()
         }
         DispatchQueue.main.async {
             
@@ -58,6 +58,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
     
     //variable blabla....
     
+    var nameTabList = ["Tất cả", "Món bún", "Nướng", "Cơm", "Súp", "Bánh"]
     
     var ref: DatabaseReference!
     var monAnUtils = MonAnUtils()
@@ -107,7 +108,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         conectCollectionView()
         setUpPopUp()
         makeContraintInPopupView()
-        makeContraintPopupOrder()
+        
         setUpContraintOfContentInPopupOder()
     }
     
@@ -118,13 +119,15 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func makeContraintPopupOrder(){
-        self.view.addSubview(popupOrder)
-        popupOrder.backgroundColor = .white
-        popupOrder.isHidden = true
-        popupOrder.snp.makeConstraints { (make) in
-            make.height.equalTo(self.view.snp.height).dividedBy(1.2)
-            make.width.equalTo(self.view.snp.width).dividedBy(1.1)
-            make.center.equalTo(self.view.snp.center)
+        DispatchQueue.main.async {
+            self.view.addSubview(self.popupOrder)
+            self.popupOrder.backgroundColor = .white
+            self.popupOrder.isHidden = true
+            self.popupOrder.snp.makeConstraints { (make) in
+                make.height.equalTo(self.view.snp.height).dividedBy(1.2)
+                make.width.equalTo(self.view.snp.width).dividedBy(1.1)
+                make.center.equalTo(self.view.snp.center)
+            }
         }
     }
     
@@ -192,7 +195,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         print(listOderTBV.ListOrder)
         ref = Database.database().reference()
         for item in listOderTBV.ListOrder{
-            ref.child("ListOrder").child("2").childByAutoId().setValue(["name": item.tenMon, "hinh": item.hinh, "gia1Mon": item.gia1Mon, "soLuong": item.soLuongDat])
+            ref.child("ListOrder").child("3").childByAutoId().setValue(["name": item.tenMon, "hinh": item.hinh, "gia1Mon": item.gia1Mon, "soLuong": item.soLuongDat])
         }
         
     }
@@ -569,6 +572,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
                 return UICollectionViewCell()
             }
             DispatchQueue.main.async {
+                cell.nameTabLb.text = self.nameTabList[indexPath.item]
                 cell.setUpCell()
             }
             return cell
