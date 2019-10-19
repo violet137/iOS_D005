@@ -102,6 +102,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
                 if d.TypeAcc == "1" {
                     DispatchQueue.main.async {
                         self.present(QRScannerViewController(), animated: true, completion: nil)
+                       
                     }
                 } else if d.TypeAcc == "2" {
                     let storeyboard = UIStoryboard(name: "Main", bundle: nil)

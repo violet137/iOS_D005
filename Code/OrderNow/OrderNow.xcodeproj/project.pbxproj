@@ -227,7 +227,6 @@
 			isa = PBXGroup;
 			children = (
 				2A242BFE23462406008747FE /* Billpay */,
-				2A9B43832338EF5F006A2E19 /* HomePageController */,
 				2A38CFCB232FB9E70023152B /* floorCollectionViewCell.swift */,
 				2A38CFCE232FB9E70023152B /* floorCollectionViewCell.xib */,
 				2A38CFC9232FB9E70023152B /* tableCollectionViewCell.swift */,
@@ -265,8 +264,8 @@
 			isa = PBXGroup;
 			children = (
 				2A38CFC8232FB9DC0023152B /* Controller */,
+				2A9B43832338EF5F006A2E19 /* HomePageController */,
 				2A9B43782338EEFD006A2E19 /* Modal */,
-				2A38CFC3232FB9B90023152B /* Model */,
 				2A38CFB5232FB8930023152B /* Supporting Files */,
 				2F17F409231029D100127C69 /* LoginPageController */,
 				84CEEE82232FB5C20081870B /* Customer */,
@@ -301,6 +300,7 @@
 		2A9B43782338EEFD006A2E19 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				2A38CFC3232FB9B90023152B /* Model */,
 				2A9B43792338EEFD006A2E19 /* MonAnModal.swift */,
 				2A9B437A2338EEFD006A2E19 /* MonAnUtils.swift */,
 				2A9B437B2338EEFD006A2E19 /* OderModal.swift */,
@@ -311,11 +311,9 @@
 		2A9B43832338EF5F006A2E19 /* HomePageController */ = {
 			isa = PBXGroup;
 			children = (
+				2FE321BC2338F9AC00419FE5 /* HomePage */,
+				2FE321BB2338F99000419FE5 /* ListOder */,
 				2A9B439B2338F42D006A2E19 /* ListFood */,
-				2A9B43972338F2E1006A2E19 /* HomePageController.swift */,
-				2A9B43982338F2E1006A2E19 /* HomePageController.xib */,
-				2A9B43872338EF5F006A2E19 /* ListOderCustomView.swift */,
-				2A9B43882338EF5F006A2E19 /* ListOrderTableViewCell.swift */,
 				2A9B43842338EF5F006A2E19 /* TopTabBar */,
 			);
 			path = HomePageController;
@@ -373,6 +371,24 @@
 				843B2C59231402D800D5377F /* LoginViewController.xib */,
 			);
 			path = LoginPageController;
+			sourceTree = "<group>";
+		};
+		2FE321BB2338F99000419FE5 /* ListOder */ = {
+			isa = PBXGroup;
+			children = (
+				2A9B43872338EF5F006A2E19 /* ListOderCustomView.swift */,
+				2A9B43882338EF5F006A2E19 /* ListOrderTableViewCell.swift */,
+			);
+			path = ListOder;
+			sourceTree = "<group>";
+		};
+		2FE321BC2338F9AC00419FE5 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				2A9B43972338F2E1006A2E19 /* HomePageController.swift */,
+				2A9B43982338F2E1006A2E19 /* HomePageController.xib */,
+			);
+			path = HomePage;
 			sourceTree = "<group>";
 		};
 		6F1B5522013E9F09F5F6902B /* Pods */ = {

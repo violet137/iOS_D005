@@ -10,7 +10,7 @@ import UIKit
 
 class TabBarViewCell: UICollectionViewCell{
     
-    @IBOutlet weak var OptionLb: UILabel!
+    @IBOutlet weak var nameTabLb: UILabel!
     @IBOutlet weak var imageImg: UIImageView!
     @IBOutlet weak var iconImg: UIImageView!
     @IBOutlet weak var containerVw: UIView!
@@ -26,7 +26,6 @@ class TabBarViewCell: UICollectionViewCell{
         //        cell.iconImg.layer.cornerRadius = 18.0
         //        cell.iconImg.layer.borderWidth = 1.0
 //        self.iconImg.layer.borderColor = UIColor.gray.cgColor
-        self.OptionLb.text = "Tất cả"
         self.imageImg.layer.cornerRadius = 17.0
         self.containerVw.layer.cornerRadius = 15.0
         self.backgroundColor = .clear // very important
@@ -42,7 +41,7 @@ class TabBarViewCell: UICollectionViewCell{
             UIView.animate(withDuration: 0.2, animations: {
                 self.transform = self.isSelected ? CGAffineTransform(scaleX: 1.1, y: 1.1) : CGAffineTransform.identity
                 self.imageImg.image = self.isSelected ? UIImage(named: "bgbar") : UIImage()
-                self.OptionLb.textColor = self.isSelected ? UIColor.white : UIColor.darkGray
+                self.nameTabLb.textColor = self.isSelected ? UIColor.white : UIColor.darkGray
             }, completion: nil)
         }
     }
