@@ -193,11 +193,6 @@
 			<key>orderHint</key>
 			<integer>28</integer>
 		</dict>
-		<key>WWLayout.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>29</integer>
-		</dict>
 		<key>leveldb-library.xcscheme</key>
 		<dict>
 			<key>isShown</key>
