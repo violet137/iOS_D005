@@ -287,9 +287,8 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 let manHinhPopUp = sb.instantiateViewController(withIdentifier: "popUp") as! popUpViewController
                 self.navigationController?.pushViewController(manHinhPopUp, animated: true)
             } else if (item.statusOfTable! == 2 || item.statusOfTable! == 3) {
-                let sb = UIStoryboard(name: "Main", bundle: nil)
-                let manHinhThucAn = sb.instantiateViewController(withIdentifier: "thucAn") as! thucAnViewController
-                self.present(manHinhThucAn, animated: true, completion: nil)
+                var datMon = HomePageController()
+                self.present(datMon, animated: true, completion: nil)
             }
             
             performSegue(withIdentifier: viewImageSegueIdentifier, sender: item)
