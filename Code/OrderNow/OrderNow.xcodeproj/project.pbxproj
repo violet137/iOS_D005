@@ -66,6 +66,7 @@
 		84BC0BCD232928CC0095BEB7 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC0BCB232928CC0095BEB7 /* QRScannerViewController.swift */; };
 		84BC0BCE232928CC0095BEB7 /* QRScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BC0BCC232928CC0095BEB7 /* QRScannerViewController.xib */; };
 		84DF56FB232B43D300C6FD4E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF56FA232B43D300C6FD4E /* GradientView.swift */; };
+		D618FFF92334F68800460E7B /* thucAnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D618FFF82334F68800460E7B /* thucAnViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,7 @@
 		84BC0BCC232928CC0095BEB7 /* QRScannerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRScannerViewController.xib; sourceTree = "<group>"; };
 		84DF56FA232B43D300C6FD4E /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		BC60A2CAB7DFAC6682AFBCDB /* Pods-OrderNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.release.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.release.xcconfig"; sourceTree = "<group>"; };
+		D618FFF82334F68800460E7B /* thucAnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thucAnViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 				2A38CFCA232FB9E70023152B /* tableCollectionViewCell.xib */,
 				2A38CFCD232FB9E70023152B /* popUpViewController.swift */,
 				2A38CFCC232FB9E70023152B /* TableViewController.swift */,
+				D618FFF82334F68800460E7B /* thucAnViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -745,6 +748,7 @@
 				8402355623233A5200DAE7E4 /* AuthorizationService.swift in Sources */,
 				84AC24D223325477000F0C14 /* BookingService.swift in Sources */,
 				2A9B438F2338EF5F006A2E19 /* ListOderCustomView.swift in Sources */,
+				D618FFF92334F68800460E7B /* thucAnViewController.swift in Sources */,
 				840235512323392000DAE7E4 /* UIViewControllerExtension .swift in Sources */,
 				84782230232BCB6F009D7D58 /* StackViewExtension.swift in Sources */,
 				2A9B439E2338F42D006A2E19 /* ListFoodViewCell.swift in Sources */,

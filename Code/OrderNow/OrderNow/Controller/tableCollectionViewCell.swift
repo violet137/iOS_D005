@@ -8,16 +8,27 @@
 
 import UIKit
 
-class tableCollectionViewCell: UICollectionViewCell {
+protocol TruyenVeManHinhTableTuCollectionViewCell {
+    func showAlert(cell: tableCollectionViewCell)
+}
 
+class tableCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var tableImageView: UIImageView!
     @IBOutlet weak var tableLabel: UILabel!
     @IBOutlet weak var chairLabel: UILabel!
+    @IBOutlet weak var confirmAction: UIButton!
+    
+   var delegate: TruyenVeManHinhTableTuCollectionViewCell?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    @IBAction func confirmDeleteTableAction(_ sender: Any) {
+        
+        delegate?.showAlert(cell: self)
+    }
+    
 }

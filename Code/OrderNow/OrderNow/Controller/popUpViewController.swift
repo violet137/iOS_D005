@@ -99,7 +99,7 @@ class popUpViewController: UIViewController {
     }
     
     @IBAction func bookAction(_ sender: Any) {
-        print(numberOfPeople)
+        //print(numberOfPeople)
         if statusOfTable == 1 {
             if (numberOfPeople > 0) {
                 ProgressHUD.showSuccess("Đặt bàn thành công")
