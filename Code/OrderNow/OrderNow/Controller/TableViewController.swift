@@ -207,7 +207,10 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
         
     }
     
-    
+    func showBillPay(cell: tableCollectionViewCell) {
+        var billPay = BillPayViewController()
+        present(billPay, animated: true, completion: nil)
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.floorCollectionView {
@@ -294,6 +297,8 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             
         }
     }
+    
+    
     
 }
 

@@ -10,6 +10,7 @@ import UIKit
 
 protocol TruyenVeManHinhTableTuCollectionViewCell {
     func showAlert(cell: tableCollectionViewCell)
+    func showBillPay(cell: tableCollectionViewCell)
 }
 
 class tableCollectionViewCell: UICollectionViewCell {
@@ -33,7 +34,6 @@ class tableCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func billAction(_ sender: Any) {
-        
-        
+        delegate?.showBillPay(cell: self)
     }
 }
