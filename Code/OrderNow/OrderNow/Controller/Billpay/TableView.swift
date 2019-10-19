@@ -19,6 +19,8 @@ class BillpayController: UIViewController, UITableViewDelegate, UITableViewDataS
     func updataData() {
         DispatchQueue.global().async {
             self.listMon = self.billUtil.list
+            self.listBill = self.billUtil.billList
+            self.dataList = self.billUtil.filterBill(ban: "2")
         }
         DispatchQueue.main.async {
             self.tableView?.reloadData()
@@ -29,6 +31,8 @@ class BillpayController: UIViewController, UITableViewDelegate, UITableViewDataS
     var minValue = 0
     var billUtil = BillUtil()
     var listMon = [MonAnBill]()
+    var listBill = [BillPay]()
+    var dataList = [MonAnBill]()
     //*****headerview
     var headerView = UIView()
     var leftHeaderStackView = UIStackView()
@@ -50,14 +54,14 @@ class BillpayController: UIViewController, UITableViewDelegate, UITableViewDataS
     var labelFooterTotalPrice = UILabel()
     var btnFooterPay = UIButton()
     var tableView: UITableView?
+    var index = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        createBillArray()
-        billUtil.dumpData()
-        billUtil.delegate = self
         billUtil.getOrderList()
-        print(listMon.count)
+        billUtil.delegate = self
+//        billUtil.dumpData()
+        print("print listMon count: \(self.dataList.count)")
 
         view.backgroundColor = .white
         view.addSubview(headerView)
@@ -172,30 +176,31 @@ class BillpayController: UIViewController, UITableViewDelegate, UITableViewDataS
             .leading(to: view).trailing(to: view)
             .bottom(to: footerView, edge: .top)
         tableView = UITableView(frame: bodyView.bounds, style: UITableView.Style.grouped)
-        tableView!.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
-        tableView!.translatesAutoresizingMaskIntoConstraints = false
+        tableView?.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
         tableView!.delegate = self
         tableView!.dataSource = self
         tableView!.rowHeight = 150
         tableView!.estimatedRowHeight = UITableView.automaticDimension
         bodyView.addSubview(tableView!)
             tableView!.layout.fill(bodyView)
-        print(billUtil.list.count)
+        tableView?.translatesAutoresizingMaskIntoConstraints = false
+        print("billList: \(self.listBill.count)")
+        print("billUtil: \(billUtil)")
     }
     
     //******DataSource****
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listMon.count
+        return self.dataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell
-        let data = listMon[indexPath.row]
+        let data = self.dataList[indexPath.row]
 //        cell?.billUtil = data
         cell?.foodImage.image = UIImage(named: data.hinh!)
         cell?.foodName.text = data.ten
         cell?.foodNote.text = "Test choi thoi"
-        cell?.foodPrice.text = "\(data.gia!)"
+//        cell?.foodPrice.text = "\(data.gia!)"
         return cell!
     }
     

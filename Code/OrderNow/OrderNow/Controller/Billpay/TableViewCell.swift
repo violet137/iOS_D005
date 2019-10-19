@@ -23,26 +23,6 @@ class TableViewCell: UITableViewCell {
     static var identifier: String {
         return NSStringFromClass(self)
     }
-//    var bill : Bill? {
-//        didSet {
-//            foodImage.image = bill?.foodImage
-//            foodPrice.text = bill?.foodPrice
-//            foodNote.text = bill?.foodNote
-//            foodName.text = bill?.foodName
-//        }
-//    }
-//
-//    var billUtil = BillUtil() {
-//        didSet {
-////            billUtil?.dumpData()
-//            for monan in billUtil.list {
-//                foodName.text = monan.ten
-//                foodImage.image = UIImage(named: monan.hinh ?? "")
-//                foodPrice.text = "\(String(monan.gia!))"
-//                foodNote.text = "Test thu chuong trinh"
-//            }
-//        }
-//    }
     
     var foodImage: UIImageView = {
         let img = UIImageView()
@@ -131,12 +111,6 @@ class TableViewCell: UITableViewCell {
         // Initialization code
         
     }
-    
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        self.contentView.contentEdgeInsets = 
-//        
-//    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
