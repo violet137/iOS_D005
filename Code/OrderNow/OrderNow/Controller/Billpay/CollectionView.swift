@@ -12,12 +12,18 @@ import Firebase
 
 protocol dataBackDelegate {
     func sentDataBack(with data: [MonAnBill])
+    func sentSearchDataBack(with data: [MonAnBill])
 }
 
-class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData {
+class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData, dataPassBillDelele {
+    func getTable(with data: [TableItem]) {
+        self.table = data
+    }
+    
     func updataData() {
         DispatchQueue.global().async {
             self.billListCV = self.billUtil.billList
+//            self.searchBill = self.billUtil.filterBill(ban: "2")
         }
         DispatchQueue.main.async {
             self.collectionView!.reloadData()
@@ -27,7 +33,10 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
     var dataDelegate: dataBackDelegate?
     var billUtil = BillUtil()
     var billListCV = [BillPay]()
+    var searchBill = [MonAnBill]()
     var collectionView: UICollectionView?
+    var table = [TableItem]()
+    var tableVC = TableViewController()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.billListCV.count
@@ -52,6 +61,8 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
         // Get data from firebase
         billUtil.getOrderList()
         billUtil.delegate = self
+        self.dataDelegate?.sentSearchDataBack(with: self.searchBill)
+        self.tableVC.dataPassBillDelele = self
         
         let layoutcv = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layoutcv)
@@ -65,10 +76,10 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
         collectionView!.register(BillViewCell.self, forCellWithReuseIdentifier: BillViewCell.identifier)
         collectionView!.delegate = self
         collectionView!.dataSource = self
-        print("form CollectionView: \(billListCV.count)")
         view.addSubview(collectionView!)
         view.backgroundColor = .white
         collectionView!.layout.fill(view)
         collectionView!.backgroundColor = .white
     }
+    
 }

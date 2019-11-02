@@ -13,8 +13,15 @@ struct floorItem {
     var floorLabelName: String
 }
 
+protocol dataPassBillDelele: AnyObject {
+    func getTable(with data: [TableItem])
+}
+
 class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback {
-    
+    func truyenTable(statusOfTable: Int, ID: Int) {
+        
+    }
+
     func choXacNhan(ban: TableItem) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let manHinhPopUp = sb.instantiateViewController(withIdentifier: "popUp") as! popUpViewController
@@ -44,6 +51,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
     @IBOutlet weak var floorCollectionView: UICollectionView!
     @IBOutlet weak var tableCollectionView: UICollectionView!
     
+    weak var dataPassBillDelele: dataPassBillDelele?
     var tableItemUtils = TableUtils()
     
     var floorItems: [floorItem] = [
@@ -194,30 +202,34 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             statusOfTable = 0
             //Truyen Ve lai Database
             tableItemRef.setValue([ "floor" : item.floorCode!,"name" : item.tableName!, "image" :  item.tableImage!, "status" : statusOfTable, "people": item.numberOfPeople!, "chairs" : item.numberOfChair!])
-
         }))
-        
-        
 
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
         }))
-
         tableCollectionView.reloadData()
         present(alert, animated: true, completion: nil)
         
     }
     
     func showBillPay(cell: tableCollectionViewCell) {
-        var billPay = BillPayViewController()
-        present(billPay, animated: true, completion: nil)
+        let indexPath = self.tableCollectionView.indexPath(for: cell)
+        let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
+        let item = tableArray[(indexPath?.row)!]
+        let tableCode = item.tableCode
+        let tableItemRef = self.ref.child("\(tableCode!)")
+        let billPay = BillPayViewController()
+        if(item != nil) {
+            self.dataPassBillDelele?.getTable(with: [item])
+            present(billPay, animated: true, completion: nil)
+        } else { return }
+        
+        tableCollectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.floorCollectionView {
-            //print("So luong tang \(floorItems.count)")
             return floorItems.count
         } else {
-            //print("So luong table \(soBan)")
             return soBan
         }
     }
@@ -229,7 +241,6 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             return floorCell
         } else {
             let tableCell = collectionView.dequeueReusableCell(withReuseIdentifier: tableCellIdentifier, for: indexPath) as! tableCollectionViewCell
-            
             tableCell.tableLabel.text = myTable[indexPath.item].tableName
             tableCell.tableImageView.image = UIImage(named: myTable[indexPath.item].tableImage!)
             tableCell.chairLabel.text = "\(myTable[indexPath.item].numberOfPeople!)/\(myTable[indexPath.item].numberOfChair!)"
@@ -276,8 +287,6 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             soBan = myTable.count
             tableCollectionView.reloadData()
         } else {
-           
-            
             let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
             let item = tableArray[indexPath.row]
             //print(indexPath.row)
@@ -293,7 +302,6 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             
             performSegue(withIdentifier: viewImageSegueIdentifier, sender: item)
             tableCollectionView.reloadData()
-            
         }
     }
     

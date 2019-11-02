@@ -7,37 +7,30 @@
 
 import Foundation
 import Firebase
+import FirebaseDatabase
 
 protocol sentData {
     func updataData()
 }
 
-class BillUtil {
+class BillUtil: TableCallback{
+    func onDataUpdate() {
+        self.tableUtil.dumpData()
+        self.tableUtil.tableListening(callback: self)
+    }
+    
+    func choXacNhan(ban: TableItem) {
+        
+    }
+    
+    var tableDelegate: TableCallback?
+    var tableUtil = TableUtils()
+    var tableList = [TableItem]()
     var list = [MonAnBill]()
     var billList = [BillPay]()
     var ref: DatabaseReference!
     var delegate: sentData?
-    
-//    func dumpData(){
-//        ref = Database.database().reference()
-//        ref.child("MonAn").observeSingleEvent(of: .value, with: { (snapshot) in
-//            self.list.removeAll()
-//            for item in snapshot.children {
-//                let snap = item as! DataSnapshot
-//                let dict = snap.value as! NSDictionary
-//                
-//                let gia = dict["gia"] as? Int
-//                let hinh = dict["hinh"] as? String
-//                let loai = dict["loai"] as? Int
-//                let ten = dict["ten"] as? String
-//                let monanItem = MonAnBill(monID: String(snap.key), gia: gia!, hinh: hinh!, soLuong:  loai!, ten: ten!)
-//                self.list.append(monanItem)
-//            }
-//            self.delegate?.updataData()
-//        }) { error in
-//            print(error.localizedDescription)
-//        }
-//    }
+    var tableItem = TableUtils()
     
     func getOrderList() {
         self.ref = Database.database().reference()
@@ -66,15 +59,17 @@ class BillUtil {
         }
     }
     
-    func filterBill (ban: String) -> [MonAnBill]{
-        var billfilter = [MonAnBill]()
-        if (billList.count > 0) {
-            for item in billList {
-                if item.banName == ban {
-                    billfilter.append(contentsOf: item.banID!)
-                }
+    func filterBill (ban: String) -> [MonAnBill] {
+        var result = [MonAnBill]()
+        if (self.billList.count != 0) {
+            for item in self.billList {
+//                let table = tableUtil.getSelectedTable(selectedTable: Int(ban)!)
+//                if ((item.banName == ban) && (table != nil)) {
+//                    result.append(contentsOf: item.banID!)
+//                }
             }
+            self.delegate?.updataData()
         }
-        return billfilter
+        return result
     }
 }
