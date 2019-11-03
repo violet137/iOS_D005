@@ -252,7 +252,7 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 floorCell.layer.borderColor = UIColor.clear.cgColor
             }
             
-            SVProgressHUD.dismiss()
+            //SVProgressHUD.dismiss()
             return floorCell
             
         } else {
