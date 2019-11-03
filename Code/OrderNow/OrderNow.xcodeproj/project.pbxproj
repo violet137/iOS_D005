@@ -67,6 +67,8 @@
 		84BC0BCE232928CC0095BEB7 /* QRScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BC0BCC232928CC0095BEB7 /* QRScannerViewController.xib */; };
 		84DF56FB232B43D300C6FD4E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF56FA232B43D300C6FD4E /* GradientView.swift */; };
 		D618FFF92334F68800460E7B /* thucAnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D618FFF82334F68800460E7B /* thucAnViewController.swift */; };
+		D630483F236EE00E0080E382 /* popUpUtilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D630483D236EE00E0080E382 /* popUpUtilsViewController.swift */; };
+		D6304840236EE00E0080E382 /* popUpUtilsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D630483E236EE00E0080E382 /* popUpUtilsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +160,8 @@
 		84DF56FA232B43D300C6FD4E /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		BC60A2CAB7DFAC6682AFBCDB /* Pods-OrderNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.release.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.release.xcconfig"; sourceTree = "<group>"; };
 		D618FFF82334F68800460E7B /* thucAnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thucAnViewController.swift; sourceTree = "<group>"; };
+		D630483D236EE00E0080E382 /* popUpUtilsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpUtilsViewController.swift; sourceTree = "<group>"; };
+		D630483E236EE00E0080E382 /* popUpUtilsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = popUpUtilsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +238,8 @@
 				2A38CFCD232FB9E70023152B /* popUpViewController.swift */,
 				2A38CFCC232FB9E70023152B /* TableViewController.swift */,
 				D618FFF82334F68800460E7B /* thucAnViewController.swift */,
+				D630483D236EE00E0080E382 /* popUpUtilsViewController.swift */,
+				D630483E236EE00E0080E382 /* popUpUtilsViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -636,6 +642,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A9B439F2338F42D006A2E19 /* ListFoodViewCell.xib in Resources */,
+				D6304840236EE00E0080E382 /* popUpUtilsViewController.xib in Resources */,
 				84BC0BC9232927CF0095BEB7 /* HomeUserViewController.xib in Resources */,
 				84BC0BCE232928CC0095BEB7 /* QRScannerViewController.xib in Resources */,
 				843B2C5B231402D800D5377F /* LoginViewController.xib in Resources */,
@@ -769,6 +776,7 @@
 				84782230232BCB6F009D7D58 /* StackViewExtension.swift in Sources */,
 				2A9B439E2338F42D006A2E19 /* ListFoodViewCell.swift in Sources */,
 				84BC0BC0232925630095BEB7 /* QRScannerView.swift in Sources */,
+				D630483F236EE00E0080E382 /* popUpUtilsViewController.swift in Sources */,
 				2A38CFBE232FB8BE0023152B /* ProgressHUD.m in Sources */,
 				2A242C082346242D008747FE /* TableView.swift in Sources */,
 				2A242C072346242D008747FE /* BillToPay.swift in Sources */,

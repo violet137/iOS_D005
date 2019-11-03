@@ -43,15 +43,18 @@
                             <constraint firstAttribute="height" constant="50" id="2CG-Z5-ngr"/>
                             <constraint firstAttribute="width" constant="50" id="Dl7-IZ-QPg"/>
                         </constraints>
-                        <state key="normal" image="ic_selected_purple"/>
+                        <state key="normal" image="ic_check_orange"/>
                         <connections>
                             <action selector="confirmDeleteTableAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Fku-Yr-GBD"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LY6-jj-KFp">
-                        <rect key="frame" x="0.0" y="0.0" width="41" height="41"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" image="MoneySymbol"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LY6-jj-KFp">
+                        <rect key="frame" x="5" y="5" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="dA2-o2-XnQ"/>
+                            <constraint firstAttribute="height" constant="40" id="kgI-pk-Nyp"/>
+                        </constraints>
+                        <state key="normal" image="DollarMoneySymbol"/>
                         <connections>
                             <action selector="billAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="3ci-fk-mmS"/>
                         </connections>
@@ -59,6 +62,8 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="LY6-jj-KFp" firstAttribute="leading" secondItem="jNp-FZ-cQb" secondAttribute="leading" constant="5" id="2PK-Jm-ncm"/>
+                <constraint firstItem="LY6-jj-KFp" firstAttribute="top" secondItem="jNp-FZ-cQb" secondAttribute="top" constant="5" id="2b9-hN-kCr"/>
                 <constraint firstAttribute="trailing" secondItem="jNp-FZ-cQb" secondAttribute="trailing" id="4nn-MB-SKI"/>
                 <constraint firstItem="5sW-fj-RHD" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="74w-rp-WDy"/>
                 <constraint firstAttribute="trailing" secondItem="GVh-Xc-QSJ" secondAttribute="trailing" id="8Hf-iI-hN9"/>
@@ -77,11 +82,11 @@
                 <outlet property="tableImageView" destination="jNp-FZ-cQb" id="YzG-Lq-lqh"/>
                 <outlet property="tableLabel" destination="uAt-Ch-VoW" id="Ek8-Go-a7I"/>
             </connections>
-            <point key="canvasLocation" x="47.10144927536232" y="200.55803571428569"/>
+            <point key="canvasLocation" x="44" y="199"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="MoneySymbol" width="612" height="509"/>
-        <image name="ic_selected_purple" width="32" height="32"/>
+        <image name="DollarMoneySymbol" width="2000" height="2000"/>
+        <image name="ic_check_orange" width="32" height="32"/>
     </resources>
 </document>

@@ -117,6 +117,7 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - SnapKit (5.0.1)
+  - SVProgressHUD (2.2.5)
   - WWLayout (0.5.5)
 
 DEPENDENCIES:
@@ -129,6 +130,7 @@ DEPENDENCIES:
   - GooglePlaces
   - GoogleSignIn
   - SnapKit (~> 5.0.0)
+  - SVProgressHUD
   - WWLayout
 
 SPEC REPOS:
@@ -160,6 +162,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - SnapKit
+    - SVProgressHUD
     - WWLayout
 
 SPEC CHECKSUMS:
@@ -190,8 +193,9 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   WWLayout: d514d2d66e91eb5eea5b10be04040dd8f0fae616
 
-PODFILE CHECKSUM: f1da3dd83eb321f21f2df8cf614645855418e408
+PODFILE CHECKSUM: f101d67f30faa09d257ff91635050ddf0085227a
 
 COCOAPODS: 1.8.4

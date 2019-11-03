@@ -124,11 +124,12 @@ extension QRScannerViewController {
                     return
                 }
                 
-                if data.Status == 1 {
-                    // đặt bàn thành công
+                if data.Status == 2 || data.Status == 3 {
+                     var popUpUtils = popUpUtilsViewController()
+                     self.present(popUpUtils, animated: true, completion: nil)
                 }
                 
-                if data.Status != 1 && data.Status != 0 {
+                if data.Status != 2 || data.Status != 3 {
                     self.scannerView.startScanning()
                 }
                 

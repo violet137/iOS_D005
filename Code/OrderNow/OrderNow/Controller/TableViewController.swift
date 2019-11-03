@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import SVProgressHUD
 
 struct floorItem {
     var floorLabelName: String
@@ -43,6 +44,8 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
     
     @IBOutlet weak var floorCollectionView: UICollectionView!
     @IBOutlet weak var tableCollectionView: UICollectionView!
+    
+    @IBOutlet weak var navigationBarView: UIView!
     
     var tableItemUtils = TableUtils()
     
@@ -90,6 +93,9 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         
         self.view.backgroundColor = .white
         ref = Database.database().reference(withPath: "table-items")
+        
+        navigationBarView.layer.borderWidth = 1
+        navigationBarView.layer.borderColor = UIColor.gray.cgColor
     }
     
     override func viewWillLayoutSubviews() {
@@ -116,6 +122,11 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         if let popUpViewController = segue.destination as? popUpViewController {
             popUpViewController.truyenVeManHinhTable = self
         }
+    }
+    
+    @IBAction func openQRCode(_ sender: Any) {
+        var QRCodeScreen = QRScannerViewController()
+        self.present(QRCodeScreen, animated: true, completion: nil)
     }
     
     private func setupFloorCollectionView() {
@@ -224,18 +235,29 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        SVProgressHUD.show()
         if collectionView == self.floorCollectionView {
             let floorCell = collectionView.dequeueReusableCell(withReuseIdentifier: floorCellIdentifier, for: indexPath) as! floorCollectionViewCell
             floorCell.floorLabel.text = floorItems[indexPath.item].floorLabelName
             floorCell.floorLabel.textAlignment = .center
-//            floorCell.floorLabel.layer.cornerRadius = 15
-//            floorCell.floorLabel.layer.borderWidth = 1
-//            floorCell.floorLabel.layer.borderColor = UIColor.black.cgColor
             
-        
+            //MARK: Set first cell of floor as default
+            if indexPath.row == 0 {
+                collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
+                floorCell.layer.cornerRadius = 20
+                floorCell.layer.borderColor = UIColor.black.cgColor
+                floorCell.layer.borderWidth = 1
+            } else {
+                floorCell.layer.borderColor = UIColor.clear.cgColor
+            }
+            
+            SVProgressHUD.dismiss()
             return floorCell
+            
         } else {
             let tableCell = collectionView.dequeueReusableCell(withReuseIdentifier: tableCellIdentifier, for: indexPath) as! tableCollectionViewCell
+            
             
             tableCell.tableLabel.text = myTable[indexPath.item].tableName
             tableCell.tableImageView.image = UIImage(named: myTable[indexPath.item].tableImage!)
@@ -273,11 +295,18 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             //Delegate For Alert Notification
             tableCell.delegate = self
             
+            SVProgressHUD.dismiss()
             return tableCell
+            
         }
+       
+        
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         if collectionView == self.floorCollectionView {
             floorCode = indexPath.row
             
@@ -293,6 +322,7 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
            
             let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
             let item = tableArray[indexPath.row]
+            
             //print(indexPath.row)
             selectedIndexPath = indexPath
 

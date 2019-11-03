@@ -211,7 +211,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PBL-gy-UFQ">
-                                <rect key="frame" x="5" y="104" width="404" height="758"/>
+                                <rect key="frame" x="5" y="159" width="404" height="703"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="auo-J1-Krc">
                                     <size key="itemSize" width="50" height="50"/>
@@ -234,7 +234,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xwW-Z1-YtN">
-                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="99" width="414" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Pbz-2A-Ji6"/>
@@ -256,43 +256,52 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cuf-oh-OhQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5V-1R-XIG">
+                                        <rect key="frame" x="346" y="10" width="58" height="30"/>
+                                        <state key="normal" title="QRCode">
+                                            <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openQRCode:" destination="oFD-9D-loP" eventType="touchUpInside" id="R0l-8F-6NC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="a5V-1R-XIG" secondAttribute="trailing" constant="10" id="EJ2-6J-XNa"/>
+                                    <constraint firstItem="a5V-1R-XIG" firstAttribute="centerY" secondItem="Cuf-oh-OhQ" secondAttribute="centerY" id="P7c-Nn-uCg"/>
+                                    <constraint firstAttribute="height" constant="50" id="z9W-eI-DW8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Cuf-oh-OhQ" firstAttribute="top" secondItem="Cbk-yI-LvW" secondAttribute="top" id="07z-r2-gGm"/>
+                            <constraint firstItem="Cbk-yI-LvW" firstAttribute="trailing" secondItem="Cuf-oh-OhQ" secondAttribute="trailing" id="76B-Em-Xl3"/>
                             <constraint firstItem="PBL-gy-UFQ" firstAttribute="trailing" secondItem="Cbk-yI-LvW" secondAttribute="trailing" constant="-5" id="Xrz-m0-5Kg"/>
                             <constraint firstItem="PBL-gy-UFQ" firstAttribute="leading" secondItem="Cbk-yI-LvW" secondAttribute="leading" constant="5" id="YkL-2R-6xm"/>
+                            <constraint firstItem="Cuf-oh-OhQ" firstAttribute="leading" secondItem="Cbk-yI-LvW" secondAttribute="leading" id="aYx-bi-Ccs"/>
                             <constraint firstItem="PBL-gy-UFQ" firstAttribute="top" secondItem="xwW-Z1-YtN" secondAttribute="bottom" constant="10" id="hmu-GN-3UD"/>
                             <constraint firstItem="Cbk-yI-LvW" firstAttribute="trailing" secondItem="xwW-Z1-YtN" secondAttribute="trailing" id="iCF-6f-kjQ"/>
-                            <constraint firstItem="xwW-Z1-YtN" firstAttribute="top" secondItem="Cbk-yI-LvW" secondAttribute="top" id="kjr-KY-4fI"/>
                             <constraint firstItem="xwW-Z1-YtN" firstAttribute="leading" secondItem="Cbk-yI-LvW" secondAttribute="leading" id="oCW-ZM-B5z"/>
                             <constraint firstItem="PBL-gy-UFQ" firstAttribute="bottom" secondItem="Cbk-yI-LvW" secondAttribute="bottom" id="tq8-oO-e5S"/>
+                            <constraint firstItem="xwW-Z1-YtN" firstAttribute="top" secondItem="Cuf-oh-OhQ" secondAttribute="bottom" constant="5" id="yHM-ks-JvP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cbk-yI-LvW"/>
                     </view>
                     <navigationItem key="navigationItem" title="Table List" id="uty-G5-zRc"/>
                     <connections>
                         <outlet property="floorCollectionView" destination="xwW-Z1-YtN" id="lxS-kG-bRx"/>
+                        <outlet property="navigationBarView" destination="Cuf-oh-OhQ" id="z22-VK-uRo"/>
                         <outlet property="tableCollectionView" destination="PBL-gy-UFQ" id="S2n-oU-7MD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Gg-aD-36E" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="137.94642857142856"/>
-        </scene>
-        <!--Thuc An View Controller-->
-        <scene sceneID="Bzb-cu-2c0">
-            <objects>
-                <viewController storyboardIdentifier="thucAn" id="4ug-0Z-acb" customClass="thucAnViewController" customModule="OrderNow" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GUm-aQ-oed">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="f7b-yH-FJF"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Aj-PC-V8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1958" y="-554"/>
         </scene>
     </scenes>
 </document>

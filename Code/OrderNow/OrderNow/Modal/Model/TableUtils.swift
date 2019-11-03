@@ -66,6 +66,7 @@ class TableUtils {
             // ...
         }) { (error) in
             print(error.localizedDescription)
+            
         }
         
         //        let floor0Table1 = TableItem(floorCode: 0, tableCode: 1, tableName: "A0-001", tableImage: "TwoSeatsTable", statusOfTable: false, numberOfChair: 2)
