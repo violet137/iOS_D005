@@ -84,12 +84,11 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         
         tableItemUtils.dumpData()
         tableItemUtils.tableListening(callback: self)
-        //tableItems = tableItemUtils.getArrayOfData()
         
         setupFloorCollectionView()
         setupTableCollectionView()
         
-        self.view.backgroundColor = .orange
+        self.view.backgroundColor = .white
         ref = Database.database().reference(withPath: "table-items")
     }
     
@@ -125,7 +124,9 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         let floorNib = UINib(nibName: "floorCollectionViewCell", bundle: nil)
         floorCollectionView.register(floorNib, forCellWithReuseIdentifier: floorCellIdentifier)
         floorCollectionView.showsHorizontalScrollIndicator = false
-        floorCollectionView.backgroundColor = .orange
+        floorCollectionView.backgroundColor = .white
+//        floorCollectionView.layer.borderWidth = 1
+//        floorCollectionView.layer.borderColor = UIColor.gray.cgColor
     }
     
     private func setupTableCollectionView() {
@@ -133,7 +134,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         tableCollectionView.dataSource = self
         let tableNib = UINib(nibName: "tableCollectionViewCell", bundle: nil)
         tableCollectionView.register(tableNib, forCellWithReuseIdentifier: tableCellIdentifier)
-        tableCollectionView.backgroundColor = .orange
+        tableCollectionView.backgroundColor = .white
         
     }
     
@@ -226,6 +227,12 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
         if collectionView == self.floorCollectionView {
             let floorCell = collectionView.dequeueReusableCell(withReuseIdentifier: floorCellIdentifier, for: indexPath) as! floorCollectionViewCell
             floorCell.floorLabel.text = floorItems[indexPath.item].floorLabelName
+            floorCell.floorLabel.textAlignment = .center
+//            floorCell.floorLabel.layer.cornerRadius = 15
+//            floorCell.floorLabel.layer.borderWidth = 1
+//            floorCell.floorLabel.layer.borderColor = UIColor.black.cgColor
+            
+        
             return floorCell
         } else {
             let tableCell = collectionView.dequeueReusableCell(withReuseIdentifier: tableCellIdentifier, for: indexPath) as! tableCollectionViewCell
@@ -233,6 +240,7 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             tableCell.tableLabel.text = myTable[indexPath.item].tableName
             tableCell.tableImageView.image = UIImage(named: myTable[indexPath.item].tableImage!)
             tableCell.chairLabel.text = "\(myTable[indexPath.item].numberOfPeople!)/\(myTable[indexPath.item].numberOfChair!)"
+            tableCell.layer.cornerRadius = 20
             
             var borderColor: CGColor! = UIColor.clear.cgColor
             var borderWidth: CGFloat = 0
@@ -272,16 +280,55 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.floorCollectionView {
             floorCode = indexPath.row
+            
             myTable = tableItemUtils.searchFloor(floorCodeInput: floorCode)
             soBan = myTable.count
+            
+            self.floorCollectionView.cellForItem(at: indexPath)?.layer.cornerRadius = 20
+            self.floorCollectionView.cellForItem(at: indexPath)?.layer.borderWidth = 1
+            self.floorCollectionView.cellForItem(at: indexPath)?.layer.borderColor = UIColor.black.cgColor
+            
             tableCollectionView.reloadData()
         } else {
            
-            
             let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
             let item = tableArray[indexPath.row]
             //print(indexPath.row)
             selectedIndexPath = indexPath
+
+            if (item.statusOfTable! == 0 || item.statusOfTable! == 1) {
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let manHinhPopUp = sb.instantiateViewController(withIdentifier: "popUp") as! popUpViewController
+                self.navigationController?.pushViewController(manHinhPopUp, animated: true)
+            } else if (item.statusOfTable! == 2 || item.statusOfTable! == 3) {
+                var datMon = HomePageController()
+                self.present(datMon, animated: true, completion: nil)
+            }
+            
+            performSegue(withIdentifier: viewImageSegueIdentifier, sender: item)
+            tableCollectionView.reloadData()
+            
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if collectionView == self.floorCollectionView {
+            floorCode = indexPath.row
+            
+            myTable = tableItemUtils.searchFloor(floorCodeInput: floorCode)
+            soBan = myTable.count
+            
+            self.floorCollectionView.cellForItem(at: indexPath)?.layer.borderWidth = 1
+            self.floorCollectionView.cellForItem(at: indexPath)?.layer.borderColor = UIColor.clear.cgColor
+            
+            tableCollectionView.reloadData()
+        } else {
+           
+            let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
+            let item = tableArray[indexPath.row]
+            //print(indexPath.row)
+            selectedIndexPath = indexPath
+
             if (item.statusOfTable! == 0 || item.statusOfTable! == 1) {
                 let sb = UIStoryboard(name: "Main", bundle: nil)
                 let manHinhPopUp = sb.instantiateViewController(withIdentifier: "popUp") as! popUpViewController

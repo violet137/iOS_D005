@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oFD-9D-loP">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -211,7 +211,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PBL-gy-UFQ">
-                                <rect key="frame" x="5" y="94" width="404" height="768"/>
+                                <rect key="frame" x="5" y="104" width="404" height="758"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="auo-J1-Krc">
                                     <size key="itemSize" width="50" height="50"/>
@@ -234,7 +234,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xwW-Z1-YtN">
-                                <rect key="frame" x="5" y="44" width="404" height="50"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Pbz-2A-Ji6"/>
@@ -261,10 +261,10 @@
                         <constraints>
                             <constraint firstItem="PBL-gy-UFQ" firstAttribute="trailing" secondItem="Cbk-yI-LvW" secondAttribute="trailing" constant="-5" id="Xrz-m0-5Kg"/>
                             <constraint firstItem="PBL-gy-UFQ" firstAttribute="leading" secondItem="Cbk-yI-LvW" secondAttribute="leading" constant="5" id="YkL-2R-6xm"/>
-                            <constraint firstItem="PBL-gy-UFQ" firstAttribute="top" secondItem="xwW-Z1-YtN" secondAttribute="bottom" id="hmu-GN-3UD"/>
-                            <constraint firstItem="Cbk-yI-LvW" firstAttribute="trailing" secondItem="xwW-Z1-YtN" secondAttribute="trailing" constant="5" id="iCF-6f-kjQ"/>
+                            <constraint firstItem="PBL-gy-UFQ" firstAttribute="top" secondItem="xwW-Z1-YtN" secondAttribute="bottom" constant="10" id="hmu-GN-3UD"/>
+                            <constraint firstItem="Cbk-yI-LvW" firstAttribute="trailing" secondItem="xwW-Z1-YtN" secondAttribute="trailing" id="iCF-6f-kjQ"/>
                             <constraint firstItem="xwW-Z1-YtN" firstAttribute="top" secondItem="Cbk-yI-LvW" secondAttribute="top" id="kjr-KY-4fI"/>
-                            <constraint firstItem="xwW-Z1-YtN" firstAttribute="leading" secondItem="Cbk-yI-LvW" secondAttribute="leading" constant="5" id="oCW-ZM-B5z"/>
+                            <constraint firstItem="xwW-Z1-YtN" firstAttribute="leading" secondItem="Cbk-yI-LvW" secondAttribute="leading" id="oCW-ZM-B5z"/>
                             <constraint firstItem="PBL-gy-UFQ" firstAttribute="bottom" secondItem="Cbk-yI-LvW" secondAttribute="bottom" id="tq8-oO-e5S"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cbk-yI-LvW"/>
