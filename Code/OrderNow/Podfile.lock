@@ -134,7 +134,7 @@ DEPENDENCIES:
   - WWLayout
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - AppAuth
     - FacebookCore
     - FacebookLogin
@@ -198,4 +198,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f101d67f30faa09d257ff91635050ddf0085227a
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.7.5
