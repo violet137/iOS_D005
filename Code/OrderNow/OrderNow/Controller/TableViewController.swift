@@ -14,6 +14,10 @@ struct floorItem {
     var floorLabelName: String
 }
 
+protocol TruyenVeManHinhBillPay {
+    func TruyenVeManHinhBillPay(statusOfTable: Int, ID: Int)
+}
+
 class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback {
     
     func choXacNhan(ban: TableItem) {
@@ -42,12 +46,16 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         }
     }
     
+    
+    
+    
     @IBOutlet weak var floorCollectionView: UICollectionView!
     @IBOutlet weak var tableCollectionView: UICollectionView!
     
     @IBOutlet weak var navigationBarView: UIView!
     
     
+    var truyenVeBill: TruyenVeManHinhBillPay?
     var prevCell = UICollectionViewCell()
     var tableItemUtils = TableUtils()
     
@@ -193,7 +201,6 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
     func showAlert(cell: tableCollectionViewCell){
         let indexPath = self.tableCollectionView.indexPath(for: cell)
-        
         let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
         let item = tableArray[(indexPath?.row)!]
         let tableCode = item.tableCode
@@ -221,9 +228,24 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
         
     }
     
+    
+    //Truyen Ve Man Hinh Tinh Bill
     func showBillPay(cell: tableCollectionViewCell) {
         var billPay = BillPayViewController()
+
+        let indexPath = self.tableCollectionView.indexPath(for: cell)
+        let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
+        let item = tableArray[(indexPath?.row)!]
+        
+//        print( "Status of table: \(item.statusOfTable!)" )
+//        print( "Table Code: \(item.tableCode!)" )
+
+        truyenVeBill?.TruyenVeManHinhBillPay(statusOfTable: item.statusOfTable!, ID: item.tableCode!)
         present(billPay, animated: true, completion: nil)
+        
+        
+       
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

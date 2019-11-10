@@ -14,7 +14,25 @@ protocol dataBackDelegate {
     func sentDataBack(with data: [MonAnBill])
 }
 
-class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData {
+
+
+class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData, TruyenVeManHinhBillPay{
+    
+    var status: Int?
+    var tableCode: Int?
+    func TruyenVeManHinhBillPay(statusOfTable: Int, ID: Int) {
+        status = statusOfTable
+        tableCode = ID
+        print(status)
+        print(tableCode)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let manHinhTableViewController = segue.description as? TableViewController {
+            manHinhTableViewController.truyenVeBill = self
+        }
+    }
+
     func updataData() {
         DispatchQueue.global().async {
             self.billListCV = self.billUtil.billList
@@ -70,5 +88,8 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
         view.backgroundColor = .white
         collectionView!.layout.fill(view)
         collectionView!.backgroundColor = .white
+        
+
     }
+
 }
