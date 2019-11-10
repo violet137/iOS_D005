@@ -66,7 +66,6 @@
 		84BC0BCD232928CC0095BEB7 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC0BCB232928CC0095BEB7 /* QRScannerViewController.swift */; };
 		84BC0BCE232928CC0095BEB7 /* QRScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BC0BCC232928CC0095BEB7 /* QRScannerViewController.xib */; };
 		84DF56FB232B43D300C6FD4E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF56FA232B43D300C6FD4E /* GradientView.swift */; };
-		D618FFF92334F68800460E7B /* thucAnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D618FFF82334F68800460E7B /* thucAnViewController.swift */; };
 		D630483F236EE00E0080E382 /* popUpUtilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D630483D236EE00E0080E382 /* popUpUtilsViewController.swift */; };
 		D6304840236EE00E0080E382 /* popUpUtilsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D630483E236EE00E0080E382 /* popUpUtilsViewController.xib */; };
 /* End PBXBuildFile section */
@@ -159,7 +158,6 @@
 		84BC0BCC232928CC0095BEB7 /* QRScannerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRScannerViewController.xib; sourceTree = "<group>"; };
 		84DF56FA232B43D300C6FD4E /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		BC60A2CAB7DFAC6682AFBCDB /* Pods-OrderNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.release.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.release.xcconfig"; sourceTree = "<group>"; };
-		D618FFF82334F68800460E7B /* thucAnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thucAnViewController.swift; sourceTree = "<group>"; };
 		D630483D236EE00E0080E382 /* popUpUtilsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpUtilsViewController.swift; sourceTree = "<group>"; };
 		D630483E236EE00E0080E382 /* popUpUtilsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = popUpUtilsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,7 +235,6 @@
 				2A38CFCA232FB9E70023152B /* tableCollectionViewCell.xib */,
 				2A38CFCD232FB9E70023152B /* popUpViewController.swift */,
 				2A38CFCC232FB9E70023152B /* TableViewController.swift */,
-				D618FFF82334F68800460E7B /* thucAnViewController.swift */,
 				D630483D236EE00E0080E382 /* popUpUtilsViewController.swift */,
 				D630483E236EE00E0080E382 /* popUpUtilsViewController.xib */,
 			);
@@ -269,10 +266,10 @@
 		2A52D3A4231028C8005DA184 /* OrderNow */ = {
 			isa = PBXGroup;
 			children = (
+				2A38CFB5232FB8930023152B /* Supporting Files */,
+				2A9B43782338EEFD006A2E19 /* Modal */,
 				2A38CFC8232FB9DC0023152B /* Controller */,
 				2A9B43832338EF5F006A2E19 /* HomePageController */,
-				2A9B43782338EEFD006A2E19 /* Modal */,
-				2A38CFB5232FB8930023152B /* Supporting Files */,
 				2F17F409231029D100127C69 /* LoginPageController */,
 				84CEEE82232FB5C20081870B /* Customer */,
 				84BC0BBE232925480095BEB7 /* ViewCustom */,
@@ -771,7 +768,6 @@
 				8402355623233A5200DAE7E4 /* AuthorizationService.swift in Sources */,
 				84AC24D223325477000F0C14 /* BookingService.swift in Sources */,
 				2A9B438F2338EF5F006A2E19 /* ListOderCustomView.swift in Sources */,
-				D618FFF92334F68800460E7B /* thucAnViewController.swift in Sources */,
 				840235512323392000DAE7E4 /* UIViewControllerExtension .swift in Sources */,
 				84782230232BCB6F009D7D58 /* StackViewExtension.swift in Sources */,
 				2A9B439E2338F42D006A2E19 /* ListFoodViewCell.swift in Sources */,
@@ -960,7 +956,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JL68B4CJPV;
+				DEVELOPMENT_TEAM = 34G7L6PXU6;
 				INFOPLIST_FILE = "$(SRCROOT)/OrderNow/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1002,7 +998,7 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.greenacademy.ordernow3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SantisCompany.ordernow3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OrderNow/Supporting Files/OrderNow-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1018,7 +1014,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JL68B4CJPV;
+				DEVELOPMENT_TEAM = 34G7L6PXU6;
 				INFOPLIST_FILE = "$(SRCROOT)/OrderNow/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1060,7 +1056,7 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.greenacademy.ordernow3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SantisCompany.ordernow3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OrderNow/Supporting Files/OrderNow-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

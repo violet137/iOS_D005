@@ -47,6 +47,8 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
     
     @IBOutlet weak var navigationBarView: UIView!
     
+    
+    var prevCell = UICollectionViewCell()
     var tableItemUtils = TableUtils()
     
     var floorItems: [floorItem] = [
@@ -244,12 +246,11 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             
             //MARK: Set first cell of floor as default
             if indexPath.row == 0 {
-                collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
-                floorCell.layer.cornerRadius = 20
+                floorCell.layer.borderWidth = 1.0
                 floorCell.layer.borderColor = UIColor.black.cgColor
-                floorCell.layer.borderWidth = 1
-            } else {
-                floorCell.layer.borderColor = UIColor.clear.cgColor
+                floorCell.layer.cornerRadius = 20
+                prevCell = floorCell
+
             }
             
             //SVProgressHUD.dismiss()
@@ -308,14 +309,19 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if collectionView == self.floorCollectionView {
-            floorCode = indexPath.row
+            prevCell.layer.borderWidth = 0
             
+            let cell = collectionView.cellForItem(at: indexPath)
+            cell!.layer.borderWidth = 1.0
+            cell!.layer.borderColor = UIColor.black.cgColor
+            cell!.layer.cornerRadius = 20
+            
+            prevCell = cell!
+            
+            floorCode = indexPath.row
             myTable = tableItemUtils.searchFloor(floorCodeInput: floorCode)
             soBan = myTable.count
             
-            self.floorCollectionView.cellForItem(at: indexPath)?.layer.cornerRadius = 20
-            self.floorCollectionView.cellForItem(at: indexPath)?.layer.borderWidth = 1
-            self.floorCollectionView.cellForItem(at: indexPath)?.layer.borderColor = UIColor.black.cgColor
             
             tableCollectionView.reloadData()
         } else {
@@ -340,45 +346,8 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             
         }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if collectionView == self.floorCollectionView {
-            floorCode = indexPath.row
-            
-            myTable = tableItemUtils.searchFloor(floorCodeInput: floorCode)
-            soBan = myTable.count
-            
-            self.floorCollectionView.cellForItem(at: indexPath)?.layer.borderWidth = 1
-            self.floorCollectionView.cellForItem(at: indexPath)?.layer.borderColor = UIColor.clear.cgColor
-            
-            tableCollectionView.reloadData()
-        } else {
-           
-            let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
-            let item = tableArray[indexPath.row]
-            //print(indexPath.row)
-            selectedIndexPath = indexPath
 
-            if (item.statusOfTable! == 0 || item.statusOfTable! == 1) {
-                let sb = UIStoryboard(name: "Main", bundle: nil)
-                let manHinhPopUp = sb.instantiateViewController(withIdentifier: "popUp") as! popUpViewController
-                self.navigationController?.pushViewController(manHinhPopUp, animated: true)
-            } else if (item.statusOfTable! == 2 || item.statusOfTable! == 3) {
-                var datMon = HomePageController()
-                self.present(datMon, animated: true, completion: nil)
-            }
-            
-            performSegue(withIdentifier: viewImageSegueIdentifier, sender: item)
-            tableCollectionView.reloadData()
-            
-        }
-    }
-    
-    
-    
 }
 
-//extension TableViewController: TruyenVeManHinhTableTuCollectionViewCell {
 
-//}
 

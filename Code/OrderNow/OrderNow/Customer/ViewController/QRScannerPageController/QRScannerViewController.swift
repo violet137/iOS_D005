@@ -119,27 +119,26 @@ extension QRScannerViewController {
     
     func BookTable(id:String) {
         _bookingService.BookingTable(id: id ){ (status, data, error) in
-            if status && data != nil{
-                guard let data = data else {
-                    return
-                }
-                
-                if data.Status == 2 || data.Status == 3 {
-                     var popUpUtils = popUpUtilsViewController()
-                     self.present(popUpUtils, animated: true, completion: nil)
-                }
-                
-                if data.Status != 2 || data.Status != 3 {
-                    self.scannerView.startScanning()
-                }
-                
-                self.ShowAlertMessage(data.Message)
-            }else{
-                if(error != nil){
-                    self.ShowError(error)
-                }
+            guard let data = data else {
+                return
+            }
+            
+            if data.Status == 1 {
+                // đặt bàn thành công
+            }
+            
+            if(data.Status == 2){
+                // bàn đang hoạt động
+                var popUpUtils = popUpUtilsViewController()
+                self.present(popUpUtils, animated: true, completion: nil)
+                return
+            }
+
+            if data.Status != 1 && data.Status != 0 {
                 self.scannerView.startScanning()
             }
+            
+            self.ShowAlertMessage(data.Message)
         }
     }
     

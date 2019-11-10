@@ -41,8 +41,11 @@ class BookingService {
                         }
                     }
                     break
-                case 1,2,3 : // chờ xác nhận, khách hàng đang order, nhân viên đang order
+                case 1 : // chờ xác nhận
                     completion(true,BookingTableOutput(message: "Bàn đã có người đặt",status: -1),error)
+                    break
+                case 2,3 : // khách hàng đang order, nhân viên đang order
+                    completion(true,BookingTableOutput(message: "Bàn đã có người đặt",status: 2),nil)
                     break
                 default : // lỗi
                     completion(true,BookingTableOutput(message: "lỗi: Vui lòng chọn lại",status: -1),error)

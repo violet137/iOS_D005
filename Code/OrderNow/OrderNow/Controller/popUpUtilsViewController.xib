@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="popUpUtilsViewController" customModule="OrderNow" customModuleProvider="target">
             <connections>
+                <outlet property="moneyButton" destination="bz1-89-ZDV" id="Jb3-kO-ngf"/>
+                <outlet property="orderButton" destination="FIV-iv-NaX" id="acd-JT-HVv"/>
+                <outlet property="topView" destination="ybD-QO-oAF" id="VqR-pL-X0M"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,28 +24,37 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ybD-QO-oAF">
                     <rect key="frame" x="57" y="298" width="300" height="300"/>
                     <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAb-wg-FmU">
+                            <rect key="frame" x="270" y="0.0" width="30" height="30"/>
+                            <state key="normal" title="X">
+                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelButton:" destination="-1" eventType="touchUpInside" id="Khw-4J-AUD"/>
+                            </connections>
+                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bạn muốn chuyển đến màn hình nào?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fO-xg-Jrf">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="200" id="gQR-UJ-16J"/>
+                                <constraint firstAttribute="height" constant="100" id="gQR-UJ-16J"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7pg-cC-orj">
-                            <rect key="frame" x="0.0" y="200" width="300" height="100"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7pg-cC-orj">
+                            <rect key="frame" x="10" y="100" width="280" height="190"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIV-iv-NaX">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
-                                    <state key="normal" title="Đặt món ăn"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="90"/>
+                                    <state key="normal" title="Tiếp tục đặt món"/>
                                     <connections>
                                         <action selector="orderFoodButton:" destination="-1" eventType="touchUpInside" id="ZE9-vD-Xlf"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bz1-89-ZDV">
-                                    <rect key="frame" x="0.0" y="50" width="300" height="50"/>
-                                    <state key="normal" title="Tính tiền"/>
+                                    <rect key="frame" x="0.0" y="100" width="280" height="90"/>
+                                    <state key="normal" title="Bạn muốn tính tiền"/>
                                     <connections>
                                         <action selector="moneyButton:" destination="-1" eventType="touchUpInside" id="kFs-Zc-7W4"/>
                                     </connections>
@@ -52,14 +64,16 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="oAb-wg-FmU" secondAttribute="trailing" id="EWy-DI-rCs"/>
                         <constraint firstItem="0fO-xg-Jrf" firstAttribute="top" secondItem="ybD-QO-oAF" secondAttribute="top" id="FsE-QB-DfN"/>
-                        <constraint firstAttribute="trailing" secondItem="7pg-cC-orj" secondAttribute="trailing" id="OBc-g2-jbj"/>
+                        <constraint firstAttribute="trailing" secondItem="7pg-cC-orj" secondAttribute="trailing" constant="10" id="OBc-g2-jbj"/>
                         <constraint firstItem="7pg-cC-orj" firstAttribute="top" secondItem="0fO-xg-Jrf" secondAttribute="bottom" id="S39-99-6Qi"/>
                         <constraint firstAttribute="height" constant="300" id="T1C-AD-CWe"/>
-                        <constraint firstAttribute="bottom" secondItem="7pg-cC-orj" secondAttribute="bottom" id="YB6-j4-IbV"/>
+                        <constraint firstAttribute="bottom" secondItem="7pg-cC-orj" secondAttribute="bottom" constant="10" id="YB6-j4-IbV"/>
                         <constraint firstAttribute="width" constant="300" id="lPt-mK-uu5"/>
                         <constraint firstAttribute="trailing" secondItem="0fO-xg-Jrf" secondAttribute="trailing" id="p0B-bb-xxH"/>
-                        <constraint firstItem="7pg-cC-orj" firstAttribute="leading" secondItem="ybD-QO-oAF" secondAttribute="leading" id="wf6-eo-0Cz"/>
+                        <constraint firstItem="oAb-wg-FmU" firstAttribute="top" secondItem="ybD-QO-oAF" secondAttribute="top" id="sHg-K2-BTz"/>
+                        <constraint firstItem="7pg-cC-orj" firstAttribute="leading" secondItem="ybD-QO-oAF" secondAttribute="leading" constant="10" id="wf6-eo-0Cz"/>
                         <constraint firstItem="0fO-xg-Jrf" firstAttribute="leading" secondItem="ybD-QO-oAF" secondAttribute="leading" id="wya-JV-8lm"/>
                     </constraints>
                 </view>

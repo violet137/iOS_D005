@@ -117,7 +117,9 @@ class popUpViewController: UIViewController {
                 statusOfTable = 0
             }
         }
+        
         truyenVeManHinhTable?.Truyen(statusOfTable: statusOfTable, ID: tableCode, people: numberOfPeople)
+        
         let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfPeople: numberOfPeople, numberOfChair: numberOfChair)
         
         let tableItemRef = self.ref.child("\(tableCode!)")
