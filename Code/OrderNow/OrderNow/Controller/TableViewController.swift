@@ -288,6 +288,7 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 self.navigationController?.pushViewController(manHinhPopUp, animated: true)
             } else if (item.statusOfTable! == 2 || item.statusOfTable! == 3) {
                 var datMon = HomePageController()
+                datMon.banid = myTable[indexPath.item].tableName ?? ""
                 self.present(datMon, animated: true, completion: nil)
             }
             

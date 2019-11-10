@@ -371,7 +371,7 @@ static NSString *g_overrideAppID = nil;
   if (self) {
     _flushBehavior = FBSDKAppEventsFlushBehaviorAuto;
 
-    typeof(self) __weak weakSelf = self;
+    __weak FBSDKAppEvents *weakSelf = self;
     self.flushTimer = [FBSDKUtility startGCDTimerWithInterval:FLUSH_PERIOD_IN_SECONDS
                                                         block:^{
                                                           [weakSelf flushTimerFired:nil];
@@ -1069,6 +1069,12 @@ static NSString *g_overrideAppID = nil;
     [FBSDKFeatureManager checkFeature:FBSDKFeatureCodelessEvents completionBlock:^(BOOL enabled) {
       if (enabled) {
         [self enableCodelessEvents];
+      }
+    }];
+    [FBSDKFeatureManager checkFeature:FBSDKFeatureAAM completionBlock:^(BOOL enabled) {
+      if (enabled) {
+        // Enable AAM
+        [FBSDKMetadataIndexer enable];
       }
     }];
 #endif

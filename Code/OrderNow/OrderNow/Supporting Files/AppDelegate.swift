@@ -16,10 +16,18 @@ import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        var navigationController = UINavigationController(rootViewController: BookBeforeComeViewController())
+//        window?.backgroundColor = .white
+//        window?.rootViewController = navigationController
+//        window?.makeKey()
+
+        
         // Initialize Facebook
         FBSDKCoreKit.ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         

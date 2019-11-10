@@ -43,6 +43,11 @@
 		2A9B439A2338F2E1006A2E19 /* HomePageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B43982338F2E1006A2E19 /* HomePageController.xib */; };
 		2A9B439E2338F42D006A2E19 /* ListFoodViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B439C2338F42D006A2E19 /* ListFoodViewCell.swift */; };
 		2A9B439F2338F42D006A2E19 /* ListFoodViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B439D2338F42D006A2E19 /* ListFoodViewCell.xib */; };
+		2F0A7355236C56D6008F2F78 /* BookBeforeComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A7354236C56D6008F2F78 /* BookBeforeComeViewController.swift */; };
+		2F0A7357236C6A90008F2F78 /* ListBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A7356236C6A90008F2F78 /* ListBooking.swift */; };
+		2F0A7359236C6F24008F2F78 /* BookingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A7358236C6F24008F2F78 /* BookingListTableViewCell.swift */; };
+		2F0A735B236C7283008F2F78 /* BookingBeforeModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A735A236C7283008F2F78 /* BookingBeforeModal.swift */; };
+		2F0A735D236C7445008F2F78 /* BookingBeforeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A735C236C7445008F2F78 /* BookingBeforeUtils.swift */; };
 		840235512323392000DAE7E4 /* UIViewControllerExtension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 840235502323392000DAE7E4 /* UIViewControllerExtension .swift */; };
 		840235532323396100DAE7E4 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840235522323396100DAE7E4 /* UITextFieldExtension.swift */; };
 		8402355623233A5200DAE7E4 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402355523233A5200DAE7E4 /* AuthorizationService.swift */; };
@@ -132,6 +137,11 @@
 		2A9B43982338F2E1006A2E19 /* HomePageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageController.xib; sourceTree = "<group>"; };
 		2A9B439C2338F42D006A2E19 /* ListFoodViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFoodViewCell.swift; sourceTree = "<group>"; };
 		2A9B439D2338F42D006A2E19 /* ListFoodViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListFoodViewCell.xib; sourceTree = "<group>"; };
+		2F0A7354236C56D6008F2F78 /* BookBeforeComeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBeforeComeViewController.swift; sourceTree = "<group>"; };
+		2F0A7356236C6A90008F2F78 /* ListBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBooking.swift; sourceTree = "<group>"; };
+		2F0A7358236C6F24008F2F78 /* BookingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingListTableViewCell.swift; sourceTree = "<group>"; };
+		2F0A735A236C7283008F2F78 /* BookingBeforeModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingBeforeModal.swift; sourceTree = "<group>"; };
+		2F0A735C236C7445008F2F78 /* BookingBeforeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingBeforeUtils.swift; sourceTree = "<group>"; };
 		3F9347A14CB02147C66B9CEC /* Pods-OrderNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.debug.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.debug.xcconfig"; sourceTree = "<group>"; };
 		840235502323392000DAE7E4 /* UIViewControllerExtension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControllerExtension .swift"; sourceTree = "<group>"; };
 		840235522323396100DAE7E4 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
@@ -214,13 +224,13 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2A38CFC3232FB9B90023152B /* Model */ = {
+		2A38CFC3232FB9B90023152B /* modal */ = {
 			isa = PBXGroup;
 			children = (
 				2A38CFC5232FB9C90023152B /* TableItemModel.swift */,
 				2A38CFC4232FB9C90023152B /* TableUtils.swift */,
 			);
-			path = Model;
+			path = modal;
 			sourceTree = "<group>";
 		};
 		2A38CFC8232FB9DC0023152B /* Controller */ = {
@@ -263,8 +273,9 @@
 		2A52D3A4231028C8005DA184 /* OrderNow */ = {
 			isa = PBXGroup;
 			children = (
+				2F0A7353236C5676008F2F78 /* BookBeforeCome */,
 				2A38CFC8232FB9DC0023152B /* Controller */,
-				2A9B43832338EF5F006A2E19 /* HomePageController */,
+				2A9B43832338EF5F006A2E19 /* OrderFoodPage */,
 				2A9B43782338EEFD006A2E19 /* Modal */,
 				2A38CFB5232FB8930023152B /* Supporting Files */,
 				2F17F409231029D100127C69 /* LoginPageController */,
@@ -300,15 +311,17 @@
 		2A9B43782338EEFD006A2E19 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				2A38CFC3232FB9B90023152B /* Model */,
+				2A38CFC3232FB9B90023152B /* modal */,
 				2A9B43792338EEFD006A2E19 /* MonAnModal.swift */,
 				2A9B437A2338EEFD006A2E19 /* MonAnUtils.swift */,
 				2A9B437B2338EEFD006A2E19 /* OderModal.swift */,
+				2F0A735A236C7283008F2F78 /* BookingBeforeModal.swift */,
+				2F0A735C236C7445008F2F78 /* BookingBeforeUtils.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
 		};
-		2A9B43832338EF5F006A2E19 /* HomePageController */ = {
+		2A9B43832338EF5F006A2E19 /* OrderFoodPage */ = {
 			isa = PBXGroup;
 			children = (
 				2FE321BC2338F9AC00419FE5 /* HomePage */,
@@ -316,7 +329,7 @@
 				2A9B439B2338F42D006A2E19 /* ListFood */,
 				2A9B43842338EF5F006A2E19 /* TopTabBar */,
 			);
-			path = HomePageController;
+			path = OrderFoodPage;
 			sourceTree = "<group>";
 		};
 		2A9B43842338EF5F006A2E19 /* TopTabBar */ = {
@@ -335,6 +348,16 @@
 				2A9B439D2338F42D006A2E19 /* ListFoodViewCell.xib */,
 			);
 			path = ListFood;
+			sourceTree = "<group>";
+		};
+		2F0A7353236C5676008F2F78 /* BookBeforeCome */ = {
+			isa = PBXGroup;
+			children = (
+				2F0A7354236C56D6008F2F78 /* BookBeforeComeViewController.swift */,
+				2F0A7356236C6A90008F2F78 /* ListBooking.swift */,
+				2F0A7358236C6F24008F2F78 /* BookingListTableViewCell.swift */,
+			);
+			path = BookBeforeCome;
 			sourceTree = "<group>";
 		};
 		2F17F4022310292600127C69 /* ViewController */ = {
@@ -733,6 +756,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F0A7355236C56D6008F2F78 /* BookBeforeComeViewController.swift in Sources */,
+				2F0A7357236C6A90008F2F78 /* ListBooking.swift in Sources */,
 				84782232232BDA7D009D7D58 /* PagingCollectionView.swift in Sources */,
 				2A38CFD2232FB9E70023152B /* TableViewController.swift in Sources */,
 				2A242C052346242D008747FE /* CollectionViewCell.swift in Sources */,
@@ -747,10 +772,12 @@
 				84AC24D523325508000F0C14 /* DetailTableOutput.swift in Sources */,
 				84BC0BCD232928CC0095BEB7 /* QRScannerViewController.swift in Sources */,
 				2A9B437C2338EEFD006A2E19 /* MonAnModal.swift in Sources */,
+				2F0A735B236C7283008F2F78 /* BookingBeforeModal.swift in Sources */,
 				2A38CFC6232FB9C90023152B /* TableUtils.swift in Sources */,
 				840235532323396100DAE7E4 /* UITextFieldExtension.swift in Sources */,
 				2A38CFCF232FB9E70023152B /* tableCollectionViewCell.swift in Sources */,
 				2A242C062346242D008747FE /* CollectionView.swift in Sources */,
+				2F0A7359236C6F24008F2F78 /* BookingListTableViewCell.swift in Sources */,
 				2A9B437E2338EEFD006A2E19 /* OderModal.swift in Sources */,
 				84DF56FB232B43D300C6FD4E /* GradientView.swift in Sources */,
 				84AC1CC8231414A0007AA443 /* ViewController.swift in Sources */,
@@ -767,6 +794,7 @@
 				D618FFF92334F68800460E7B /* thucAnViewController.swift in Sources */,
 				840235512323392000DAE7E4 /* UIViewControllerExtension .swift in Sources */,
 				84782230232BCB6F009D7D58 /* StackViewExtension.swift in Sources */,
+				2F0A735D236C7445008F2F78 /* BookingBeforeUtils.swift in Sources */,
 				2A9B439E2338F42D006A2E19 /* ListFoodViewCell.swift in Sources */,
 				84BC0BC0232925630095BEB7 /* QRScannerView.swift in Sources */,
 				2A38CFBE232FB8BE0023152B /* ProgressHUD.m in Sources */,
@@ -994,7 +1022,7 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.greenacademy.ordernow2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SantisCompany.orderProject2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OrderNow/Supporting Files/OrderNow-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1052,7 +1080,7 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.greenacademy.ordernow2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SantisCompany.orderProject2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OrderNow/Supporting Files/OrderNow-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
