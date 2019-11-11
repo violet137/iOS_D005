@@ -9,7 +9,7 @@
 import Foundation
 import SnapKit
 
-class ListBooking: UIView, UITableViewDelegate, UITableViewDataSource, sentDataTo{
+class ListBookingTableView: UIView, UITableViewDelegate, UITableViewDataSource, sentDataTo{
     
     func onDataUpdate() {
         bookBFCVC.removeSpinner()
@@ -19,7 +19,7 @@ class ListBooking: UIView, UITableViewDelegate, UITableViewDataSource, sentDataT
     
     var popupView = UIView()
     var blackVw = UIView()
-    var bookBFCVC = BookBeforeComeViewController()
+    var bookBFCVC = ListBookBeforeComeViewController()
     var listBook = BookingBeforeUtils()
     var listBooking = [BookBefore]()
     
@@ -50,7 +50,7 @@ class ListBooking: UIView, UITableViewDelegate, UITableViewDataSource, sentDataT
         super.init(frame: frame)
         listBook.getDataFromDataBase()
         listBook.delegate = self
-        tableView.register(BookingListTableViewCell.self, forCellReuseIdentifier: "cellid")
+        tableView.register(ListBookingTableViewCell.self, forCellReuseIdentifier: "cellid")
         addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.leading.trailing.top.bottom.equalToSuperview()
@@ -216,7 +216,7 @@ class ListBooking: UIView, UITableViewDelegate, UITableViewDataSource, sentDataT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellid") as? BookingListTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellid") as? ListBookingTableViewCell else { return UITableViewCell() }
         let data = listBooking[indexPath.row]
         cell.setContraint()
         cell.setDataInCell(ten: data.tenKH ?? "", tgden: data.thoiGianDen ?? "", songuoi: data.soNguoi ?? 0, gmail: data.gmail ?? "", message: data.message ?? "")

@@ -10,12 +10,12 @@ import UIKit
 import SnapKit
 
 
-class BookBeforeComeViewController: UIViewController {
+class ListBookBeforeComeViewController: UIViewController {
     
     var titleBarLb = UILabel()
     
-    lazy var listBooking: ListBooking = {
-        let lb = ListBooking()
+    lazy var listBooking: ListBookingTableView = {
+        let lb = ListBookingTableView()
         lb.bookBFCVC = self
         return lb
     }()

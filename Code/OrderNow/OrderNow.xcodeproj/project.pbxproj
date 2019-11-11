@@ -43,9 +43,9 @@
 		2A9B439A2338F2E1006A2E19 /* HomePageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B43982338F2E1006A2E19 /* HomePageController.xib */; };
 		2A9B439E2338F42D006A2E19 /* ListFoodViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B439C2338F42D006A2E19 /* ListFoodViewCell.swift */; };
 		2A9B439F2338F42D006A2E19 /* ListFoodViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B439D2338F42D006A2E19 /* ListFoodViewCell.xib */; };
-		2F0A7355236C56D6008F2F78 /* BookBeforeComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A7354236C56D6008F2F78 /* BookBeforeComeViewController.swift */; };
-		2F0A7357236C6A90008F2F78 /* ListBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A7356236C6A90008F2F78 /* ListBooking.swift */; };
-		2F0A7359236C6F24008F2F78 /* BookingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A7358236C6F24008F2F78 /* BookingListTableViewCell.swift */; };
+		2F0A7355236C56D6008F2F78 /* ListBookBeforeComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A7354236C56D6008F2F78 /* ListBookBeforeComeViewController.swift */; };
+		2F0A7357236C6A90008F2F78 /* ListBookingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A7356236C6A90008F2F78 /* ListBookingTableView.swift */; };
+		2F0A7359236C6F24008F2F78 /* ListBookingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A7358236C6F24008F2F78 /* ListBookingTableViewCell.swift */; };
 		2F0A735B236C7283008F2F78 /* BookingBeforeModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A735A236C7283008F2F78 /* BookingBeforeModal.swift */; };
 		2F0A735D236C7445008F2F78 /* BookingBeforeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A735C236C7445008F2F78 /* BookingBeforeUtils.swift */; };
 		840235512323392000DAE7E4 /* UIViewControllerExtension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 840235502323392000DAE7E4 /* UIViewControllerExtension .swift */; };
@@ -137,9 +137,9 @@
 		2A9B43982338F2E1006A2E19 /* HomePageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageController.xib; sourceTree = "<group>"; };
 		2A9B439C2338F42D006A2E19 /* ListFoodViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFoodViewCell.swift; sourceTree = "<group>"; };
 		2A9B439D2338F42D006A2E19 /* ListFoodViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListFoodViewCell.xib; sourceTree = "<group>"; };
-		2F0A7354236C56D6008F2F78 /* BookBeforeComeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBeforeComeViewController.swift; sourceTree = "<group>"; };
-		2F0A7356236C6A90008F2F78 /* ListBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBooking.swift; sourceTree = "<group>"; };
-		2F0A7358236C6F24008F2F78 /* BookingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingListTableViewCell.swift; sourceTree = "<group>"; };
+		2F0A7354236C56D6008F2F78 /* ListBookBeforeComeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBookBeforeComeViewController.swift; sourceTree = "<group>"; };
+		2F0A7356236C6A90008F2F78 /* ListBookingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBookingTableView.swift; sourceTree = "<group>"; };
+		2F0A7358236C6F24008F2F78 /* ListBookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBookingTableViewCell.swift; sourceTree = "<group>"; };
 		2F0A735A236C7283008F2F78 /* BookingBeforeModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingBeforeModal.swift; sourceTree = "<group>"; };
 		2F0A735C236C7445008F2F78 /* BookingBeforeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingBeforeUtils.swift; sourceTree = "<group>"; };
 		3F9347A14CB02147C66B9CEC /* Pods-OrderNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.debug.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.debug.xcconfig"; sourceTree = "<group>"; };
@@ -353,9 +353,9 @@
 		2F0A7353236C5676008F2F78 /* BookBeforeCome */ = {
 			isa = PBXGroup;
 			children = (
-				2F0A7354236C56D6008F2F78 /* BookBeforeComeViewController.swift */,
-				2F0A7356236C6A90008F2F78 /* ListBooking.swift */,
-				2F0A7358236C6F24008F2F78 /* BookingListTableViewCell.swift */,
+				2F0A7354236C56D6008F2F78 /* ListBookBeforeComeViewController.swift */,
+				2F0A7356236C6A90008F2F78 /* ListBookingTableView.swift */,
+				2F0A7358236C6F24008F2F78 /* ListBookingTableViewCell.swift */,
 			);
 			path = BookBeforeCome;
 			sourceTree = "<group>";
@@ -756,8 +756,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F0A7355236C56D6008F2F78 /* BookBeforeComeViewController.swift in Sources */,
-				2F0A7357236C6A90008F2F78 /* ListBooking.swift in Sources */,
+				2F0A7355236C56D6008F2F78 /* ListBookBeforeComeViewController.swift in Sources */,
+				2F0A7357236C6A90008F2F78 /* ListBookingTableView.swift in Sources */,
 				84782232232BDA7D009D7D58 /* PagingCollectionView.swift in Sources */,
 				2A38CFD2232FB9E70023152B /* TableViewController.swift in Sources */,
 				2A242C052346242D008747FE /* CollectionViewCell.swift in Sources */,
@@ -777,7 +777,7 @@
 				840235532323396100DAE7E4 /* UITextFieldExtension.swift in Sources */,
 				2A38CFCF232FB9E70023152B /* tableCollectionViewCell.swift in Sources */,
 				2A242C062346242D008747FE /* CollectionView.swift in Sources */,
-				2F0A7359236C6F24008F2F78 /* BookingListTableViewCell.swift in Sources */,
+				2F0A7359236C6F24008F2F78 /* ListBookingTableViewCell.swift in Sources */,
 				2A9B437E2338EEFD006A2E19 /* OderModal.swift in Sources */,
 				84DF56FB232B43D300C6FD4E /* GradientView.swift in Sources */,
 				84AC1CC8231414A0007AA443 /* ViewController.swift in Sources */,

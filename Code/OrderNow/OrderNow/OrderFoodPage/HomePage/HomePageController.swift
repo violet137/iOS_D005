@@ -501,7 +501,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBAction func backAct(_ sender: Any) {
         
-        var naviController = UINavigationController(rootViewController: BookBeforeComeViewController())
+        var naviController = UINavigationController(rootViewController: ListBookBeforeComeViewController())
         present(naviController, animated: true, completion: nil)
     }
     

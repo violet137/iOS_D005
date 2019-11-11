@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookingListTableViewCell: UITableViewCell {
+class ListBookingTableViewCell: UITableViewCell {
 
     var tenKH = UILabel()
     var tgDen = UILabel()
