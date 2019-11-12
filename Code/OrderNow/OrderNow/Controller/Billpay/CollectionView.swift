@@ -15,7 +15,12 @@ protocol dataBackDelegate {
     func sentSearchDataBack(with data: [MonAnBill])
 }
 
-class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData, dataPassBillDelele {
+class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData, dataPassBillDelegate {
+    func getTable(statusCode: Int, ID: Int) {
+        self.statusCode = statusCode
+        self.tableID = ID
+    }
+    
     func getTable(with data: [TableItem]) {
         self.table = data
     }
@@ -36,7 +41,9 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
     var searchBill = [MonAnBill]()
     var collectionView: UICollectionView?
     var table = [TableItem]()
-    var tableVC = TableViewController()
+    let tableVC = TableViewController()
+    var tableID: Int?
+    var statusCode: Int?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.billListCV.count
@@ -61,9 +68,7 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
         // Get data from firebase
         billUtil.getOrderList()
         billUtil.delegate = self
-        self.dataDelegate?.sentSearchDataBack(with: self.searchBill)
-        self.tableVC.dataPassBillDelele = self
-        
+        tableVC.dataPassBillDelegate = self
         let layoutcv = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layoutcv)
         

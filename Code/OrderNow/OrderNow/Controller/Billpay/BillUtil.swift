@@ -13,24 +13,21 @@ protocol sentData {
     func updataData()
 }
 
-class BillUtil: TableCallback{
-    func onDataUpdate() {
-        self.tableUtil.dumpData()
-        self.tableUtil.tableListening(callback: self)
-    }
-    
-    func choXacNhan(ban: TableItem) {
-        
+class BillUtil: dataPassBillDelegate {
+    func getTable(statusCode: Int, ID: Int) {
+        self.statusCode = statusCode
+        self.tableID = ID
     }
     
     var tableDelegate: TableCallback?
-    var tableUtil = TableUtils()
+    var delegate: sentData?
+    
     var tableList = [TableItem]()
     var list = [MonAnBill]()
     var billList = [BillPay]()
     var ref: DatabaseReference!
-    var delegate: sentData?
-    var tableItem = TableUtils()
+    var statusCode: Int?
+    var tableID: Int?
     
     func getOrderList() {
         self.ref = Database.database().reference()
@@ -55,6 +52,8 @@ class BillUtil: TableCallback{
                 let temBill = BillPay(banID: tempList, banName: snap.key)
                 self.billList.append(temBill)
             }// End of for item
+            print(self.tableID)
+            print(self.statusCode)
             self.delegate?.updataData()
         }
     }

@@ -23,8 +23,11 @@ class EarningUtil {
         self.Earningref.observeSingleEvent(of: .value) { (snapshot) in
             for item in snapshot.children.allObjects {
                 let snap = item as! DataSnapshot
-                if (snap.hasChildren() == true) {
-                    snap.setNilValueForKey("Earnings")
+                let check = snap.hasChild("Earnings")
+                if !check {
+                    print("have data name Earnings")
+                } else {
+                    print("Have not data name Earnings")
                 }
             }
             self.delegateEarning?.EarningUpdateData()

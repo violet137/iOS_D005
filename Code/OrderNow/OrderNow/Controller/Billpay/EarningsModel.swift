@@ -9,13 +9,13 @@
 import Foundation
 
 class EarningsModel {
-    var monAnBill: [MonAnBill]?
+    var billPay: [BillPay]?
     var time: Date?
     var tableID: String?
     var total: Int?
     
-    init(monAnBill: [MonAnBill], time: Date, tableId: String, total: Int) {
-        self.monAnBill = monAnBill
+    init(billPay: [BillPay], time: Date, tableId: String, total: Int) {
+        self.billPay = billPay
         self.time = time
         self.tableID = tableId
         self.total = total

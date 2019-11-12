@@ -13,13 +13,12 @@ struct floorItem {
     var floorLabelName: String
 }
 
-protocol dataPassBillDelele: AnyObject {
-    func getTable(with data: [TableItem])
+protocol dataPassBillDelegate {
+    func getTable(statusCode: Int, ID: Int)
 }
 
 class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback {
     func truyenTable(statusOfTable: Int, ID: Int) {
-        
     }
 
     func choXacNhan(ban: TableItem) {
@@ -51,7 +50,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
     @IBOutlet weak var floorCollectionView: UICollectionView!
     @IBOutlet weak var tableCollectionView: UICollectionView!
     
-    weak var dataPassBillDelele: dataPassBillDelele?
+    var dataPassBillDelegate: dataPassBillDelegate?
     var tableItemUtils = TableUtils()
     
     var floorItems: [floorItem] = [
@@ -215,14 +214,13 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let indexPath = self.tableCollectionView.indexPath(for: cell)
         let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
         let item = tableArray[(indexPath?.row)!]
-        let tableCode = item.tableCode
-        let tableItemRef = self.ref.child("\(tableCode!)")
+        let statusCode = item.statusOfTable
+        let tableID = item.tableCode
         let billPay = BillPayViewController()
         if(item != nil) {
-            self.dataPassBillDelele?.getTable(with: [item])
+            self.dataPassBillDelegate?.getTable(statusCode: statusCode!, ID: tableID!)
             present(billPay, animated: true, completion: nil)
         } else { return }
-        
         tableCollectionView.reloadData()
     }
     
