@@ -218,7 +218,9 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let tableID = item.tableCode
         let billPay = BillPayViewController()
         if(item != nil) {
-            self.dataPassBillDelegate?.getTable(statusCode: statusCode!, ID: tableID!)
+            billPay.tenBan = item.tableName
+            billPay.getTable(statusCode: statusCode!, ID: tableID!)
+//            self.dataPassBillDelegate?.getTable(statusCode: statusCode!, ID: tableID!)
             present(billPay, animated: true, completion: nil)
         } else { return }
         tableCollectionView.reloadData()

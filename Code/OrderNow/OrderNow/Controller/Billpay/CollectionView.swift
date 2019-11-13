@@ -32,6 +32,15 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
         DispatchQueue.main.async {
             self.collectionView!.reloadData()
+            // duyet vao ban dang nhan
+            var viTri = 0
+            for item in self.billUtil.billList {
+                viTri = viTri + 1
+                if(item.banName! == self.tenBan!){
+                    break
+                }
+            }
+            self.collectionView!.scrollToItem(at: IndexPath(row: viTri - 1, section: 0), at: .right, animated: true)
         }
     }
     
@@ -43,6 +52,7 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
     var table = [TableItem]()
     let tableVC = TableViewController()
     var tableID: Int?
+    var tenBan: String?
     var statusCode: Int?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
