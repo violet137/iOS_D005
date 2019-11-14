@@ -14,8 +14,8 @@ struct floorItem {
     var floorLabelName: String
 }
 
-protocol TruyenVeManHinhBillPay {
-    func TruyenVeManHinhBillPay(statusOfTable: Int, ID: Int)
+protocol dataPassBillDelegate {
+    func getTable(statusCode: Int, ID: Int)
 }
 
 class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback {
@@ -55,7 +55,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
     @IBOutlet weak var navigationBarView: UIView!
     
     
-    var truyenVeBill: TruyenVeManHinhBillPay?
+    var dataPassBillDelegate: dataPassBillDelegate?
     var prevCell = UICollectionViewCell()
     var tableItemUtils = TableUtils()
     
@@ -231,17 +231,22 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     //Truyen Ve Man Hinh Tinh Bill
     func showBillPay(cell: tableCollectionViewCell) {
-        var billPay = BillPayViewController()
+        
 
         let indexPath = self.tableCollectionView.indexPath(for: cell)
         let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
         let item = tableArray[(indexPath?.row)!]
         
-//        print( "Status of table: \(item.statusOfTable!)" )
-//        print( "Table Code: \(item.tableCode!)" )
-
-        truyenVeBill?.TruyenVeManHinhBillPay(statusOfTable: item.statusOfTable!, ID: item.tableCode!)
-        present(billPay, animated: true, completion: nil)
+        let statusCode = item.statusOfTable
+        let tableID = item.tableCode
+        let billPay = BillPayViewController()
+        
+        if(item != nil) {
+            billPay.tenBan = item.tableName
+            billPay.getTable(statusCode: statusCode!, ID: tableID!)
+            present(billPay, animated: true, completion: nil)
+        } else { return }
+        tableCollectionView.reloadData()
         
         
        

@@ -15,24 +15,7 @@ protocol _NumberDelegate {
     func decreassNumber(View: BillpayController, number: Int)
 }
 
-class BillpayController: UIViewController, UITableViewDelegate, UITableViewDataSource,sentData, TruyenVeManHinhBillPay {
-    
-    var status: Int = 0
-    var tableCode: Int = 0
-    func TruyenVeManHinhBillPay(statusOfTable: Int, ID: Int) {
-        status = statusOfTable
-        tableCode = ID
-        print(status)
-        print(tableCode)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let manHinhTableViewController = segue.description as? TableViewController {
-            manHinhTableViewController.truyenVeBill = self
-        }
-    }
-    
-    
+class BillpayController: UIViewController, UITableViewDelegate, UITableViewDataSource,sentData {
     func updataData() {
         DispatchQueue.global().async {
             self.listMon = self.billUtil.list

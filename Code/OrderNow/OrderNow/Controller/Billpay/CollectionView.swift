@@ -14,23 +14,19 @@ protocol dataBackDelegate {
     func sentDataBack(with data: [MonAnBill])
 }
 
-
-
-class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData, TruyenVeManHinhBillPay{
+class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData, dataPassBillDelegate{
     
     var status: Int?
     var tableCode: Int?
-    func TruyenVeManHinhBillPay(statusOfTable: Int, ID: Int) {
-        status = statusOfTable
+    func getTable(statusCode: Int, ID: Int) {
+        status = statusCode
         tableCode = ID
-        print(status)
-        print(tableCode)
+        print(statusCode)
+        print(ID)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let manHinhTableViewController = segue.description as? TableViewController {
-            manHinhTableViewController.truyenVeBill = self
-        }
+    func getTable(with data: [TableItem]) {
+        self.table = data
     }
 
     func updataData() {
@@ -46,6 +42,11 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
     var billUtil = BillUtil()
     var billListCV = [BillPay]()
     var collectionView: UICollectionView?
+    var table = [TableItem]()
+    let tableVC = TableViewController()
+    var tableID: Int?
+    var tenBan: String?
+    var statusCode: Int?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.billListCV.count
