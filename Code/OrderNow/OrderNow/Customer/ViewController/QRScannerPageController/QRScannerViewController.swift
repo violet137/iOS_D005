@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class QRScannerViewController: UIViewController{
+class QRScannerViewController: UIViewController,IQRScannerViewController{
     
     let _bookingService = BookingService()
     @IBOutlet weak var icFlash: UIImageView!
@@ -21,7 +21,10 @@ class QRScannerViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        startScanner()
+    }
+    
+    func startScanner() {
         if !scannerView.isRunning {
             scannerView.startScanning()
         }
@@ -29,7 +32,7 @@ class QRScannerViewController: UIViewController{
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if !scannerView.isRunning {
+        if scannerView.isRunning {
             scannerView.stopScanning()
         }
     }
@@ -124,12 +127,16 @@ extension QRScannerViewController {
             }
             
             if data.Status == 1 {
-                // đặt bàn thành công
+                // dat ban thanh cong
+                let datMon = HomePageController()
+                self.present(datMon, animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             }
             
             if(data.Status == 2){
                 // bàn đang hoạt động
-                var popUpUtils = popUpUtilsViewController()
+                let popUpUtils = popUpUtilsViewController()
+                popUpUtils.scanner = self
                 self.present(popUpUtils, animated: true, completion: nil)
                 return
             }
@@ -142,6 +149,10 @@ extension QRScannerViewController {
         }
     }
     
+}
+
+protocol IQRScannerViewController {
+    func startScanner()
 }
 
 extension QRScannerViewController {
@@ -157,6 +168,7 @@ extension QRScannerViewController {
         
         let btnClose = UIAlertAction(title: "Đóng", style: .cancel, handler: nil)
         alert.addAction(btnClose)
+        
         
         DispatchQueue.main.async {
             self.present(alert, animated: true, completion: nil)

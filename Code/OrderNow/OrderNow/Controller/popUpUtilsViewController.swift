@@ -14,6 +14,8 @@ class popUpUtilsViewController: UIViewController {
     @IBOutlet weak var orderButton: UIButton!
     @IBOutlet weak var moneyButton: UIButton!
     
+    var scanner:IQRScannerViewController?
+    
     private func setupTopView() {
         topView.layer.cornerRadius = 20
         topView.layer.masksToBounds = true
@@ -56,7 +58,7 @@ class popUpUtilsViewController: UIViewController {
     }
     
     @IBAction func cancelButton(_ sender: Any) {
-        
+        scanner?.startScanner()
         self.dismiss(animated: true, completion: nil)
         
         
