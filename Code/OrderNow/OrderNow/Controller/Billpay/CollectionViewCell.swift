@@ -18,6 +18,8 @@ protocol NumberDelegate {
 class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource, dataBackDelegate  {
     func sentDataBack(with data: [MonAnBill]) {
         self.dataList = data
+        self.tableView.reloadData()
+        
     }
     func sentSearchDataBack(with data: [MonAnBill]) {
         self.searchList = data
@@ -202,7 +204,7 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
             .top(to: headerView, edge: .bottom)
             .leading(to: contentView).trailing(to: contentView)
             .bottom(to: footerView, edge: .top)
-        let tableView = UITableView(frame: bodyView.bounds, style: UITableView.Style.grouped)
+        tableView = UITableView(frame: bodyView.bounds, style: UITableView.Style.grouped)
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self

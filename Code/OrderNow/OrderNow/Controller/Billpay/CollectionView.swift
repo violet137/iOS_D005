@@ -69,6 +69,7 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
             totalPrice = totalPrice + (item.gia! * item.soLuong!)
         }
         cell.labelFooterTotalPrice.text = "\(totalPrice)"
+        // loc data theo ban
         cell.billDelegate.dataDelegate?.sentDataBack(with: data.banID!)
         return cell
     }
