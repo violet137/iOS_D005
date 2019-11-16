@@ -13,5 +13,5 @@ use_frameworks!
 	pod 'Firebase/Database'
 	pod 'GoogleMaps'
 	pod 'GooglePlaces'
-  pod 'WWLayout'
+  	pod 'WWLayout'
 end

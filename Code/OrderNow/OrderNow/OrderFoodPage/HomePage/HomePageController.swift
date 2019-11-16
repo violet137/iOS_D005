@@ -503,6 +503,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         
         var naviController = UINavigationController(rootViewController: ListBookBeforeComeViewController())
         present(naviController, animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
     }
     
         func setUpHiddenOrNot(Bool: Bool){

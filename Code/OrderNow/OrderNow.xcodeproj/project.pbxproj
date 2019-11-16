@@ -48,6 +48,7 @@
 		2F0A7359236C6F24008F2F78 /* ListBookingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A7358236C6F24008F2F78 /* ListBookingTableViewCell.swift */; };
 		2F0A735B236C7283008F2F78 /* BookingBeforeModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A735A236C7283008F2F78 /* BookingBeforeModal.swift */; };
 		2F0A735D236C7445008F2F78 /* BookingBeforeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A735C236C7445008F2F78 /* BookingBeforeUtils.swift */; };
+		2F19158C23798DB2004C7784 /* BookBeforeComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F19158B23798DB2004C7784 /* BookBeforeComeViewController.swift */; };
 		840235512323392000DAE7E4 /* UIViewControllerExtension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 840235502323392000DAE7E4 /* UIViewControllerExtension .swift */; };
 		840235532323396100DAE7E4 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840235522323396100DAE7E4 /* UITextFieldExtension.swift */; };
 		8402355623233A5200DAE7E4 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402355523233A5200DAE7E4 /* AuthorizationService.swift */; };
@@ -142,6 +143,7 @@
 		2F0A7358236C6F24008F2F78 /* ListBookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBookingTableViewCell.swift; sourceTree = "<group>"; };
 		2F0A735A236C7283008F2F78 /* BookingBeforeModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingBeforeModal.swift; sourceTree = "<group>"; };
 		2F0A735C236C7445008F2F78 /* BookingBeforeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingBeforeUtils.swift; sourceTree = "<group>"; };
+		2F19158B23798DB2004C7784 /* BookBeforeComeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBeforeComeViewController.swift; sourceTree = "<group>"; };
 		3F9347A14CB02147C66B9CEC /* Pods-OrderNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.debug.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.debug.xcconfig"; sourceTree = "<group>"; };
 		840235502323392000DAE7E4 /* UIViewControllerExtension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControllerExtension .swift"; sourceTree = "<group>"; };
 		840235522323396100DAE7E4 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
@@ -273,7 +275,8 @@
 		2A52D3A4231028C8005DA184 /* OrderNow */ = {
 			isa = PBXGroup;
 			children = (
-				2F0A7353236C5676008F2F78 /* BookBeforeCome */,
+				2F19158D23798E03004C7784 /* BookBeforeCome */,
+				2F0A7353236C5676008F2F78 /* ListBookBeforeCome */,
 				2A38CFC8232FB9DC0023152B /* Controller */,
 				2A9B43832338EF5F006A2E19 /* OrderFoodPage */,
 				2A9B43782338EEFD006A2E19 /* Modal */,
@@ -350,14 +353,14 @@
 			path = ListFood;
 			sourceTree = "<group>";
 		};
-		2F0A7353236C5676008F2F78 /* BookBeforeCome */ = {
+		2F0A7353236C5676008F2F78 /* ListBookBeforeCome */ = {
 			isa = PBXGroup;
 			children = (
 				2F0A7354236C56D6008F2F78 /* ListBookBeforeComeViewController.swift */,
 				2F0A7356236C6A90008F2F78 /* ListBookingTableView.swift */,
 				2F0A7358236C6F24008F2F78 /* ListBookingTableViewCell.swift */,
 			);
-			path = BookBeforeCome;
+			path = ListBookBeforeCome;
 			sourceTree = "<group>";
 		};
 		2F17F4022310292600127C69 /* ViewController */ = {
@@ -394,6 +397,14 @@
 				843B2C59231402D800D5377F /* LoginViewController.xib */,
 			);
 			path = LoginPageController;
+			sourceTree = "<group>";
+		};
+		2F19158D23798E03004C7784 /* BookBeforeCome */ = {
+			isa = PBXGroup;
+			children = (
+				2F19158B23798DB2004C7784 /* BookBeforeComeViewController.swift */,
+			);
+			path = BookBeforeCome;
 			sourceTree = "<group>";
 		};
 		2FE321BB2338F99000419FE5 /* ListOder */ = {
@@ -778,6 +789,7 @@
 				2A38CFCF232FB9E70023152B /* tableCollectionViewCell.swift in Sources */,
 				2A242C062346242D008747FE /* CollectionView.swift in Sources */,
 				2F0A7359236C6F24008F2F78 /* ListBookingTableViewCell.swift in Sources */,
+				2F19158C23798DB2004C7784 /* BookBeforeComeViewController.swift in Sources */,
 				2A9B437E2338EEFD006A2E19 /* OderModal.swift in Sources */,
 				84DF56FB232B43D300C6FD4E /* GradientView.swift in Sources */,
 				84AC1CC8231414A0007AA443 /* ViewController.swift in Sources */,
@@ -979,8 +991,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 73YYV5Y2WD;
 				INFOPLIST_FILE = "$(SRCROOT)/OrderNow/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1022,12 +1035,13 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.SantisCompany.orderProject2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dx137.OrderNow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OrderNow/Supporting Files/OrderNow-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1037,8 +1051,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 73YYV5Y2WD;
 				INFOPLIST_FILE = "$(SRCROOT)/OrderNow/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1080,11 +1095,12 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.SantisCompany.orderProject2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dx137.OrderNow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OrderNow/Supporting Files/OrderNow-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
