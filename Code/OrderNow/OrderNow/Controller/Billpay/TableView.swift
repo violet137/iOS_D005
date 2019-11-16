@@ -20,7 +20,7 @@ class BillpayController: UIViewController, UITableViewDelegate, UITableViewDataS
         DispatchQueue.global().async {
             self.listMon = self.billUtil.list
             self.listBill = self.billUtil.billList
-            self.dataList = self.billUtil.filterBill(ban: "2")
+//            self.dataList = self.billUtil.filterBill(ban: "2")
         }
         DispatchQueue.main.async {
             self.tableView?.reloadData()

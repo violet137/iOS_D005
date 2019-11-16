@@ -72,6 +72,8 @@
 		84BC0BCD232928CC0095BEB7 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC0BCB232928CC0095BEB7 /* QRScannerViewController.swift */; };
 		84BC0BCE232928CC0095BEB7 /* QRScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BC0BCC232928CC0095BEB7 /* QRScannerViewController.xib */; };
 		84DF56FB232B43D300C6FD4E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF56FA232B43D300C6FD4E /* GradientView.swift */; };
+		84FE33BF23608A5B00F2E2CE /* EarningsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE33BE23608A5B00F2E2CE /* EarningsModel.swift */; };
+		84FE33C123608A7100F2E2CE /* EarningsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE33C023608A7100F2E2CE /* EarningsUtil.swift */; };
 		D618FFF92334F68800460E7B /* thucAnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D618FFF82334F68800460E7B /* thucAnViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -168,6 +170,8 @@
 		84BC0BCB232928CC0095BEB7 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		84BC0BCC232928CC0095BEB7 /* QRScannerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRScannerViewController.xib; sourceTree = "<group>"; };
 		84DF56FA232B43D300C6FD4E /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		84FE33BE23608A5B00F2E2CE /* EarningsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsModel.swift; sourceTree = "<group>"; };
+		84FE33C023608A7100F2E2CE /* EarningsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsUtil.swift; sourceTree = "<group>"; };
 		BC60A2CAB7DFAC6682AFBCDB /* Pods-OrderNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.release.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.release.xcconfig"; sourceTree = "<group>"; };
 		D618FFF82334F68800460E7B /* thucAnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thucAnViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,6 +212,8 @@
 				2A242C002346242D008747FE /* CollectionViewCell.swift */,
 				2A242C032346242D008747FE /* TableView.swift */,
 				2A242BFF2346242D008747FE /* TableViewCell.swift */,
+				84FE33BE23608A5B00F2E2CE /* EarningsModel.swift */,
+				84FE33C023608A7100F2E2CE /* EarningsUtil.swift */,
 			);
 			path = Billpay;
 			sourceTree = "<group>";
@@ -799,8 +805,10 @@
 				2A9B437D2338EEFD006A2E19 /* MonAnUtils.swift in Sources */,
 				8495E77823273B180082ED10 /* LoginOutput.swift in Sources */,
 				843B2C5A231402D800D5377F /* LoginViewController.swift in Sources */,
+				84FE33BF23608A5B00F2E2CE /* EarningsModel.swift in Sources */,
 				2A242C0B23463313008747FE /* BillUtil.swift in Sources */,
 				8402355623233A5200DAE7E4 /* AuthorizationService.swift in Sources */,
+				84FE33C123608A7100F2E2CE /* EarningsUtil.swift in Sources */,
 				84AC24D223325477000F0C14 /* BookingService.swift in Sources */,
 				2A9B438F2338EF5F006A2E19 /* ListOderCustomView.swift in Sources */,
 				D618FFF92334F68800460E7B /* thucAnViewController.swift in Sources */,

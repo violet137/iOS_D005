@@ -12,22 +12,48 @@ import Firebase
 
 protocol dataBackDelegate {
     func sentDataBack(with data: [MonAnBill])
+    func sentSearchDataBack(with data: [MonAnBill])
 }
 
-class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData {
+class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData, dataPassBillDelegate {
+    func getTable(statusCode: Int, ID: Int) {
+        self.statusCode = statusCode
+        self.tableID = ID
+    }
+    
+    func getTable(with data: [TableItem]) {
+        self.table = data
+    }
+    
     func updataData() {
         DispatchQueue.global().async {
             self.billListCV = self.billUtil.billList
+//            self.searchBill = self.billUtil.filterBill(ban: "2")
         }
         DispatchQueue.main.async {
             self.collectionView!.reloadData()
+            // duyet vao ban dang nhan
+            var viTri = 0
+            for item in self.billUtil.billList {
+                viTri = viTri + 1
+                if(item.banName! == self.tenBan!){
+                    break
+                }
+            }
+            self.collectionView!.scrollToItem(at: IndexPath(row: viTri - 1, section: 0), at: .right, animated: true)
         }
     }
     
     var dataDelegate: dataBackDelegate?
     var billUtil = BillUtil()
     var billListCV = [BillPay]()
+    var searchBill = [MonAnBill]()
     var collectionView: UICollectionView?
+    var table = [TableItem]()
+    let tableVC = TableViewController()
+    var tableID: Int?
+    var tenBan: String?
+    var statusCode: Int?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.billListCV.count
@@ -52,7 +78,7 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
         // Get data from firebase
         billUtil.getOrderList()
         billUtil.delegate = self
-        
+        tableVC.dataPassBillDelegate = self
         let layoutcv = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layoutcv)
         
@@ -65,10 +91,10 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
         collectionView!.register(BillViewCell.self, forCellWithReuseIdentifier: BillViewCell.identifier)
         collectionView!.delegate = self
         collectionView!.dataSource = self
-        print("form CollectionView: \(billListCV.count)")
         view.addSubview(collectionView!)
         view.backgroundColor = .white
         collectionView!.layout.fill(view)
         collectionView!.backgroundColor = .white
     }
+    
 }

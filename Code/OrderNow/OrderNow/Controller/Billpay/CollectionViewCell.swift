@@ -19,10 +19,16 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
     func sentDataBack(with data: [MonAnBill]) {
         self.dataList = data
     }
+    func sentSearchDataBack(with data: [MonAnBill]) {
+        self.searchList = data
+    }
     
     var billDelegate = BillPayViewController()
     var numberDelegate: NumberDelegate?
     var dataList = [MonAnBill]()
+    var searchList = [MonAnBill]()
+    var tableItem = TableUtils()
+    var earningUtil = EarningUtil()
     var minValue = 0
     //******DataSource****
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -175,6 +181,7 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
         btnFooterPay.layout
             .centerY(to: footerView)
             .trailing(to: footerView, edge: .trailing, offset: -10)
+        btnFooterPay.addTarget(self, action: #selector(getPay), for: .touchUpInside)
         labelFooterTotalPrice.text = "765,000"
         labelFooterTotalPrice.textColor = .orange
         labelFooterTotalPrice.setFont(size: 25, weight: .semibold)
@@ -184,6 +191,11 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
             .trailing(to: btnFooterPay, edge: .leading, offset: -20)
         
         //******bodyView
+        setBodyView()
+        
+    }
+
+    func setBodyView() {
         contentView.addSubview(bodyView)
         bodyView.backgroundColor = .yellow
         bodyView.layout
@@ -200,23 +212,21 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
         bodyView.addSubview(tableView)
         tableView.layout.fill(bodyView)
     }
+    @objc func getPay() {
+       self.earningUtil.getPay()
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-        
-//        contentView.addSubview(tableView)
-//        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
-//        tableView.delegate = self
-//        tableView.dataSource = self
-//        createBillArray()
-//        tableView.layout.fill(contentView)
-    
 }
 
-extension BillViewCell{
+extension BillViewCell: delegateEarning {
+    func EarningUpdateData() {
+        self.earningUtil.delegateEarning?.EarningUpdateData()
+    }
     
+
     @objc func increaseFunc() {
         changeQuantity(by: 1)
     }
@@ -237,3 +247,5 @@ extension BillViewCell{
         numberDelegate?.decreassNumber(View: self, number: noPeople!)
     }
 }
+
+
