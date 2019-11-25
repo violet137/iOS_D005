@@ -44,7 +44,7 @@ class BookBeforeComeViewController: UIViewController {
     
     func setupNavBar(){
         navBarTitle.text = "Đặt Trước"
-        navBarTitle.textColor = .systemPink
+//        navBarTitle.textColor = .systemPink
         navigationController?.navigationBar.addSubview(navBarTitle)
         navBarTitle.snp.makeConstraints { (make) in
             make.center.equalTo((navigationController?.navigationBar.snp.center)!)

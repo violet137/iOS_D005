@@ -9,15 +9,25 @@
 import Foundation
 
 class EarningsModel {
-    var billPay: [BillPay]?
-    var time: Date?
-    var tableID: String?
-    var total: Int?
     
-    init(billPay: [BillPay], time: Date, tableId: String, total: Int) {
+    var billPay: [BillPay]?
+    var time: String?
+    var total: Int?
+    var staff: String?
+    
+    init(billPay: [BillPay], time: String, total: Int, staff: String) {
         self.billPay = billPay
         self.time = time
-        self.tableID = tableId
         self.total = total
+        self.staff = staff
+    }
+}
+extension EarningsModel {
+    func toDictionary() -> Any{
+        return [
+            "time": time,
+            "total": total,
+            "staff": staff,
+        ]
     }
 }
