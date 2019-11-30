@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import FirebaseDatabase
 
 protocol TableCallback {
@@ -14,10 +15,13 @@ protocol TableCallback {
     func choXacNhan(ban:TableItem)
 }
 
+protocol TruyenVeManHinhTableUtils {
+    func TruyenUtils(statusOfTable: Int, ID: Int, people: Int)
+}
+
 
 class TableUtils {
     var tableItemList = [TableItem]()
-    
     
     var ref: DatabaseReference!
     
@@ -216,6 +220,25 @@ class TableUtils {
             }
         }
         return nil
+    }
+    
+    var floorCode: Int!
+    var tableCode: Int!
+    var tableName: String!
+    var imageName: String!
+    var message: String!
+    var statusOfTable: Int!
+    var numberOfChair: Int!
+    var numberOfPeople: Int! = 0
+    var truyenVeManHinhTableUtils: TruyenVeManHinhTableUtils?
+    
+    func cancelAction(_ sender: Any) {
+        statusOfTable = 0
+        numberOfPeople = 0
+        truyenVeManHinhTableUtils?.TruyenUtils(statusOfTable: statusOfTable, ID: tableCode, people: numberOfPeople)
+        let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfPeople: numberOfPeople, numberOfChair: numberOfChair)
+        let tableItemRef = self.ref.child("\(tableCode!)")
+        tableItemRef.setValue([ "floor" : tableItem.floorCode,"name" : tableItem.tableName, "image" :  tableItem.tableImage, "status" : tableItem.statusOfTable, "people": tableItem.numberOfPeople, "chairs" : tableItem.numberOfChair])
     }
     
 }

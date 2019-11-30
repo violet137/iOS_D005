@@ -13,6 +13,7 @@ class popUpUtilsViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var orderButton: UIButton!
     @IBOutlet weak var moneyButton: UIButton!
+    @IBOutlet weak var homeButton: UIButton!
     
     var scanner:IQRScannerViewController?
     
@@ -36,12 +37,20 @@ class popUpUtilsViewController: UIViewController {
         moneyButton.layer.borderWidth = 1
     }
     
+    private func setupHomeButton() {
+        homeButton.layer.cornerRadius = 20
+        homeButton.layer.masksToBounds = true
+        homeButton.layer.borderColor = UIColor.black.cgColor
+        homeButton.layer.borderWidth = 1
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTopView()
         setupOrderButton()
         setupMoneyButton()
+        setupHomeButton()
         // Do any additional setup after loading the view.
     }
     
@@ -60,10 +69,12 @@ class popUpUtilsViewController: UIViewController {
     @IBAction func cancelButton(_ sender: Any) {
         scanner?.startScanner()
         self.dismiss(animated: true, completion: nil)
-        
-        
     }
 
+    @IBAction func homeAction(_ sender: Any) {
+        var tableScreen = TableViewController()
+        self.present(tableScreen, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

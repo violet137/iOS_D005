@@ -18,7 +18,7 @@ protocol dataPassBillDelegate {
     func getTable(statusCode: Int, ID: Int)
 }
 
-class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback {
+class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback, TruyenVeManHinhTableUtils {
     
     func choXacNhan(ban: TableItem) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
@@ -36,7 +36,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         tableCollectionView.reloadData()
     }
     
-    //TruyenVeManHinhTable
+    //TruyenVeTupopUp
     func Truyen(statusOfTable: Int, ID: Int, people: Int) {
         let ban = tableItemUtils.getSelectedTable(selectedTable: ID)
         if ban != nil {
@@ -46,13 +46,29 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         }
     }
     
+    func TruyenUtils(statusOfTable: Int, ID: Int, people: Int) {
+        let ban = tableItemUtils.getSelectedTable(selectedTable: ID)
+        if ban != nil {
+            ban?.numberOfPeople = people
+            ban?.statusOfTable = statusOfTable
+            tableCollectionView.reloadData()
+        }
+    }
     
     
+    //TruyenVeTuBillPay
+    func TruyenVeTuBillPay(statusOfTable: Int, ID: Int) {
+        let ban = tableItemUtils.getSelectedTable(selectedTable: ID)
+        if ban != nil {
+            ban?.statusOfTable = statusOfTable
+            tableCollectionView.reloadData()
+        }
+    }
     
-    @IBOutlet weak var floorCollectionView: UICollectionView!
-    @IBOutlet weak var tableCollectionView: UICollectionView!
+    @IBOutlet var floorCollectionView: UICollectionView!
+    @IBOutlet var tableCollectionView: UICollectionView!
     
-    @IBOutlet weak var navigationBarView: UIView!
+    @IBOutlet var navigationBarView: UIView!
     
     
     var dataPassBillDelegate: dataPassBillDelegate?
@@ -146,8 +162,6 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         floorCollectionView.register(floorNib, forCellWithReuseIdentifier: floorCellIdentifier)
         floorCollectionView.showsHorizontalScrollIndicator = false
         floorCollectionView.backgroundColor = .white
-//        floorCollectionView.layer.borderWidth = 1
-//        floorCollectionView.layer.borderColor = UIColor.gray.cgColor
     }
     
     private func setupTableCollectionView() {

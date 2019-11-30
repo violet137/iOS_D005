@@ -174,4 +174,24 @@ class popUpViewController: UIViewController {
      }
      */
     
+    /*
+     Nho viet them protocol o tren de truyen ve cho minh
+    @IBAction func thanhToanAction(_ sender: Any) {
+        //print(numberOfPeople)
+        statusOfTable = 0
+        
+        truyenVeManHinhTable?.Truyen(statusOfTable: statusOfTable, ID: tableCode, people: numberOfPeople)
+        
+        let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfPeople: numberOfPeople, numberOfChair: numberOfChair)
+        
+        let tableItemRef = self.ref.child("\(tableCode!)")
+        tableItemRef.setValue([ "floor" : tableItem.floorCode,"name" : tableItem.tableName, "image" :  tableItem.tableImage, "status" : tableItem.statusOfTable, "people": tableItem.numberOfPeople, "chairs" : tableItem.numberOfChair])
+        
+        dismiss(animated: true, completion: nil)
+        
+    }*/
+    
 }
+
+
+
