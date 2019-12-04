@@ -13,7 +13,7 @@ protocol sentData {
     func updataData()
 }
 
-class BillUtil: dataPassBillDelegate {
+class BillUtil/*: dataPassBillDelegate */{
     func getTable(statusCode: Int, ID: Int) {
         self.statusCode = statusCode
         self.tableID = ID

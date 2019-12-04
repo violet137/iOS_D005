@@ -13,11 +13,14 @@ struct floorItem {
     var floorLabelName: String
 }
 
-protocol dataPassBillDelegate {
-    func getTable(statusCode: Int, ID: Int)
-}
+//protocol dataPassBillDelegate {
+//    func getTable(statusCode: Int, ID: Int)
+//}
 
 class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback {
+    func changeStatus(ban: String) {
+    }
+    
     func truyenTable(statusOfTable: Int, ID: Int) {
     }
 
@@ -50,7 +53,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
     @IBOutlet weak var floorCollectionView: UICollectionView!
     @IBOutlet weak var tableCollectionView: UICollectionView!
     
-    var dataPassBillDelegate: dataPassBillDelegate?
+//    var dataPassBillDelegate: dataPassBillDelegate?
     var tableItemUtils = TableUtils()
     
     var floorItems: [floorItem] = [
@@ -217,10 +220,10 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let statusCode = item.statusOfTable
         let tableID = item.tableCode
         let billPay = BillPayViewController()
+        let billPayCell = BillViewCell()
         if(item != nil) {
             billPay.tenBan = item.tableName
             billPay.getTable(statusCode: statusCode!, ID: tableID!)
-//            self.dataPassBillDelegate?.getTable(statusCode: statusCode!, ID: tableID!)
             present(billPay, animated: true, completion: nil)
         } else { return }
         tableCollectionView.reloadData()

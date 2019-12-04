@@ -122,7 +122,7 @@ class popUpViewController: UIViewController {
         let tableItem = TableItem(floorCode: floorCode, tableCode: tableCode, tableName: tableName, tableImage: imageName, statusOfTable: statusOfTable, numberOfPeople: numberOfPeople, numberOfChair: numberOfChair)
         
         let tableItemRef = self.ref.child("\(tableCode!)")
-        tableItemRef.setValue([ "floor" : tableItem.floorCode,"name" : tableItem.tableName, "image" :  tableItem.tableImage, "status" : tableItem.statusOfTable, "people": tableItem.numberOfPeople, "chairs" : tableItem.numberOfChair])
+        tableItemRef.setValue([ "floor" : tableItem.floorCode!,"name" : tableItem.tableName!, "image" :  tableItem.tableImage!, "status" : tableItem.statusOfTable!, "people": tableItem.numberOfPeople!, "chairs" : tableItem.numberOfChair!])
         
         dismiss(animated: true, completion: nil)
         

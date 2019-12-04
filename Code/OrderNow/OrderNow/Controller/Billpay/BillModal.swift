@@ -42,9 +42,9 @@ class BillPay {
         self.banName = banName
     }
     
-    func billPayToDict() -> Any {
-        return [
-            "banName": banName,
-        ]
-    }
+//    func billPayToDict() -> Any {
+//        return [
+//            "banName": banName,
+//        ]
+//    }
 }

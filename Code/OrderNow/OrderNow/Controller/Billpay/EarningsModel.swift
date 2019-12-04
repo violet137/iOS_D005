@@ -15,7 +15,7 @@ class EarningsModel {
     var total: Int?
     var staff: String?
     
-    init(billPay: [BillPay], time: String, total: Int, staff: String) {
+    init(billPay: [BillPay], time: String, total: Int?, staff: String) {
         self.billPay = billPay
         self.time = time
         self.total = total

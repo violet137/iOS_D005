@@ -15,22 +15,42 @@ protocol NumberDelegate {
     func decreassNumber(View: BillViewCell, number: Int)
 }
 
-class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource, dataBackDelegate  {
+class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource, dataBackDelegate, TableCallback {
+    func changeStatus(ban: String) {
+    }
+    
+    func sentTableCode(tableName: String) {
+        self.tableName = tableName
+    }
+    
+    func onDataUpdate() {
+    }
+    
+    func choXacNhan(ban: TableItem) {
+    }
+    
+    func changeStatus(ban: Int) {
+    }
+    
+    func sentBillDataBack(with data: [BillPay]) {
+        self.billPayList = data
+        self.tableView.reloadData()
+    }
+    
     func sentDataBack(with data: [MonAnBill]) {
         self.dataList = data
         self.tableView.reloadData()
-        
-    }
-    func sentSearchDataBack(with data: [MonAnBill]) {
-        self.searchList = data
     }
     
-    var billDelegate = BillPayViewController()
+    var billVC = BillPayViewController()
     var numberDelegate: NumberDelegate?
+    var billPayList = [BillPay]()
     var dataList = [MonAnBill]()
     var searchList = [MonAnBill]()
     var tableItem = TableUtils()
     var earningUtil = EarningUtil()
+    var monAnUtil = MonAnUtils()
+    var tableName: String?
     var minValue = 0
     //******DataSource****
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,7 +62,7 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
         let data = dataList[indexPath.row]
         cell?.foodName.text = data.ten!
         cell?.foodImage.image = UIImage(named: data.hinh!)
-        cell?.foodPrice.text = "\(data.gia!)"
+        cell?.foodPrice.text = "\(data.gia!) Đ"
         cell?.quantity.text = "\(data.soLuong!)"
         return cell!
     }
@@ -84,7 +104,7 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
     override init(frame: CGRect) {
         super.init(frame: frame)
         // ***** get data back from
-        self.billDelegate.dataDelegate = self
+        self.billVC.dataDelegate = self
         
         //*****headerview
         contentView.backgroundColor = .white
@@ -215,7 +235,9 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
         tableView.layout.fill(bodyView)
     }
     @objc func getPay() {
-       self.earningUtil.getPay()
+        self.earningUtil.getPay(billPay: billPayList, total: Int(labelFooterTotalPrice.text!)!, user: "Micheal")
+        self.tableItem.changeStatus(ban: self.tableName!)
+        self.monAnUtil.removeOrder(banid: self.tableName!)
     }
     
     required init?(coder aDecoder: NSCoder) {

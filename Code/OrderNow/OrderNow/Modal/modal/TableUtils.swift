@@ -12,15 +12,13 @@ import FirebaseDatabase
 protocol TableCallback {
     func onDataUpdate()
     func choXacNhan(ban:TableItem)
+    func changeStatus(ban: String)
 }
 
 
 class TableUtils {
     var tableItemList = [TableItem]()
-    
-    
     var ref: DatabaseReference!
-    
     var callback:TableCallback?
     
     func tableListening(callback:TableCallback)  {
@@ -43,9 +41,28 @@ class TableUtils {
         }
     }
     
+    func changeStatus(ban: String){
+        self.ref = Database.database().reference()
+        self.ref.child("table-items").observe(.value) { (snapshot) in
+            for child in snapshot.children.allObjects {
+                let snap = child as! DataSnapshot
+                let childRef = snapshot.childSnapshot(forPath: snap.key)
+                for grandchild in childRef.children{
+                    let childsnap = grandchild as! DataSnapshot
+                    let dict = snap.value as! NSDictionary
+                    let tenban = dict["name"] as! String
+                    if(tenban == ban){
+                        self.ref.child("table-items").child(snap.key).updateChildValues(["status" : 0])
+                    }
+                }
+            }
+            self.callback?.changeStatus(ban: ban)
+        }
+    }
+    
     func dumpData() {
-        ref = Database.database().reference()
-        ref.child("table-items").observeSingleEvent(of: .value, with: { (snapshot) in
+        self.ref = Database.database().reference()
+        self.ref.child("table-items").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get table value
             self.tableItemList.removeAll()
             for item in snapshot.children {
@@ -71,10 +88,10 @@ class TableUtils {
     
     func searchFloor(floorCodeInput: Int) -> [TableItem]{
         var tempTableList = [TableItem]()
-        if(tableItemList.count > 0) {
-            for index in 0...tableItemList.count - 1 {
-                if tableItemList[index].floorCode == floorCodeInput {
-                    tempTableList.append(tableItemList[index])
+        if(self.tableItemList.count > 0) {
+            for index in 0...self.tableItemList.count - 1 {
+                if self.tableItemList[index].floorCode == floorCodeInput {
+                    tempTableList.append(self.tableItemList[index])
                 }
             }
         }
@@ -82,9 +99,9 @@ class TableUtils {
     }
     
     func getSelectedTable(selectedTable: Int) -> TableItem? {
-        for index in 0...tableItemList.count - 1 {
-            if tableItemList[index].tableCode == selectedTable {
-                return tableItemList[index]
+        for index in 0...self.tableItemList.count - 1 {
+            if self.tableItemList[index].tableCode == selectedTable {
+                return self.tableItemList[index]
             }
         }
         return nil
