@@ -15,6 +15,8 @@ import Firebase
 
 class LoginViewController: UIViewController, GIDSignInDelegate {
     
+    var userGG: GIDGoogleUser!
+    var sdt: String?
     
     @IBOutlet weak var phoneView: UITextField!
     @IBOutlet weak var otpView: UITextField!
@@ -51,6 +53,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
             btnContinueView.setTitle("Gửi OTP", for: .init())
         }
     }
+    
     
     @IBAction func actContinue(_ sender: Any) {
         if(phoneView.text == "" || phoneView.text == nil || !ValidationPhoneNumber(phoneView.text)){
@@ -109,6 +112,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
                     let view = storeyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
                     DispatchQueue.main.async {
                         self.present(view, animated: true, completion: nil)
+                        self.sdt = phone
                     }
                     
 //                    var home = HomePageController()
@@ -195,6 +199,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
                 break;
             }
         }
+        
     }
     //Google
     @IBAction func actLoginGG(_ sender: Any) {
@@ -211,6 +216,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
             return
         }
         self.Login(user.authentication.idToken)
+        self.userGG = user
     }
     
     

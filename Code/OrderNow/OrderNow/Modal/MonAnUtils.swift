@@ -59,5 +59,12 @@ class MonAnUtils{
         return list
     }
     
+    func removeOrder(banid: String) {
+        ref.child("ListOrder").child(banid).removeValue()
+        getDataFromFireBase()
+        
+        
+    }
+    
     
 }

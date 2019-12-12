@@ -12,7 +12,7 @@ import UIKit
 class ListOderTableView: UIView, UITableViewDelegate, UITableViewDataSource{
     
     var ListOrder = [OrderModal]()
-    var homePage = HomePageController()
+    var homePage = OrderPageController()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ListOrder.count
