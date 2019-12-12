@@ -27,7 +27,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        phoneView.text = "0902002455"
+        phoneView.text = "0000000009"
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
         // Automatically sign in the user.

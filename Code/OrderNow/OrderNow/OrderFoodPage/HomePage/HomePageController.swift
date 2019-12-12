@@ -10,6 +10,7 @@ import UIKit
 import GoogleSignIn
 import SnapKit
 import Firebase
+import FirebaseDatabase
 
 class HomePageController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, sentDataToList {
     
@@ -34,11 +35,12 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
             
             self.listFoodCollectionView.reloadData()
             self.tabBarCollectionView.reloadData()
-
+            self.tenBanLb.text = self.banid
             let indexPath = NSIndexPath(item: 0, section: 0)
             self.tabBarCollectionView.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: .init())
             
         }
+        self.removeSpinner()
     }
     
     // protocol func
@@ -55,10 +57,11 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var UserImg: UIImageView!
     @IBOutlet weak var nameUser: UIButton!
     @IBOutlet weak var stackViewUser: UIStackView!
+    @IBOutlet weak var tenBanLb: UILabel!
     
     //variable blabla....
     
-    var nameTabList = ["Tất cả", "Món bún", "Nướng", "Cơm", "Súp", "Bánh"]
+    var nameTabList = ["Tất cả", "Bún", "Nướng", "Cơm", "Súp", "Bánh"]
     
     var ref: DatabaseReference!
     var monAnUtils = MonAnUtils()
@@ -71,7 +74,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
     var listMon4 = [MonAn]()
     var listMon5 = [MonAn]()
     var listTong = [[MonAn]]()
-    
+    var banid = ""
     
     let popUpView = UIView()
     let blurBlackView = UIView()
@@ -101,6 +104,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.showSpinner(onView: self.view)
         monAnUtils.getDataFromFireBase()
         monAnUtils.delegate = self
         setUpSomethingElse()
@@ -195,7 +199,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         print(listOderTBV.ListOrder)
         ref = Database.database().reference()
         for item in listOderTBV.ListOrder{
-            ref.child("ListOrder").child("3").childByAutoId().setValue(["name": item.tenMon, "hinh": item.hinh, "gia1Mon": item.gia1Mon, "soLuong": item.soLuongDat])
+            ref.child("ListOrder").child(banid ?? "").child(item.tenMon!).setValue(["name": item.tenMon, "hinh": item.hinh, "gia1Mon": item.gia1Mon, "soLuong": item.soLuongDat])
         }
         
     }
@@ -496,6 +500,13 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
             }
         }
     
+    @IBAction func backAct(_ sender: Any) {
+        
+        var naviController = UINavigationController(rootViewController: ListBookBeforeComeViewController())
+        present(naviController, animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+    }
+    
         func setUpHiddenOrNot(Bool: Bool){
             self.backBt.isHidden = !Bool
             self.searchBt.isHidden = !Bool
@@ -522,11 +533,11 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
             Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(handleSelectorCancel), userInfo: nil, repeats: false)
         }
     
-        @IBAction func nameUserAct(_ sender: Any) {
-        }
-    
-        @IBAction func tapToImgUserAct(_ sender: Any) {
-        }
+//        @IBAction func nameUserAct(_ sender: Any) {
+//        }
+//
+//        @IBAction func tapToImgUserAct(_ sender: Any) {
+//        }
     
     //Và đây là hàm dùng để kết nối collectionView
     

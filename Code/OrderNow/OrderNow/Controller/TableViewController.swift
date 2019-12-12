@@ -8,18 +8,22 @@
 
 import UIKit
 import FirebaseDatabase
-import SVProgressHUD
 
 struct floorItem {
     var floorLabelName: String
 }
 
-protocol dataPassBillDelegate {
-    func getTable(statusCode: Int, ID: Int)
-}
+//protocol dataPassBillDelegate {
+//    func getTable(statusCode: Int, ID: Int)
+//}
 
-class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback, TruyenVeManHinhTableUtils {
+class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback {
+    func changeStatus(ban: String) {
+    }
     
+    func truyenTable(statusOfTable: Int, ID: Int) {
+    }
+
     func choXacNhan(ban: TableItem) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let manHinhPopUp = sb.instantiateViewController(withIdentifier: "popUp") as! popUpViewController
@@ -36,7 +40,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         tableCollectionView.reloadData()
     }
     
-    //TruyenVeTupopUp
+    //TruyenVeManHinhTable
     func Truyen(statusOfTable: Int, ID: Int, people: Int) {
         let ban = tableItemUtils.getSelectedTable(selectedTable: ID)
         if ban != nil {
@@ -46,33 +50,10 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         }
     }
     
-    func TruyenUtils(statusOfTable: Int, ID: Int, people: Int) {
-        let ban = tableItemUtils.getSelectedTable(selectedTable: ID)
-        if ban != nil {
-            ban?.numberOfPeople = people
-            ban?.statusOfTable = statusOfTable
-            tableCollectionView.reloadData()
-        }
-    }
+    @IBOutlet weak var floorCollectionView: UICollectionView!
+    @IBOutlet weak var tableCollectionView: UICollectionView!
     
-    
-    //TruyenVeTuBillPay
-    func TruyenVeTuBillPay(statusOfTable: Int, ID: Int) {
-        let ban = tableItemUtils.getSelectedTable(selectedTable: ID)
-        if ban != nil {
-            ban?.statusOfTable = statusOfTable
-            tableCollectionView.reloadData()
-        }
-    }
-    
-    @IBOutlet var floorCollectionView: UICollectionView!
-    @IBOutlet var tableCollectionView: UICollectionView!
-    
-    @IBOutlet var navigationBarView: UIView!
-    
-    
-    var dataPassBillDelegate: dataPassBillDelegate?
-    var prevCell = UICollectionViewCell()
+//    var dataPassBillDelegate: dataPassBillDelegate?
     var tableItemUtils = TableUtils()
     
     var floorItems: [floorItem] = [
@@ -113,15 +94,13 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         
         tableItemUtils.dumpData()
         tableItemUtils.tableListening(callback: self)
+        //tableItems = tableItemUtils.getArrayOfData()
         
         setupFloorCollectionView()
         setupTableCollectionView()
         
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .orange
         ref = Database.database().reference(withPath: "table-items")
-        
-        navigationBarView.layer.borderWidth = 1
-        navigationBarView.layer.borderColor = UIColor.gray.cgColor
     }
     
     override func viewWillLayoutSubviews() {
@@ -150,18 +129,13 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         }
     }
     
-    @IBAction func openQRCode(_ sender: Any) {
-        var QRCodeScreen = QRScannerViewController()
-        self.present(QRCodeScreen, animated: true, completion: nil)
-    }
-    
     private func setupFloorCollectionView() {
         floorCollectionView.delegate = self
         floorCollectionView.dataSource = self
         let floorNib = UINib(nibName: "floorCollectionViewCell", bundle: nil)
         floorCollectionView.register(floorNib, forCellWithReuseIdentifier: floorCellIdentifier)
         floorCollectionView.showsHorizontalScrollIndicator = false
-        floorCollectionView.backgroundColor = .white
+        floorCollectionView.backgroundColor = .orange
     }
     
     private func setupTableCollectionView() {
@@ -169,7 +143,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         tableCollectionView.dataSource = self
         let tableNib = UINib(nibName: "tableCollectionViewCell", bundle: nil)
         tableCollectionView.register(tableNib, forCellWithReuseIdentifier: tableCellIdentifier)
-        tableCollectionView.backgroundColor = .white
+        tableCollectionView.backgroundColor = .orange
         
     }
     
@@ -215,6 +189,7 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
     func showAlert(cell: tableCollectionViewCell){
         let indexPath = self.tableCollectionView.indexPath(for: cell)
+        
         let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
         let item = tableArray[(indexPath?.row)!]
         let tableCode = item.tableCode
@@ -229,82 +204,49 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             statusOfTable = 0
             //Truyen Ve lai Database
             tableItemRef.setValue([ "floor" : item.floorCode!,"name" : item.tableName!, "image" :  item.tableImage!, "status" : statusOfTable, "people": item.numberOfPeople!, "chairs" : item.numberOfChair!])
-
         }))
-        
-        
 
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
         }))
-
         tableCollectionView.reloadData()
         present(alert, animated: true, completion: nil)
         
     }
     
-    
-    //Truyen Ve Man Hinh Tinh Bill
     func showBillPay(cell: tableCollectionViewCell) {
-        
-
         let indexPath = self.tableCollectionView.indexPath(for: cell)
         let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
         let item = tableArray[(indexPath?.row)!]
-        
         let statusCode = item.statusOfTable
         let tableID = item.tableCode
         let billPay = BillPayViewController()
-        
+        let billPayCell = BillViewCell()
         if(item != nil) {
             billPay.tenBan = item.tableName
             billPay.getTable(statusCode: statusCode!, ID: tableID!)
             present(billPay, animated: true, completion: nil)
         } else { return }
         tableCollectionView.reloadData()
-        
-        
-       
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.floorCollectionView {
-            //print("So luong tang \(floorItems.count)")
             return floorItems.count
         } else {
-            //print("So luong table \(soBan)")
             return soBan
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        SVProgressHUD.show()
         if collectionView == self.floorCollectionView {
             let floorCell = collectionView.dequeueReusableCell(withReuseIdentifier: floorCellIdentifier, for: indexPath) as! floorCollectionViewCell
             floorCell.floorLabel.text = floorItems[indexPath.item].floorLabelName
-            floorCell.floorLabel.textAlignment = .center
-            
-            //MARK: Set first cell of floor as default
-            if indexPath.row == 0 {
-                floorCell.layer.borderWidth = 1.0
-                floorCell.layer.borderColor = UIColor.black.cgColor
-                floorCell.layer.cornerRadius = 20
-                prevCell = floorCell
-
-            }
-            
-            //SVProgressHUD.dismiss()
             return floorCell
-            
         } else {
             let tableCell = collectionView.dequeueReusableCell(withReuseIdentifier: tableCellIdentifier, for: indexPath) as! tableCollectionViewCell
-            
-            
             tableCell.tableLabel.text = myTable[indexPath.item].tableName
             tableCell.tableImageView.image = UIImage(named: myTable[indexPath.item].tableImage!)
             tableCell.chairLabel.text = "\(myTable[indexPath.item].numberOfPeople!)/\(myTable[indexPath.item].numberOfChair!)"
-            tableCell.layer.cornerRadius = 20
             
             var borderColor: CGColor! = UIColor.clear.cgColor
             var borderWidth: CGFloat = 0
@@ -337,58 +279,41 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             //Delegate For Alert Notification
             tableCell.delegate = self
             
-            SVProgressHUD.dismiss()
             return tableCell
-            
         }
-       
-        
     }
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         if collectionView == self.floorCollectionView {
-            prevCell.layer.borderWidth = 0
-            
-            let cell = collectionView.cellForItem(at: indexPath)
-            cell!.layer.borderWidth = 1.0
-            cell!.layer.borderColor = UIColor.black.cgColor
-            cell!.layer.cornerRadius = 20
-            
-            prevCell = cell!
-            
             floorCode = indexPath.row
             myTable = tableItemUtils.searchFloor(floorCodeInput: floorCode)
             soBan = myTable.count
-            
-            
             tableCollectionView.reloadData()
         } else {
-           
             let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
             let item = tableArray[indexPath.row]
-            
             //print(indexPath.row)
             selectedIndexPath = indexPath
-
             if (item.statusOfTable! == 0 || item.statusOfTable! == 1) {
                 let sb = UIStoryboard(name: "Main", bundle: nil)
                 let manHinhPopUp = sb.instantiateViewController(withIdentifier: "popUp") as! popUpViewController
                 self.navigationController?.pushViewController(manHinhPopUp, animated: true)
             } else if (item.statusOfTable! == 2 || item.statusOfTable! == 3) {
                 var datMon = HomePageController()
+                datMon.banid = myTable[indexPath.item].tableName ?? ""
                 self.present(datMon, animated: true, completion: nil)
             }
             
             performSegue(withIdentifier: viewImageSegueIdentifier, sender: item)
             tableCollectionView.reloadData()
-            
         }
     }
-
+    
+    
+    
 }
 
+//extension TableViewController: TruyenVeManHinhTableTuCollectionViewCell {
 
+//}
 

@@ -12,29 +12,35 @@ import Firebase
 
 protocol dataBackDelegate {
     func sentDataBack(with data: [MonAnBill])
+    func sentBillDataBack(with data: [BillPay])
+    func sentTableCode(tableName: String)
 }
 
-class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData, dataPassBillDelegate{
-    
-    var status: Int?
-    var tableCode: Int?
+class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData/*, dataPassBillDelegate */{
     func getTable(statusCode: Int, ID: Int) {
-        status = statusCode
-        tableCode = ID
-        print(statusCode)
-        print(ID)
+        self.statusCode = statusCode
+        self.tableID = ID
     }
     
     func getTable(with data: [TableItem]) {
         self.table = data
     }
-
+    
     func updataData() {
         DispatchQueue.global().async {
             self.billListCV = self.billUtil.billList
         }
         DispatchQueue.main.async {
             self.collectionView!.reloadData()
+            // duyet vao ban dang nhan
+            var viTri = 0
+            for item in self.billUtil.billList {
+                viTri = viTri + 1
+                if(item.banName! == self.tenBan!){
+                    break
+                }
+            }
+            self.collectionView!.scrollToItem(at: IndexPath(row: viTri - 1, section: 0), at: .right, animated: true)
         }
     }
     
@@ -55,6 +61,7 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BillViewCell.identifier, for: indexPath) as! BillViewCell
         let data = self.billListCV[indexPath.row]
+        cell.billVC.dataDelegate?.sentBillDataBack(with: [data])
         cell.leftHeaderPeople.text = "2"
         cell.rightHeaderLabel.text = "Bàn \(data.banName!)"
         var totalPrice = 0
@@ -62,7 +69,9 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
             totalPrice = totalPrice + (item.gia! * item.soLuong!)
         }
         cell.labelFooterTotalPrice.text = "\(totalPrice)"
-        cell.billDelegate.dataDelegate?.sentDataBack(with: data.banID!)
+        // loc data theo ban
+        cell.billVC.dataDelegate?.sentDataBack(with: data.banID!)
+        cell.billVC.dataDelegate?.sentTableCode(tableName: data.banName!)
         return cell
     }
 
@@ -71,7 +80,6 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
         // Get data from firebase
         billUtil.getOrderList()
         billUtil.delegate = self
-        
         let layoutcv = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layoutcv)
         
@@ -84,13 +92,10 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
         collectionView!.register(BillViewCell.self, forCellWithReuseIdentifier: BillViewCell.identifier)
         collectionView!.delegate = self
         collectionView!.dataSource = self
-        print("form CollectionView: \(billListCV.count)")
         view.addSubview(collectionView!)
         view.backgroundColor = .white
         collectionView!.layout.fill(view)
         collectionView!.backgroundColor = .white
-        
-
     }
-
+    
 }

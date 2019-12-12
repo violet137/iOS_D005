@@ -22,6 +22,16 @@ class MonAnBill {
         self.soLuong = soLuong
         self.ten = ten
     }
+    
+    func monAnToDict() -> Any {
+        return [
+            "monID": monID,
+            "gia": gia,
+            "hinh": hinh,
+            "soLuong": soLuong,
+            "ten": ten,
+        ]
+    }
 }
 
 class BillPay {
@@ -31,4 +41,10 @@ class BillPay {
         self.banID = banID
         self.banName = banName
     }
+    
+//    func billPayToDict() -> Any {
+//        return [
+//            "banName": banName,
+//        ]
+//    }
 }
