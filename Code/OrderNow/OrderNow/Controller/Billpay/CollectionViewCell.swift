@@ -42,6 +42,7 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
         self.tableView.reloadData()
     }
     
+    var thanhToanDelegate : ThanhToanBanDelegate?
     var billVC = BillPayViewController()
     var numberDelegate: NumberDelegate?
     var billPayList = [BillPay]()
@@ -238,6 +239,7 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
         self.earningUtil.getPay(billPay: billPayList, total: Int(labelFooterTotalPrice.text!)!, user: "Micheal")
         self.tableItem.changeStatus(ban: self.tableName!)
         self.monAnUtil.removeOrder(banid: self.tableName!)
+        thanhToanDelegate?.thanhToan()
     }
     
     required init?(coder aDecoder: NSCoder) {

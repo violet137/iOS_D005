@@ -16,7 +16,21 @@ protocol dataBackDelegate {
     func sentTableCode(tableName: String)
 }
 
-class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData/*, dataPassBillDelegate */{
+protocol ThanhToanBanDelegate {
+    func thanhToan()
+    func dong()
+}
+
+class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData, ThanhToanBanDelegate/*, dataPassBillDelegate */{
+    
+    func thanhToan() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func dong() {
+        // thong báo
+    }
+    
     func getTable(statusCode: Int, ID: Int) {
         self.statusCode = statusCode
         self.tableID = ID
@@ -62,6 +76,7 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BillViewCell.identifier, for: indexPath) as! BillViewCell
         let data = self.billListCV[indexPath.row]
         cell.billVC.dataDelegate?.sentBillDataBack(with: [data])
+        cell.thanhToanDelegate = self
         cell.leftHeaderPeople.text = "2"
         cell.rightHeaderLabel.text = "Bàn \(data.banName!)"
         var totalPrice = 0
