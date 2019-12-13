@@ -36,7 +36,7 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
             var viTri = 0
             for item in self.billUtil.billList {
                 viTri = viTri + 1
-                if(item.banName! == self.tenBan!){
+                if(item.banName! == (self.tenBan ?? "")){
                     break
                 }
             }

@@ -71,11 +71,6 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
         return 110
     }
     
-    
-//    @objc func increaseFunc() {
-//        changeQuantity(by: 1)
-//    }
-    
     static var identifier: String {
         return NSStringFromClass(self)
     }
@@ -234,10 +229,16 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
         bodyView.addSubview(tableView)
         tableView.layout.fill(bodyView)
     }
-    @objc func getPay() {
-        self.earningUtil.getPay(billPay: billPayList, total: Int(labelFooterTotalPrice.text!)!, user: "Micheal")
-        self.tableItem.changeStatus(ban: self.tableName!)
-        self.monAnUtil.removeOrder(banid: self.tableName!)
+    @objc func getPay(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Thông báo", message: "Bạn có chắc chắn muốn tính tiền bàn \(self.tableName!)", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
+            self.earningUtil.getPay(billPay: self.billPayList, total: Int(self.labelFooterTotalPrice.text!)!, user: "Micheal")
+            self.tableItem.changeStatus(ban: self.tableName!)
+            self.monAnUtil.removeOrder(banid: self.tableName!)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.billVC.present(alert, animated: true, completion: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
