@@ -316,7 +316,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Table List" id="uty-G5-zRc"/>
                     <connections>
-                        <outlet property="bookingButton" destination="Gia-IT-hjw" id="YkP-J2-tck"/>
                         <outlet property="floorCollectionView" destination="xwW-Z1-YtN" id="lxS-kG-bRx"/>
                         <outlet property="tableCollectionView" destination="PBL-gy-UFQ" id="S2n-oU-7MD"/>
                     </connections>
