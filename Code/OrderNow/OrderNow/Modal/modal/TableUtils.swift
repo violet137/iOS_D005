@@ -53,6 +53,7 @@ class TableUtils {
                     let tenban = dict["name"] as! String
                     if(tenban == ban){
                         self.ref.child("table-items").child(snap.key).updateChildValues(["status" : 0])
+                        self.ref.child("table-items").child(snap.key).updateChildValues(["people" : 0])
                     }
                 }
             }

@@ -50,10 +50,23 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         }
     }
     
+    var prevCell = UICollectionViewCell()
+    
     @IBOutlet weak var floorCollectionView: UICollectionView!
     @IBOutlet weak var tableCollectionView: UICollectionView!
+    @IBAction func qrCodeButton(_ sender: Any) {
+        var qrCode = QRScannerViewController()
+        self.present(qrCode, animated: true, completion: nil)
+    }
     
-//    var dataPassBillDelegate: dataPassBillDelegate?
+    @IBAction func historyButton(_ sender: Any) {
+        
+    }
+    
+    @IBAction func bookingButton(_ sender: Any) {
+        
+    }
+    //    var dataPassBillDelegate: dataPassBillDelegate?
     var tableItemUtils = TableUtils()
     
     var floorItems: [floorItem] = [
@@ -99,7 +112,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         setupFloorCollectionView()
         setupTableCollectionView()
         
-        self.view.backgroundColor = .orange
+        self.view.backgroundColor = .white
         ref = Database.database().reference(withPath: "table-items")
     }
     
@@ -120,7 +133,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
                 vc.tableCode = item.tableCode
                 vc.statusOfTable = item.statusOfTable
                 vc.numberOfChair = item.numberOfChair
-                vc.numberOfPeople = item.numberOfPeople
+                vc.numberOfPeople = item.numberOfPeople!
             }
         }
         
@@ -135,7 +148,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         let floorNib = UINib(nibName: "floorCollectionViewCell", bundle: nil)
         floorCollectionView.register(floorNib, forCellWithReuseIdentifier: floorCellIdentifier)
         floorCollectionView.showsHorizontalScrollIndicator = false
-        floorCollectionView.backgroundColor = .orange
+        floorCollectionView.backgroundColor = .white
     }
     
     private func setupTableCollectionView() {
@@ -143,7 +156,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         tableCollectionView.dataSource = self
         let tableNib = UINib(nibName: "tableCollectionViewCell", bundle: nil)
         tableCollectionView.register(tableNib, forCellWithReuseIdentifier: tableCellIdentifier)
-        tableCollectionView.backgroundColor = .orange
+        tableCollectionView.backgroundColor = .white
         
     }
     
@@ -200,12 +213,13 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
         let alert = UIAlertController(title: "Bạn muốn huỷ bàn", message: "Xin hãy kiểm tra bàn đã thanh toán chưa?", preferredStyle: .alert)
         var statusOfTable = 0
+        var numberOfPeople = 0
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             statusOfTable = 0
             //Truyen Ve lai Database
-            tableItemRef.setValue([ "floor" : item.floorCode!,"name" : item.tableName!, "image" :  item.tableImage!, "status" : statusOfTable, "people": item.numberOfPeople!, "chairs" : item.numberOfChair!])
+            tableItemRef.setValue([ "floor" : item.floorCode!,"name" : item.tableName!, "image" :  item.tableImage!, "status" : statusOfTable, "people": numberOfPeople, "chairs" : item.numberOfChair!])
         }))
-
+        //item.numberOfPeople
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
         }))
         tableCollectionView.reloadData()
@@ -241,6 +255,12 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
         if collectionView == self.floorCollectionView {
             let floorCell = collectionView.dequeueReusableCell(withReuseIdentifier: floorCellIdentifier, for: indexPath) as! floorCollectionViewCell
             floorCell.floorLabel.text = floorItems[indexPath.item].floorLabelName
+            if indexPath.row == 0 {
+                floorCell.layer.borderWidth = 1.0
+                floorCell.layer.borderColor = UIColor.black.cgColor
+                floorCell.layer.cornerRadius = 20
+                prevCell = floorCell
+            }
             return floorCell
         } else {
             let tableCell = collectionView.dequeueReusableCell(withReuseIdentifier: tableCellIdentifier, for: indexPath) as! tableCollectionViewCell
@@ -250,31 +270,37 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             
             var borderColor: CGColor! = UIColor.clear.cgColor
             var borderWidth: CGFloat = 0
+            var cornerRadius: CGFloat = 0
             
             if myTable[indexPath.item].statusOfTable == 0 {
                 borderColor = UIColor.clear.cgColor
                 borderWidth = 0
+                cornerRadius = 20
                 tableCell.confirmAction.isHidden = true
                 tableCell.billAction.isHidden = true
             } else if myTable[indexPath.item].statusOfTable == 1 {
                 borderColor = UIColor.red.cgColor
                 borderWidth = 3
+                cornerRadius = 20
                 tableCell.confirmAction.isHidden = true
                 tableCell.billAction.isHidden = true
             } else if myTable[indexPath.item].statusOfTable == 2 {
                 borderColor = UIColor.green.cgColor
                 borderWidth = 3
+                cornerRadius = 20
                 tableCell.confirmAction.isHidden = false
                 tableCell.billAction.isHidden = false
             } else if myTable[indexPath.item].statusOfTable == 3 {
                 borderColor = UIColor.blue.cgColor
                 borderWidth = 3
+                cornerRadius = 20
                 tableCell.confirmAction.isHidden = false
                 tableCell.billAction.isHidden = false
             }
             
             tableCell.layer.borderWidth = borderWidth
             tableCell.layer.borderColor = borderColor
+            tableCell.layer.cornerRadius = cornerRadius
             
             //Delegate For Alert Notification
             tableCell.delegate = self
@@ -289,6 +315,14 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
             myTable = tableItemUtils.searchFloor(floorCodeInput: floorCode)
             soBan = myTable.count
             tableCollectionView.reloadData()
+            
+            prevCell.layer.borderWidth = 0
+            let cell = collectionView.cellForItem(at: indexPath)
+            cell!.layer.borderWidth = 1.0
+            cell!.layer.borderColor = UIColor.black.cgColor
+            cell!.layer.cornerRadius = 20
+            prevCell = cell!
+            
         } else {
             let tableArray = tableItemUtils.searchFloor(floorCodeInput: floorCode)
             let item = tableArray[indexPath.row]

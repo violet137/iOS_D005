@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oFD-9D-loP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oFD-9D-loP">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -128,7 +128,7 @@
                                                             <action selector="actionDecrease:" destination="xC0-kL-rbd" eventType="touchUpInside" id="8C6-Yg-3Og"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftm-JA-9eP">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftm-JA-9eP">
                                                         <rect key="frame" x="43.5" y="0.0" width="43" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -200,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIk-Qb-kDC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2851" y="-32"/>
+            <point key="canvasLocation" x="2850.7246376811595" y="-32.142857142857139"/>
         </scene>
         <!--Table List-->
         <scene sceneID="n86-Qt-qOg">
@@ -234,7 +234,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xwW-Z1-YtN">
-                                <rect key="frame" x="0.0" y="99" width="414" height="50"/>
+                                <rect key="frame" x="15" y="99" width="384" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Pbz-2A-Ji6"/>
@@ -265,14 +265,36 @@
                                             <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="openQRCode:" destination="oFD-9D-loP" eventType="touchUpInside" id="R0l-8F-6NC"/>
+                                            <action selector="qrCodeButton:" destination="oFD-9D-loP" eventType="touchUpInside" id="4xj-QB-FKe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHt-La-wdc">
+                                        <rect key="frame" x="276" y="10" width="50" height="30"/>
+                                        <state key="normal" title="History">
+                                            <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="historyButton:" destination="oFD-9D-loP" eventType="touchUpInside" id="ZFx-W9-hEK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBy-2f-oPR">
+                                        <rect key="frame" x="200" y="10" width="56" height="30"/>
+                                        <state key="normal" title="Booking">
+                                            <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="bookingButton:" destination="oFD-9D-loP" eventType="touchUpInside" id="ta2-8r-Zdb"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="a5V-1R-XIG" secondAttribute="trailing" constant="10" id="EJ2-6J-XNa"/>
+                                    <constraint firstItem="KBy-2f-oPR" firstAttribute="centerY" secondItem="Cuf-oh-OhQ" secondAttribute="centerY" id="Gia-IT-hjw"/>
                                     <constraint firstItem="a5V-1R-XIG" firstAttribute="centerY" secondItem="Cuf-oh-OhQ" secondAttribute="centerY" id="P7c-Nn-uCg"/>
+                                    <constraint firstItem="vHt-La-wdc" firstAttribute="centerY" secondItem="Cuf-oh-OhQ" secondAttribute="centerY" id="U7y-oT-pof"/>
+                                    <constraint firstItem="vHt-La-wdc" firstAttribute="leading" secondItem="KBy-2f-oPR" secondAttribute="trailing" constant="20" id="YZw-KM-zya"/>
+                                    <constraint firstItem="a5V-1R-XIG" firstAttribute="leading" secondItem="vHt-La-wdc" secondAttribute="trailing" constant="20" id="am8-qD-OXk"/>
                                     <constraint firstAttribute="height" constant="50" id="z9W-eI-DW8"/>
                                 </constraints>
                             </view>
@@ -285,8 +307,8 @@
                             <constraint firstItem="PBL-gy-UFQ" firstAttribute="leading" secondItem="Cbk-yI-LvW" secondAttribute="leading" constant="5" id="YkL-2R-6xm"/>
                             <constraint firstItem="Cuf-oh-OhQ" firstAttribute="leading" secondItem="Cbk-yI-LvW" secondAttribute="leading" id="aYx-bi-Ccs"/>
                             <constraint firstItem="PBL-gy-UFQ" firstAttribute="top" secondItem="xwW-Z1-YtN" secondAttribute="bottom" constant="10" id="hmu-GN-3UD"/>
-                            <constraint firstItem="Cbk-yI-LvW" firstAttribute="trailing" secondItem="xwW-Z1-YtN" secondAttribute="trailing" id="iCF-6f-kjQ"/>
-                            <constraint firstItem="xwW-Z1-YtN" firstAttribute="leading" secondItem="Cbk-yI-LvW" secondAttribute="leading" id="oCW-ZM-B5z"/>
+                            <constraint firstItem="Cbk-yI-LvW" firstAttribute="trailing" secondItem="xwW-Z1-YtN" secondAttribute="trailing" constant="15" id="iCF-6f-kjQ"/>
+                            <constraint firstItem="xwW-Z1-YtN" firstAttribute="leading" secondItem="Cbk-yI-LvW" secondAttribute="leading" constant="15" id="oCW-ZM-B5z"/>
                             <constraint firstItem="PBL-gy-UFQ" firstAttribute="bottom" secondItem="Cbk-yI-LvW" secondAttribute="bottom" id="tq8-oO-e5S"/>
                             <constraint firstItem="xwW-Z1-YtN" firstAttribute="top" secondItem="Cuf-oh-OhQ" secondAttribute="bottom" constant="5" id="yHM-ks-JvP"/>
                         </constraints>
@@ -294,6 +316,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Table List" id="uty-G5-zRc"/>
                     <connections>
+                        <outlet property="bookingButton" destination="Gia-IT-hjw" id="YkP-J2-tck"/>
                         <outlet property="floorCollectionView" destination="xwW-Z1-YtN" id="lxS-kG-bRx"/>
                         <outlet property="tableCollectionView" destination="PBL-gy-UFQ" id="S2n-oU-7MD"/>
                     </connections>

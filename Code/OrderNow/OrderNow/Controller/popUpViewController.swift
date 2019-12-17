@@ -35,7 +35,7 @@ class popUpViewController: UIViewController {
     var message: String!
     var statusOfTable: Int!
     var numberOfChair: Int!
-    var numberOfPeople: Int! = 0
+    var numberOfPeople: Int!
     var ref: DatabaseReference!
     
     
@@ -143,7 +143,6 @@ class popUpViewController: UIViewController {
     @IBAction func actionIncrease(_ sender: Any) {
         if numberOfPeople < numberOfChair  {
             numberOfPeople = numberOfPeople + 1
-            print(numberOfPeople!)
         }
         peopleLabel.text = "\(numberOfPeople!)"
 
@@ -152,7 +151,6 @@ class popUpViewController: UIViewController {
     @IBAction func actionDecrease(_ sender: Any) {
         if numberOfPeople > 0 {
             numberOfPeople = numberOfPeople - 1
-            print(numberOfPeople!)
         }
         peopleLabel.text = "\(numberOfPeople!)"
 

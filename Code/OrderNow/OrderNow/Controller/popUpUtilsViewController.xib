@@ -10,7 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="popUpUtilsViewController" customModule="OrderNow" customModuleProvider="target">
             <connections>
-                <outlet property="homeButton" destination="187-EW-urI" id="SdA-yW-6s4"/>
                 <outlet property="moneyButton" destination="bz1-89-ZDV" id="Jb3-kO-ngf"/>
                 <outlet property="orderButton" destination="FIV-iv-NaX" id="acd-JT-HVv"/>
                 <outlet property="topView" destination="ybD-QO-oAF" id="VqR-pL-X0M"/>
@@ -47,24 +46,17 @@
                             <rect key="frame" x="10" y="100" width="280" height="190"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIV-iv-NaX">
-                                    <rect key="frame" x="0.0" y="0.0" width="280" height="56.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="90"/>
                                     <state key="normal" title="Tiếp tục đặt món"/>
                                     <connections>
                                         <action selector="orderFoodButton:" destination="-1" eventType="touchUpInside" id="ZE9-vD-Xlf"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bz1-89-ZDV">
-                                    <rect key="frame" x="0.0" y="66.5" width="280" height="57"/>
+                                    <rect key="frame" x="0.0" y="100" width="280" height="90"/>
                                     <state key="normal" title="Bạn muốn tính tiền"/>
                                     <connections>
                                         <action selector="moneyButton:" destination="-1" eventType="touchUpInside" id="kFs-Zc-7W4"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="187-EW-urI">
-                                    <rect key="frame" x="0.0" y="133.5" width="280" height="56.5"/>
-                                    <state key="normal" title="Home"/>
-                                    <connections>
-                                        <action selector="homeAction:" destination="-1" eventType="touchUpInside" id="DVE-Oo-sZr"/>
                                     </connections>
                                 </button>
                             </subviews>
