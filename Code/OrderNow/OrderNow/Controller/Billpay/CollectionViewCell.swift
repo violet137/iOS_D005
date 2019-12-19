@@ -236,10 +236,10 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
         tableView.layout.fill(bodyView)
     }
     @objc func getPay() {
-        self.earningUtil.getPay(billPay: billPayList, total: Int(labelFooterTotalPrice.text!)!, user: "Micheal")
-        self.tableItem.changeStatus(ban: self.tableName!)
-        self.monAnUtil.removeOrder(banid: self.tableName!)
-        thanhToanDelegate?.thanhToan()
+//        self.earningUtil.getPay(billPay: billPayList, total: Int(labelFooterTotalPrice.text!)!, user: "Micheal")
+//        self.tableItem.changeStatus(ban: self.tableName!)
+//        self.monAnUtil.removeOrder(banid: self.tableName!)
+        self.thanhToanDelegate?.thanhToan()
     }
     
     required init?(coder aDecoder: NSCoder) {

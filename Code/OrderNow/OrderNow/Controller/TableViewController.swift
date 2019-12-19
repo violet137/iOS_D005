@@ -135,7 +135,7 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
         let floorNib = UINib(nibName: "floorCollectionViewCell", bundle: nil)
         floorCollectionView.register(floorNib, forCellWithReuseIdentifier: floorCellIdentifier)
         floorCollectionView.showsHorizontalScrollIndicator = false
-        floorCollectionView.backgroundColor = .orange
+        floorCollectionView.backgroundColor = .white
     }
     
     private func setupTableCollectionView() {
@@ -219,11 +219,12 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let item = tableArray[(indexPath?.row)!]
         let statusCode = item.statusOfTable
         let tableID = item.tableCode
+        let people = item.numberOfPeople
         let billPay = BillPayViewController()
         let billPayCell = BillViewCell()
         if(item != nil) {
             billPay.tenBan = item.tableName
-            billPay.getTable(statusCode: statusCode!, ID: tableID!)
+            billPay.getTable(statusCode: statusCode!, ID: tableID!, people: people!)
             present(billPay, animated: true, completion: nil)
         } else { return }
         tableCollectionView.reloadData()

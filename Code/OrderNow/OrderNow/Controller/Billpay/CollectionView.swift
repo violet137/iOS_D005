@@ -24,16 +24,18 @@ protocol ThanhToanBanDelegate {
 class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData, ThanhToanBanDelegate/*, dataPassBillDelegate */{
     
     func thanhToan() {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        self.present(HistoryViewController(), animated: true, completion: nil)
     }
     
     func dong() {
         // thong báo
     }
     
-    func getTable(statusCode: Int, ID: Int) {
+    func getTable(statusCode: Int, ID: Int, people: Int) {
         self.statusCode = statusCode
         self.tableID = ID
+        self.people = people
     }
     
     func getTable(with data: [TableItem]) {
@@ -66,6 +68,7 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
     let tableVC = TableViewController()
     var tableID: Int?
     var tenBan: String?
+    var people: Int?
     var statusCode: Int?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -77,7 +80,7 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
         let data = self.billListCV[indexPath.row]
         cell.billVC.dataDelegate?.sentBillDataBack(with: [data])
         cell.thanhToanDelegate = self
-        cell.leftHeaderPeople.text = "2"
+        cell.leftHeaderPeople.text = "\(self.people!)"
         cell.rightHeaderLabel.text = "Bàn \(data.banName!)"
         var totalPrice = 0
         for item in data.banID! {
@@ -98,7 +101,6 @@ class BillPayViewController: UIViewController, UICollectionViewDelegate, UIColle
         let layoutcv = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layoutcv)
         
-       
         layoutcv.itemSize = CGSize(width: view.frame.width, height: view.frame.height)
         layoutcv.minimumInteritemSpacing = 0
         layoutcv.minimumLineSpacing = 0
