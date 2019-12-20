@@ -50,8 +50,22 @@ class DetailHistoryTableViewController: UIViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let VC = tableView.dequeueReusableHeaderFooterView(withIdentifier: "DetailHistoryFooterView") as! DetailHistoryFooterView
         VC.detail = self
+        let total1Bill = getTotal() as NSNumber
+        let numberformat = NumberFormatter()
+        numberformat.numberStyle = .currency
+        numberformat.positiveFormat = "#,##0 Đ"
+        let totalString = numberformat.string(from: total1Bill)
+        VC.lbTotalBill.text = totalString
         
         return VC
+    }
+    
+    func getTotal() -> Int {
+        var total = 0
+        for item in self.dataLoad[0].banID! {
+            total += (item.gia! * item.soLuong!)
+        }
+        return total
     }
     
 }

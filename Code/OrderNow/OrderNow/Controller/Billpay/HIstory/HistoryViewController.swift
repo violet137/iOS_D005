@@ -44,6 +44,13 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HistoryCollectionViewCell", for: indexPath) as! HistoryCollectionViewCell
         collectionCell.historyViewController = self
+        let total = collectionCell.getTotal() as NSNumber
+        let numberformat = NumberFormatter()
+        numberformat.numberStyle = .currency
+        numberformat.positiveFormat = "#,##0 Đ"
+        let totalString = numberformat.string(from: total)
+        
+        collectionCell.lbShowTongTien.text = totalString
         return collectionCell
     }
     
@@ -64,4 +71,14 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
          historyCollectionView!.layout.fill(view)
          historyCollectionView!.backgroundColor = .white
     }
+    
+//    static func formatCurrency(_ inputNumber: NSNumber, symbol: String = "VND") -> String {
+//      let formatter = NumberFormatter()
+//      formatter.currencySymbol = symbol
+//      formatter.currencyGroupingSeparator = ","
+//      formatter.locale = Locales.vietnam
+//      formatter.numberStyle = .currency
+//      formatter.positiveFormat = "#,##0 ¤"
+//      return formatter.string(from: inputNumber) ?? String(format: "%@%@", AppConstant.Character.space160, symbol)
+//    }
 }

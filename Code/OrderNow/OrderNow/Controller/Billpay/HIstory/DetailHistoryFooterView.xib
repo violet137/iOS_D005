@@ -26,15 +26,24 @@
                         <action selector="actionBack:" destination="iN0-l3-epB" eventType="touchUpInside" id="mQK-Zc-SG2"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucy-g7-F6g" userLabel="lbTotalBill">
+                    <rect key="frame" x="20" y="437.5" width="44.5" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="XUA-JE-IwB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="60g-eQ-Ixw"/>
+                <constraint firstItem="ucy-g7-F6g" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Urx-UX-jZ9"/>
+                <constraint firstItem="ucy-g7-F6g" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="le8-Xd-bme"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XUA-JE-IwB" secondAttribute="trailing" constant="20" id="sA7-Zs-Dqm"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="btnBack" destination="XUA-JE-IwB" id="Eog-RF-L7h"/>
+                <outlet property="lbTotalBill" destination="ucy-g7-F6g" id="wyk-sa-pRc"/>
             </connections>
             <point key="canvasLocation" x="132" y="82"/>
         </view>

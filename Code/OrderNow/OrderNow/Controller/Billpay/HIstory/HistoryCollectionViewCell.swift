@@ -40,10 +40,17 @@ class HistoryCollectionViewCell: UICollectionViewCell, delegateGetDataEarning {
         // Initialization code
         self.earningUtil.getEarningData()
         self.earningUtil.delegateGetDataEarning = self
-        
         HisTableView.register(UINib(nibName: "HistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "HistoryTableViewCell")
         HisTableView.delegate = self
         HisTableView.dataSource = self
+    }
+    
+    func getTotal() -> Int {
+        var total = 0
+        for item in self.earningList {
+            total += item.total!
+        }
+        return total
     }
     
     func getDataFromEarning() {

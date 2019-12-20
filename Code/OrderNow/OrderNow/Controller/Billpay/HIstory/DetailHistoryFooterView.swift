@@ -20,6 +20,7 @@ class DetailHistoryFooterView: UITableViewHeaderFooterView {
     var detail: DetailHistoryTableViewController?
     
     @IBOutlet weak var btnBack: UIButton!
+    @IBOutlet weak var lbTotalBill: UILabel!
     static let reuseIdentifier: String = String(describing: self)
     
     @IBAction func actionBack(_ sender: Any) {

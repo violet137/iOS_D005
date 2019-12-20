@@ -14,6 +14,7 @@ class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var lbTimePay: UILabel!
     @IBOutlet weak var lbStaffPay: UILabel!
     @IBOutlet weak var tableStackView: UIStackView!
+    @IBOutlet weak var underlineView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
