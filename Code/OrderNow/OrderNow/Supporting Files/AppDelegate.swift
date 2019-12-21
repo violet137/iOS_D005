@@ -21,11 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
-        window = UIWindow(frame: UIScreen.main.bounds)
-        var navigationController = UINavigationController(rootViewController: ListBookBeforeComeViewController())
-        window?.backgroundColor = .white
-        window?.rootViewController = navigationController
-        window?.makeKey()
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        var navigationController = UINavigationController(rootViewController: ListBookBeforeComeViewController())
+//        window?.backgroundColor = .white
+//        window?.rootViewController = navigationController
+//        window?.makeKey()
 
         
         // Initialize Facebook

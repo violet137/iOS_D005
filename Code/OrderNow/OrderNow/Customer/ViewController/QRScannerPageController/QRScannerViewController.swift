@@ -128,7 +128,7 @@ extension QRScannerViewController {
             
             if data.Status == 1 {
                 // dat ban thanh cong
-                let datMon = HomePageController()
+                let datMon = OrderPageController()
                 self.present(datMon, animated: true, completion: nil)
                 self.dismiss(animated: true, completion: nil)
             }

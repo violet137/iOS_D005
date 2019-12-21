@@ -65,7 +65,8 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
     }
     
     @IBAction func bookingButton(_ sender: Any) {
-        
+        var listBooking = ListBookBeforeComeViewController()
+        present(listBooking, animated: true, completion: nil)
     }
     //    var dataPassBillDelegate: dataPassBillDelegate?
     var tableItemUtils = TableUtils()
