@@ -12,7 +12,7 @@ import SnapKit
 import Firebase
 import FirebaseDatabase
 
-class HomePageController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, sentDataToList {
+class OrderPageController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, sentDataToList {
     
     func onDataUpdate() {
         DispatchQueue.global().async {
@@ -199,7 +199,7 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
         print(listOderTBV.ListOrder)
         ref = Database.database().reference()
         for item in listOderTBV.ListOrder{
-            ref.child("ListOrder").child(banid ?? "").child(item.tenMon!).setValue(["name": item.tenMon, "hinh": item.hinh, "gia1Mon": item.gia1Mon, "soLuong": item.soLuongDat])
+            ref.child("ListOrder").child(banid ?? "").child(item.tenMon!).setValue(["name": item.tenMon, "hinh": item.hinh, "soLuong": item.soLuongDat])
         }
         
     }
@@ -217,6 +217,8 @@ class HomePageController: UIViewController, UICollectionViewDataSource, UICollec
                 self.dismissOderPopup.transform = CGAffineTransform.identity
             }
         }
+        
+        
     }
         //Và đây là contraint PopupView
     

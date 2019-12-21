@@ -31,6 +31,7 @@ class TableUtils {
             if(status == 1){
                 let floor = dict["floor"] as? Int
                 let image =  dict["image"] as? String
+                
                 let name =  dict["name"] as? String
                 let status =  dict["status"] as? Int
                 let people = dict["people"] as? Int

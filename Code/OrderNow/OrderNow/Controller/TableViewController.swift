@@ -335,7 +335,7 @@ extension TableViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 let manHinhPopUp = sb.instantiateViewController(withIdentifier: "popUp") as! popUpViewController
                 self.navigationController?.pushViewController(manHinhPopUp, animated: true)
             } else if (item.statusOfTable! == 2 || item.statusOfTable! == 3) {
-                var datMon = HomePageController()
+                var datMon = OrderPageController()
                 datMon.banid = myTable[indexPath.item].tableName ?? ""
                 self.present(datMon, animated: true, completion: nil)
             }

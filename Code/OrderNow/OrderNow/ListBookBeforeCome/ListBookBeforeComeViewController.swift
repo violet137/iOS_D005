@@ -16,7 +16,7 @@ class ListBookBeforeComeViewController: UIViewController {
     
     lazy var listBooking: ListBookingTableView = {
         let lb = ListBookingTableView()
-        lb.bookBFCVC = self
+        lb.listBookBFCVC = self
         return lb
     }()
     

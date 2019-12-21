@@ -49,8 +49,8 @@
 		2A9B438E2338EF5F006A2E19 /* TabBarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B43862338EF5F006A2E19 /* TabBarViewCell.xib */; };
 		2A9B438F2338EF5F006A2E19 /* ListOderCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B43872338EF5F006A2E19 /* ListOderCustomView.swift */; };
 		2A9B43902338EF5F006A2E19 /* ListOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B43882338EF5F006A2E19 /* ListOrderTableViewCell.swift */; };
-		2A9B43992338F2E1006A2E19 /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B43972338F2E1006A2E19 /* HomePageController.swift */; };
-		2A9B439A2338F2E1006A2E19 /* HomePageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B43982338F2E1006A2E19 /* HomePageController.xib */; };
+		2A9B43992338F2E1006A2E19 /* OrderPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B43972338F2E1006A2E19 /* OrderPageController.swift */; };
+		2A9B439A2338F2E1006A2E19 /* OrderPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B43982338F2E1006A2E19 /* OrderPageController.xib */; };
 		2A9B439E2338F42D006A2E19 /* ListFoodViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B439C2338F42D006A2E19 /* ListFoodViewCell.swift */; };
 		2A9B439F2338F42D006A2E19 /* ListFoodViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B439D2338F42D006A2E19 /* ListFoodViewCell.xib */; };
 		2F0A7355236C56D6008F2F78 /* ListBookBeforeComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A7354236C56D6008F2F78 /* ListBookBeforeComeViewController.swift */; };
@@ -59,6 +59,8 @@
 		2F0A735B236C7283008F2F78 /* BookingBeforeModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A735A236C7283008F2F78 /* BookingBeforeModal.swift */; };
 		2F0A735D236C7445008F2F78 /* BookingBeforeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A735C236C7445008F2F78 /* BookingBeforeUtils.swift */; };
 		2F19158C23798DB2004C7784 /* BookBeforeComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F19158B23798DB2004C7784 /* BookBeforeComeViewController.swift */; };
+		2F414E0123852B62008F29A0 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F414E0023852B62008F29A0 /* UIColorExtension.swift */; };
+		2F96B5562397F4D000AFA267 /* BookBeforeUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96B5552397F4D000AFA267 /* BookBeforeUI.swift */; };
 		840235512323392000DAE7E4 /* UIViewControllerExtension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 840235502323392000DAE7E4 /* UIViewControllerExtension .swift */; };
 		840235532323396100DAE7E4 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840235522323396100DAE7E4 /* UITextFieldExtension.swift */; };
 		8402355623233A5200DAE7E4 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402355523233A5200DAE7E4 /* AuthorizationService.swift */; };
@@ -157,8 +159,8 @@
 		2A9B43862338EF5F006A2E19 /* TabBarViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBarViewCell.xib; sourceTree = "<group>"; };
 		2A9B43872338EF5F006A2E19 /* ListOderCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOderCustomView.swift; sourceTree = "<group>"; };
 		2A9B43882338EF5F006A2E19 /* ListOrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOrderTableViewCell.swift; sourceTree = "<group>"; };
-		2A9B43972338F2E1006A2E19 /* HomePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
-		2A9B43982338F2E1006A2E19 /* HomePageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageController.xib; sourceTree = "<group>"; };
+		2A9B43972338F2E1006A2E19 /* OrderPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderPageController.swift; sourceTree = "<group>"; };
+		2A9B43982338F2E1006A2E19 /* OrderPageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderPageController.xib; sourceTree = "<group>"; };
 		2A9B439C2338F42D006A2E19 /* ListFoodViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFoodViewCell.swift; sourceTree = "<group>"; };
 		2A9B439D2338F42D006A2E19 /* ListFoodViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListFoodViewCell.xib; sourceTree = "<group>"; };
 		2F0A7354236C56D6008F2F78 /* ListBookBeforeComeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBookBeforeComeViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,8 @@
 		2F0A735A236C7283008F2F78 /* BookingBeforeModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingBeforeModal.swift; sourceTree = "<group>"; };
 		2F0A735C236C7445008F2F78 /* BookingBeforeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingBeforeUtils.swift; sourceTree = "<group>"; };
 		2F19158B23798DB2004C7784 /* BookBeforeComeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBeforeComeViewController.swift; sourceTree = "<group>"; };
+		2F414E0023852B62008F29A0 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		2F96B5552397F4D000AFA267 /* BookBeforeUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBeforeUI.swift; sourceTree = "<group>"; };
 		3F9347A14CB02147C66B9CEC /* Pods-OrderNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderNow.debug.xcconfig"; path = "Target Support Files/Pods-OrderNow/Pods-OrderNow.debug.xcconfig"; sourceTree = "<group>"; };
 		840235502323392000DAE7E4 /* UIViewControllerExtension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControllerExtension .swift"; sourceTree = "<group>"; };
 		840235522323396100DAE7E4 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
@@ -374,7 +378,7 @@
 		2A9B43832338EF5F006A2E19 /* OrderFoodPage */ = {
 			isa = PBXGroup;
 			children = (
-				2FE321BC2338F9AC00419FE5 /* HomePage */,
+				2FE321BC2338F9AC00419FE5 /* OrderPage */,
 				2FE321BB2338F99000419FE5 /* ListOder */,
 				2A9B439B2338F42D006A2E19 /* ListFood */,
 				2A9B43842338EF5F006A2E19 /* TopTabBar */,
@@ -450,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				2F19158B23798DB2004C7784 /* BookBeforeComeViewController.swift */,
+				2F96B5552397F4D000AFA267 /* BookBeforeUI.swift */,
 			);
 			path = BookBeforeCome;
 			sourceTree = "<group>";
@@ -463,13 +468,13 @@
 			path = ListOder;
 			sourceTree = "<group>";
 		};
-		2FE321BC2338F9AC00419FE5 /* HomePage */ = {
+		2FE321BC2338F9AC00419FE5 /* OrderPage */ = {
 			isa = PBXGroup;
 			children = (
-				2A9B43972338F2E1006A2E19 /* HomePageController.swift */,
-				2A9B43982338F2E1006A2E19 /* HomePageController.xib */,
+				2A9B43972338F2E1006A2E19 /* OrderPageController.swift */,
+				2A9B43982338F2E1006A2E19 /* OrderPageController.xib */,
 			);
-			path = HomePage;
+			path = OrderPage;
 			sourceTree = "<group>";
 		};
 		6F1B5522013E9F09F5F6902B /* Pods */ = {
@@ -485,6 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				2A242BFC234623F2008747FE /* DesignExtent.swift */,
+				2F414E0023852B62008F29A0 /* UIColorExtension.swift */,
 				840235502323392000DAE7E4 /* UIViewControllerExtension .swift */,
 				840235522323396100DAE7E4 /* UITextFieldExtension.swift */,
 				8478222F232BCB6F009D7D58 /* StackViewExtension.swift */,
@@ -727,7 +733,7 @@
 				843B2C5B231402D800D5377F /* LoginViewController.xib in Resources */,
 				2A9B438E2338EF5F006A2E19 /* TabBarViewCell.xib in Resources */,
 				2A52D3B0231028C9005DA184 /* LaunchScreen.storyboard in Resources */,
-				2A9B439A2338F2E1006A2E19 /* HomePageController.xib in Resources */,
+				2A9B439A2338F2E1006A2E19 /* OrderPageController.xib in Resources */,
 				84BA8314232CB8CB00F87DDE /* BannerHomeCollectionViewCell.xib in Resources */,
 				8478222C232B989C009D7D58 /* LocationSupportViewController.xib in Resources */,
 				2A38CFBF232FB8BE0023152B /* GoogleService-Info.plist in Resources */,
@@ -851,6 +857,7 @@
 				2A95CC7F23AE24DB00F3A0DE /* DetailHistoryTableViewController.swift in Sources */,
 				2A242C0C23463313008747FE /* BillModal.swift in Sources */,
 				2A9B438D2338EF5F006A2E19 /* TabBarViewCell.swift in Sources */,
+				2F414E0123852B62008F29A0 /* UIColorExtension.swift in Sources */,
 				84BC0BC8232927CF0095BEB7 /* HomeUserViewController.swift in Sources */,
 				2A9B437D2338EEFD006A2E19 /* MonAnUtils.swift in Sources */,
 				8495E77823273B180082ED10 /* LoginOutput.swift in Sources */,
@@ -872,7 +879,8 @@
 				2A95CC7823AE24DB00F3A0DE /* DetailHistoryTableViewCell.swift in Sources */,
 				2A242C082346242D008747FE /* TableView.swift in Sources */,
 				2A242C072346242D008747FE /* BillToPay.swift in Sources */,
-				2A9B43992338F2E1006A2E19 /* HomePageController.swift in Sources */,
+				2A9B43992338F2E1006A2E19 /* OrderPageController.swift in Sources */,
+				2F96B5562397F4D000AFA267 /* BookBeforeUI.swift in Sources */,
 				2A38CFC0232FB8BE0023152B /* AppDelegate.swift in Sources */,
 				8478222B232B989C009D7D58 /* LocationSupportViewController.swift in Sources */,
 			);

@@ -9,20 +9,22 @@
 import UIKit
 class BookBefore{
     
-    var tenKH: String?
+    var soDT: String?
     var thoiGianDen: String?
-    var ngay: String?
     var soNguoi: Int?
-    var gmail: String?
+    var idDonHang: String?
     var message: String?
+    var userBook: String?
+    var status: Int?
     
-    init(ten: String, thoigian: String, songuoi: Int, gmail: String, message: String, ngay: String) {
-        self.tenKH = ten
+    init(sdt: String, thoigian: String, songuoi: Int, message: String, user: String, stt: Int, id: String) {
+        self.soDT = sdt
         self.thoiGianDen = thoigian
         self.soNguoi = songuoi
-        self.gmail = gmail
         self.message = message
-        self.ngay = ngay
+        self.userBook = user
+        self.status = stt
+        self.idDonHang = id
     }
     
 }

@@ -13,16 +13,25 @@ class ListBookingTableViewCell: UITableViewCell {
     var tenKH = UILabel()
     var tgDen = UILabel()
     var soNguoi = UILabel()
-    var gmail = UILabel()
     var message = UILabel()
+    var userBook = UILabel()
+    
+    var status = UILabel()
     
     
-    func setDataInCell(ten: String, tgden: String, songuoi: Int, gmail: String, message: String){
+    func setDataInCell(ten: String, tgden: String, songuoi: Int, message: String, user: String, status: Int){
         self.tenKH.text = ten
         self.tgDen.text = tgden
         self.soNguoi.text = String(songuoi)
-        self.gmail.text = gmail
         self.message.text = message
+        self.userBook.text = user
+        if(status == 0){
+            self.status.text = "Canceled"
+            self.status.textColor = .systemPink
+        }else{
+            self.status.text = "Processing"
+            self.status.textColor = .systemGreen
+        }
     }
     
     func setContraint(){
@@ -32,20 +41,21 @@ class ListBookingTableViewCell: UITableViewCell {
             make.leading.equalToSuperview().inset(15)
             make.bottom.equalTo(self.snp.centerY)
         }
-        addSubview(gmail)
-        gmail.textColor = .lightGray
-        gmail.font = UIFont.systemFont(ofSize: 13)
-        gmail.snp.makeConstraints { (make) in
+        addSubview(tgDen)
+        tgDen.textColor = .lightGray
+        tgDen.font = UIFont.systemFont(ofSize: 13)
+        tgDen.snp.makeConstraints { (make) in
             make.leading.equalTo(tenKH.snp.leading)
             make.top.equalTo(tenKH.snp.bottom)
             
         }
         
-        addSubview(tgDen)
-        tgDen.snp.makeConstraints { (make) in
+        addSubview(status)
+        status.snp.makeConstraints { (make) in
             make.trailing.equalToSuperview().inset(15)
             make.centerY.equalToSuperview()
         }
+        
     }
     
     override func awakeFromNib() {
