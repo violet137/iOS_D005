@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryTableViewCell" id="KGk-i7-Jjw" customClass="HistoryTableViewCell" customModule="OrderNow" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="W5E-W8-ibv">
+                        <rect key="frame" x="10" y="0.0" width="300" height="34"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wcj-Pz-jJs" userLabel="lbBillName">
+                                <rect key="frame" x="0.0" y="0.0" width="55.5" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RaP-DU-KmM" userLabel="lbTableName">
+                                <rect key="frame" x="81.5" y="0.0" width="55.5" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pa0-tI-6Yn" userLabel="lbTimePay">
+                                <rect key="frame" x="163" y="0.0" width="55.5" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9p-v3-IDz" userLabel="lbStaffPay">
+                                <rect key="frame" x="244.5" y="0.0" width="55.5" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYX-se-Bna">
+                        <rect key="frame" x="0.0" y="43" width="320" height="1"/>
+                        <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="l1y-Fi-ZX4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="W5E-W8-ibv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="BG6-dR-A3M"/>
+                    <constraint firstAttribute="bottom" secondItem="dYX-se-Bna" secondAttribute="bottom" id="Ixk-eB-QfO"/>
+                    <constraint firstAttribute="trailing" secondItem="W5E-W8-ibv" secondAttribute="trailing" constant="10" id="UGO-9C-p5n"/>
+                    <constraint firstAttribute="trailing" secondItem="dYX-se-Bna" secondAttribute="trailing" id="n5D-p6-aX0"/>
+                    <constraint firstAttribute="bottom" secondItem="W5E-W8-ibv" secondAttribute="bottom" constant="10" id="nxU-G3-d42"/>
+                    <constraint firstItem="W5E-W8-ibv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pxA-Gs-TmD"/>
+                    <constraint firstItem="dYX-se-Bna" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qH2-os-RUd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lbBillName" destination="Wcj-Pz-jJs" id="tPC-0w-Fh6"/>
+                <outlet property="lbStaffPay" destination="s9p-v3-IDz" id="mjO-HT-uP5"/>
+                <outlet property="lbTableName" destination="RaP-DU-KmM" id="bRF-pf-dbO"/>
+                <outlet property="lbTimePay" destination="pa0-tI-6Yn" id="aas-aS-3dC"/>
+                <outlet property="tableStackView" destination="W5E-W8-ibv" id="EgP-B1-vTx"/>
+                <outlet property="underlineView" destination="dYX-se-Bna" id="yMo-vV-ZxT"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="81.696428571428569"/>
+        </tableViewCell>
+    </objects>
+</document>

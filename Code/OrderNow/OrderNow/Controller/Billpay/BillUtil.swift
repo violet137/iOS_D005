@@ -52,8 +52,6 @@ class BillUtil/*: dataPassBillDelegate */{
                 let temBill = BillPay(banID: tempList, banName: snap.key)
                 self.billList.append(temBill)
             }// End of for item
-            print(self.tableID)
-            print(self.statusCode)
             self.delegate?.updataData()
         }
     }
