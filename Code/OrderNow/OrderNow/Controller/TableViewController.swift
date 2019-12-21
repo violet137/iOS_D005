@@ -60,7 +60,8 @@ class TableViewController: UIViewController, TruyenVeManHinhTable, TableCallback
     }
     
     @IBAction func historyButton(_ sender: Any) {
-        
+        var detail = HistoryViewController()
+        present(detail, animated: true, completion: nil)
     }
     
     @IBAction func bookingButton(_ sender: Any) {

@@ -32,6 +32,16 @@
 		2A52D3B0231028C9005DA184 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A52D3AE231028C9005DA184 /* LaunchScreen.storyboard */; };
 		2A52D3BB231028C9005DA184 /* OrderNowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A52D3BA231028C9005DA184 /* OrderNowTests.swift */; };
 		2A52D3C6231028C9005DA184 /* OrderNowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A52D3C5231028C9005DA184 /* OrderNowUITests.swift */; };
+		2A95CC7623AE24DB00F3A0DE /* DetailHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A95CC6C23AE24DB00F3A0DE /* DetailHistoryTableViewCell.xib */; };
+		2A95CC7723AE24DB00F3A0DE /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A95CC6D23AE24DB00F3A0DE /* HistoryTableViewCell.swift */; };
+		2A95CC7823AE24DB00F3A0DE /* DetailHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A95CC6E23AE24DB00F3A0DE /* DetailHistoryTableViewCell.swift */; };
+		2A95CC7923AE24DB00F3A0DE /* HistoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A95CC6F23AE24DB00F3A0DE /* HistoryCollectionViewCell.xib */; };
+		2A95CC7A23AE24DB00F3A0DE /* DetailHistoryFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A95CC7023AE24DB00F3A0DE /* DetailHistoryFooterView.swift */; };
+		2A95CC7B23AE24DB00F3A0DE /* DetailHistoryFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A95CC7123AE24DB00F3A0DE /* DetailHistoryFooterView.xib */; };
+		2A95CC7C23AE24DB00F3A0DE /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A95CC7223AE24DB00F3A0DE /* HistoryCollectionViewCell.swift */; };
+		2A95CC7D23AE24DB00F3A0DE /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A95CC7323AE24DB00F3A0DE /* HistoryTableViewCell.xib */; };
+		2A95CC7E23AE24DB00F3A0DE /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A95CC7423AE24DB00F3A0DE /* HistoryViewController.swift */; };
+		2A95CC7F23AE24DB00F3A0DE /* DetailHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A95CC7523AE24DB00F3A0DE /* DetailHistoryTableViewController.swift */; };
 		2A9B437C2338EEFD006A2E19 /* MonAnModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B43792338EEFD006A2E19 /* MonAnModal.swift */; };
 		2A9B437D2338EEFD006A2E19 /* MonAnUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B437A2338EEFD006A2E19 /* MonAnUtils.swift */; };
 		2A9B437E2338EEFD006A2E19 /* OderModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B437B2338EEFD006A2E19 /* OderModal.swift */; };
@@ -72,10 +82,10 @@
 		84BC0BCD232928CC0095BEB7 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC0BCB232928CC0095BEB7 /* QRScannerViewController.swift */; };
 		84BC0BCE232928CC0095BEB7 /* QRScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BC0BCC232928CC0095BEB7 /* QRScannerViewController.xib */; };
 		84DF56FB232B43D300C6FD4E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF56FA232B43D300C6FD4E /* GradientView.swift */; };
-		D630483F236EE00E0080E382 /* popUpUtilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D630483D236EE00E0080E382 /* popUpUtilsViewController.swift */; };
-		D6304840236EE00E0080E382 /* popUpUtilsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D630483E236EE00E0080E382 /* popUpUtilsViewController.xib */; };
 		84FE33BF23608A5B00F2E2CE /* EarningsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE33BE23608A5B00F2E2CE /* EarningsModel.swift */; };
 		84FE33C123608A7100F2E2CE /* EarningsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE33C023608A7100F2E2CE /* EarningsUtil.swift */; };
+		D630483F236EE00E0080E382 /* popUpUtilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D630483D236EE00E0080E382 /* popUpUtilsViewController.swift */; };
+		D6304840236EE00E0080E382 /* popUpUtilsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D630483E236EE00E0080E382 /* popUpUtilsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +140,16 @@
 		2A52D3C1231028C9005DA184 /* OrderNowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrderNowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A52D3C5231028C9005DA184 /* OrderNowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNowUITests.swift; sourceTree = "<group>"; };
 		2A52D3C7231028C9005DA184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A95CC6C23AE24DB00F3A0DE /* DetailHistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		2A95CC6D23AE24DB00F3A0DE /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		2A95CC6E23AE24DB00F3A0DE /* DetailHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		2A95CC6F23AE24DB00F3A0DE /* HistoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		2A95CC7023AE24DB00F3A0DE /* DetailHistoryFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailHistoryFooterView.swift; sourceTree = "<group>"; };
+		2A95CC7123AE24DB00F3A0DE /* DetailHistoryFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailHistoryFooterView.xib; sourceTree = "<group>"; };
+		2A95CC7223AE24DB00F3A0DE /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		2A95CC7323AE24DB00F3A0DE /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
+		2A95CC7423AE24DB00F3A0DE /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		2A95CC7523AE24DB00F3A0DE /* DetailHistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailHistoryTableViewController.swift; sourceTree = "<group>"; };
 		2A9B43792338EEFD006A2E19 /* MonAnModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonAnModal.swift; sourceTree = "<group>"; };
 		2A9B437A2338EEFD006A2E19 /* MonAnUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonAnUtils.swift; sourceTree = "<group>"; };
 		2A9B437B2338EEFD006A2E19 /* OderModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OderModal.swift; sourceTree = "<group>"; };
@@ -207,6 +227,7 @@
 		2A242BFE23462406008747FE /* Billpay */ = {
 			isa = PBXGroup;
 			children = (
+				2A95CC6B23AE24DB00F3A0DE /* HIstory */,
 				2A242C0A23463313008747FE /* BillModal.swift */,
 				2A242C0923463313008747FE /* BillUtil.swift */,
 				2A242C022346242D008747FE /* BillToPay.swift */,
@@ -318,6 +339,23 @@
 				2A52D3C7231028C9005DA184 /* Info.plist */,
 			);
 			path = OrderNowUITests;
+			sourceTree = "<group>";
+		};
+		2A95CC6B23AE24DB00F3A0DE /* HIstory */ = {
+			isa = PBXGroup;
+			children = (
+				2A95CC6C23AE24DB00F3A0DE /* DetailHistoryTableViewCell.xib */,
+				2A95CC6D23AE24DB00F3A0DE /* HistoryTableViewCell.swift */,
+				2A95CC6E23AE24DB00F3A0DE /* DetailHistoryTableViewCell.swift */,
+				2A95CC6F23AE24DB00F3A0DE /* HistoryCollectionViewCell.xib */,
+				2A95CC7023AE24DB00F3A0DE /* DetailHistoryFooterView.swift */,
+				2A95CC7123AE24DB00F3A0DE /* DetailHistoryFooterView.xib */,
+				2A95CC7223AE24DB00F3A0DE /* HistoryCollectionViewCell.swift */,
+				2A95CC7323AE24DB00F3A0DE /* HistoryTableViewCell.xib */,
+				2A95CC7423AE24DB00F3A0DE /* HistoryViewController.swift */,
+				2A95CC7523AE24DB00F3A0DE /* DetailHistoryTableViewController.swift */,
+			);
+			path = HIstory;
 			sourceTree = "<group>";
 		};
 		2A9B43782338EEFD006A2E19 /* Modal */ = {
@@ -681,6 +719,10 @@
 				2A9B439F2338F42D006A2E19 /* ListFoodViewCell.xib in Resources */,
 				D6304840236EE00E0080E382 /* popUpUtilsViewController.xib in Resources */,
 				84BC0BC9232927CF0095BEB7 /* HomeUserViewController.xib in Resources */,
+				2A95CC7B23AE24DB00F3A0DE /* DetailHistoryFooterView.xib in Resources */,
+				2A95CC7923AE24DB00F3A0DE /* HistoryCollectionViewCell.xib in Resources */,
+				2A95CC7623AE24DB00F3A0DE /* DetailHistoryTableViewCell.xib in Resources */,
+				2A95CC7D23AE24DB00F3A0DE /* HistoryTableViewCell.xib in Resources */,
 				84BC0BCE232928CC0095BEB7 /* QRScannerViewController.xib in Resources */,
 				843B2C5B231402D800D5377F /* LoginViewController.xib in Resources */,
 				2A9B438E2338EF5F006A2E19 /* TabBarViewCell.xib in Resources */,
@@ -782,15 +824,18 @@
 				84782232232BDA7D009D7D58 /* PagingCollectionView.swift in Sources */,
 				2A38CFD2232FB9E70023152B /* TableViewController.swift in Sources */,
 				2A242C052346242D008747FE /* CollectionViewCell.swift in Sources */,
+				2A95CC7C23AE24DB00F3A0DE /* HistoryCollectionViewCell.swift in Sources */,
 				84AC24D723325FD3000F0C14 /* BookingTableOutput.swift in Sources */,
 				2A9B43902338EF5F006A2E19 /* ListOrderTableViewCell.swift in Sources */,
 				2A38CFD1232FB9E70023152B /* floorCollectionViewCell.swift in Sources */,
 				2A242C042346242D008747FE /* TableViewCell.swift in Sources */,
+				2A95CC7723AE24DB00F3A0DE /* HistoryTableViewCell.swift in Sources */,
 				2A38CFC7232FB9C90023152B /* TableItemModel.swift in Sources */,
 				84BA8313232CB8CB00F87DDE /* BannerHomeCollectionViewCell.swift in Sources */,
 				2A242BFD234623F2008747FE /* DesignExtent.swift in Sources */,
 				2A38CFD3232FB9E70023152B /* popUpViewController.swift in Sources */,
 				84AC24D523325508000F0C14 /* DetailTableOutput.swift in Sources */,
+				2A95CC7A23AE24DB00F3A0DE /* DetailHistoryFooterView.swift in Sources */,
 				84BC0BCD232928CC0095BEB7 /* QRScannerViewController.swift in Sources */,
 				2A9B437C2338EEFD006A2E19 /* MonAnModal.swift in Sources */,
 				2F0A735B236C7283008F2F78 /* BookingBeforeModal.swift in Sources */,
@@ -803,6 +848,7 @@
 				2A9B437E2338EEFD006A2E19 /* OderModal.swift in Sources */,
 				84DF56FB232B43D300C6FD4E /* GradientView.swift in Sources */,
 				84AC1CC8231414A0007AA443 /* ViewController.swift in Sources */,
+				2A95CC7F23AE24DB00F3A0DE /* DetailHistoryTableViewController.swift in Sources */,
 				2A242C0C23463313008747FE /* BillModal.swift in Sources */,
 				2A9B438D2338EF5F006A2E19 /* TabBarViewCell.swift in Sources */,
 				84BC0BC8232927CF0095BEB7 /* HomeUserViewController.swift in Sources */,
@@ -812,6 +858,7 @@
 				84FE33BF23608A5B00F2E2CE /* EarningsModel.swift in Sources */,
 				2A242C0B23463313008747FE /* BillUtil.swift in Sources */,
 				8402355623233A5200DAE7E4 /* AuthorizationService.swift in Sources */,
+				2A95CC7E23AE24DB00F3A0DE /* HistoryViewController.swift in Sources */,
 				84FE33C123608A7100F2E2CE /* EarningsUtil.swift in Sources */,
 				84AC24D223325477000F0C14 /* BookingService.swift in Sources */,
 				2A9B438F2338EF5F006A2E19 /* ListOderCustomView.swift in Sources */,
@@ -822,6 +869,7 @@
 				84BC0BC0232925630095BEB7 /* QRScannerView.swift in Sources */,
 				D630483F236EE00E0080E382 /* popUpUtilsViewController.swift in Sources */,
 				2A38CFBE232FB8BE0023152B /* ProgressHUD.m in Sources */,
+				2A95CC7823AE24DB00F3A0DE /* DetailHistoryTableViewCell.swift in Sources */,
 				2A242C082346242D008747FE /* TableView.swift in Sources */,
 				2A242C072346242D008747FE /* BillToPay.swift in Sources */,
 				2A9B43992338F2E1006A2E19 /* HomePageController.swift in Sources */,
