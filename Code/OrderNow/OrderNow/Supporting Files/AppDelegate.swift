@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.makeKey()
 
         
-        // Initialize Facebook
+        // Initialize Facebook2309
         FBSDKCoreKit.ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         // Initialize Google
