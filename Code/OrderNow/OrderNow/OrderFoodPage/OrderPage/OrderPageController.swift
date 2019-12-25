@@ -199,7 +199,7 @@ class OrderPageController: UIViewController, UICollectionViewDataSource, UIColle
         print(listOderTBV.ListOrder)
         ref = Database.database().reference()
         for item in listOderTBV.ListOrder{
-            ref.child("ListOrder").child(banid ?? "").child(item.tenMon!).setValue(["name": item.tenMon, "hinh": item.hinh, "soLuong": item.soLuongDat])
+            ref.child("ListOrder").child(banid).child(item.tenMon!).setValue(["name": item.tenMon, "hinh": item.hinh, "soLuong": item.soLuongDat, "gia1Mon" : item.gia1Mon] )
         }
         
     }
