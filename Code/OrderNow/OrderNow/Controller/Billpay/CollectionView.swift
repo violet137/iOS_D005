@@ -24,8 +24,8 @@ protocol ThanhToanBanDelegate {
 class BillPayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, sentData, ThanhToanBanDelegate/*, dataPassBillDelegate */{
     
     func thanhToan() {
-//        self.dismiss(animated: true, completion: nil)
-        self.present(HistoryViewController(), animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
+//        self.present(HistoryViewController(), animated: true, completion: nil)
     }
     
     func dong() {

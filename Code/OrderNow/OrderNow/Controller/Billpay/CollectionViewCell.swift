@@ -72,7 +72,6 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
         return 110
     }
     
-    
 //    @objc func increaseFunc() {
 //        changeQuantity(by: 1)
 //    }
@@ -101,6 +100,7 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
     private var labelFooterTotal = UILabel()
     var labelFooterTotalPrice = UILabel()
     var btnFooterPay = UIButton()
+    var btnFooterBack = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -193,6 +193,10 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
         labelFooterTotal.layout
             .centerY(to: footerView)
             .leading(to: lineFooterView, edge: .leading)
+        ///
+        ////
+        
+        ///
         footerView.addSubview(btnFooterPay)
         btnFooterPay.setTitle(">", for: .normal)
         btnFooterPay.setTitleColor(.orange, for: .normal)
@@ -205,6 +209,19 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
             .centerY(to: footerView)
             .trailing(to: footerView, edge: .trailing, offset: -10)
         btnFooterPay.addTarget(self, action: #selector(getPay), for: .touchUpInside)
+        ///
+        footerView.addSubview(btnFooterBack)
+        btnFooterBack.setTitle("Back", for: .normal)
+        btnFooterBack.setTitleColor(.orange, for: .normal)
+        btnFooterBack.setFont(size: 17, weight: .semibold)
+        btnFooterBack.setBorder(width: 1, color: .lightGray)
+        btnFooterBack.layout.width(40).height(40)
+        btnFooterBack.setRadius(radius: 20)
+        btnFooterBack.setShawdow(color: .black, width: 0, height: 2, radius: 2, opacity: 0.5)
+        btnFooterBack.layout
+            .centerY(to: footerView)
+            .trailing(to: footerView, edge: .leading, offset: 40)
+        btnFooterBack.addTarget(self, action: #selector(btnBack), for: .touchUpInside)
         labelFooterTotalPrice.text = "765,000"
         labelFooterTotalPrice.textColor = .orange
         labelFooterTotalPrice.setFont(size: 25, weight: .semibold)
@@ -212,7 +229,6 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
         labelFooterTotalPrice.layout
             .centerY(to: footerView)
             .trailing(to: btnFooterPay, edge: .leading, offset: -20)
-        
         //******bodyView
         setBodyView()
         
@@ -227,6 +243,7 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
             .bottom(to: footerView, edge: .top)
         tableView = UITableView(frame: bodyView.bounds, style: UITableView.Style.grouped)
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
+//        tableView.register(UINib(nibName: "BillPayFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "BillPayFooterView")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
@@ -236,9 +253,13 @@ class BillViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSo
         tableView.layout.fill(bodyView)
     }
     @objc func getPay() {
-//        self.earningUtil.getPay(billPay: billPayList, total: Int(labelFooterTotalPrice.text!)!, user: "Micheal")
-//        self.tableItem.changeStatus(ban: self.tableName!)
-//        self.monAnUtil.removeOrder(banid: self.tableName!)
+        self.earningUtil.getPay(billPay: billPayList, total: Int(labelFooterTotalPrice.text!)!, user: "Micheal")
+        self.tableItem.changeStatus(ban: self.tableName!)
+        self.monAnUtil.removeOrder(banid: self.tableName!)
+        self.thanhToanDelegate?.thanhToan()
+    }
+    
+    @objc func btnBack() {
         self.thanhToanDelegate?.thanhToan()
     }
     

@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
-            self.present(LoginViewController(), animated: true, completion: nil)
-//            self.present(HistoryViewController(), animated: true, completion: nil)
+//            self.present(LoginViewController(), animated: true, completion: nil)
+            self.present(TableViewController(), animated: true, completion: nil)
         }
         // Do any additional setup after loading the view.
     }

@@ -62,13 +62,22 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pu5-HP-47G">
+                                <rect key="frame" x="10" y="24.5" width="25.5" height="22"/>
+                                <state key="normal" image="arrowshape.turn.up.left.2" catalog="system"/>
+                                <connections>
+                                    <action selector="btnBack:" destination="gTV-IL-0wX" eventType="touchUpInside" id="asT-pA-aLa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="2AY-nX-Fgc" secondAttribute="bottom" id="3rX-dN-jbv"/>
+                            <constraint firstItem="Pu5-HP-47G" firstAttribute="top" secondItem="EDX-NG-fkY" secondAttribute="top" id="8re-yz-4T1"/>
                             <constraint firstItem="EDX-NG-fkY" firstAttribute="bottom" secondItem="2C2-v6-ddq" secondAttribute="bottom" constant="-35" id="A9G-EE-PK9"/>
                             <constraint firstItem="2C2-v6-ddq" firstAttribute="leading" secondItem="NfY-qh-q0d" secondAttribute="leading" constant="20" id="Dh7-iG-7gg"/>
                             <constraint firstAttribute="trailing" secondItem="2C2-v6-ddq" secondAttribute="trailing" constant="20" id="GdG-MX-BwK"/>
                             <constraint firstItem="2AY-nX-Fgc" firstAttribute="leading" secondItem="NfY-qh-q0d" secondAttribute="leading" id="W0Z-zt-jTH"/>
+                            <constraint firstItem="Pu5-HP-47G" firstAttribute="leading" secondItem="NfY-qh-q0d" secondAttribute="leading" constant="10" id="fyQ-EG-9OI"/>
                             <constraint firstAttribute="trailing" secondItem="2AY-nX-Fgc" secondAttribute="trailing" id="hwl-Dk-UHU"/>
                             <constraint firstItem="EDX-NG-fkY" firstAttribute="centerX" secondItem="NfY-qh-q0d" secondAttribute="centerX" id="jIg-8B-JXg"/>
                             <constraint firstAttribute="bottom" secondItem="2C2-v6-ddq" secondAttribute="bottom" constant="10" id="viq-3b-Vee"/>
@@ -144,6 +153,7 @@
             <connections>
                 <outlet property="FooterView" destination="52o-pq-Ane" id="vLU-NZ-agO"/>
                 <outlet property="HisTableView" destination="ddS-EE-8kl" id="Ep9-1O-dzx"/>
+                <outlet property="btnBack" destination="Pu5-HP-47G" id="xCW-vg-uUc"/>
                 <outlet property="headerStackView" destination="2C2-v6-ddq" id="fhi-Um-G4O"/>
                 <outlet property="headerView" destination="NfY-qh-q0d" id="1Ef-11-bw3"/>
                 <outlet property="lbBillNum" destination="FYb-KP-0Ek" id="57J-Kd-htA"/>
@@ -159,4 +169,7 @@
             <point key="canvasLocation" x="248.55072463768118" y="251.11607142857142"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="arrowshape.turn.up.left.2" catalog="system" width="64" height="42"/>
+    </resources>
 </document>

@@ -24,6 +24,7 @@ class HistoryCollectionViewCell: UICollectionViewCell, delegateGetDataEarning {
     @IBOutlet weak var lbTongTien: UILabel!
     @IBOutlet weak var lbShowTongTien: UILabel!
     @IBOutlet weak var lineViewFooter: UIView!
+    @IBOutlet weak var btnBack: UIButton!
     
     //******  Util variable.  ******//
     var earningUtil = EarningUtil()
@@ -35,6 +36,9 @@ class HistoryCollectionViewCell: UICollectionViewCell, delegateGetDataEarning {
         return NSStringFromClass(self)
     }
 
+    @IBAction func btnBack(_ sender: Any) {
+        self.historyViewController?.dismiss(animated: true, completion: nil)
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
